@@ -74,7 +74,7 @@ const CourseHero = ({ course }: { course: Course }) => (
               >
                 View Schedules
               </Button>
-              <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold">
+              <Button size="lg" variant="outline" className="border-hero-foreground/30 text-hero-foreground hover:bg-hero-foreground/10 font-semibold">
                 Download Brochure
               </Button>
             </div>

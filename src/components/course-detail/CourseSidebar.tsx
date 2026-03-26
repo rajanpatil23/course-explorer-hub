@@ -60,7 +60,7 @@ const CourseSidebar = ({ course }: { course: Course }) => {
           >
             Enroll Now
           </Button>
-          <Button size="lg" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold">
+          <Button variant="outline" size="lg" className="w-full border-primary text-primary hover:bg-teal-light font-semibold">
             Download Brochure
           </Button>
           <div className="mt-5 pt-5 border-t border-border space-y-3 text-sm text-muted-foreground">
