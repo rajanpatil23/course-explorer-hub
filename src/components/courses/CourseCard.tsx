@@ -71,12 +71,16 @@ const CourseCard = ({ course }: { course: Course }) => {
 
         {/* CTAs */}
         <div className="flex gap-2">
-          <Button variant="outline" size="sm" className="flex-1 text-xs font-semibold border-primary text-primary hover:bg-teal-light">
-            View Course
-          </Button>
-          <Button size="sm" className="flex-1 text-xs font-semibold bg-primary hover:bg-teal-dark text-primary-foreground">
-            View Schedule
-          </Button>
+          <Link to={`/courses/${course.slug}`} className="flex-1">
+            <Button variant="outline" size="sm" className="w-full text-xs font-semibold border-primary text-primary hover:bg-teal-light">
+              View Course
+            </Button>
+          </Link>
+          <Link to={`/courses/${course.slug}#schedule`} className="flex-1">
+            <Button size="sm" className="w-full text-xs font-semibold bg-primary hover:bg-teal-dark text-primary-foreground">
+              View Schedule
+            </Button>
+          </Link>
         </div>
       </div>
     </div>
