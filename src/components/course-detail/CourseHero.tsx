@@ -86,7 +86,7 @@ const CourseHero = ({ course }: { course: Course }) => (
 
           <div className="lg:col-span-2 hidden lg:block">
             <img
-              src={categoryThumbnails[course.category] || ""}
+              src={courseThumbnails[course.slug] || categoryThumbnails[course.category] || ""}
               alt={course.name}
               className="w-full rounded-xl shadow-2xl object-cover aspect-[4/3]"
             />
