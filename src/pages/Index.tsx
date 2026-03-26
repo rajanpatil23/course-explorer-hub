@@ -1,11 +1,15 @@
 import Navbar from "@/components/Navbar";
-import HeroBanner from "@/components/courses/HeroBanner";
-import CategoryTabs from "@/components/courses/CategoryTabs";
-import Testimonials from "@/components/courses/Testimonials";
-import WhyChoose from "@/components/courses/WhyChoose";
-import CorporateCTA from "@/components/courses/CorporateCTA";
-import FAQSection from "@/components/courses/FAQSection";
-import BlogHighlights from "@/components/courses/BlogHighlights";
+import HeroSection from "@/components/home/HeroSection";
+import StatsStrip from "@/components/home/StatsStrip";
+import WhyEduEdge from "@/components/home/WhyEduEdge";
+import CourseCategories from "@/components/home/CourseCategories";
+import LearningJourney from "@/components/home/LearningJourney";
+import PartnersStrip from "@/components/home/PartnersStrip";
+import TrainersSection from "@/components/home/TrainersSection";
+import TestimonialsSection from "@/components/home/TestimonialsSection";
+import CorporateCTA from "@/components/home/CorporateCTA";
+import BlogHighlights from "@/components/home/BlogHighlights";
+import FAQSection from "@/components/home/FAQSection";
 import MobileCTA from "@/components/courses/MobileCTA";
 import Footer from "@/components/Footer";
 
@@ -13,11 +17,15 @@ const Index = () => {
   return (
     <div className="min-h-screen pb-14 md:pb-0">
       <Navbar />
-      <HeroBanner />
-      <CategoryTabs />
-      <Testimonials />
+      <HeroSection />
+      <StatsStrip />
+      <WhyEduEdge />
+      <CourseCategories />
+      <LearningJourney />
+      <PartnersStrip />
+      <TrainersSection />
+      <TestimonialsSection />
       <CorporateCTA />
-      <WhyChoose />
       <FAQSection />
       <BlogHighlights />
       <Footer />

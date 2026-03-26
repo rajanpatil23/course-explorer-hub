@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import { blogArticles, blogCategories } from "@/data/blogs";
+import { blogPosts } from "@/data/blogs";
 
 const BlogHighlights = () => {
-  const featured = blogArticles.slice(0, 3);
+  const featured = blogPosts.slice(0, 3);
 
   return (
     <section className="py-16 md:py-24 bg-background">
