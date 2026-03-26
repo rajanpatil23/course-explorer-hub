@@ -28,7 +28,7 @@ const CourseHero = ({ course }: { course: Course }) => (
     {/* Hero */}
     <section className="relative bg-hero text-hero-foreground overflow-hidden">
       <img
-        src={categoryThumbnails[course.category] || ""}
+        src={courseThumbnails[course.slug] || categoryThumbnails[course.category] || ""}
         alt=""
         className="absolute inset-0 w-full h-full object-cover opacity-10"
       />
