@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import type { Course, BadgeType } from "@/data/courses";
 import categoryThumbnails from "@/components/courses/categoryThumbnails";
+import courseThumbnails from "@/components/courses/courseThumbnails";
 
 const badgeColors: Record<BadgeType, string> = {
   Popular: "bg-primary text-primary-foreground",
@@ -27,7 +28,7 @@ const CourseHero = ({ course }: { course: Course }) => (
     {/* Hero */}
     <section className="relative bg-hero text-hero-foreground overflow-hidden">
       <img
-        src={categoryThumbnails[course.category] || ""}
+        src={courseThumbnails[course.slug] || categoryThumbnails[course.category] || ""}
         alt=""
         className="absolute inset-0 w-full h-full object-cover opacity-10"
       />
@@ -85,7 +86,7 @@ const CourseHero = ({ course }: { course: Course }) => (
 
           <div className="lg:col-span-2 hidden lg:block">
             <img
-              src={categoryThumbnails[course.category] || ""}
+              src={courseThumbnails[course.slug] || categoryThumbnails[course.category] || ""}
               alt={course.name}
               className="w-full rounded-xl shadow-2xl object-cover aspect-[4/3]"
             />
