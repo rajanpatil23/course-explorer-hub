@@ -7,6 +7,7 @@ import CorporateCTA from "@/components/courses/CorporateCTA";
 import FAQSection from "@/components/courses/FAQSection";
 import BlogHighlights from "@/components/courses/BlogHighlights";
 import MobileCTA from "@/components/courses/MobileCTA";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -19,6 +20,7 @@ const Index = () => {
       <WhyChoose />
       <FAQSection />
       <BlogHighlights />
+      <Footer />
       <MobileCTA />
     </div>
   );
