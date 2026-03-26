@@ -2,6 +2,7 @@ import { Star, Clock, Users, Calendar } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import type { Course, BadgeType } from "@/data/courses";
+import categoryThumbnails from "./categoryThumbnails";
 
 const badgeColors: Record<BadgeType, string> = {
   Popular: "bg-primary text-primary-foreground",
@@ -13,8 +14,15 @@ const CourseCard = ({ course }: { course: Course }) => {
   return (
     <div className="group bg-card rounded-lg border border-border shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col">
       {/* Thumbnail area */}
-      <div className="relative h-44 bg-gradient-to-br from-teal/10 via-secondary to-teal-light flex items-center justify-center">
-        <span className="text-3xl font-heading font-bold text-primary/30">{course.code}</span>
+      <div className="relative h-44 overflow-hidden">
+        <img
+          src={categoryThumbnails[course.category] || ""}
+          alt={course.category}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          loading="lazy"
+          width={768}
+          height={512}
+        />
         <Badge className={`absolute top-3 left-3 ${badgeColors[course.badge]} text-xs font-semibold px-2.5 py-0.5 border-0`}>
           {course.badge}
         </Badge>

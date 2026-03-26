@@ -1,5 +1,6 @@
 import { Star, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import heroBg from "@/assets/hero-bg.jpg";
 
 const HeroBanner = () => {
   const scrollToCourses = () => {
@@ -8,8 +9,10 @@ const HeroBanner = () => {
 
   return (
     <section className="relative bg-hero text-hero-foreground overflow-hidden">
+      {/* Background image */}
+      <img src={heroBg} alt="" className="absolute inset-0 w-full h-full object-cover opacity-25" width={1920} height={800} />
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-teal-dark/30 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-hero via-hero/95 to-hero/60" />
       <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-primary/10 blur-[120px]" />
 
       <div className="container relative z-10 py-20 md:py-28 lg:py-32">
