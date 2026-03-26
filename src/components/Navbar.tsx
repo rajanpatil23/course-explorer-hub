@@ -66,8 +66,8 @@ const Navbar = () => {
             )}
           </div>
 
-          <Link to="/corporate" className="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded-md">
-            Corporate Training
+          <Link to="/about" className="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded-md">
+            About
           </Link>
           <Link to="/blog" className="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded-md">
             Blog
