@@ -316,6 +316,7 @@ const CourseDetail = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
