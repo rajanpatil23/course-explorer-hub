@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import type { Course, BadgeType } from "@/data/courses";
 import categoryThumbnails from "@/components/courses/categoryThumbnails";
+import courseThumbnails from "@/components/courses/courseThumbnails";
 
 const badgeColors: Record<BadgeType, string> = {
   Popular: "bg-primary text-primary-foreground",
