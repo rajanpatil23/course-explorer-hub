@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { findCourseBySlug, categories } from "@/data/courses";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import {
   Star, Clock, Users, Calendar, ChevronRight, CheckCircle, BookOpen,
   Award, ShieldCheck, ArrowLeft, Phone, Mail
