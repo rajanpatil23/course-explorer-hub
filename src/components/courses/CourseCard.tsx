@@ -2,6 +2,7 @@ import { Star, Clock, Users, Calendar } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import type { Course, BadgeType } from "@/data/courses";
+import categoryThumbnails from "./categoryThumbnails";
 
 const badgeColors: Record<BadgeType, string> = {
   Popular: "bg-primary text-primary-foreground",
