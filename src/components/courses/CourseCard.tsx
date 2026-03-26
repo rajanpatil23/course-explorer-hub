@@ -18,8 +18,8 @@ const CourseCard = ({ course }: { course: Course }) => {
       {/* Thumbnail area */}
       <div className="relative h-44 overflow-hidden">
         <img
-          src={categoryThumbnails[course.category] || ""}
-          alt={course.category}
+          src={courseThumbnails[course.slug] || categoryThumbnails[course.category] || ""}
+          alt={course.name}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           loading="lazy"
           width={768}
