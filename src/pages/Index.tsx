@@ -3,7 +3,6 @@ import HeroSection from "@/components/home/HeroSection";
 import StatsStrip from "@/components/home/StatsStrip";
 import WhyEduEdge from "@/components/home/WhyEduEdge";
 import CourseCategories from "@/components/home/CourseCategories";
-import PopularCourses from "@/components/home/PopularCourses";
 import LearningJourney from "@/components/home/LearningJourney";
 import PartnersStrip from "@/components/home/PartnersStrip";
 import TrainersSection from "@/components/home/TrainersSection";
@@ -20,7 +19,6 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <StatsStrip />
-      <PopularCourses />
       <WhyEduEdge />
       <CourseCategories />
       <LearningJourney />

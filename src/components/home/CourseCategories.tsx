@@ -59,7 +59,7 @@ const CourseCategories = () => (
         {categoryCards.map((cat) => (
           <Link
             key={cat.slug}
-            to={`/courses?category=${cat.slug}`}
+            to={`/?category=${cat.slug}`}
             className="group relative bg-card rounded-xl border border-border overflow-hidden hover:shadow-xl transition-all duration-300 hover:border-primary/30"
           >
             <div className="relative h-44 overflow-hidden">

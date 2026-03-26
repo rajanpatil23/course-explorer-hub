@@ -12,32 +12,31 @@ const Navbar = () => {
   return (
     <header className="sticky top-0 z-50 bg-card/95 backdrop-blur-md border-b border-border">
       <div className="container flex items-center justify-between h-16">
+        {/* Logo */}
         <Link to="/" className="shrink-0">
           <img src={logoFull} alt="The EduEdge" className="h-12 w-auto" />
         </Link>
 
+        {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-1">
           <Link to="/" className="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded-md">
             Home
           </Link>
 
+          {/* Courses dropdown */}
           <div
             className="relative"
             onMouseEnter={() => setDropdownOpen(true)}
             onMouseLeave={() => setDropdownOpen(false)}
           >
-            <Link
-              to="/courses"
-              className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded-md"
-            >
+            <button className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded-md">
               Courses <ChevronDown className={`w-3.5 h-3.5 transition-transform ${dropdownOpen ? "rotate-180" : ""}`} />
-            </Link>
+            </button>
             {dropdownOpen && (
               <div className="absolute top-full left-0 pt-1 w-64">
                 <div className="bg-card border border-border rounded-lg shadow-lg py-2">
                   <Link
-                    to="/courses"
-                    onClick={() => setDropdownOpen(false)}
+                    to="/"
                     className="block px-4 py-2.5 text-sm font-semibold text-foreground hover:bg-teal-light hover:text-primary transition-colors"
                   >
                     All Courses
@@ -46,8 +45,7 @@ const Navbar = () => {
                   {categories.map((cat) => (
                     <Link
                       key={cat.slug}
-                      to={`/courses?category=${cat.slug}`}
-                      onClick={() => setDropdownOpen(false)}
+                      to={`/?category=${cat.slug}`}
                       className="block px-4 py-2 text-sm text-muted-foreground hover:bg-teal-light hover:text-primary transition-colors"
                     >
                       {cat.name}
@@ -70,6 +68,7 @@ const Navbar = () => {
           </Link>
         </nav>
 
+        {/* Desktop CTAs */}
         <div className="hidden md:flex items-center gap-2">
           <Button variant="ghost" size="sm" className="text-sm font-medium text-foreground gap-1.5">
             <LogIn className="w-4 h-4" /> Login
@@ -79,6 +78,7 @@ const Navbar = () => {
           </Button>
         </div>
 
+        {/* Mobile hamburger */}
         <button
           className="md:hidden p-2 text-foreground"
           onClick={() => setMobileOpen(!mobileOpen)}
@@ -88,16 +88,17 @@ const Navbar = () => {
         </button>
       </div>
 
+      {/* Mobile menu */}
       {mobileOpen && (
         <div className="md:hidden bg-card border-t border-border pb-4 px-4">
           <Link to="/" onClick={() => setMobileOpen(false)} className="block py-3 text-sm font-medium text-foreground border-b border-border">Home</Link>
           <div className="border-b border-border">
-            <Link to="/courses" onClick={() => setMobileOpen(false)} className="block py-3 text-sm font-semibold text-foreground">All Courses</Link>
+            <p className="py-3 text-sm font-semibold text-foreground">Courses</p>
             <div className="pl-4 pb-2 space-y-1">
               {categories.map(cat => (
                 <Link
                   key={cat.slug}
-                  to={`/courses?category=${cat.slug}`}
+                  to={`/?category=${cat.slug}`}
                   onClick={() => setMobileOpen(false)}
                   className="block py-1.5 text-sm text-muted-foreground"
                 >
