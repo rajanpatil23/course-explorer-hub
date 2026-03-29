@@ -34,7 +34,6 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen">
-      <Navbar />
 
       {/* Hero */}
       <section className="bg-gradient-to-br from-primary/10 via-secondary to-background py-14 md:py-20">
@@ -175,7 +174,6 @@ const Blog = () => {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 };

@@ -15,7 +15,6 @@ const BlogPost = () => {
 
   return (
     <div className="min-h-screen">
-      <Navbar />
 
       {/* Breadcrumb */}
       <div className="bg-secondary/30 border-b border-border">
@@ -139,7 +138,6 @@ const BlogPost = () => {
         </div>
       </article>
 
-      <Footer />
     </div>
   );
 };

@@ -1,7 +1,6 @@
 
 const Privacy = () => (
   <div className="min-h-screen">
-    <Navbar />
     <section className="bg-gradient-to-br from-primary/10 via-secondary to-background py-14 md:py-20">
       <div className="container text-center max-w-3xl">
         <h1 className="font-heading text-3xl md:text-4xl font-bold text-foreground">Privacy Policy</h1>
@@ -44,7 +43,6 @@ const Privacy = () => (
         <p>For privacy-related inquiries, contact us at <a href="mailto:contact@theeduedge.org">contact@theeduedge.org</a> or call +91 88514 67220.</p>
       </div>
     </section>
-    <Footer />
   </div>
 );
 

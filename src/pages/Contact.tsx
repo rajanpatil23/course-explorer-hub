@@ -22,7 +22,6 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen">
-      <Navbar />
 
       <section className="bg-gradient-to-br from-primary/10 via-secondary to-background py-16 md:py-24">
         <div className="container text-center max-w-3xl">
@@ -111,7 +110,6 @@ const Contact = () => {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 };
