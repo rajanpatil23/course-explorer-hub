@@ -126,8 +126,6 @@ const Courses = () => {
         </div>
       </section>
 
-      <Footer />
-      <MobileCTA />
     </div>
   );
 };

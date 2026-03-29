@@ -40,7 +40,6 @@ const CourseDetail = () => {
       </div>
 
       <RelatedCourses course={course} />
-      <Footer />
     </div>
   );
 };
