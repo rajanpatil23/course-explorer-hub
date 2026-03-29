@@ -108,7 +108,38 @@ const HeroSection = () => {
 
           {/* Right - Hero image card */}
           <div className="relative hidden lg:block">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border">
+            {/* Dots pattern - top right, behind image */}
+            <div className="absolute -top-6 -right-6 w-28 h-28 grid grid-cols-5 gap-2.5 z-0">
+              {Array.from({ length: 25 }).map((_, i) => (
+                <div key={`tr-${i}`} className="w-2 h-2 rounded-full bg-primary/40" />
+              ))}
+            </div>
+
+            {/* Dots pattern - bottom left, behind image */}
+            <div className="absolute -bottom-6 -left-6 w-28 h-28 grid grid-cols-5 gap-2.5 z-0">
+              {Array.from({ length: 25 }).map((_, i) => (
+                <div key={`bl-${i}`} className="w-2 h-2 rounded-full bg-accent/40" />
+              ))}
+            </div>
+
+            {/* Curved line accent - top left */}
+            <div className="absolute -top-3 -left-3 w-16 h-16 border-t-[3px] border-l-[3px] border-primary/30 rounded-tl-2xl z-0" />
+
+            {/* Curved line accent - bottom right */}
+            <div className="absolute -bottom-3 -right-3 w-16 h-16 border-b-[3px] border-r-[3px] border-accent/30 rounded-br-2xl z-0" />
+
+            {/* Small cross accents */}
+            <div className="absolute -top-10 left-1/3 z-0">
+              <div className="w-4 h-[3px] bg-primary/25 rounded-full" />
+              <div className="w-[3px] h-4 bg-primary/25 rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+            </div>
+            <div className="absolute -bottom-10 right-1/4 z-0">
+              <div className="w-4 h-[3px] bg-accent/25 rounded-full" />
+              <div className="w-[3px] h-4 bg-accent/25 rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+            </div>
+
+            {/* Image */}
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border z-10">
               <img
                 src={heroHome}
                 alt="Professional certification training at The EduEdge"
@@ -116,13 +147,6 @@ const HeroSection = () => {
                 width={1920}
                 height={1080}
               />
-            </div>
-
-            {/* Decorative dots */}
-            <div className="absolute -top-4 -right-4 w-24 h-24 grid grid-cols-4 gap-2 opacity-30">
-              {Array.from({ length: 16 }).map((_, i) => (
-                <div key={i} className="w-2 h-2 rounded-full bg-accent" />
-              ))}
             </div>
           </div>
         </div>
