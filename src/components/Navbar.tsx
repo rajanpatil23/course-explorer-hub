@@ -17,9 +17,9 @@ const Navbar = () => {
         </Link>
 
         <nav className="hidden md:flex items-center gap-1">
-          <Link to="/" className="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded-md">
+          <NavLink to="/" end className={({ isActive }) => `px-3 py-2 text-sm font-medium transition-colors rounded-md ${isActive ? "text-primary font-bold" : "text-foreground hover:text-primary"}`}>
             Home
-          </Link>
+          </NavLink>
 
           <div
             className="relative"
