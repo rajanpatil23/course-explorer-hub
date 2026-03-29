@@ -69,13 +69,18 @@ const HeroSection = () => {
             <div className="flex flex-wrap items-center gap-6">
               <div className="flex items-center gap-2">
                 <div className="flex -space-x-2">
-                  {["R", "M", "V", "A"].map((initial, i) => (
-                    <div
+                  {[
+                    "https://randomuser.me/api/portraits/women/44.jpg",
+                    "https://randomuser.me/api/portraits/men/32.jpg",
+                    "https://randomuser.me/api/portraits/women/68.jpg",
+                    "https://randomuser.me/api/portraits/men/75.jpg",
+                  ].map((src, i) => (
+                    <img
                       key={i}
-                      className="w-8 h-8 rounded-full bg-primary/70 border-2 border-background flex items-center justify-center text-xs font-bold text-primary-foreground"
-                    >
-                      {initial}
-                    </div>
+                      src={src}
+                      alt="Learner"
+                      className="w-8 h-8 rounded-full border-2 border-background object-cover"
+                    />
                   ))}
                 </div>
                 <div>
