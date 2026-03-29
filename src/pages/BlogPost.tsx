@@ -1,5 +1,6 @@
 import { useParams, Link, Navigate } from "react-router-dom";
 import { findBlogBySlug, blogPosts } from "@/data/blogs";
+import { blogImages } from "@/data/blogImages";
 import { ArrowLeft, Clock, User, Calendar, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -41,7 +42,7 @@ const BlogPost = () => {
             {post.title}
           </h1>
 
-          <div className="flex flex-wrap gap-4 text-xs text-muted-foreground mb-8 pb-8 border-b border-border">
+          <div className="flex flex-wrap gap-4 text-xs text-muted-foreground mb-6">
             <span className="flex items-center gap-1"><User className="w-3.5 h-3.5" /> {post.author}</span>
             <span className="flex items-center gap-1">
               <Calendar className="w-3.5 h-3.5" />
@@ -49,6 +50,12 @@ const BlogPost = () => {
             </span>
             <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {post.readTime} read</span>
           </div>
+
+          {slug && blogImages[slug] && (
+            <div className="rounded-xl overflow-hidden mb-8">
+              <img src={blogImages[slug]} alt={post.title} className="w-full h-auto object-cover" width={800} height={512} />
+            </div>
+          )}
 
           {/* Content */}
           <div className="prose prose-sm dark:prose-invert prose-headings:font-heading prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-a:text-primary max-w-none">
@@ -123,13 +130,18 @@ const BlogPost = () => {
                   <Link
                     key={r.slug}
                     to={`/blog/${r.slug}`}
-                    className="bg-card border border-border rounded-lg p-4 hover:shadow-md transition-shadow group"
+                    className="bg-card border border-border rounded-lg overflow-hidden hover:shadow-md transition-shadow group"
                   >
-                    <span className="text-[10px] font-semibold text-primary">{r.category}</span>
-                    <h4 className="font-heading font-bold text-foreground text-xs mt-1 line-clamp-2 group-hover:text-primary transition-colors">
-                      {r.title}
-                    </h4>
-                    <p className="text-[10px] text-muted-foreground mt-2">{r.readTime} · {r.author}</p>
+                    {blogImages[r.slug] && (
+                      <img src={blogImages[r.slug]} alt={r.title} className="w-full h-28 object-cover" loading="lazy" />
+                    )}
+                    <div className="p-4">
+                      <span className="text-[10px] font-semibold text-primary">{r.category}</span>
+                      <h4 className="font-heading font-bold text-foreground text-xs mt-1 line-clamp-2 group-hover:text-primary transition-colors">
+                        {r.title}
+                      </h4>
+                      <p className="text-[10px] text-muted-foreground mt-2">{r.readTime} · {r.author}</p>
+                    </div>
                   </Link>
                 ))}
               </div>

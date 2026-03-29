@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { blogPosts, blogCategories } from "@/data/blogs";
+import { blogImages } from "@/data/blogImages";
 import { ArrowRight, Clock, User, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -91,10 +92,14 @@ const Blog = () => {
                   to={`/blog/${post.slug}`}
                   className="group bg-card border border-border rounded-lg overflow-hidden hover:shadow-md transition-shadow"
                 >
-                  <div className="h-40 bg-gradient-to-br from-primary/10 via-secondary to-accent/10 flex items-center justify-center px-4">
-                    <span className="text-primary/30 font-heading font-bold text-sm text-center line-clamp-2">
-                      {post.category}
-                    </span>
+                  <div className="h-40 overflow-hidden">
+                    {blogImages[post.slug] ? (
+                      <img src={blogImages[post.slug]} alt={post.title} className="w-full h-full object-cover" loading="lazy" />
+                    ) : (
+                      <div className="w-full h-full bg-gradient-to-br from-primary/10 via-secondary to-accent/10 flex items-center justify-center px-4">
+                        <span className="text-primary/30 font-heading font-bold text-sm text-center line-clamp-2">{post.category}</span>
+                      </div>
+                    )}
                   </div>
                   <div className="p-5">
                     <span className="text-[10px] font-semibold text-primary bg-primary/10 px-2 py-0.5 rounded-full">
