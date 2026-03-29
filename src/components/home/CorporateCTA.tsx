@@ -28,7 +28,7 @@ const CorporateCTA = () => (
         </div>
 
         {/* Right – Content with dot grid from mid towards right */}
-        <div className="relative text-center lg:text-left self-center">
+        <div className="relative text-center lg:text-left self-center -mt-8 lg:-mt-12">
           {/* Dot grid from middle of content towards right */}
           <div
             className="absolute top-1/2 left-1/3 w-[80%] h-[70%] -translate-y-1/2 pointer-events-none opacity-[0.08]"
