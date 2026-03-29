@@ -104,6 +104,24 @@ const HeroSection = () => {
                 </div>
               </div>
             </div>
+
+            {/* Trusted By - partner logos */}
+            <div className="mt-6">
+              <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-4">Trusted By</p>
+              <div className="relative overflow-hidden max-w-md">
+                <div className="flex animate-marquee items-center gap-10 w-max">
+                  {[...partners, ...partners].map((p, i) => (
+                    <img
+                      key={`${p.name}-${i}`}
+                      src={p.logo}
+                      alt={p.name}
+                      className="h-10 sm:h-12 w-auto flex-shrink-0"
+                    />
+                  ))}
+                </div>
+              </div>
+              <p className="text-xs text-muted-foreground mt-3">and 6,000+ companies across the globe</p>
+            </div>
           </div>
 
           {/* Right - Hero image card */}
