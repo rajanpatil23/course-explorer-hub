@@ -44,19 +44,39 @@ const WhyEduEdge = () => (
         World-class training backed by official accreditations and real industry expertise.
       </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-        {features.map((f, i) => (
-          <div
-            key={i}
-            className="bg-card rounded-xl p-7 border border-border hover:shadow-lg hover:border-primary/20 transition-all duration-300 group"
-          >
-            <div className="w-14 h-14 rounded-xl bg-teal-light flex items-center justify-center text-primary mb-5 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
-              {f.icon}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-5 max-w-5xl mx-auto auto-rows-auto">
+        {features.map((f, i) => {
+          // Bento-style spans: alternate between wider and narrower cards
+          const spanClass = [
+            "lg:col-span-7", // wide
+            "lg:col-span-5", // narrow
+            "lg:col-span-4", // narrow
+            "lg:col-span-4", // narrow
+            "lg:col-span-4", // narrow
+            "lg:col-span-5 lg:col-start-1", // wide
+          ][i] || "lg:col-span-4";
+
+          const isWide = i === 0 || i === 5;
+
+          return (
+            <div
+              key={i}
+              className={`${spanClass} bg-card rounded-2xl border border-border group ${
+                isWide ? "p-8 flex flex-row items-start gap-5" : "p-7"
+              }`}
+            >
+              <div className={`flex-shrink-0 rounded-xl bg-teal-light flex items-center justify-center text-primary ${
+                isWide ? "w-16 h-16" : "w-14 h-14 mb-5"
+              }`}>
+                {f.icon}
+              </div>
+              <div>
+                <h3 className="font-heading font-bold text-foreground mb-2 text-lg">{f.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
+              </div>
             </div>
-            <h3 className="font-heading font-bold text-foreground mb-2 text-lg">{f.title}</h3>
-            <p className="text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   </section>
