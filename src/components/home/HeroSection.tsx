@@ -33,7 +33,7 @@ const HeroSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left content */}
           <div>
-            <div className="inline-flex items-center gap-2 bg-primary/15 border border-primary/25 rounded-full px-4 py-1.5 mb-6">
+            <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-1.5 mb-6">
               <CheckCircle className="w-4 h-4 text-primary" />
               <span className="text-xs font-semibold tracking-wide text-foreground">Authorized Partner — PMI · CompTIA · AWS · Microsoft · SAFe</span>
             </div>
