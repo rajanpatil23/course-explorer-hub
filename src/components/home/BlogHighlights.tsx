@@ -20,8 +20,10 @@ const BlogHighlights = () => {
               to={`/blog/${post.slug}`}
               className="group bg-card rounded-xl border border-border overflow-hidden hover:shadow-lg transition-all hover:border-primary/20"
             >
-              <div className="h-44 bg-secondary flex items-center justify-center">
-                <span className="text-xs font-bold text-primary uppercase tracking-widest">{post.category}</span>
+              <div className="p-4 pb-0">
+                <div className="h-44 bg-secondary rounded-lg flex items-center justify-center">
+                  <span className="text-xs font-bold text-primary uppercase tracking-widest">{post.category}</span>
+                </div>
               </div>
               <div className="p-5">
                 <p className="text-xs text-muted-foreground mb-2">{post.date} · {post.readTime}</p>
