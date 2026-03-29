@@ -62,7 +62,7 @@ const PopularCourses = () => {
               className="group bg-card rounded-2xl border border-border overflow-hidden flex flex-col relative"
             >
               {/* Image with padding */}
-              <div className="relative overflow-hidden rounded-xl m-3 mb-0 h-40 flex-shrink-0">
+              <div className="relative overflow-hidden rounded-xl m-4 mb-0 h-40 flex-shrink-0">
                 {/* Badge - inside image, top left */}
                 <span className={`absolute top-2 left-2 z-10 inline-flex items-center gap-1 ${badgeConfig[course.badge].bg} text-xs font-semibold px-2.5 py-1 rounded-full backdrop-blur-sm`}>
                   <span>{badgeConfig[course.badge].icon}</span> {course.badge}
@@ -78,7 +78,7 @@ const PopularCourses = () => {
               </div>
 
               {/* Content */}
-              <div className="px-4 pt-4 pb-3 flex flex-col flex-1 gap-3">
+              <div className="px-5 pt-4 pb-5 flex flex-col flex-1 gap-3">
                 {/* Category / type */}
                 <p className="text-xs text-primary font-medium">
                   {course.category.replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase())}
