@@ -36,13 +36,13 @@ const TestimonialsSection = () => {
 
         <div className="relative max-w-5xl mx-auto">
           {/* Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {visible.map((t, i) => (
               <div
                 key={`${current}-${i}`}
                 className={`relative bg-card rounded-3xl p-8 border border-border shadow-sm
                   animate-fade-slide-in
-                  ${i === 1 ? "hidden md:block" : ""}`}
+                  ${i >= 1 ? "hidden md:block" : ""}`}
               >
                 {/* Large decorative quote */}
                 <div className="absolute -top-4 -left-2 w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center">
