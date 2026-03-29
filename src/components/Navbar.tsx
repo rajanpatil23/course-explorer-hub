@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Menu, X, ChevronDown, LogIn, UserPlus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { categories } from "@/data/courses";
