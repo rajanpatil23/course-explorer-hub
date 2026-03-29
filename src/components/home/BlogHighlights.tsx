@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { blogPosts } from "@/data/blogs";
+import { blogImages } from "@/data/blogImages";
 
 const BlogHighlights = () => {
   const featured = blogPosts.slice(0, 3);
@@ -21,8 +22,14 @@ const BlogHighlights = () => {
               className="group bg-card rounded-xl border border-border overflow-hidden hover:shadow-lg transition-all hover:border-primary/20"
             >
               <div className="p-4 pb-0">
-                <div className="h-44 bg-secondary rounded-lg flex items-center justify-center">
-                  <span className="text-xs font-bold text-primary uppercase tracking-widest">{post.category}</span>
+                <div className="h-44 rounded-lg overflow-hidden">
+                  {blogImages[post.slug] ? (
+                    <img src={blogImages[post.slug]} alt={post.title} className="w-full h-full object-cover" loading="lazy" />
+                  ) : (
+                    <div className="w-full h-full bg-secondary flex items-center justify-center">
+                      <span className="text-xs font-bold text-primary uppercase tracking-widest">{post.category}</span>
+                    </div>
+                  )}
                 </div>
               </div>
               <div className="p-5">
