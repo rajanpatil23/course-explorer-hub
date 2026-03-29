@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { blogPosts, blogCategories } from "@/data/blogs";
+import { blogImages } from "@/data/blogImages";
 import { ArrowRight, Clock, User, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
