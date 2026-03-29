@@ -58,7 +58,7 @@ const HeroSection = () => {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-hero-foreground/30 text-hero-foreground hover:bg-hero-foreground/10 font-semibold px-8 text-base"
+                  className="border-primary/30 text-primary hover:bg-primary/5 font-semibold px-8 text-base"
                 >
                   Talk to an Advisor
                 </Button>
