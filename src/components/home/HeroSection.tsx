@@ -107,7 +107,7 @@ const HeroSection = () => {
 
             {/* Trusted By - partner logos */}
             <div className="mt-6">
-              <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-2">Trusted By</p>
+              <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-2">Official Certification Partner</p>
               <div className="relative overflow-hidden max-w-md">
                 <div className="flex animate-marquee items-center gap-10 w-max">
                   {[...partners, ...partners].map((p, i) => (
