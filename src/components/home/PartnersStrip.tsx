@@ -6,12 +6,12 @@ import safeLogo from "@/assets/partners/safe-logo.png";
 import isc2Logo from "@/assets/partners/isc2-logo.png";
 
 const logos = [
-  { name: "PMI", src: pmiLogo, className: "h-7 md:h-10 w-auto" },
-  { name: "CompTIA", src: comptiaLogo, className: "h-8 md:h-12 w-auto" },
-  { name: "AWS", src: awsLogo, className: "h-8 md:h-12 w-auto" },
-  { name: "Microsoft", src: microsoftLogo, className: "h-8 md:h-12 w-auto" },
-  { name: "Scaled Agile", src: safeLogo, className: "h-8 md:h-12 w-auto" },
-  { name: "ISC2", src: isc2Logo, className: "h-8 md:h-12 w-auto" },
+  { name: "PMI", src: pmiLogo, imageClassName: "max-h-6 md:max-h-8 max-w-[3.5rem] md:max-w-[4.5rem]" },
+  { name: "CompTIA", src: comptiaLogo, imageClassName: "max-h-8 md:max-h-10 max-w-[6.5rem] md:max-w-[8rem]" },
+  { name: "AWS", src: awsLogo, imageClassName: "max-h-8 md:max-h-10 max-w-[6.5rem] md:max-w-[8rem]" },
+  { name: "Microsoft", src: microsoftLogo, imageClassName: "max-h-8 md:max-h-10 max-w-[6.5rem] md:max-w-[8rem]" },
+  { name: "Scaled Agile", src: safeLogo, imageClassName: "max-h-8 md:max-h-10 max-w-[6.5rem] md:max-w-[8rem]" },
+  { name: "ISC2", src: isc2Logo, imageClassName: "max-h-8 md:max-h-10 max-w-[6.5rem] md:max-w-[8rem]" },
 ];
 
 const PartnersStrip = () => (
@@ -21,14 +21,15 @@ const PartnersStrip = () => (
         Official Certification Partners
       </p>
       <div className="flex flex-wrap items-center justify-center gap-6 md:gap-16">
-        {logos.map(l => (
-          <img
-            key={l.name}
-            src={l.src}
-            alt={l.name}
-            className={`${l.className} grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300`}
-            loading="lazy"
-          />
+        {logos.map((l) => (
+          <div key={l.name} className="flex h-10 md:h-14 w-24 md:w-32 items-center justify-center">
+            <img
+              src={l.src}
+              alt={l.name}
+              className={`${l.imageClassName} h-auto w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300`}
+              loading="lazy"
+            />
+          </div>
         ))}
       </div>
     </div>
