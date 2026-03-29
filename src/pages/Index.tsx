@@ -20,7 +20,6 @@ const Index = () => {
       <LearningJourney />
       <WhyEduEdge />
       <CourseCategories />
-      <PartnersStrip />
       <TrainersSection />
       <TestimonialsSection />
       <CorporateCTA />
