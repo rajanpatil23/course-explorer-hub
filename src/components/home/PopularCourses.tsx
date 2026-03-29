@@ -89,14 +89,20 @@ const PopularCourses = () => {
                 </h3>
 
                 {/* Stats row */}
-                <div className="flex items-center justify-between text-xs text-muted-foreground">
-                  <div className="flex items-center gap-3">
+                <div className="flex justify-between text-xs text-muted-foreground">
+                  <div className="flex flex-col gap-1.5">
                     <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5 text-primary" /> {course.duration.includes("|") ? course.duration.split("|")[1].trim() : course.duration}</span>
                     <span className="flex items-center gap-1"><Users className="w-3.5 h-3.5 text-primary" /> {course.learners}</span>
                   </div>
-                  <div className="flex items-center gap-1">
-                    <Star className="w-3.5 h-3.5 fill-amber text-amber" />
-                    <span className="font-semibold text-foreground">5.0</span>
+                  <div className="flex flex-col items-end gap-1.5">
+                    <div className="flex items-center gap-1">
+                      <Star className="w-3.5 h-3.5 fill-amber text-amber" />
+                      <span className="font-semibold text-foreground">5.0</span>
+                    </div>
+                    <div className="flex items-center gap-1.5">
+                      <span className="line-through text-muted-foreground">₹{course.originalPrice}</span>
+                      <span className="font-bold text-foreground">₹{course.price}</span>
+                    </div>
                   </div>
                 </div>
 
