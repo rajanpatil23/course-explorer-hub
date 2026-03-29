@@ -6,12 +6,12 @@ import safeLogo from "@/assets/partners/safe-logo.png";
 import isc2Logo from "@/assets/partners/isc2-logo.png";
 
 const logos = [
-  { name: "PMI", src: pmiLogo },
-  { name: "CompTIA", src: comptiaLogo },
-  { name: "AWS", src: awsLogo },
-  { name: "Microsoft", src: microsoftLogo },
-  { name: "Scaled Agile", src: safeLogo },
-  { name: "ISC2", src: isc2Logo },
+  { name: "PMI", src: pmiLogo, className: "h-7 md:h-10 w-auto" },
+  { name: "CompTIA", src: comptiaLogo, className: "h-8 md:h-12 w-auto" },
+  { name: "AWS", src: awsLogo, className: "h-8 md:h-12 w-auto" },
+  { name: "Microsoft", src: microsoftLogo, className: "h-8 md:h-12 w-auto" },
+  { name: "Scaled Agile", src: safeLogo, className: "h-8 md:h-12 w-auto" },
+  { name: "ISC2", src: isc2Logo, className: "h-8 md:h-12 w-auto" },
 ];
 
 const PartnersStrip = () => (
@@ -26,7 +26,7 @@ const PartnersStrip = () => (
             key={l.name}
             src={l.src}
             alt={l.name}
-            className="h-8 md:h-12 w-auto grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+            className={`${l.className} grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300`}
             loading="lazy"
           />
         ))}
