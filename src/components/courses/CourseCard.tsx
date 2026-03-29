@@ -28,10 +28,6 @@ const CourseCard = ({ course }: { course: Course }) => {
         <Badge className={`absolute top-3 left-3 ${badgeColors[course.badge]} text-xs font-semibold px-2.5 py-0.5 border-0`}>
           {course.badge}
         </Badge>
-        <div className="absolute top-3 right-3 flex items-center gap-1 bg-card/90 backdrop-blur-sm rounded-full px-2 py-0.5">
-          <Star className="w-3.5 h-3.5 fill-amber text-amber" />
-          <span className="text-xs font-semibold text-foreground">5.0</span>
-        </div>
       </div>
 
       <div className="p-5 flex flex-col flex-1">
