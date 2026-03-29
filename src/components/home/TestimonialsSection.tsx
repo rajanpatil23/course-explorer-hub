@@ -40,13 +40,13 @@ const TestimonialsSection = () => {
             {visible.map((t, i) => (
               <div
                 key={`${current}-${i}`}
-                className={`relative bg-card rounded-3xl p-8 border border-border shadow-sm
-                  animate-fade-slide-in
+                className={`group/card relative bg-card rounded-3xl p-8 border border-border shadow-sm
+                  animate-fade-slide-in hover:border-primary transition-colors
                   ${i >= 1 ? "hidden md:block" : ""}`}
               >
                 {/* Decorative quote icon - circle, straddling top border */}
-                <div className="absolute -top-6 left-10 w-12 h-12 rounded-full bg-primary flex items-center justify-center shadow-md">
-                  <Quote className="w-6 h-6 text-primary-foreground" />
+                <div className="absolute -top-6 left-6 w-12 h-12 rounded-full bg-card flex items-center justify-center shadow-sm">
+                  <Quote className="w-6 h-6 text-border group-hover/card:text-primary transition-colors" />
                 </div>
 
                 {/* Stars */}
