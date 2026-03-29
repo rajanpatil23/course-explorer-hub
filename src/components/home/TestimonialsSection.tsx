@@ -40,7 +40,7 @@ const TestimonialsSection = () => {
               <div
                 key={`${current}-${i}`}
                 className={`relative bg-card rounded-3xl p-8 border border-border shadow-sm
-                  animate-[fadeSlideIn_0.5s_ease-out_forwards]
+                  animate-fade-slide-in
                   ${i === 1 ? "hidden md:block" : ""}`}
               >
                 {/* Large decorative quote */}
