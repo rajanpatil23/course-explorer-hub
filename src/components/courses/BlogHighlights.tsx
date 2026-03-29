@@ -46,15 +46,5 @@ const BlogHighlights = () => (
     </div>
   </section>
 );
-        ))}
-      </div>
-      <div className="text-center mt-10">
-        <a href="/blog" className="text-primary font-semibold hover:underline inline-flex items-center gap-1">
-          Visit The EduEdge Blog <ArrowRight className="w-4 h-4" />
-        </a>
-      </div>
-    </div>
-  </section>
-);
 
 export default BlogHighlights;
