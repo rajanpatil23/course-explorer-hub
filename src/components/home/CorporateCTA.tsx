@@ -4,7 +4,7 @@ import { Building2, UserCheck, BarChart3 } from "lucide-react";
 import corporateCta from "@/assets/corporate-cta.png";
 
 const CorporateCTA = () => (
-  <section className="relative pt-16 md:pt-24 pb-0 bg-hero text-hero-foreground overflow-hidden">
+  <section className="relative pt-10 md:pt-16 pb-0 bg-hero text-hero-foreground overflow-hidden">
     <div className="absolute inset-0 bg-gradient-to-br from-hero via-hero/95 to-primary/20" />
     <div className="absolute top-10 right-10 w-[400px] h-[400px] rounded-full bg-primary/10 blur-[120px]" />
 
