@@ -148,7 +148,7 @@ const HeroSection = () => {
                 loading="lazy"
               />
             ))}
-            <span className="text-xs text-hero-foreground/40">and 6,000+ companies across the globe</span>
+            <span className="text-xs text-muted-foreground">and 6,000+ companies across the globe</span>
           </div>
         </div>
       </div>
