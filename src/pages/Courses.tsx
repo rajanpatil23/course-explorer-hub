@@ -1,10 +1,8 @@
 import { useState, useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Search } from "lucide-react";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import CourseCard from "@/components/courses/CourseCard";
-import MobileCTA from "@/components/courses/MobileCTA";
+import { categories } from "@/data/courses";
 import { categories } from "@/data/courses";
 
 const INITIAL_SHOW = 9;
