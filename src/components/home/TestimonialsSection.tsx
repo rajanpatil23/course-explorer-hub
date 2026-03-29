@@ -18,8 +18,9 @@ const TestimonialsSection = () => {
   // Show 2 cards on md+, 1 on mobile
   const getVisible = () => {
     const cards = [];
-    cards.push(testimonials[current]);
-    if (total > 1) cards.push(testimonials[(current + 1) % total]);
+    for (let j = 0; j < 3; j++) {
+      cards.push(testimonials[(current + j) % total]);
+    }
     return cards;
   };
 
