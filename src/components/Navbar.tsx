@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, ChevronDown, LogIn, UserPlus, GraduationCap } from "lucide-react";
+import { Menu, X, ChevronDown, LogIn, UserPlus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { categories } from "@/data/courses";
+import logoFull from "@/assets/logo-full.jpg";
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -11,41 +12,32 @@ const Navbar = () => {
   return (
     <header className="sticky top-0 z-50 bg-card/95 backdrop-blur-md border-b border-border">
       <div className="container flex items-center justify-between h-16">
-        {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 shrink-0">
-          <div className="w-9 h-9 rounded-lg bg-primary flex items-center justify-center">
-            <GraduationCap className="w-5 h-5 text-primary-foreground" />
-          </div>
-          <div className="leading-none">
-            <span className="font-heading font-extrabold text-lg text-foreground tracking-tight">
-              The EduEdge
-            </span>
-            <span className="block text-[10px] text-muted-foreground font-medium -mt-0.5 tracking-wider">
-              SHARPEN YOUR PROFESSIONAL EDGE
-            </span>
-          </div>
+        <Link to="/" className="shrink-0">
+          <img src={logoFull} alt="The EduEdge" className="h-12 w-auto" />
         </Link>
 
-        {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-1">
           <Link to="/" className="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded-md">
             Home
           </Link>
 
-          {/* Courses dropdown */}
           <div
             className="relative"
             onMouseEnter={() => setDropdownOpen(true)}
             onMouseLeave={() => setDropdownOpen(false)}
           >
-            <button className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded-md">
+            <Link
+              to="/courses"
+              className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded-md"
+            >
               Courses <ChevronDown className={`w-3.5 h-3.5 transition-transform ${dropdownOpen ? "rotate-180" : ""}`} />
-            </button>
+            </Link>
             {dropdownOpen && (
               <div className="absolute top-full left-0 pt-1 w-64">
                 <div className="bg-card border border-border rounded-lg shadow-lg py-2">
                   <Link
-                    to="/"
+                    to="/courses"
+                    onClick={() => setDropdownOpen(false)}
                     className="block px-4 py-2.5 text-sm font-semibold text-foreground hover:bg-teal-light hover:text-primary transition-colors"
                   >
                     All Courses
@@ -54,7 +46,8 @@ const Navbar = () => {
                   {categories.map((cat) => (
                     <Link
                       key={cat.slug}
-                      to={`/?category=${cat.slug}`}
+                      to={`/courses?category=${cat.slug}`}
+                      onClick={() => setDropdownOpen(false)}
                       className="block px-4 py-2 text-sm text-muted-foreground hover:bg-teal-light hover:text-primary transition-colors"
                     >
                       {cat.name}
@@ -77,7 +70,6 @@ const Navbar = () => {
           </Link>
         </nav>
 
-        {/* Desktop CTAs */}
         <div className="hidden md:flex items-center gap-2">
           <Button variant="ghost" size="sm" className="text-sm font-medium text-foreground gap-1.5">
             <LogIn className="w-4 h-4" /> Login
@@ -87,7 +79,6 @@ const Navbar = () => {
           </Button>
         </div>
 
-        {/* Mobile hamburger */}
         <button
           className="md:hidden p-2 text-foreground"
           onClick={() => setMobileOpen(!mobileOpen)}
@@ -97,17 +88,16 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile menu */}
       {mobileOpen && (
         <div className="md:hidden bg-card border-t border-border pb-4 px-4">
           <Link to="/" onClick={() => setMobileOpen(false)} className="block py-3 text-sm font-medium text-foreground border-b border-border">Home</Link>
           <div className="border-b border-border">
-            <p className="py-3 text-sm font-semibold text-foreground">Courses</p>
+            <Link to="/courses" onClick={() => setMobileOpen(false)} className="block py-3 text-sm font-semibold text-foreground">All Courses</Link>
             <div className="pl-4 pb-2 space-y-1">
               {categories.map(cat => (
                 <Link
                   key={cat.slug}
-                  to={`/?category=${cat.slug}`}
+                  to={`/courses?category=${cat.slug}`}
                   onClick={() => setMobileOpen(false)}
                   className="block py-1.5 text-sm text-muted-foreground"
                 >
@@ -116,7 +106,7 @@ const Navbar = () => {
               ))}
             </div>
           </div>
-          <Link to="/corporate" onClick={() => setMobileOpen(false)} className="block py-3 text-sm font-medium text-foreground border-b border-border">Corporate Training</Link>
+          <Link to="/about" onClick={() => setMobileOpen(false)} className="block py-3 text-sm font-medium text-foreground border-b border-border">About</Link>
           <Link to="/blog" onClick={() => setMobileOpen(false)} className="block py-3 text-sm font-medium text-foreground border-b border-border">Blog</Link>
           <Link to="/contact" onClick={() => setMobileOpen(false)} className="block py-3 text-sm font-medium text-foreground border-b border-border">Contact</Link>
           <div className="flex gap-2 mt-4">
