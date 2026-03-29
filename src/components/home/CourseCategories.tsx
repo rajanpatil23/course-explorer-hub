@@ -1,97 +1,147 @@
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
-import catPmi from "@/assets/categories/cat-pmi.jpg";
-import catComptia from "@/assets/categories/cat-comptia.jpg";
-import catAzure from "@/assets/categories/cat-azure.jpg";
-import catAws from "@/assets/categories/cat-aws.jpg";
-import catSafe from "@/assets/categories/cat-safe.jpg";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import useEmblaCarousel from "embla-carousel-react";
+import { useCallback, useEffect, useState } from "react";
+
+import logoPmi from "@/assets/categories/logo-pmi.png";
+import logoComptia from "@/assets/categories/logo-comptia.png";
+import logoAzure from "@/assets/categories/logo-azure.png";
+import logoAws from "@/assets/categories/logo-aws.png";
+import logoSafe from "@/assets/categories/logo-safe.png";
 
 const categoryCards = [
   {
     title: "PMI Certifications",
-    count: "6+ Courses",
-    courses: "PMP, CAPM, PMI-ACP, PMI-RMP, PMI-PBA, PgMP",
-    image: catPmi,
+    desc: "PMP, CAPM, PMI-ACP, PMI-RMP and more project management credentials.",
+    logo: logoPmi,
     slug: "project-management",
   },
   {
     title: "CompTIA Certifications",
-    count: "8+ Courses",
-    courses: "Security+, Network+, A+, CySA+, PenTest+, Cloud+",
-    image: catComptia,
+    desc: "Security+, Network+, A+, CySA+ and IT infrastructure certifications.",
+    logo: logoComptia,
     slug: "cybersecurity",
   },
   {
     title: "Microsoft Azure",
-    count: "8+ Courses",
-    courses: "AZ-900, AZ-104, AZ-305, AZ-500, AI-900, DP-900",
-    image: catAzure,
+    desc: "AZ-900, AZ-104, AZ-305, AZ-500 and cloud platform certifications.",
+    logo: logoAzure,
     slug: "azure",
   },
   {
     title: "AWS Certifications",
-    count: "6+ Courses",
-    courses: "Cloud Practitioner, Solutions Architect, DevOps",
-    image: catAws,
+    desc: "Cloud Practitioner, Solutions Architect, DevOps and more AWS paths.",
+    logo: logoAws,
     slug: "aws",
   },
   {
     title: "SAFe® Agile",
-    count: "6+ Courses",
-    courses: "Leading SAFe, SSM, POPM, SPC, RTE, LPM",
-    image: catSafe,
+    desc: "Leading SAFe, SSM, POPM, SPC and scaled agile certifications.",
+    logo: logoSafe,
     slug: "safe-agile",
   },
 ];
 
-const CourseCategories = () => (
-  <section id="courses-section" className="py-16 md:py-24 bg-background">
-    <div className="container">
-      <p className="text-center text-xs font-bold text-primary uppercase tracking-[0.2em] mb-2">Explore Courses</p>
-      <h2 className="font-heading text-3xl md:text-4xl font-bold text-center text-foreground mb-4">
-        Popular Course Categories
-      </h2>
-      <p className="text-center text-muted-foreground mb-14 max-w-2xl mx-auto">
-        Browse certifications across the most in-demand domains in technology and management.
-      </p>
+const CourseCategories = () => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    align: "start",
+    slidesToScroll: 1,
+    breakpoints: {
+      "(min-width: 640px)": { slidesToScroll: 2 },
+      "(min-width: 1024px)": { slidesToScroll: 1 },
+    },
+  });
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {categoryCards.map((cat) => (
-          <Link
-            key={cat.slug}
-            to={`/courses?category=${cat.slug}`}
-            className="group relative bg-card rounded-xl border border-border overflow-hidden hover:shadow-xl transition-all duration-300 hover:border-primary/30"
-          >
-            <div className="relative h-44 overflow-hidden">
-              <img
-                src={cat.image}
-                alt={cat.title}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                loading="lazy"
-                width={960}
-                height={640}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-hero/80 to-transparent" />
-              <div className="absolute bottom-4 left-5">
-                <span className="bg-primary/90 text-primary-foreground text-xs font-bold px-3 py-1 rounded-full">
-                  {cat.count}
-                </span>
+  const [canPrev, setCanPrev] = useState(false);
+  const [canNext, setCanNext] = useState(false);
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setCanPrev(emblaApi.canScrollPrev());
+    setCanNext(emblaApi.canScrollNext());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    emblaApi.on("select", onSelect);
+    onSelect();
+  }, [emblaApi, onSelect]);
+
+  return (
+    <section id="courses-section" className="py-16 md:py-24 bg-background">
+      <div className="container">
+        <div className="flex items-end justify-between mb-14">
+          <div>
+            <p className="text-xs font-bold text-primary uppercase tracking-[0.2em] mb-2">
+              Explore Courses
+            </p>
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground">
+              Popular Course Categories
+            </h2>
+            <p className="text-muted-foreground mt-2 max-w-xl">
+              Browse certifications across the most in-demand domains in technology and management.
+            </p>
+          </div>
+          <div className="hidden md:flex items-center gap-2">
+            <button
+              onClick={() => emblaApi?.scrollPrev()}
+              disabled={!canPrev}
+              className="w-10 h-10 rounded-full border border-border bg-card flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors disabled:opacity-40"
+              aria-label="Previous"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            <button
+              onClick={() => emblaApi?.scrollNext()}
+              disabled={!canNext}
+              className="w-10 h-10 rounded-full border border-border bg-card flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors disabled:opacity-40"
+              aria-label="Next"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </div>
+        </div>
+
+        <div className="overflow-hidden" ref={emblaRef}>
+          <div className="flex -ml-5">
+            {categoryCards.map((cat) => (
+              <div
+                key={cat.slug}
+                className="flex-[0_0_85%] sm:flex-[0_0_45%] lg:flex-[0_0_25%] min-w-0 pl-5"
+              >
+                <Link
+                  to={`/courses?category=${cat.slug}`}
+                  className="group block h-full"
+                >
+                  <div className="relative bg-card rounded-2xl border border-border p-6 h-full flex flex-col items-center text-center hover:shadow-lg hover:border-primary/30 transition-all duration-300">
+                    {/* Inner rounded container for logo */}
+                    <div className="w-24 h-24 rounded-2xl bg-secondary flex items-center justify-center mb-5 group-hover:scale-105 transition-transform duration-300">
+                      <img
+                        src={cat.logo}
+                        alt={cat.title}
+                        className="w-16 h-16 object-contain"
+                        loading="lazy"
+                        width={512}
+                        height={512}
+                      />
+                    </div>
+
+                    <h3 className="font-heading font-bold text-foreground text-base mb-2 group-hover:text-primary transition-colors">
+                      {cat.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {cat.desc}
+                    </p>
+                  </div>
+                </Link>
               </div>
-            </div>
-            <div className="p-5">
-              <h3 className="font-heading font-bold text-foreground text-lg mb-2 group-hover:text-primary transition-colors">
-                {cat.title}
-              </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-4">{cat.courses}</p>
-              <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
-                Explore <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </span>
-            </div>
-          </Link>
-        ))}
+            ))}
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default CourseCategories;
