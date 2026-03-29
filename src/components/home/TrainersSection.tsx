@@ -2,6 +2,7 @@ import trainerRajiv from "@/assets/trainers/trainer-rajiv.png";
 import trainerMeera from "@/assets/trainers/trainer-meera.png";
 import trainerVikram from "@/assets/trainers/trainer-vikram.png";
 import trainerAnanya from "@/assets/trainers/trainer-ananya.png";
+import trainerArjun from "@/assets/trainers/trainer-arjun.png";
 
 const trainers = [
   {
@@ -28,6 +29,12 @@ const trainers = [
     workedWith: ["Accenture", "Capgemini"],
     image: trainerAnanya,
   },
+  {
+    name: "Arjun Desai",
+    title: "DevOps & Cloud Specialist",
+    workedWith: ["Microsoft", "Amazon"],
+    image: trainerArjun,
+  },
 ];
 
 const TrainersSection = () => (
@@ -42,13 +49,13 @@ const TrainersSection = () => (
       </p>
 
       {/* Staggered grid — odd cards pushed down */}
-      <div className="flex flex-col sm:flex-row items-center sm:items-start justify-center gap-6 max-w-5xl mx-auto">
+      <div className="flex flex-col sm:flex-row items-center sm:items-start justify-center gap-5 max-w-6xl mx-auto flex-wrap lg:flex-nowrap">
         {trainers.map((t, i) => {
           const isOdd = i % 2 !== 0;
           return (
             <div
               key={t.name}
-              className={`w-full sm:w-[48%] lg:w-[23%] ${isOdd ? "sm:mt-16" : ""}`}
+              className={`w-full sm:w-[48%] lg:w-[18.5%] ${isOdd ? "sm:mt-16" : ""}`}
             >
               <div className="group relative bg-card rounded-t-[2.5rem] rounded-b-[50%_20%] border border-border overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col">
                 {/* Top text area in white card */}
