@@ -13,7 +13,7 @@ const Navbar = () => {
     <header className="sticky top-0 z-50 bg-card/95 backdrop-blur-md border-b border-border">
       <div className="container flex items-center justify-between h-16">
         <Link to="/" className="shrink-0">
-          <img src={logoFull} alt="The EduEdge" className="h-12 w-auto" />
+          <img src={logoFull} alt="The EduEdge" className="h-14 md:h-16 w-auto" />
         </Link>
 
         <nav className="hidden md:flex items-center gap-1">
