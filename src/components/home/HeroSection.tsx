@@ -110,18 +110,18 @@ const HeroSection = () => {
               </div>
 
               {/* Stats overlay */}
-              <div className="absolute bottom-0 left-0 right-0 px-6 py-4 flex justify-between">
+              <div className="absolute bottom-0 left-0 right-0 px-6 py-4 flex justify-between text-primary-foreground">
                 <div>
                   <p className="text-2xl font-bold">10,000+</p>
-                  <p className="text-xs text-hero-foreground/70">Professionals Trained</p>
+                  <p className="text-xs opacity-80">Professionals Trained</p>
                 </div>
                 <div>
                   <p className="text-2xl font-bold">50+</p>
-                  <p className="text-xs text-hero-foreground/70">Certifications</p>
+                  <p className="text-xs opacity-80">Certifications</p>
                 </div>
                 <div>
                   <p className="text-2xl font-bold">98%</p>
-                  <p className="text-xs text-hero-foreground/70">Pass Rate</p>
+                  <p className="text-xs opacity-80">Pass Rate</p>
                 </div>
               </div>
             </div>
