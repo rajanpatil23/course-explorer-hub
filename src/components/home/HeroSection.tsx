@@ -42,7 +42,7 @@ const HeroSection = () => {
               Enhance Skills With Our Specialists —{" "}
               <span className="text-gradient-primary">Anytime, Anywhere</span>
             </h1>
-            <p className="text-base md:text-lg text-hero-foreground/70 mb-8 max-w-lg leading-relaxed">
+            <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-lg leading-relaxed">
               Prepare to take the next step in your career with industry-recognized certification training. Begin your immersive learning journey with us.
             </p>
 
