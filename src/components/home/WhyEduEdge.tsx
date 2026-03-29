@@ -1,35 +1,41 @@
-import { Award, Users, Monitor, Target, Rocket, BookOpen } from "lucide-react";
+import { Award, Users, Monitor, Target, Rocket, BookOpen, CheckCircle } from "lucide-react";
 
 const features = [
   {
     icon: <Award className="w-7 h-7" />,
     title: "Accredited Training Partners",
     desc: "Official partner of PMI, CompTIA, Microsoft, AWS and Scaled Agile.",
+    bullets: [],
   },
   {
     icon: <Users className="w-7 h-7" />,
     title: "Expert-Led Live Sessions",
     desc: "Certified practitioners with 15+ years of hands-on industry experience.",
+    bullets: [],
   },
   {
     icon: <Monitor className="w-7 h-7" />,
     title: "Flexible Learning Formats",
     desc: "Live online, self-paced, or blended programs for working professionals.",
+    bullets: ["Live Online Classes", "Self-Paced Videos", "Blended Learning", "Weekend Batches"],
   },
   {
     icon: <Target className="w-7 h-7" />,
     title: "Exam-Ready Preparation",
     desc: "Practice tests, simulators, study guides, and support until you pass.",
+    bullets: [],
   },
   {
     icon: <Rocket className="w-7 h-7" />,
     title: "Career Acceleration",
     desc: "Job-aligned certifications that boost your resume, salary, and credibility.",
+    bullets: [],
   },
   {
     icon: <BookOpen className="w-7 h-7" />,
     title: "Lifetime Resource Access",
     desc: "Lifetime access to materials, recordings, templates, and alumni community.",
+    bullets: ["Recorded Sessions", "Study Templates", "Alumni Network"],
   },
 ];
 
@@ -37,11 +43,9 @@ const features = [
 const cardDecorations: Record<number, JSX.Element> = {
   0: (
     <>
-      {/* Top-right corner shape */}
       <div className="absolute top-0 right-0 w-20 h-20 overflow-hidden">
         <div className="absolute top-0 right-0 w-32 h-32 rounded-full border-[3px] border-primary/12" />
       </div>
-      {/* Bottom-left dot cluster */}
       <div className="absolute bottom-3 left-3 grid grid-cols-3 gap-1">
         {Array.from({ length: 9 }).map((_, j) => (
           <div key={j} className="w-1.5 h-1.5 rounded-full bg-primary/10" />
@@ -51,33 +55,21 @@ const cardDecorations: Record<number, JSX.Element> = {
   ),
   1: (
     <>
-      {/* Top-left arc */}
       <div className="absolute top-0 left-0 w-16 h-16 overflow-hidden">
         <div className="absolute -top-8 -left-8 w-24 h-24 rounded-full border-[3px] border-accent/12" />
       </div>
-      {/* Bottom-right corner accent */}
       <div className="absolute bottom-0 right-0 w-14 h-14 bg-accent/[0.04] rounded-tl-[2rem]" />
     </>
   ),
   2: (
     <>
-      {/* Left edge stripe */}
       <div className="absolute top-6 left-0 w-1 h-[40%] bg-gradient-to-b from-primary/20 to-transparent rounded-r-full" />
-      {/* Bottom-right dots */}
-      <div className="absolute bottom-4 right-4 grid grid-cols-4 gap-1.5">
-        {Array.from({ length: 12 }).map((_, j) => (
-          <div key={j} className="w-1.5 h-1.5 rounded-full bg-primary/10" />
-        ))}
-      </div>
-      {/* Top-right corner fill */}
       <div className="absolute top-0 right-0 w-16 h-16 bg-primary/[0.03] rounded-bl-[2.5rem]" />
     </>
   ),
   3: (
     <>
-      {/* Top-right corner fill */}
       <div className="absolute top-0 right-0 w-20 h-14 bg-amber/[0.05] rounded-bl-[2rem]" />
-      {/* Bottom-left arc */}
       <div className="absolute bottom-0 left-0 w-12 h-12 overflow-hidden">
         <div className="absolute bottom-0 left-0 w-20 h-20 rounded-full border-[3px] border-amber/10" />
       </div>
@@ -85,26 +77,16 @@ const cardDecorations: Record<number, JSX.Element> = {
   ),
   4: (
     <>
-      {/* Bottom-right corner shape */}
       <div className="absolute bottom-0 right-0 w-16 h-16 overflow-hidden">
         <div className="absolute bottom-0 right-0 w-28 h-28 rounded-full border-[3px] border-accent/12" />
       </div>
-      {/* Top-left fill */}
       <div className="absolute top-0 left-0 w-12 h-12 bg-accent/[0.04] rounded-br-[2rem]" />
     </>
   ),
   5: (
     <>
-      {/* Top edge gradient line */}
       <div className="absolute top-0 left-6 right-6 h-[2px] bg-gradient-to-r from-transparent via-primary/15 to-transparent" />
-      {/* Bottom-right corner fill */}
       <div className="absolute bottom-0 right-0 w-24 h-16 bg-primary/[0.03] rounded-tl-[3rem]" />
-      {/* Left-side dots */}
-      <div className="absolute bottom-4 left-4 grid grid-cols-3 gap-1.5">
-        {Array.from({ length: 6 }).map((_, j) => (
-          <div key={j} className="w-1.5 h-1.5 rounded-full bg-primary/10" />
-        ))}
-      </div>
     </>
   ),
 };
@@ -120,7 +102,7 @@ const WhyEduEdge = () => (
         World-class training backed by official accreditations and real industry expertise.
       </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-5 max-w-5xl mx-auto grid-rows-[auto_auto_auto]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-5 max-w-5xl mx-auto">
         {features.map((f, i) => {
           const spanClass = [
             "lg:col-span-7",
@@ -138,19 +120,37 @@ const WhyEduEdge = () => (
             <div
               key={i}
               className={`${spanClass} relative bg-card rounded-2xl border border-border overflow-hidden ${
-                isWide ? "p-8 flex flex-row items-start gap-5" : isTall ? "p-7 flex flex-col justify-between h-full" : "p-7"
+                isWide
+                  ? "p-8 flex flex-row items-start gap-5"
+                  : isTall
+                  ? "p-7 flex flex-col h-full"
+                  : "p-7"
               }`}
             >
               {cardDecorations[i]}
 
-              <div className={`relative z-10 flex-shrink-0 rounded-xl bg-teal-light flex items-center justify-center text-primary ${
-                isWide ? "w-16 h-16" : "w-14 h-14 mb-5"
-              }`}>
+              <div
+                className={`relative z-10 flex-shrink-0 rounded-xl bg-teal-light flex items-center justify-center text-primary ${
+                  isWide ? "w-16 h-16" : "w-14 h-14 mb-4"
+                }`}
+              >
                 {f.icon}
               </div>
-              <div className="relative z-10">
+              <div className="relative z-10 flex-1 flex flex-col">
                 <h3 className="font-heading font-bold text-foreground mb-2 text-lg">{f.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
+
+                {/* Bullet list for tall/wide cards to fill space */}
+                {f.bullets.length > 0 && (
+                  <ul className={`mt-4 space-y-2 ${isWide ? "flex flex-wrap gap-x-6 gap-y-2 space-y-0" : ""}`}>
+                    {f.bullets.map((b, j) => (
+                      <li key={j} className="flex items-center gap-2 text-sm text-muted-foreground">
+                        <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
             </div>
           );
