@@ -45,8 +45,8 @@ const TestimonialsSection = () => {
                   ${i >= 1 ? "hidden md:block" : ""}`}
               >
                 {/* Decorative quote icon - circle, straddling top border */}
-                <div className="absolute -top-5 left-10 w-10 h-10 rounded-full bg-primary flex items-center justify-center shadow-md">
-                  <Quote className="w-5 h-5 text-primary-foreground" />
+                <div className="absolute -top-6 left-10 w-12 h-12 rounded-full bg-primary flex items-center justify-center shadow-md">
+                  <Quote className="w-6 h-6 text-primary-foreground" />
                 </div>
 
                 {/* Stars */}
