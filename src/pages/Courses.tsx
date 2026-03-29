@@ -54,7 +54,6 @@ const Courses = () => {
 
   return (
     <div className="min-h-screen pb-14 md:pb-0">
-      <Navbar />
 
       {/* Hero */}
       <section className="bg-hero text-hero-foreground py-14 md:py-20">
