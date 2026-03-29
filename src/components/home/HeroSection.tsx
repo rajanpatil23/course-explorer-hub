@@ -24,9 +24,9 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative bg-hero text-hero-foreground overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-hero via-hero/95 to-hero/80" />
-      <div className="absolute top-20 right-20 w-[600px] h-[600px] rounded-full bg-primary/8 blur-[180px]" />
+    <section className="relative bg-background text-foreground overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-secondary/50" />
+      <div className="absolute top-20 right-20 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[180px]" />
       <div className="absolute bottom-0 left-10 w-[400px] h-[400px] rounded-full bg-accent/5 blur-[120px]" />
 
       <div className="container relative z-10 py-16 md:py-20 lg:py-24">
