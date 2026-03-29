@@ -34,7 +34,7 @@ const TestimonialsSection = () => {
           What Our Certified Professionals Say
         </h2>
 
-        <div className="relative max-w-5xl mx-auto">
+        <div className="relative">
           {/* Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {visible.map((t, i) => (
