@@ -95,9 +95,11 @@ const PopularCourses = () => {
                     <span className="flex items-center gap-1"><Users className="w-3.5 h-3.5 text-primary" /> {course.learners}</span>
                   </div>
                   <div className="flex flex-col items-end gap-1.5">
-                    <div className="flex items-center gap-1">
-                      <Star className="w-3.5 h-3.5 fill-amber text-amber" />
-                      <span className="font-semibold text-foreground">5.0</span>
+                    <div className="flex items-center gap-0.5">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-3 h-3 fill-amber text-amber" />
+                      ))}
+                      <span className="font-semibold text-foreground ml-1">5.0</span>
                     </div>
                     <div className="flex items-center gap-1.5">
                       <span className="line-through text-muted-foreground">₹{course.originalPrice}</span>
