@@ -1,7 +1,8 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
-import { Star, Clock, Users, ArrowRight } from "lucide-react";
+import { Star, Clock, Users, ArrowRight, ChevronRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { categories, type BadgeType } from "@/data/courses";
 import courseThumbnails from "@/components/courses/courseThumbnails";
 import categoryThumbnails from "@/components/courses/categoryThumbnails";
@@ -56,12 +57,19 @@ const PopularCourses = () => {
         {/* Course cards - compact */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {courses.map(course => (
-            <Link
+            <div
               key={course.code}
-              to={`/courses/${course.slug}`}
-              className="group bg-card rounded-2xl border border-border overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300 aspect-square flex flex-col"
+              className="group bg-card rounded-2xl border border-border overflow-visible hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col relative"
             >
-              <div className="relative overflow-hidden rounded-xl m-3 h-48 flex-shrink-0">
+              {/* Badge - top right, slightly outside */}
+              <div className="absolute -top-2 right-4 z-20">
+                <Badge className={`${badgeColors[course.badge]} text-xs font-semibold px-3 py-1 border-0 shadow-md`}>
+                  {course.badge}
+                </Badge>
+              </div>
+
+              {/* Image with padding */}
+              <div className="relative overflow-hidden rounded-xl m-3 mb-0 h-48 flex-shrink-0">
                 <img
                   src={courseThumbnails[course.slug] || categoryThumbnails[course.category] || ""}
                   alt={course.name}
@@ -70,31 +78,46 @@ const PopularCourses = () => {
                   width={768}
                   height={512}
                 />
-                <Badge className={`absolute top-2 left-2 ${badgeColors[course.badge]} text-xs font-semibold px-2.5 py-0.5 border-0`}>
-                  {course.badge}
-                </Badge>
-                <div className="absolute top-2 right-2 flex items-center gap-1 bg-card/90 backdrop-blur-sm rounded-full px-2 py-0.5">
-                  <Star className="w-3.5 h-3.5 fill-amber text-amber" />
-                  <span className="text-xs font-semibold text-foreground">5.0</span>
-                </div>
               </div>
-              <div className="px-4 pb-4 pt-1 flex flex-col flex-1">
-                <h3 className="font-heading font-bold text-sm text-foreground leading-snug mb-2 line-clamp-2 group-hover:text-primary transition-colors">
+
+              {/* Content */}
+              <div className="px-4 pt-4 pb-3 flex flex-col flex-1">
+                {/* Category / type */}
+                <p className="text-xs text-primary font-medium mb-1.5">
+                  {course.category.replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase())}
+                </p>
+
+                <h3 className="font-heading font-bold text-base text-foreground leading-snug mb-3 line-clamp-2 group-hover:text-primary transition-colors">
                   {course.name}
                 </h3>
-                <div className="flex flex-wrap gap-1.5 mb-3">
-                  {course.skills.slice(0, 2).map(s => (
-                    <span key={s} className="text-[10px] bg-teal-light text-teal-dark px-2 py-0.5 rounded-full font-medium">
-                      {s}
-                    </span>
-                  ))}
+
+                {/* Stats row */}
+                <div className="flex items-center justify-between text-xs text-muted-foreground mb-4">
+                  <div className="flex items-center gap-3">
+                    <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {course.duration}</span>
+                    <span className="flex items-center gap-1"><Users className="w-3.5 h-3.5" /> {course.learners}</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <Star className="w-3.5 h-3.5 fill-amber text-amber" />
+                    <span className="font-semibold text-foreground">5.0</span>
+                  </div>
                 </div>
-                <div className="flex items-center gap-3 text-xs text-muted-foreground mt-auto">
-                  <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {course.duration}</span>
-                  <span className="flex items-center gap-1"><Users className="w-3 h-3" /> {course.learners}</span>
+
+                {/* Buttons */}
+                <div className="flex gap-2 mt-auto pt-3 border-t border-border">
+                  <Link to={`/courses/${course.slug}`} className="flex-1">
+                    <Button variant="outline" size="sm" className="w-full text-xs font-semibold rounded-lg">
+                      View Course
+                    </Button>
+                  </Link>
+                  <Link to={`/courses/${course.slug}`} className="flex-1">
+                    <Button size="sm" className="w-full text-xs font-semibold rounded-lg bg-primary hover:bg-teal-dark text-primary-foreground gap-1">
+                      Enroll Now <ChevronRight className="w-3 h-3" />
+                    </Button>
+                  </Link>
                 </div>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
 
