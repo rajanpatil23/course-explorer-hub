@@ -59,7 +59,7 @@ const PopularCourses = () => {
           {courses.map(course => (
             <div
               key={course.code}
-              className="group bg-card rounded-2xl border border-border overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col relative"
+              className="group bg-card rounded-2xl border border-border overflow-hidden flex flex-col relative"
             >
               {/* Image with padding */}
               <div className="relative overflow-hidden rounded-xl m-3 mb-0 h-40 flex-shrink-0">
