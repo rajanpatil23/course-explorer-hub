@@ -34,8 +34,8 @@ const HeroSection = () => {
           {/* Left content */}
           <div>
             <div className="inline-flex items-center gap-2 bg-primary/15 border border-primary/25 rounded-full px-4 py-1.5 mb-6">
-              <CheckCircle className="w-4 h-4 text-accent" />
-              <span className="text-xs font-semibold tracking-wide">Authorized Partner — PMI · CompTIA · AWS · Microsoft · SAFe</span>
+              <CheckCircle className="w-4 h-4 text-primary" />
+              <span className="text-xs font-semibold tracking-wide text-foreground">Authorized Partner — PMI · CompTIA · AWS · Microsoft · SAFe</span>
             </div>
 
             <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl xl:text-[3.25rem] font-extrabold leading-[1.12] mb-5">
