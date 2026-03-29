@@ -88,35 +88,38 @@ const PopularCourses = () => {
                   {course.name}
                 </h3>
 
-                {/* Stats row */}
-                <div className="flex justify-between text-xs text-muted-foreground">
-                  <div className="flex flex-col gap-1.5">
-                    <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5 text-primary" /> {course.duration.includes("|") ? course.duration.split("|")[1].trim() : course.duration}</span>
-                    <span className="flex items-center gap-1"><Users className="w-3.5 h-3.5 text-primary" /> {course.learners}</span>
+                {/* Rating below title on left + price on right */}
+                <div className="flex items-start justify-between">
+                  <div className="flex items-center gap-0.5">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-3.5 h-3.5 fill-amber text-amber" />
+                    ))}
+                    <span className="font-semibold text-foreground text-xs ml-1">5.0</span>
                   </div>
-                  <div className="flex flex-col items-end gap-1.5">
-                    <div className="flex items-center gap-0.5">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-3 h-3 fill-amber text-amber" />
-                      ))}
-                      <span className="font-semibold text-foreground ml-1">5.0</span>
-                    </div>
+                  <div className="text-right">
+                    <p className="text-[10px] text-muted-foreground leading-tight">Starts From</p>
                     <div className="flex items-center gap-1.5">
-                      <span className="line-through text-muted-foreground">₹{course.originalPrice}</span>
-                      <span className="font-bold text-foreground">₹{course.price}</span>
+                      <span className="line-through text-muted-foreground text-xs">₹{course.originalPrice}</span>
+                      <span className="font-heading font-bold text-xl text-foreground">₹{course.price}</span>
                     </div>
                   </div>
                 </div>
 
-                {/* Buttons */}
+                {/* Stats row */}
+                <div className="flex items-center gap-3 text-xs text-muted-foreground">
+                  <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5 text-primary" /> {course.duration.includes("|") ? course.duration.split("|")[1].trim() : course.duration}</span>
+                  <span className="flex items-center gap-1"><Users className="w-3.5 h-3.5 text-primary" /> {course.learners}</span>
+                </div>
+
+                {/* Buttons — taller */}
                 <div className="flex gap-2 mt-auto pt-3 border-t border-border">
                   <Link to={`/courses/${course.slug}`} className="flex-1">
-                    <Button variant="outline" size="sm" className="w-full text-xs font-semibold rounded-lg">
+                    <Button variant="outline" className="w-full text-xs font-semibold rounded-lg h-11 border-primary text-primary hover:bg-teal-light">
                       View Course
                     </Button>
                   </Link>
                   <Link to={`/courses/${course.slug}`} className="flex-1">
-                    <Button size="sm" className="w-full text-xs font-semibold rounded-lg bg-primary hover:bg-teal-dark text-primary-foreground gap-1">
+                    <Button className="w-full text-xs font-semibold rounded-lg bg-primary hover:bg-teal-dark text-primary-foreground gap-1 h-11">
                       Enroll Now <ChevronRight className="w-3 h-3" />
                     </Button>
                   </Link>
