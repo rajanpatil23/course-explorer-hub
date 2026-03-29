@@ -1,5 +1,3 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 
 const Privacy = () => (
   <div className="min-h-screen">

@@ -1,7 +1,6 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import { blogPosts, blogCategories } from "@/data/blogs";
 import { blogPosts, blogCategories } from "@/data/blogs";
 import { ArrowRight, Clock, User, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";

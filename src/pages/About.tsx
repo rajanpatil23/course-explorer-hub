@@ -1,5 +1,4 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import { Award, Users, Globe, BookOpen, Target, Shield } from "lucide-react";
 import { Award, Users, Globe, BookOpen, Target, Shield } from "lucide-react";
 
 const stats = [

@@ -1,6 +1,5 @@
 import { useParams, Link, Navigate } from "react-router-dom";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import { findBlogBySlug, blogPosts } from "@/data/blogs";
 import { findBlogBySlug, blogPosts } from "@/data/blogs";
 import { ArrowLeft, Clock, User, Calendar, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
