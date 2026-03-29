@@ -1,42 +1,124 @@
-import { Star, Quote } from "lucide-react";
+import { useState, useEffect, useCallback } from "react";
+import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import { testimonials } from "@/data/courses";
 
-const TestimonialsSection = () => (
-  <section className="py-16 md:py-24 bg-background">
-    <div className="container">
-      <p className="text-center text-xs font-bold text-primary uppercase tracking-[0.2em] mb-2">Testimonials</p>
-      <h2 className="font-heading text-3xl md:text-4xl font-bold text-center text-foreground mb-14">
-        What Our Certified Professionals Say
-      </h2>
+const TestimonialsSection = () => {
+  const [current, setCurrent] = useState(0);
+  const total = testimonials.length;
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-        {testimonials.map((t, i) => (
-          <div
-            key={i}
-            className="bg-card rounded-xl p-7 border border-border hover:shadow-lg transition-shadow relative group"
-          >
-            <Quote className="absolute top-6 right-6 w-10 h-10 text-primary/10 group-hover:text-primary/20 transition-colors" />
-            <div className="flex gap-1 mb-4">
-              {[1,2,3,4,5].map(s => (
-                <Star key={s} className="w-4 h-4 fill-amber text-amber" />
+  const next = useCallback(() => setCurrent(i => (i + 1) % total), [total]);
+  const prev = useCallback(() => setCurrent(i => (i - 1 + total) % total), [total]);
+
+  // Auto-advance every 5s
+  useEffect(() => {
+    const timer = setInterval(next, 5000);
+    return () => clearInterval(timer);
+  }, [next]);
+
+  // Show 2 cards on md+, 1 on mobile
+  const getVisible = () => {
+    const cards = [];
+    cards.push(testimonials[current]);
+    if (total > 1) cards.push(testimonials[(current + 1) % total]);
+    return cards;
+  };
+
+  const visible = getVisible();
+
+  return (
+    <section className="py-16 md:py-24 bg-background overflow-hidden">
+      <div className="container">
+        <p className="text-center text-xs font-bold text-primary uppercase tracking-[0.2em] mb-2">Testimonials</p>
+        <h2 className="font-heading text-3xl md:text-4xl font-bold text-center text-foreground mb-14">
+          What Our Certified Professionals Say
+        </h2>
+
+        <div className="relative max-w-5xl mx-auto">
+          {/* Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {visible.map((t, i) => (
+              <div
+                key={`${current}-${i}`}
+                className={`relative bg-card rounded-3xl p-8 border border-border shadow-sm
+                  animate-[fadeSlideIn_0.5s_ease-out_forwards]
+                  ${i === 1 ? "hidden md:block" : ""}`}
+              >
+                {/* Large decorative quote */}
+                <div className="absolute -top-4 -left-2 w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center">
+                  <Quote className="w-7 h-7 text-primary" />
+                </div>
+
+                {/* Stars */}
+                <div className="flex gap-1 mb-5 mt-4">
+                  {[1,2,3,4,5].map(s => (
+                    <Star key={s} className="w-4 h-4 fill-amber text-amber" />
+                  ))}
+                </div>
+
+                {/* Quote text */}
+                <p className="text-sm text-foreground/85 leading-relaxed mb-6 italic min-h-[80px]">
+                  "{t.quote}"
+                </p>
+
+                {/* Divider */}
+                <div className="h-px bg-border mb-5" />
+
+                {/* Author */}
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center text-primary-foreground font-heading font-bold text-sm shrink-0 shadow-md">
+                    {t.name.split(" ").map(w => w[0]).join("")}
+                  </div>
+                  <div>
+                    <p className="font-semibold text-sm text-foreground">{t.name}</p>
+                    <p className="text-xs text-muted-foreground">{t.designation}</p>
+                    <p className="text-xs text-primary font-medium mt-0.5">{t.course}</p>
+                  </div>
+                </div>
+
+                {/* Decorative corner accent */}
+                <div className="absolute bottom-0 right-0 w-20 h-20 bg-primary/[0.03] rounded-tl-[3rem] rounded-br-3xl pointer-events-none" />
+              </div>
+            ))}
+          </div>
+
+          {/* Navigation */}
+          <div className="flex items-center justify-center gap-4 mt-10">
+            <button
+              onClick={prev}
+              className="w-10 h-10 rounded-full border border-border bg-card hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors flex items-center justify-center"
+              aria-label="Previous testimonial"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+
+            {/* Dots */}
+            <div className="flex gap-2">
+              {testimonials.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCurrent(i)}
+                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                    i === current
+                      ? "bg-primary w-7"
+                      : "bg-border hover:bg-muted-foreground"
+                  }`}
+                  aria-label={`Go to testimonial ${i + 1}`}
+                />
               ))}
             </div>
-            <p className="text-sm text-foreground/85 leading-relaxed mb-5 italic">"{t.quote}"</p>
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-heading font-bold text-sm">
-                {t.name.split(" ").map(w => w[0]).join("")}
-              </div>
-              <div>
-                <p className="font-semibold text-sm text-foreground">{t.name}</p>
-                <p className="text-xs text-muted-foreground">{t.designation}</p>
-                <p className="text-xs text-primary font-medium">{t.course}</p>
-              </div>
-            </div>
+
+            <button
+              onClick={next}
+              className="w-10 h-10 rounded-full border border-border bg-card hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors flex items-center justify-center"
+              aria-label="Next testimonial"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
           </div>
-        ))}
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default TestimonialsSection;
