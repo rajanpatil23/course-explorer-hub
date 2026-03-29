@@ -7,10 +7,10 @@ import { categories, type BadgeType } from "@/data/courses";
 import courseThumbnails from "@/components/courses/courseThumbnails";
 import categoryThumbnails from "@/components/courses/categoryThumbnails";
 
-const badgeColors: Record<BadgeType, string> = {
-  Popular: "bg-primary text-primary-foreground",
-  Trending: "bg-amber text-accent-foreground",
-  Advance: "bg-badge-purple text-primary-foreground",
+const badgeConfig: Record<BadgeType, { bg: string; icon: string }> = {
+  Popular: { bg: "bg-primary/10 text-primary", icon: "🔥" },
+  Trending: { bg: "bg-amber/10 text-amber-700", icon: "📈" },
+  Advance: { bg: "bg-badge-purple/10 text-badge-purple", icon: "🚀" },
 };
 
 const tabs = [
