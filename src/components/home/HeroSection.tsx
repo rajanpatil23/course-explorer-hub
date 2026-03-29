@@ -136,8 +136,8 @@ const HeroSection = () => {
         </div>
 
         {/* Partner logos */}
-        <div className="border-t border-hero-foreground/10 mt-14 pt-8">
-          <p className="text-xs font-semibold uppercase tracking-widest text-hero-foreground/40 mb-5">Trusted By</p>
+        <div className="border-t border-border mt-14 pt-8">
+          <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-5">Trusted By</p>
           <div className="flex flex-wrap items-center gap-8 md:gap-12">
             {partners.map(p => (
               <img
