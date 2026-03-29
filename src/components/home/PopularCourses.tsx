@@ -88,8 +88,8 @@ const PopularCourses = () => {
                   {course.name}
                 </h3>
 
-                {/* Spacer to push stats to bottom */}
-                <div className="flex-1" />
+                {/* Spacer to create gap between title and stats */}
+                <div className="min-h-4 flex-1" />
 
                 {/* Stats + rating + price just above separator */}
                 <div className="flex items-start justify-between mb-3">
