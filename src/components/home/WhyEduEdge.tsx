@@ -72,7 +72,7 @@ const cardDecorations: Record<number, JSX.Element> = {
 };
 
 const WhyEduEdge = () => (
-  <section className="py-16 md:py-24 bg-secondary">
+  <section className="py-16 md:py-24 bg-secondary rounded-t-[5rem] md:rounded-t-[8rem]">
     <div className="container">
       <p className="text-center text-xs font-bold text-primary uppercase tracking-[0.2em] mb-2">Why The EduEdge</p>
       <h2 className="font-heading text-3xl md:text-4xl font-bold text-center text-foreground mb-4">
