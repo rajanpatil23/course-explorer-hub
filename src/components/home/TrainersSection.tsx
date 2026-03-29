@@ -2,6 +2,7 @@ import trainerRajiv from "@/assets/trainers/trainer-rajiv.png";
 import trainerMeera from "@/assets/trainers/trainer-meera.png";
 import trainerVikram from "@/assets/trainers/trainer-vikram.png";
 import trainerAnanya from "@/assets/trainers/trainer-ananya.png";
+import trainerArjun from "@/assets/trainers/trainer-arjun.png";
 
 const trainers = [
   {
