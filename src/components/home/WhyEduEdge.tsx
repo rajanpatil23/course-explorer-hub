@@ -34,8 +34,43 @@ const features = [
 ];
 
 const WhyEduEdge = () => (
-  <section className="py-16 md:py-24 bg-secondary">
-    <div className="container">
+  <section className="py-16 md:py-24 bg-secondary relative overflow-hidden">
+      {/* Grid pattern */}
+      <div
+        className="absolute inset-0 opacity-[0.04]"
+        style={{
+          backgroundImage: `linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)`,
+          backgroundSize: "40px 40px",
+        }}
+      />
+      {/* Glow accents */}
+      <div className="absolute top-10 left-10 w-[400px] h-[400px] rounded-full bg-primary/5 blur-[150px]" />
+      <div className="absolute bottom-10 right-10 w-[350px] h-[350px] rounded-full bg-accent/5 blur-[120px]" />
+
+      {/* Dots pattern - top right */}
+      <div className="absolute top-8 right-12 w-24 h-24 grid grid-cols-5 gap-2 opacity-60 hidden lg:grid">
+        {Array.from({ length: 25 }).map((_, i) => (
+          <div key={`tr-${i}`} className="w-1.5 h-1.5 rounded-full bg-primary/30" />
+        ))}
+      </div>
+      {/* Dots pattern - bottom left */}
+      <div className="absolute bottom-12 left-8 w-24 h-24 grid grid-cols-5 gap-2 opacity-60 hidden lg:grid">
+        {Array.from({ length: 25 }).map((_, i) => (
+          <div key={`bl-${i}`} className="w-1.5 h-1.5 rounded-full bg-accent/30" />
+        ))}
+      </div>
+
+      {/* Cross accents */}
+      <div className="absolute top-20 left-1/4 hidden lg:block">
+        <div className="w-4 h-[3px] bg-primary/20 rounded-full" />
+        <div className="w-[3px] h-4 bg-primary/20 rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+      </div>
+      <div className="absolute bottom-24 right-1/4 hidden lg:block">
+        <div className="w-4 h-[3px] bg-accent/20 rounded-full" />
+        <div className="w-[3px] h-4 bg-accent/20 rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+      </div>
+
+    <div className="container relative z-10">
       <p className="text-center text-xs font-bold text-primary uppercase tracking-[0.2em] mb-2">Why The EduEdge</p>
       <h2 className="font-heading text-3xl md:text-4xl font-bold text-center text-foreground mb-4">
         Why 10,000+ Professionals Choose Us
