@@ -44,7 +44,7 @@ const WhyEduEdge = () => (
         World-class training backed by official accreditations and real industry expertise.
       </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-5 max-w-5xl mx-auto auto-rows-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-5 max-w-5xl mx-auto grid-rows-[auto_auto_auto]">
         {features.map((f, i) => {
           // Bento-style: uneven grid layout
           const spanClass = [
