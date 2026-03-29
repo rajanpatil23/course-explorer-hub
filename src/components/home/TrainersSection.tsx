@@ -29,6 +29,12 @@ const trainers = [
     workedWith: ["Accenture", "Capgemini"],
     image: trainerAnanya,
   },
+  {
+    name: "Arjun Desai",
+    title: "DevOps & Cloud Specialist",
+    workedWith: ["Microsoft", "Amazon"],
+    image: trainerArjun,
+  },
 ];
 
 const TrainersSection = () => (
