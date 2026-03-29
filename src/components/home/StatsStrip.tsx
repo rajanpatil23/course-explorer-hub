@@ -32,11 +32,11 @@ const StatItem = ({ stat, visible }: { stat: typeof stats[0]; visible: boolean }
   const count = useCountUp(stat.value, 2000, (stat as any).decimals || 0, visible);
   return (
     <div className="text-center">
-      <div className="font-heading text-3xl md:text-4xl font-semibold text-primary">
+      <div className="font-heading text-2xl md:text-4xl font-semibold text-primary">
         {(stat as any).decimals ? count.toFixed((stat as any).decimals) : Math.floor(count).toLocaleString()}
         <span className="text-primary">{stat.suffix}</span>
       </div>
-      <p className="text-sm text-muted-foreground mt-1 font-medium">{stat.label}</p>
+      <p className="text-[10px] md:text-sm text-muted-foreground mt-1 font-medium">{stat.label}</p>
     </div>
   );
 };
@@ -54,12 +54,14 @@ const StatsStrip = () => {
   }, []);
 
   return (
-    <section ref={ref} className="relative z-20 -mt-20 md:-mt-24 mb-16 md:mb-24">
+    <section ref={ref} className="relative z-20 -mt-14 md:-mt-24 mb-12 md:mb-24">
       <div className="container">
-        <div className="max-w-5xl mx-auto border border-border rounded-2xl bg-card px-6 py-8 md:px-10 md:py-10 shadow-lg">
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8">
+        <div className="max-w-5xl mx-auto border border-border rounded-2xl bg-card px-4 py-6 md:px-10 md:py-10 shadow-lg">
+          <div className="grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-8">
             {stats.map((s, i) => (
-              <StatItem key={i} stat={s} visible={visible} />
+              <div key={i} className={i >= 3 ? "hidden lg:block" : ""}>
+                <StatItem stat={s} visible={visible} />
+              </div>
             ))}
           </div>
         </div>
