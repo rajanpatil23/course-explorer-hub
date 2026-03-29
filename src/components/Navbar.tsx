@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Menu, X, ChevronDown, LogIn, UserPlus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { categories } from "@/data/courses";
@@ -17,21 +17,21 @@ const Navbar = () => {
         </Link>
 
         <nav className="hidden md:flex items-center gap-1">
-          <Link to="/" className="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded-md">
+          <NavLink to="/" end className={({ isActive }) => `px-3 py-2 text-sm font-medium transition-colors rounded-md ${isActive ? "text-primary font-bold" : "text-foreground hover:text-primary"}`}>
             Home
-          </Link>
+          </NavLink>
 
           <div
             className="relative"
             onMouseEnter={() => setDropdownOpen(true)}
             onMouseLeave={() => setDropdownOpen(false)}
           >
-            <Link
+            <NavLink
               to="/courses"
-              className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded-md"
+              className={({ isActive }) => `flex items-center gap-1 px-3 py-2 text-sm font-medium transition-colors rounded-md ${isActive ? "text-primary font-bold" : "text-foreground hover:text-primary"}`}
             >
               Courses <ChevronDown className={`w-3.5 h-3.5 transition-transform ${dropdownOpen ? "rotate-180" : ""}`} />
-            </Link>
+            </NavLink>
             {dropdownOpen && (
               <div className="absolute top-full left-0 pt-1 w-64">
                 <div className="bg-card border border-border rounded-lg shadow-lg py-2">
@@ -59,15 +59,15 @@ const Navbar = () => {
             )}
           </div>
 
-          <Link to="/about" className="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded-md">
+          <NavLink to="/about" className={({ isActive }) => `px-3 py-2 text-sm font-medium transition-colors rounded-md ${isActive ? "text-primary font-bold" : "text-foreground hover:text-primary"}`}>
             About
-          </Link>
-          <Link to="/blog" className="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded-md">
+          </NavLink>
+          <NavLink to="/blog" className={({ isActive }) => `px-3 py-2 text-sm font-medium transition-colors rounded-md ${isActive ? "text-primary font-bold" : "text-foreground hover:text-primary"}`}>
             Blog
-          </Link>
-          <Link to="/contact" className="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded-md">
+          </NavLink>
+          <NavLink to="/contact" className={({ isActive }) => `px-3 py-2 text-sm font-medium transition-colors rounded-md ${isActive ? "text-primary font-bold" : "text-foreground hover:text-primary"}`}>
             Contact
-          </Link>
+          </NavLink>
         </nav>
 
         <div className="hidden md:flex items-center gap-2">
