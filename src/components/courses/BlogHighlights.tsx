@@ -1,5 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { blogPosts } from "@/data/courses";
+import { blogImages } from "@/data/blogImages";
+import { Link } from "react-router-dom";
 
 const BlogHighlights = () => (
   <section className="py-16 md:py-20 bg-background">
@@ -13,9 +15,17 @@ const BlogHighlights = () => (
       </p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
         {blogPosts.map((post, i) => (
-          <div key={i} className="bg-card border border-border rounded-lg overflow-hidden group hover:shadow-md transition-shadow">
-            <div className="h-40 bg-gradient-to-br from-teal-light via-secondary to-primary/10 flex items-center justify-center">
-              <span className="text-primary/30 font-heading font-bold text-lg">Blog</span>
+          <Link key={i} to={post.slug ? `/blog/${post.slug}` : "#"} className="bg-card border border-border rounded-lg overflow-hidden group hover:shadow-md transition-shadow">
+            <div className="p-4 pb-0">
+              <div className="h-40 rounded-lg overflow-hidden">
+                {post.slug && blogImages[post.slug] ? (
+                  <img src={blogImages[post.slug]} alt={post.title} className="w-full h-full object-cover" loading="lazy" />
+                ) : (
+                  <div className="w-full h-full bg-gradient-to-br from-teal-light via-secondary to-primary/10 flex items-center justify-center">
+                    <span className="text-primary/30 font-heading font-bold text-lg">Blog</span>
+                  </div>
+                )}
+              </div>
             </div>
             <div className="p-5">
               <span className="text-xs font-semibold text-primary bg-teal-light px-2 py-0.5 rounded-full">{post.category}</span>
@@ -25,7 +35,17 @@ const BlogHighlights = () => (
                 Read More <ArrowRight className="w-3 h-3" />
               </span>
             </div>
-          </div>
+          </Link>
+        ))}
+      </div>
+      <div className="text-center mt-10">
+        <Link to="/blog" className="text-primary font-semibold hover:underline inline-flex items-center gap-1">
+          Visit The EduEdge Blog <ArrowRight className="w-4 h-4" />
+        </Link>
+      </div>
+    </div>
+  </section>
+);
         ))}
       </div>
       <div className="text-center mt-10">
