@@ -46,23 +46,24 @@ const WhyEduEdge = () => (
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-5 max-w-5xl mx-auto auto-rows-auto">
         {features.map((f, i) => {
-          // Bento-style spans: alternate between wider and narrower cards
+          // Bento-style: uneven grid layout
           const spanClass = [
-            "lg:col-span-7", // wide
-            "lg:col-span-5", // narrow
-            "lg:col-span-4", // narrow
-            "lg:col-span-4", // narrow
-            "lg:col-span-4", // narrow
-            "lg:col-span-5 lg:col-start-1", // wide
+            "lg:col-span-7",                        // 0: Accredited - wide
+            "lg:col-span-5",                        // 1: Expert-Led - narrow
+            "lg:col-span-4 lg:row-span-2",          // 2: Flexible Learning - tall
+            "lg:col-span-4",                        // 3: Exam-Ready
+            "lg:col-span-4",                        // 4: Career Acceleration
+            "lg:col-span-8",                        // 5: Lifetime Resources - extra wide
           ][i] || "lg:col-span-4";
 
           const isWide = i === 0 || i === 5;
+          const isTall = i === 2;
 
           return (
             <div
               key={i}
               className={`${spanClass} bg-card rounded-2xl border border-border group ${
-                isWide ? "p-8 flex flex-row items-start gap-5" : "p-7"
+                isWide ? "p-8 flex flex-row items-start gap-5" : isTall ? "p-7 flex flex-col justify-between h-full" : "p-7"
               }`}
             >
               <div className={`flex-shrink-0 rounded-xl bg-teal-light flex items-center justify-center text-primary ${
