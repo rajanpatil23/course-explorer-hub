@@ -9,7 +9,7 @@ const CorporateCTA = () => (
     <div className="absolute top-10 right-10 w-[400px] h-[400px] rounded-full bg-primary/10 blur-[120px]" />
 
     <div className="container relative z-10">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-end">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Left – Image touching bottom */}
         <div className="relative flex items-end justify-center lg:justify-start">
           {/* Dot grid behind & extending right of image */}
