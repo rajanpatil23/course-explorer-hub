@@ -1,5 +1,4 @@
 import { Award, Users, Globe, BookOpen, Target, Shield } from "lucide-react";
-import { Award, Users, Globe, BookOpen, Target, Shield } from "lucide-react";
 
 const stats = [
   { value: "10,000+", label: "Professionals Trained" },
