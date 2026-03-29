@@ -49,7 +49,7 @@ const TrainersSection = () => (
       </p>
 
       {/* Staggered grid — odd cards pushed down */}
-      <div className="flex flex-col sm:flex-row items-center sm:items-start justify-center gap-6 max-w-5xl mx-auto">
+      <div className="flex flex-col sm:flex-row items-center sm:items-start justify-center gap-5 max-w-6xl mx-auto flex-wrap lg:flex-nowrap">
         {trainers.map((t, i) => {
           const isOdd = i % 2 !== 0;
           return (
