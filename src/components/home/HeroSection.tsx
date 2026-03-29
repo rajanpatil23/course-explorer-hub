@@ -144,7 +144,7 @@ const HeroSection = () => {
                 key={p.name}
                 src={p.logo}
                 alt={p.name}
-                className="h-10 md:h-12 w-auto hover:scale-105 transition-transform"
+                className="h-12 sm:h-14 md:h-16 lg:h-[72px] w-auto hover:scale-105 transition-transform"
                 loading="lazy"
               />
             ))}
