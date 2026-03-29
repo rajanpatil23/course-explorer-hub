@@ -59,26 +59,26 @@ const PopularCourses = () => {
             <Link
               key={course.code}
               to={`/courses/${course.slug}`}
-              className="group bg-card rounded-xl border border-border overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+              className="group bg-card rounded-2xl border border-border overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300 aspect-square flex flex-col"
             >
-              <div className="relative h-40 overflow-hidden">
+              <div className="relative overflow-hidden rounded-xl m-3 h-40 flex-shrink-0">
                 <img
                   src={courseThumbnails[course.slug] || categoryThumbnails[course.category] || ""}
                   alt={course.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 rounded-xl"
                   loading="lazy"
                   width={768}
                   height={512}
                 />
-                <Badge className={`absolute top-3 left-3 ${badgeColors[course.badge]} text-xs font-semibold px-2.5 py-0.5 border-0`}>
+                <Badge className={`absolute top-2 left-2 ${badgeColors[course.badge]} text-xs font-semibold px-2.5 py-0.5 border-0`}>
                   {course.badge}
                 </Badge>
-                <div className="absolute top-3 right-3 flex items-center gap-1 bg-card/90 backdrop-blur-sm rounded-full px-2 py-0.5">
+                <div className="absolute top-2 right-2 flex items-center gap-1 bg-card/90 backdrop-blur-sm rounded-full px-2 py-0.5">
                   <Star className="w-3.5 h-3.5 fill-amber text-amber" />
                   <span className="text-xs font-semibold text-foreground">5.0</span>
                 </div>
               </div>
-              <div className="p-4">
+              <div className="px-4 pb-4 pt-1 flex flex-col flex-1">
                 <h3 className="font-heading font-bold text-sm text-foreground leading-snug mb-2 line-clamp-2 group-hover:text-primary transition-colors">
                   {course.name}
                 </h3>
@@ -89,7 +89,7 @@ const PopularCourses = () => {
                     </span>
                   ))}
                 </div>
-                <div className="flex items-center gap-3 text-xs text-muted-foreground">
+                <div className="flex items-center gap-3 text-xs text-muted-foreground mt-auto">
                   <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {course.duration}</span>
                   <span className="flex items-center gap-1"><Users className="w-3 h-3" /> {course.learners}</span>
                 </div>
