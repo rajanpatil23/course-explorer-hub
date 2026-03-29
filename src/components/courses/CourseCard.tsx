@@ -42,9 +42,23 @@ const CourseCard = ({ course }: { course: Course }) => {
         </div>
 
         {/* Title */}
-        <h3 className="font-heading font-bold text-base text-foreground leading-snug mb-3 line-clamp-2">
+        <h3 className="font-heading font-bold text-base text-foreground leading-snug mb-2 line-clamp-2">
           {course.name}
         </h3>
+
+        {/* Rating below title on left + price on right */}
+        <div className="flex items-start justify-between mb-3">
+          <div className="flex items-center gap-1">
+            {Array.from({ length: 5 }).map((_, j) => (
+              <Star key={j} className="w-3.5 h-3.5 fill-amber text-amber" />
+            ))}
+            <span className="text-xs font-semibold text-foreground ml-1">5.0</span>
+          </div>
+          <div className="text-right">
+            <p className="text-[10px] text-muted-foreground leading-tight">Starts From</p>
+            <p className="font-heading font-bold text-xl text-foreground">{course.price}</p>
+          </div>
+        </div>
 
         {/* Skills */}
         <div className="mb-3">
@@ -70,15 +84,15 @@ const CourseCard = ({ course }: { course: Course }) => {
           </div>
         </div>
 
-        {/* CTAs */}
+        {/* CTAs — taller buttons */}
         <div className="flex gap-2">
           <Link to={`/courses/${course.slug}`} className="flex-1">
-            <Button variant="outline" size="sm" className="w-full text-xs font-semibold border-primary text-primary hover:bg-teal-light">
+            <Button variant="outline" className="w-full text-xs font-semibold border-primary text-primary hover:bg-teal-light h-11">
               View Course
             </Button>
           </Link>
           <Link to={`/courses/${course.slug}#schedule`} className="flex-1">
-            <Button size="sm" className="w-full text-xs font-semibold bg-primary hover:bg-teal-dark text-primary-foreground">
+            <Button className="w-full text-xs font-semibold bg-primary hover:bg-teal-dark text-primary-foreground h-11">
               View Schedule
             </Button>
           </Link>
