@@ -11,7 +11,7 @@ const FAQSection = () => (
     <div className="container">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
         {/* Left – Eyebrow, Title, Description */}
-        <div className="lg:sticky lg:top-8">
+        <div className="lg:sticky lg:top-24">
           <p className="text-xs font-bold text-primary uppercase tracking-[0.2em] mb-2">FAQ</p>
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
             Frequently Asked Questions
