@@ -15,18 +15,18 @@ const logos = [
 ];
 
 const PartnersStrip = () => (
-  <section className="py-10 md:py-14 bg-secondary border-y border-border">
+  <section className="py-8 md:py-14 bg-secondary border-y border-border">
     <div className="container">
-      <p className="text-center text-xs font-bold text-muted-foreground uppercase tracking-[0.2em] mb-8">
+      <p className="text-center text-[10px] md:text-xs font-bold text-muted-foreground uppercase tracking-[0.2em] mb-5 md:mb-8">
         Official Certification Partners
       </p>
-      <div className="flex flex-wrap items-center justify-center gap-10 md:gap-16">
+      <div className="flex flex-wrap items-center justify-center gap-6 md:gap-16">
         {logos.map(l => (
           <img
             key={l.name}
             src={l.src}
             alt={l.name}
-            className="h-10 md:h-12 w-auto grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+            className="h-8 md:h-12 w-auto grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
             loading="lazy"
           />
         ))}
