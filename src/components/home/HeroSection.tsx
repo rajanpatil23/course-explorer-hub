@@ -115,7 +115,7 @@ const HeroSection = () => {
                       key={`${p.name}-${i}`}
                       src={p.logo}
                       alt={p.name}
-                      className="h-10 sm:h-12 w-auto flex-shrink-0"
+                      className="h-14 sm:h-16 md:h-[72px] w-auto flex-shrink-0"
                     />
                   ))}
                 </div>
