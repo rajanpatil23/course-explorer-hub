@@ -74,6 +74,8 @@ const HeroSection = () => {
                     "https://randomuser.me/api/portraits/men/32.jpg",
                     "https://randomuser.me/api/portraits/women/68.jpg",
                     "https://randomuser.me/api/portraits/men/75.jpg",
+                    "https://randomuser.me/api/portraits/women/21.jpg",
+                    "https://randomuser.me/api/portraits/men/46.jpg",
                   ].map((src, i) => (
                     <img
                       key={i}
