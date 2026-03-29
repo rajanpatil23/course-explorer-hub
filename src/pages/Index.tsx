@@ -17,9 +17,9 @@ const Index = () => {
       <HeroSection />
       <StatsStrip />
       <PopularCourses />
+      <LearningJourney />
       <WhyEduEdge />
       <CourseCategories />
-      <LearningJourney />
       <PartnersStrip />
       <TrainersSection />
       <TestimonialsSection />
