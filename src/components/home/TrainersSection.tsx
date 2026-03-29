@@ -62,8 +62,8 @@ const TrainersSection = () => (
                 style={{
                   background:
                     i % 2 === 0
-                      ? "linear-gradient(180deg, hsl(45 80% 92%) 0%, hsl(45 80% 85%) 40%, hsl(160 45% 65%) 100%)"
-                      : "linear-gradient(180deg, hsl(45 80% 90%) 0%, hsl(50 70% 83%) 40%, hsl(160 50% 60%) 100%)",
+                      ? "linear-gradient(180deg, hsl(180 20% 96%) 0%, hsl(182 40% 85%) 40%, hsl(182 98% 22%) 100%)"
+                      : "linear-gradient(180deg, hsl(180 20% 96%) 0%, hsl(183 45% 80%) 40%, hsl(183 99% 32%) 100%)",
                 }}
               >
                 {/* Top text area in white card */}
