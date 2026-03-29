@@ -44,9 +44,9 @@ const TestimonialsSection = () => {
                   animate-fade-slide-in
                   ${i >= 1 ? "hidden md:block" : ""}`}
               >
-                {/* Large decorative quote */}
-                <div className="absolute -top-4 -left-2 w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center">
-                  <Quote className="w-7 h-7 text-primary" />
+                {/* Decorative quote icon - circle, straddling top border */}
+                <div className="absolute -top-5 left-10 w-10 h-10 rounded-full bg-primary flex items-center justify-center shadow-md">
+                  <Quote className="w-5 h-5 text-primary-foreground" />
                 </div>
 
                 {/* Stars */}
