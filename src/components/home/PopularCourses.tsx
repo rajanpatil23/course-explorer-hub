@@ -7,10 +7,10 @@ import { categories, type BadgeType } from "@/data/courses";
 import courseThumbnails from "@/components/courses/courseThumbnails";
 import categoryThumbnails from "@/components/courses/categoryThumbnails";
 
-const badgeConfig: Record<BadgeType, { bg: string; icon: string }> = {
-  Popular: { bg: "bg-primary/10 text-primary", icon: "🔥" },
-  Trending: { bg: "bg-amber/10 text-amber-700", icon: "📈" },
-  Advance: { bg: "bg-badge-purple/10 text-badge-purple", icon: "🚀" },
+const badgeConfig: Record<BadgeType, string> = {
+  Popular: "bg-primary text-primary-foreground",
+  Trending: "bg-amber text-white",
+  Advance: "bg-badge-purple text-white",
 };
 
 const tabs = [
@@ -64,8 +64,8 @@ const PopularCourses = () => {
               {/* Image with padding */}
               <div className="relative overflow-hidden rounded-xl m-4 mb-0 h-40 flex-shrink-0">
                 {/* Badge - inside image, top left */}
-                <span className={`absolute top-2 left-2 z-10 inline-flex items-center gap-1 ${badgeConfig[course.badge].bg} text-xs font-semibold px-2.5 py-1 rounded-full backdrop-blur-sm`}>
-                  <span>{badgeConfig[course.badge].icon}</span> {course.badge}
+                <span className={`absolute top-2 left-2 z-10 ${badgeConfig[course.badge]} text-[11px] font-bold px-3 py-1 rounded-md shadow-sm`}>
+                  {course.badge}
                 </span>
                 <img
                   src={courseThumbnails[course.slug] || categoryThumbnails[course.category] || ""}
