@@ -57,7 +57,15 @@ const TrainersSection = () => (
               key={t.name}
               className={`w-full sm:w-[48%] lg:w-[18.5%] ${isOdd ? "sm:mt-16" : ""}`}
             >
-              <div className="group relative bg-card rounded-t-[2.5rem] rounded-b-[50%_20%] border border-border overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col">
+              <div
+                className="group relative rounded-t-[2.5rem] rounded-b-[50%_20%] border border-border overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col"
+                style={{
+                  background:
+                    i % 2 === 0
+                      ? "linear-gradient(180deg, hsl(45 80% 92%) 0%, hsl(45 80% 85%) 40%, hsl(160 45% 65%) 100%)"
+                      : "linear-gradient(180deg, hsl(45 80% 90%) 0%, hsl(50 70% 83%) 40%, hsl(160 50% 60%) 100%)",
+                }}
+              >
                 {/* Top text area in white card */}
                 <div className="mx-3 mt-3 rounded-2xl bg-background p-5 text-center shadow-sm">
                   <h3 className="font-heading font-bold text-foreground text-lg leading-tight">
@@ -80,15 +88,8 @@ const TrainersSection = () => (
                   </div>
                 </div>
 
-                {/* Photo with warm-to-teal gradient */}
+                {/* Photo area */}
                 <div className="relative h-60 mt-auto flex items-end justify-center overflow-hidden">
-                  <div
-                    className="absolute inset-0"
-                    style={{
-                      background:
-                        "linear-gradient(180deg, hsl(var(--card)) 0%, hsl(45 80% 88%) 35%, hsl(160 45% 65%) 100%)",
-                    }}
-                  />
                   <img
                     src={t.image}
                     alt={t.name}
