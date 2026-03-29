@@ -42,7 +42,7 @@ const BlogPost = () => {
             {post.title}
           </h1>
 
-          <div className="flex flex-wrap gap-4 text-xs text-muted-foreground mb-8 pb-8 border-b border-border">
+          <div className="flex flex-wrap gap-4 text-xs text-muted-foreground mb-6">
             <span className="flex items-center gap-1"><User className="w-3.5 h-3.5" /> {post.author}</span>
             <span className="flex items-center gap-1">
               <Calendar className="w-3.5 h-3.5" />
@@ -50,6 +50,12 @@ const BlogPost = () => {
             </span>
             <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {post.readTime} read</span>
           </div>
+
+          {slug && blogImages[slug] && (
+            <div className="rounded-xl overflow-hidden mb-8">
+              <img src={blogImages[slug]} alt={post.title} className="w-full h-auto object-cover" width={800} height={512} />
+            </div>
+          )}
 
           {/* Content */}
           <div className="prose prose-sm dark:prose-invert prose-headings:font-heading prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-a:text-primary max-w-none">
