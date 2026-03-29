@@ -10,7 +10,7 @@ import categoryThumbnails from "@/components/courses/categoryThumbnails";
 const badgeConfig: Record<BadgeType, string> = {
   Popular: "bg-primary text-primary-foreground",
   Trending: "bg-amber text-white",
-  Advance: "bg-badge-purple text-white",
+  Advance: "bg-blue-600 text-white",
 };
 
 const tabs = [
