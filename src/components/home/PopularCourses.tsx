@@ -78,7 +78,7 @@ const PopularCourses = () => {
               </div>
 
               {/* Content */}
-              <div className="px-4 pt-4 pb-3 flex flex-col flex-1 gap-3">
+              <div className="px-5 pt-4 pb-5 flex flex-col flex-1 gap-3">
                 {/* Category / type */}
                 <p className="text-xs text-primary font-medium">
                   {course.category.replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase())}
