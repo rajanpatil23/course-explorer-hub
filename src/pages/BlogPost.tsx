@@ -130,13 +130,18 @@ const BlogPost = () => {
                   <Link
                     key={r.slug}
                     to={`/blog/${r.slug}`}
-                    className="bg-card border border-border rounded-lg p-4 hover:shadow-md transition-shadow group"
+                    className="bg-card border border-border rounded-lg overflow-hidden hover:shadow-md transition-shadow group"
                   >
-                    <span className="text-[10px] font-semibold text-primary">{r.category}</span>
-                    <h4 className="font-heading font-bold text-foreground text-xs mt-1 line-clamp-2 group-hover:text-primary transition-colors">
-                      {r.title}
-                    </h4>
-                    <p className="text-[10px] text-muted-foreground mt-2">{r.readTime} · {r.author}</p>
+                    {blogImages[r.slug] && (
+                      <img src={blogImages[r.slug]} alt={r.title} className="w-full h-28 object-cover" loading="lazy" />
+                    )}
+                    <div className="p-4">
+                      <span className="text-[10px] font-semibold text-primary">{r.category}</span>
+                      <h4 className="font-heading font-bold text-foreground text-xs mt-1 line-clamp-2 group-hover:text-primary transition-colors">
+                        {r.title}
+                      </h4>
+                      <p className="text-[10px] text-muted-foreground mt-2">{r.readTime} · {r.author}</p>
+                    </div>
                   </Link>
                 ))}
               </div>
