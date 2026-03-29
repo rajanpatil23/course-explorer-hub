@@ -169,42 +169,6 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Partner logos + Stats */}
-        <div className="border-t border-border mt-14 pt-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-            {/* Left - Logos */}
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-5">Trusted By</p>
-              <div className="relative overflow-hidden">
-                <div className="flex animate-marquee items-center gap-10 w-max">
-                  {[...partners, ...partners].map((p, i) => (
-                    <img
-                      key={`${p.name}-${i}`}
-                      src={p.logo}
-                      alt={p.name}
-                      className="h-12 sm:h-14 md:h-16 lg:h-[72px] w-auto flex-shrink-0"
-                    />
-                  ))}
-                </div>
-              </div>
-              <p className="text-xs text-muted-foreground mt-4">and 6,000+ companies across the globe</p>
-            </div>
-
-            {/* Right - Quick Stats */}
-            <div className="hidden lg:grid grid-cols-3 gap-6 items-center pt-2">
-              {[
-                { value: "10,000+", label: "Professionals Trained" },
-                { value: "50+", label: "Certifications Offered" },
-                { value: "98%", label: "Pass Rate" },
-              ].map((stat) => (
-                <div key={stat.label} className="text-center">
-                  <p className="text-2xl xl:text-3xl font-extrabold font-heading text-primary">{stat.value}</p>
-                  <p className="text-xs text-muted-foreground mt-1 leading-tight">{stat.label}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
