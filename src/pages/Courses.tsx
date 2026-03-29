@@ -3,7 +3,6 @@ import { useSearchParams } from "react-router-dom";
 import { Search } from "lucide-react";
 import CourseCard from "@/components/courses/CourseCard";
 import { categories } from "@/data/courses";
-import { categories } from "@/data/courses";
 
 const INITIAL_SHOW = 9;
 
