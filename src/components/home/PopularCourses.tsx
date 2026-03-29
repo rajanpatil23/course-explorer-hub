@@ -54,8 +54,8 @@ const CourseCard = ({ course }: { course: any }) => (
             <span className="font-semibold text-foreground text-[10px] md:text-xs ml-1">5.0</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="line-through text-muted-foreground text-[10px] md:text-xs">₹{course.originalPrice}</span>
-            <span className="font-heading font-bold text-lg md:text-xl text-foreground">₹{course.price}</span>
+            <span className="line-through text-muted-foreground text-[10px] md:text-xs">${course.originalPrice}</span>
+            <span className="font-heading font-bold text-lg md:text-xl text-foreground">${course.price}</span>
           </div>
         </div>
       </div>
