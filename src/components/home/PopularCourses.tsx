@@ -78,18 +78,21 @@ const PopularCourses = () => {
               </div>
 
               {/* Content */}
-              <div className="px-5 pt-4 pb-5 flex flex-col flex-1 gap-3">
+              <div className="px-5 pt-4 pb-5 flex flex-col flex-1">
                 {/* Category / type */}
                 <p className="text-xs text-primary font-medium">
                   {course.category.replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase())}
                 </p>
 
-                <h3 className="font-heading font-bold text-base text-foreground leading-snug line-clamp-2 group-hover:text-primary transition-colors">
+                <h3 className="font-heading font-bold text-base text-foreground leading-snug line-clamp-2 group-hover:text-primary transition-colors mt-2">
                   {course.name}
                 </h3>
 
-                {/* Stats on left, rating + price on right */}
-                <div className="flex items-start justify-between">
+                {/* Spacer to push stats to bottom */}
+                <div className="flex-1" />
+
+                {/* Stats + rating + price just above separator */}
+                <div className="flex items-start justify-between mb-3">
                   <div className="flex flex-col gap-1.5">
                     <span className="flex items-center gap-1 text-xs text-muted-foreground"><Clock className="w-3.5 h-3.5 text-primary" /> {course.duration.includes("|") ? course.duration.split("|")[1].trim() : course.duration}</span>
                     <span className="flex items-center gap-1 text-xs text-muted-foreground"><Users className="w-3.5 h-3.5 text-primary" /> {course.learners}</span>
@@ -108,8 +111,8 @@ const PopularCourses = () => {
                   </div>
                 </div>
 
-                {/* Buttons — taller */}
-                <div className="flex gap-2 mt-auto pt-3 border-t border-border">
+                {/* Buttons */}
+                <div className="flex gap-2 pt-3 border-t border-border">
                   <Link to={`/courses/${course.slug}`} className="flex-1">
                     <Button variant="outline" className="w-full text-xs font-semibold rounded-lg h-11 border-primary text-primary hover:bg-teal-light">
                       View Course
