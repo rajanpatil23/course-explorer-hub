@@ -15,16 +15,10 @@ const BlogHighlights = () => (
       </p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
         {blogPosts.map((post, i) => (
-          <Link key={i} to={post.slug ? `/blog/${post.slug}` : "#"} className="bg-card border border-border rounded-lg overflow-hidden group hover:shadow-md transition-shadow">
+          <div key={i} className="bg-card border border-border rounded-lg overflow-hidden group hover:shadow-md transition-shadow">
             <div className="p-4 pb-0">
-              <div className="h-40 rounded-lg overflow-hidden">
-                {post.slug && blogImages[post.slug] ? (
-                  <img src={blogImages[post.slug]} alt={post.title} className="w-full h-full object-cover" loading="lazy" />
-                ) : (
-                  <div className="w-full h-full bg-gradient-to-br from-teal-light via-secondary to-primary/10 flex items-center justify-center">
-                    <span className="text-primary/30 font-heading font-bold text-lg">Blog</span>
-                  </div>
-                )}
+              <div className="h-40 rounded-lg overflow-hidden bg-gradient-to-br from-teal-light via-secondary to-primary/10 flex items-center justify-center">
+                <span className="text-primary/30 font-heading font-bold text-lg">Blog</span>
               </div>
             </div>
             <div className="p-5">
@@ -35,7 +29,7 @@ const BlogHighlights = () => (
                 Read More <ArrowRight className="w-3 h-3" />
               </span>
             </div>
-          </Link>
+          </div>
         ))}
       </div>
       <div className="text-center mt-10">
