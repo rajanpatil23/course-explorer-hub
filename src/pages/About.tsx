@@ -58,7 +58,7 @@ const About = () => {
   return (
     <div>
       {/* Hero */}
-      <section className="relative bg-hero-bg overflow-hidden">
+      <section className="relative bg-hero overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-72 h-72 bg-primary rounded-full blur-3xl" />
           <div className="absolute bottom-10 right-20 w-96 h-96 bg-accent rounded-full blur-3xl" />
@@ -245,7 +245,7 @@ const About = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-16 md:py-24 bg-hero-bg relative overflow-hidden">
+      <section className="py-16 md:py-24 bg-hero relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-10 right-10 w-64 h-64 bg-primary rounded-full blur-3xl" />
           <div className="absolute bottom-10 left-20 w-80 h-80 bg-accent rounded-full blur-3xl" />
