@@ -94,7 +94,7 @@ const PopularCourses = () => {
                 {/* Stats row */}
                 <div className="flex items-center justify-between text-xs text-muted-foreground">
                   <div className="flex items-center gap-3">
-                    <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5 text-primary" /> {course.duration}</span>
+                    <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5 text-primary" /> {course.duration.includes("|") ? course.duration.split("|")[1].trim() : course.duration}</span>
                     <span className="flex items-center gap-1"><Users className="w-3.5 h-3.5 text-primary" /> {course.learners}</span>
                   </div>
                   <div className="flex items-center gap-1">
