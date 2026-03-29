@@ -4,7 +4,7 @@ import { Building2, UserCheck, BarChart3 } from "lucide-react";
 import corporateCta from "@/assets/corporate-cta.png";
 
 const CorporateCTA = () => (
-  <section className="relative pt-16 md:pt-24 pb-0 bg-hero text-hero-foreground overflow-hidden">
+  <section className="relative pt-10 md:pt-16 pb-0 bg-hero text-hero-foreground overflow-hidden">
     <div className="absolute inset-0 bg-gradient-to-br from-hero via-hero/95 to-primary/20" />
     <div className="absolute top-10 right-10 w-[400px] h-[400px] rounded-full bg-primary/10 blur-[120px]" />
 
@@ -47,16 +47,14 @@ const CorporateCTA = () => (
               Custom corporate training with volume pricing, dedicated account management, and progress dashboards.
             </p>
 
-            <div className="flex flex-wrap justify-center lg:justify-start gap-8 mb-12">
+            <div className="flex flex-wrap justify-center lg:justify-start gap-6 mb-8">
               {[
-                { icon: <Building2 className="w-6 h-6" />, text: "Custom Programs" },
-                { icon: <UserCheck className="w-6 h-6" />, text: "Dedicated Manager" },
-                { icon: <BarChart3 className="w-6 h-6" />, text: "Progress Tracking" },
+                { icon: <Building2 className="w-5 h-5" />, text: "Custom Programs" },
+                { icon: <UserCheck className="w-5 h-5" />, text: "Dedicated Manager" },
+                { icon: <BarChart3 className="w-5 h-5" />, text: "Progress Tracking" },
               ].map((v, i) => (
-                <div key={i} className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center text-accent">
-                    {v.icon}
-                  </div>
+                <div key={i} className="flex items-center gap-2">
+                  <span className="text-hero-foreground">{v.icon}</span>
                   <span className="text-sm font-semibold">{v.text}</span>
                 </div>
               ))}
