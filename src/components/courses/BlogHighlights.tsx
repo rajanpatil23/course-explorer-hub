@@ -1,6 +1,5 @@
 import { ArrowRight } from "lucide-react";
 import { blogPosts } from "@/data/courses";
-import { blogImages } from "@/data/blogImages";
 import { Link } from "react-router-dom";
 
 const BlogHighlights = () => (
