@@ -49,7 +49,17 @@ const TrainersSection = () => (
       </p>
 
       {/* Staggered grid — odd cards pushed down */}
-      <div className="flex flex-col sm:flex-row items-center sm:items-start justify-center gap-5 max-w-6xl mx-auto flex-wrap lg:flex-nowrap">
+      <div className="relative max-w-6xl mx-auto">
+        {/* Grid pattern behind cards only */}
+        <div
+          className="absolute inset-0 -inset-x-6 -inset-y-6 opacity-[0.08]"
+          style={{
+            backgroundImage:
+              "linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)",
+            backgroundSize: "40px 40px",
+          }}
+        />
+        <div className="relative flex flex-col sm:flex-row items-center sm:items-start justify-center gap-5 flex-wrap lg:flex-nowrap">
         {trainers.map((t, i) => {
           const isOdd = i % 2 !== 0;
           return (
