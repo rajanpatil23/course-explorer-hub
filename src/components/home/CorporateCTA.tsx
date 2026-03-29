@@ -41,7 +41,7 @@ const CorporateCTA = () => (
           <div className="relative z-10">
             <p className="text-xs font-bold text-accent uppercase tracking-[0.2em] mb-3">Corporate Training</p>
             <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">
-              Upskill Your Entire Team
+              Level Up Your Team
             </h2>
             <p className="text-hero-foreground/70 mb-10 max-w-xl">
               Custom corporate training with volume pricing, dedicated account management, and progress dashboards.
