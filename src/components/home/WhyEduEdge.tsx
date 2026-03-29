@@ -42,24 +42,14 @@ const features = [
 /* Each card gets a unique corner/edge decoration anchored to its borders */
 const cardDecorations: Record<number, JSX.Element> = {
   0: (
-    <>
-      <div className="absolute top-0 right-0 w-20 h-20 overflow-hidden">
-        <div className="absolute top-0 right-0 w-32 h-32 rounded-full border-[3px] border-primary/12" />
-      </div>
-      <div className="absolute bottom-3 left-3 grid grid-cols-3 gap-1">
-        {Array.from({ length: 9 }).map((_, j) => (
-          <div key={j} className="w-1.5 h-1.5 rounded-full bg-primary/10" />
-        ))}
-      </div>
-    </>
+    <div className="absolute bottom-3 left-3 grid grid-cols-3 gap-1">
+      {Array.from({ length: 9 }).map((_, j) => (
+        <div key={j} className="w-1.5 h-1.5 rounded-full bg-primary/10" />
+      ))}
+    </div>
   ),
   1: (
-    <>
-      <div className="absolute top-0 left-0 w-16 h-16 overflow-hidden">
-        <div className="absolute -top-8 -left-8 w-24 h-24 rounded-full border-[3px] border-accent/12" />
-      </div>
-      <div className="absolute bottom-0 right-0 w-14 h-14 bg-accent/[0.04] rounded-tl-[2rem]" />
-    </>
+    <div className="absolute bottom-0 right-0 w-14 h-14 bg-accent/[0.04] rounded-tl-[2rem]" />
   ),
   2: (
     <>
@@ -68,20 +58,10 @@ const cardDecorations: Record<number, JSX.Element> = {
     </>
   ),
   3: (
-    <>
-      <div className="absolute top-0 right-0 w-20 h-14 bg-amber/[0.05] rounded-bl-[2rem]" />
-      <div className="absolute bottom-0 left-0 w-12 h-12 overflow-hidden">
-        <div className="absolute bottom-0 left-0 w-20 h-20 rounded-full border-[3px] border-amber/10" />
-      </div>
-    </>
+    <div className="absolute top-0 right-0 w-20 h-14 bg-accent/[0.05] rounded-bl-[2rem]" />
   ),
   4: (
-    <>
-      <div className="absolute bottom-0 right-0 w-16 h-16 overflow-hidden">
-        <div className="absolute bottom-0 right-0 w-28 h-28 rounded-full border-[3px] border-accent/12" />
-      </div>
-      <div className="absolute top-0 left-0 w-12 h-12 bg-accent/[0.04] rounded-br-[2rem]" />
-    </>
+    <div className="absolute top-0 left-0 w-12 h-12 bg-accent/[0.04] rounded-br-[2rem]" />
   ),
   5: (
     <>
