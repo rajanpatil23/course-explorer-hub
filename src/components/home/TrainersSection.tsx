@@ -38,7 +38,7 @@ const trainers = [
 ];
 
 const TrainersSection = () => (
-  <section className="py-16 md:py-24 bg-secondary overflow-hidden">
+  <section className="py-16 md:py-24 bg-secondary overflow-hidden rounded-t-[5rem] md:rounded-t-[8rem]">
     <div className="container relative">
       {/* Grid pattern behind entire content area with corner fades */}
       <div className="absolute inset-0 -inset-x-8 -inset-y-8">
