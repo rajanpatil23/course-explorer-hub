@@ -69,7 +69,7 @@ const PopularCourses = () => {
               </div>
 
               {/* Image with padding */}
-              <div className="relative overflow-hidden rounded-xl m-3 mb-0 h-48 flex-shrink-0">
+              <div className="relative overflow-hidden rounded-xl m-3 mb-0 h-40 flex-shrink-0">
                 <img
                   src={courseThumbnails[course.slug] || categoryThumbnails[course.category] || ""}
                   alt={course.name}
@@ -81,21 +81,21 @@ const PopularCourses = () => {
               </div>
 
               {/* Content */}
-              <div className="px-4 pt-4 pb-3 flex flex-col flex-1">
+              <div className="px-4 pt-4 pb-3 flex flex-col flex-1 gap-3">
                 {/* Category / type */}
-                <p className="text-xs text-primary font-medium mb-1.5">
+                <p className="text-xs text-primary font-medium">
                   {course.category.replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase())}
                 </p>
 
-                <h3 className="font-heading font-bold text-base text-foreground leading-snug mb-3 line-clamp-2 group-hover:text-primary transition-colors">
+                <h3 className="font-heading font-bold text-base text-foreground leading-snug line-clamp-2 group-hover:text-primary transition-colors">
                   {course.name}
                 </h3>
 
                 {/* Stats row */}
-                <div className="flex items-center justify-between text-xs text-muted-foreground mb-4">
+                <div className="flex items-center justify-between text-xs text-muted-foreground">
                   <div className="flex items-center gap-3">
-                    <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {course.duration}</span>
-                    <span className="flex items-center gap-1"><Users className="w-3.5 h-3.5" /> {course.learners}</span>
+                    <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5 text-primary" /> {course.duration}</span>
+                    <span className="flex items-center gap-1"><Users className="w-3.5 h-3.5 text-primary" /> {course.learners}</span>
                   </div>
                   <div className="flex items-center gap-1">
                     <Star className="w-3.5 h-3.5 fill-amber text-amber" />
