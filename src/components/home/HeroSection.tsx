@@ -46,13 +46,12 @@ const HeroSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left content */}
           <div>
-
             <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl xl:text-[3.25rem] font-extrabold leading-[1.12] mb-5">
-              Enhance Skills With Our Specialists —{" "}
-              <span className="text-gradient-primary">Anytime, Anywhere</span>
+              Enhance Skills With Our Specialists - <span className="text-gradient-primary">Anytime, Anywhere</span>
             </h1>
             <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-lg leading-relaxed">
-              Prepare to take the next step in your career with industry-recognized certification training. Begin your immersive learning journey with us.
+              Prepare to take the next step in your career with industry-recognized certification training. Begin your
+              immersive learning journey with us.
             </p>
 
             <div className="flex flex-wrap gap-3 mb-8">
@@ -107,7 +106,9 @@ const HeroSection = () => {
 
             {/* Trusted By - partner logos */}
             <div className="mt-6">
-              <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-2">Official Certification Partner</p>
+              <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-2">
+                Official Certification Partner
+              </p>
               <div className="relative overflow-hidden max-w-md">
                 <div className="flex animate-marquee items-center gap-10 w-max">
                   {[...partners, ...partners].map((p, i) => (
@@ -168,7 +169,6 @@ const HeroSection = () => {
             </div>
           </div>
         </div>
-
       </div>
     </section>
   );
