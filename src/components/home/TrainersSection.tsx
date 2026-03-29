@@ -113,6 +113,7 @@ const TrainersSection = () => (
             </div>
           );
         })}
+        </div>
       </div>
     </div>
   </section>
