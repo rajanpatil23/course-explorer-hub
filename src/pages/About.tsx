@@ -46,8 +46,7 @@ const whatSetsUsApart = [
 
 const About = () => {
   return (
-    <div className="min-h-screen">
-      <Navbar />
+    <div>
 
       {/* Hero */}
       <section className="bg-gradient-to-br from-primary/10 via-secondary to-background py-16 md:py-24">
