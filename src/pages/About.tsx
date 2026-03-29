@@ -1,5 +1,3 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import { Award, Users, Globe, BookOpen, Target, Shield } from "lucide-react";
 
 const stats = [
@@ -48,8 +46,7 @@ const whatSetsUsApart = [
 
 const About = () => {
   return (
-    <div className="min-h-screen">
-      <Navbar />
+    <div>
 
       {/* Hero */}
       <section className="bg-gradient-to-br from-primary/10 via-secondary to-background py-16 md:py-24">
@@ -151,7 +148,7 @@ const About = () => {
         </div>
       </section>
 
-      <Footer />
+      
     </div>
   );
 };

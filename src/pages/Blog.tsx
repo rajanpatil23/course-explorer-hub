@@ -1,7 +1,5 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import { blogPosts, blogCategories } from "@/data/blogs";
 import { ArrowRight, Clock, User, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -36,7 +34,6 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen">
-      <Navbar />
 
       {/* Hero */}
       <section className="bg-gradient-to-br from-primary/10 via-secondary to-background py-14 md:py-20">
@@ -177,7 +174,6 @@ const Blog = () => {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 };

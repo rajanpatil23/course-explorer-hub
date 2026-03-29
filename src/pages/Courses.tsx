@@ -1,10 +1,7 @@
 import { useState, useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Search } from "lucide-react";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import CourseCard from "@/components/courses/CourseCard";
-import MobileCTA from "@/components/courses/MobileCTA";
 import { categories } from "@/data/courses";
 
 const INITIAL_SHOW = 9;
@@ -57,7 +54,6 @@ const Courses = () => {
 
   return (
     <div className="min-h-screen pb-14 md:pb-0">
-      <Navbar />
 
       {/* Hero */}
       <section className="bg-hero text-hero-foreground py-14 md:py-20">
@@ -130,8 +126,6 @@ const Courses = () => {
         </div>
       </section>
 
-      <Footer />
-      <MobileCTA />
     </div>
   );
 };

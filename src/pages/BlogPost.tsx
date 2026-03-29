@@ -1,6 +1,4 @@
 import { useParams, Link, Navigate } from "react-router-dom";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import { findBlogBySlug, blogPosts } from "@/data/blogs";
 import { ArrowLeft, Clock, User, Calendar, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -17,7 +15,6 @@ const BlogPost = () => {
 
   return (
     <div className="min-h-screen">
-      <Navbar />
 
       {/* Breadcrumb */}
       <div className="bg-secondary/30 border-b border-border">
@@ -141,7 +138,6 @@ const BlogPost = () => {
         </div>
       </article>
 
-      <Footer />
     </div>
   );
 };
