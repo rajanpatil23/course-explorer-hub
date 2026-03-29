@@ -46,7 +46,7 @@ const TestimonialsSection = () => {
               >
                 {/* Decorative quote icon - circle, straddling top border */}
                 <div className="absolute -top-6 left-6 w-12 h-12 rounded-full bg-card flex items-center justify-center shadow-sm">
-                  <Quote className="w-6 h-6 text-border group-hover/card:text-primary transition-colors" />
+                  <Quote className="w-6 h-6 text-border fill-border group-hover/card:text-primary group-hover/card:fill-primary transition-colors" />
                 </div>
 
                 {/* Stars */}
