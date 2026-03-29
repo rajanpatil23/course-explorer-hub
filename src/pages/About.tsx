@@ -1,7 +1,7 @@
 import { Award, Users, Globe, BookOpen, Target, Shield, Rocket, GraduationCap, Lightbulb, CheckCircle2, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import aboutHero from "@/assets/about-hero.png";
+
 
 const stats = [
   { value: "10,000+", label: "Professionals Trained", icon: Users },
@@ -64,28 +64,23 @@ const About = () => {
           <div className="absolute bottom-10 right-20 w-96 h-96 bg-accent rounded-full blur-3xl" />
         </div>
         <div className="container relative z-10 py-16 md:py-24">
-          <div className="grid lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <p className="text-xs font-bold text-primary uppercase tracking-[0.2em] mb-3">About The EduEdge</p>
-              <h1 className="font-heading text-3xl md:text-5xl font-bold text-hero-foreground mb-5 leading-tight">
-                Empowering Careers Through{" "}
-                <span className="text-gradient-primary">World-Class</span>{" "}
-                Certification Training
-              </h1>
-              <p className="text-hero-foreground/70 leading-relaxed max-w-lg mb-8">
-                We bridge the gap between academic knowledge and industry requirements, delivering expert-led training that prepares you to excel.
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <Button asChild size="lg">
-                  <Link to="/courses">Explore Courses <ArrowRight className="ml-2 w-4 h-4" /></Link>
-                </Button>
-                <Button asChild variant="outline" size="lg" className="border-primary text-primary bg-primary/10 hover:bg-primary/20">
-                  <Link to="/contact">Talk to Us</Link>
-                </Button>
-              </div>
-            </div>
-            <div className="hidden lg:flex justify-center">
-              <img src={aboutHero} alt="Team collaborating" width={1024} height={768} className="w-full max-w-lg drop-shadow-2xl" />
+          <div className="text-center max-w-3xl mx-auto">
+            <p className="text-xs font-bold text-primary uppercase tracking-[0.2em] mb-3">About The EduEdge</p>
+            <h1 className="font-heading text-3xl md:text-5xl font-bold text-hero-foreground mb-5 leading-tight">
+              Empowering Careers Through{" "}
+              <span className="text-gradient-primary">World-Class</span>{" "}
+              Certification Training
+            </h1>
+            <p className="text-hero-foreground/70 leading-relaxed max-w-xl mx-auto mb-8">
+              We bridge the gap between academic knowledge and industry requirements, delivering expert-led training that prepares you to excel.
+            </p>
+            <div className="flex flex-wrap justify-center gap-3">
+              <Button asChild size="lg">
+                <Link to="/courses">Explore Courses <ArrowRight className="ml-2 w-4 h-4" /></Link>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="border-primary text-primary bg-primary/10 hover:bg-primary/20">
+                <Link to="/contact">Talk to Us</Link>
+              </Button>
             </div>
           </div>
         </div>
