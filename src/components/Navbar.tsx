@@ -59,15 +59,15 @@ const Navbar = () => {
             )}
           </div>
 
-          <Link to="/about" className="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded-md">
+          <NavLink to="/about" className={({ isActive }) => `px-3 py-2 text-sm font-medium transition-colors rounded-md ${isActive ? "text-primary font-bold" : "text-foreground hover:text-primary"}`}>
             About
-          </Link>
-          <Link to="/blog" className="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded-md">
+          </NavLink>
+          <NavLink to="/blog" className={({ isActive }) => `px-3 py-2 text-sm font-medium transition-colors rounded-md ${isActive ? "text-primary font-bold" : "text-foreground hover:text-primary"}`}>
             Blog
-          </Link>
-          <Link to="/contact" className="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded-md">
+          </NavLink>
+          <NavLink to="/contact" className={({ isActive }) => `px-3 py-2 text-sm font-medium transition-colors rounded-md ${isActive ? "text-primary font-bold" : "text-foreground hover:text-primary"}`}>
             Contact
-          </Link>
+          </NavLink>
         </nav>
 
         <div className="hidden md:flex items-center gap-2">
