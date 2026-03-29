@@ -54,9 +54,9 @@ const StatsStrip = () => {
   }, []);
 
   return (
-    <section ref={ref} className="bg-background">
-      <div className="container py-10 md:py-12">
-        <div className="max-w-5xl mx-auto border border-border rounded-2xl bg-card px-6 py-8 md:px-10 md:py-10">
+    <section ref={ref} className="relative z-20 -mt-12 md:-mt-14 mb-8">
+      <div className="container">
+        <div className="max-w-5xl mx-auto border border-border rounded-2xl bg-card px-6 py-8 md:px-10 md:py-10 shadow-lg">
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8">
             {stats.map((s, i) => (
               <StatItem key={i} stat={s} visible={visible} />
