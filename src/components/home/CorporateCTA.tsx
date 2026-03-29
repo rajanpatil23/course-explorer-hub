@@ -1,29 +1,29 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Building2, UserCheck, BarChart3 } from "lucide-react";
-import illustrationCta from "@/assets/illustration-cta.svg";
+import corporateCta from "@/assets/corporate-cta.png";
 
 const CorporateCTA = () => (
-  <section className="relative py-16 md:py-24 bg-hero text-hero-foreground overflow-hidden">
+  <section className="relative pt-16 md:pt-24 pb-0 bg-hero text-hero-foreground overflow-hidden">
     <div className="absolute inset-0 bg-gradient-to-br from-hero via-hero/95 to-primary/20" />
     <div className="absolute top-10 right-10 w-[400px] h-[400px] rounded-full bg-primary/10 blur-[120px]" />
 
     <div className="container relative z-10">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        {/* Left – Illustration with dot grid behind */}
-        <div className="relative flex justify-center lg:justify-start">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-end">
+        {/* Left – Image touching bottom */}
+        <div className="relative flex items-end justify-center lg:justify-start">
           {/* Dot grid behind & extending right of image */}
           <div
-            className="absolute -top-6 -left-4 w-[110%] h-[110%] pointer-events-none opacity-20"
+            className="absolute -top-6 -left-4 w-[110%] h-[90%] pointer-events-none opacity-20"
             style={{
               backgroundImage: "radial-gradient(circle, hsl(var(--primary)) 1.2px, transparent 1.2px)",
               backgroundSize: "18px 18px",
             }}
           />
           <img
-            src={illustrationCta}
-            alt="Corporate training illustration"
-            className="relative z-10 w-full max-w-sm md:max-w-md"
+            src={corporateCta}
+            alt="Corporate training – Upskill your team"
+            className="relative z-10 w-full max-w-sm md:max-w-md lg:max-w-lg object-contain"
           />
         </div>
 
