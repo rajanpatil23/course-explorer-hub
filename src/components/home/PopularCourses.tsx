@@ -64,8 +64,8 @@ const PopularCourses = () => {
               {/* Image with padding */}
               <div className="relative overflow-hidden rounded-xl m-4 mb-0 h-40 flex-shrink-0">
                 {/* Badge - inside image, top left */}
-                <span className={`absolute top-2 left-2 z-10 inline-flex items-center gap-1 ${badgeConfig[course.badge].bg} text-xs font-semibold px-2.5 py-1 rounded-full backdrop-blur-sm`}>
-                  <span>{badgeConfig[course.badge].icon}</span> {course.badge}
+                <span className={`absolute top-2 left-2 z-10 ${badgeConfig[course.badge]} text-[11px] font-bold px-3 py-1 rounded-md shadow-sm`}>
+                  {course.badge}
                 </span>
                 <img
                   src={courseThumbnails[course.slug] || categoryThumbnails[course.category] || ""}
