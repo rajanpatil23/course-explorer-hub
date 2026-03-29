@@ -34,7 +34,7 @@ const StatItem = ({ stat, visible }: { stat: typeof stats[0]; visible: boolean }
     <div className="text-center">
       <div className="font-heading text-3xl md:text-4xl font-extrabold text-primary">
         {(stat as any).decimals ? count.toFixed((stat as any).decimals) : Math.floor(count).toLocaleString()}
-        <span className="text-accent">{stat.suffix}</span>
+        <span className="text-primary">{stat.suffix}</span>
       </div>
       <p className="text-sm text-muted-foreground mt-1 font-medium">{stat.label}</p>
     </div>
