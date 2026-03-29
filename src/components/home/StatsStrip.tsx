@@ -54,7 +54,7 @@ const StatsStrip = () => {
   }, []);
 
   return (
-    <section ref={ref} className="relative z-20 -mt-20 md:-mt-24 mb-8">
+    <section ref={ref} className="relative z-20 -mt-20 md:-mt-24 mb-16 md:mb-24">
       <div className="container">
         <div className="max-w-5xl mx-auto border border-border rounded-2xl bg-card px-6 py-8 md:px-10 md:py-10 shadow-lg">
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8">
