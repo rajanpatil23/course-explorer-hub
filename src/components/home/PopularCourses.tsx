@@ -59,17 +59,14 @@ const PopularCourses = () => {
           {courses.map(course => (
             <div
               key={course.code}
-              className="group bg-card rounded-2xl border border-border overflow-visible hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col relative"
+              className="group bg-card rounded-2xl border border-border overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col relative"
             >
-              {/* Badge - top right, slightly outside */}
-              <div className="absolute -top-2 right-4 z-20">
-                <Badge className={`${badgeColors[course.badge]} text-xs font-semibold px-3 py-1 border-0 shadow-md`}>
-                  {course.badge}
-                </Badge>
-              </div>
-
               {/* Image with padding */}
               <div className="relative overflow-hidden rounded-xl m-3 mb-0 h-40 flex-shrink-0">
+                {/* Badge - inside image, top left */}
+                <span className={`absolute top-2 left-2 z-10 inline-flex items-center gap-1 ${badgeConfig[course.badge].bg} text-xs font-semibold px-2.5 py-1 rounded-full backdrop-blur-sm`}>
+                  <span>{badgeConfig[course.badge].icon}</span> {course.badge}
+                </span>
                 <img
                   src={courseThumbnails[course.slug] || categoryThumbnails[course.category] || ""}
                   alt={course.name}
