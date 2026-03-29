@@ -50,7 +50,7 @@ const TrainersSection = () => (
               key={t.name}
               className={`w-full sm:w-[48%] lg:w-[23%] ${isOdd ? "sm:mt-16" : ""}`}
             >
-              <div className="group relative bg-card rounded-[2.5rem] border border-border overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col">
+              <div className="group relative bg-card rounded-t-[2.5rem] rounded-b-[50%_20%] border border-border overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col">
                 {/* Top text area in white card */}
                 <div className="mx-3 mt-3 rounded-2xl bg-background p-5 text-center shadow-sm">
                   <h3 className="font-heading font-bold text-foreground text-lg leading-tight">
