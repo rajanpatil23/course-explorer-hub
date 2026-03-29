@@ -136,20 +136,21 @@ const HeroSection = () => {
         </div>
 
         {/* Partner logos */}
-        <div className="border-t border-border mt-14 pt-8 lg:max-w-[50%]">
+        <div className="border-t border-border mt-14 pt-8">
           <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-5">Trusted By</p>
-          <div className="flex flex-wrap items-center gap-6 md:gap-8">
-            {partners.map(p => (
-              <img
-                key={p.name}
-                src={p.logo}
-                alt={p.name}
-                className="h-12 sm:h-14 md:h-16 lg:h-[72px] w-auto hover:scale-105 transition-transform"
-                loading="lazy"
-              />
-            ))}
-            <span className="text-xs text-muted-foreground">and 6,000+ companies across the globe</span>
+          <div className="relative overflow-hidden lg:max-w-[50%]">
+            <div className="flex animate-marquee items-center gap-10 w-max">
+              {[...partners, ...partners].map((p, i) => (
+                <img
+                  key={`${p.name}-${i}`}
+                  src={p.logo}
+                  alt={p.name}
+                  className="h-12 sm:h-14 md:h-16 lg:h-[72px] w-auto flex-shrink-0"
+                />
+              ))}
+            </div>
           </div>
+          <p className="text-xs text-muted-foreground mt-4">and 6,000+ companies across the globe</p>
         </div>
       </div>
     </section>
