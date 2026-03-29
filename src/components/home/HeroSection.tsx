@@ -116,13 +116,6 @@ const HeroSection = () => {
                 width={1920}
                 height={1080}
               />
-
-              {/* Play button overlay */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center cursor-pointer hover:bg-primary transition-colors shadow-lg">
-                  <Play className="w-6 h-6 text-primary-foreground ml-1" />
-                </div>
-              </div>
             </div>
 
             {/* Decorative dots */}
