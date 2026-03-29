@@ -1,7 +1,7 @@
 import { Award, Users, Globe, BookOpen, Target, Shield, Rocket, GraduationCap, Lightbulb, CheckCircle2, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import aboutHero from "@/assets/about-hero.png";
+
 
 const stats = [
   { value: "10,000+", label: "Professionals Trained", icon: Users },
