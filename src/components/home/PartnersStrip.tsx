@@ -26,7 +26,7 @@ const PartnersStrip = () => (
             key={l.name}
             src={l.src}
             alt={l.name}
-            className="h-8 md:h-12 w-auto grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+            className={`${l.className} grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300`}
             loading="lazy"
           />
         ))}
