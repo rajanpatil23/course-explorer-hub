@@ -1,27 +1,32 @@
+import trainerRajiv from "@/assets/trainers/trainer-rajiv.png";
+import trainerMeera from "@/assets/trainers/trainer-meera.png";
+import trainerVikram from "@/assets/trainers/trainer-vikram.png";
+import trainerAnanya from "@/assets/trainers/trainer-ananya.png";
+
 const trainers = [
   {
     name: "Rajiv Sharma",
-    certs: "PMP, PMI-ACP, CSM",
-    bio: "18+ years in project management across banking & IT. Former PM Director at Cognizant.",
-    color: "bg-primary",
+    title: "Project Management Guru",
+    workedWith: ["Cognizant", "Infosys"],
+    image: trainerRajiv,
   },
   {
     name: "Meera Nair",
-    certs: "AWS SA-Pro, Azure Solutions Architect",
-    bio: "15+ years in cloud architecture. Led cloud migration for Fortune 500 companies.",
-    color: "bg-accent",
+    title: "Cloud Architecture Expert",
+    workedWith: ["TCS", "Wipro"],
+    image: trainerMeera,
   },
   {
     name: "Vikram Patel",
-    certs: "CISSP, CISM, CompTIA SecurityX",
-    bio: "20+ years in cybersecurity. Former CISO at a leading fintech. DoD 8570 specialist.",
-    color: "bg-teal-dark",
+    title: "Cyber Security Consultant",
+    workedWith: ["Deloitte", "HCLTech"],
+    image: trainerVikram,
   },
   {
     name: "Ananya Rao",
-    certs: "SPC 6.0, SAFe SPCT, CSP-SM",
-    bio: "16+ years in agile transformation. Implemented SAFe at 12+ enterprises across 3 continents.",
-    color: "bg-primary",
+    title: "Agile Transformation Lead",
+    workedWith: ["Accenture", "Capgemini"],
+    image: trainerAnanya,
   },
 ];
 
@@ -37,19 +42,56 @@ const TrainersSection = () => (
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
-        {trainers.map((t) => {
-          const initials = t.name.split(" ").map(w => w[0]).join("");
-          return (
-            <div key={t.name} className="bg-card rounded-xl border border-border p-6 text-center hover:shadow-lg transition-shadow group">
-              <div className={`${t.color} w-20 h-20 rounded-full mx-auto mb-5 flex items-center justify-center text-primary-foreground font-heading font-bold text-2xl`}>
-                {initials}
+        {trainers.map((t, i) => (
+          <div
+            key={t.name}
+            className="group relative bg-card rounded-[2rem] border border-border overflow-hidden hover:shadow-xl transition-shadow duration-300"
+          >
+            {/* Top content area */}
+            <div className="px-6 pt-7 pb-4 text-center">
+              <h3 className="font-heading font-bold text-foreground text-lg leading-tight">
+                {t.name}
+              </h3>
+              <p className="text-primary text-sm font-medium mt-1">{t.title}</p>
+
+              <p className="text-xs text-muted-foreground mt-4 mb-2 font-semibold uppercase tracking-wider">
+                Has worked with
+              </p>
+              <div className="flex items-center justify-center gap-3">
+                {t.workedWith.map((company) => (
+                  <span
+                    key={company}
+                    className="text-xs font-bold text-foreground/70 bg-secondary px-3 py-1 rounded-full"
+                  >
+                    {company}
+                  </span>
+                ))}
               </div>
-              <h3 className="font-heading font-bold text-foreground text-lg">{t.name}</h3>
-              <p className="text-xs text-primary font-semibold mt-1 mb-3">{t.certs}</p>
-              <p className="text-sm text-muted-foreground leading-relaxed">{t.bio}</p>
             </div>
-          );
-        })}
+
+            {/* Photo area with gradient fade */}
+            <div className="relative mt-2 h-56 flex items-end justify-center">
+              {/* Gradient background behind photo */}
+              <div
+                className="absolute inset-0 rounded-t-[50%_30%]"
+                style={{
+                  background:
+                    i % 2 === 0
+                      ? "linear-gradient(to bottom, hsl(var(--secondary)), hsl(48 90% 85%), hsl(var(--primary) / 0.35))"
+                      : "linear-gradient(to bottom, hsl(var(--secondary)), hsl(48 90% 85%), hsl(170 50% 70% / 0.5))",
+                }}
+              />
+              <img
+                src={t.image}
+                alt={t.name}
+                className="relative z-10 w-44 h-52 object-cover object-top"
+                loading="lazy"
+                width={512}
+                height={640}
+              />
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   </section>
