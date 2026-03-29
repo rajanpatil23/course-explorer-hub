@@ -39,26 +39,31 @@ const trainers = [
 
 const TrainersSection = () => (
   <section className="py-16 md:py-24 bg-secondary overflow-hidden">
-    <div className="container">
-      <p className="text-center text-xs font-bold text-primary uppercase tracking-[0.2em] mb-2">Our Trainers</p>
-      <h2 className="font-heading text-3xl md:text-4xl font-bold text-center text-foreground mb-4">
+    <div className="container relative">
+      {/* Grid pattern behind entire content area with corner fades */}
+      <div className="absolute inset-0 -inset-x-8 -inset-y-8">
+        <div
+          className="w-full h-full opacity-[0.07]"
+          style={{
+            backgroundImage:
+              "linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)",
+            backgroundSize: "40px 40px",
+            maskImage: "radial-gradient(ellipse 70% 60% at center, black 30%, transparent 70%)",
+            WebkitMaskImage: "radial-gradient(ellipse 70% 60% at center, black 30%, transparent 70%)",
+          }}
+        />
+      </div>
+
+      <p className="relative text-center text-xs font-bold text-primary uppercase tracking-[0.2em] mb-2">Our Trainers</p>
+      <h2 className="relative font-heading text-3xl md:text-4xl font-bold text-center text-foreground mb-4">
         Learn from Industry-Leading Experts
       </h2>
-      <p className="text-center text-muted-foreground mb-14 max-w-2xl mx-auto">
+      <p className="relative text-center text-muted-foreground mb-14 max-w-2xl mx-auto">
         Our trainers hold active certifications and bring 15+ years of real-world experience to every session.
       </p>
 
       {/* Staggered grid — odd cards pushed down */}
       <div className="relative max-w-6xl mx-auto">
-        {/* Grid pattern behind cards only */}
-        <div
-          className="absolute inset-0 -inset-x-6 -inset-y-6 opacity-[0.08]"
-          style={{
-            backgroundImage:
-              "linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)",
-            backgroundSize: "40px 40px",
-          }}
-        />
         <div className="relative flex flex-col sm:flex-row items-center sm:items-start justify-center gap-5 flex-wrap lg:flex-nowrap">
         {trainers.map((t, i) => {
           const isOdd = i % 2 !== 0;
