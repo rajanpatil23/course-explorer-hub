@@ -136,9 +136,9 @@ const HeroSection = () => {
         </div>
 
         {/* Partner logos */}
-        <div className="border-t border-border mt-14 pt-8">
+        <div className="border-t border-border mt-14 pt-8 lg:max-w-[50%]">
           <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-5">Trusted By</p>
-          <div className="flex flex-wrap items-center gap-8 md:gap-12">
+          <div className="flex flex-wrap items-center gap-6 md:gap-8">
             {partners.map(p => (
               <img
                 key={p.name}
