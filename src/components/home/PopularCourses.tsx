@@ -61,7 +61,7 @@ const PopularCourses = () => {
               to={`/courses/${course.slug}`}
               className="group bg-card rounded-2xl border border-border overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300 aspect-square flex flex-col"
             >
-              <div className="relative overflow-hidden rounded-xl m-3 h-40 flex-shrink-0">
+              <div className="relative overflow-hidden rounded-xl m-3 h-48 flex-shrink-0">
                 <img
                   src={courseThumbnails[course.slug] || categoryThumbnails[course.category] || ""}
                   alt={course.name}
