@@ -79,11 +79,11 @@ const HeroSection = () => {
                   ))}
                 </div>
                 <div>
-                  <p className="text-xs font-medium text-hero-foreground/50">Rated by Learners</p>
+                  <p className="text-xs font-medium text-muted-foreground">Rated by Learners</p>
                   <div className="flex items-center gap-1">
                     <Star className="w-3.5 h-3.5 fill-amber text-amber" />
-                    <span className="text-sm font-bold">4.9/5</span>
-                    <span className="text-xs text-hero-foreground/50">· 10,000+ Reviews</span>
+                    <span className="text-sm font-bold text-foreground">4.9/5</span>
+                    <span className="text-xs text-muted-foreground">· 10,000+ Reviews</span>
                   </div>
                 </div>
               </div>
