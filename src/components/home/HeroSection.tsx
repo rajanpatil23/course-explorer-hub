@@ -42,7 +42,7 @@ const HeroSection = () => {
       <div className="absolute top-20 right-20 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[180px] z-[2]" />
       <div className="absolute bottom-0 left-10 w-[400px] h-[400px] rounded-full bg-accent/5 blur-[120px] z-[2]" />
 
-      <div className="container relative z-10 py-16 md:py-20 lg:py-24">
+      <div className="container relative z-10 py-16 md:py-20 lg:py-24 pb-28 md:pb-32 lg:pb-36">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left content */}
           <div>
