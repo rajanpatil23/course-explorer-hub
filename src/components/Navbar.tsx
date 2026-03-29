@@ -26,12 +26,12 @@ const Navbar = () => {
             onMouseEnter={() => setDropdownOpen(true)}
             onMouseLeave={() => setDropdownOpen(false)}
           >
-            <Link
+            <NavLink
               to="/courses"
-              className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded-md"
+              className={({ isActive }) => `flex items-center gap-1 px-3 py-2 text-sm font-medium transition-colors rounded-md ${isActive ? "text-primary font-bold" : "text-foreground hover:text-primary"}`}
             >
               Courses <ChevronDown className={`w-3.5 h-3.5 transition-transform ${dropdownOpen ? "rotate-180" : ""}`} />
-            </Link>
+            </NavLink>
             {dropdownOpen && (
               <div className="absolute top-full left-0 pt-1 w-64">
                 <div className="bg-card border border-border rounded-lg shadow-lg py-2">
