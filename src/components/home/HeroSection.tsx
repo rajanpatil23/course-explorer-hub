@@ -92,7 +92,7 @@ const HeroSection = () => {
 
           {/* Right - Hero image card */}
           <div className="relative hidden lg:block">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-hero-foreground/10">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border">
               <img
                 src={heroHome}
                 alt="Professional certification training at The EduEdge"
