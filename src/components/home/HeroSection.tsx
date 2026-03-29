@@ -100,7 +100,7 @@ const HeroSection = () => {
                 width={1920}
                 height={1080}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-hero/60 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-transparent to-transparent" />
 
               {/* Play button overlay */}
               <div className="absolute inset-0 flex items-center justify-center">
