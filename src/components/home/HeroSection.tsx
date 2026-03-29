@@ -24,7 +24,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative bg-muted/40 text-foreground overflow-hidden rounded-b-3xl md:rounded-b-[3rem] shadow-sm">
+    <section className="relative bg-muted/40 text-foreground overflow-hidden rounded-b-[3rem] md:rounded-b-[5rem] shadow-sm">
       {/* Grid pattern */}
       <div
         className="absolute inset-0 opacity-[0.07]"
