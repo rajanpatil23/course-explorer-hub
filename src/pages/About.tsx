@@ -79,7 +79,7 @@ const About = () => {
                 <Button asChild size="lg">
                   <Link to="/courses">Explore Courses <ArrowRight className="ml-2 w-4 h-4" /></Link>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="border-hero-foreground/20 text-hero-foreground hover:bg-hero-foreground/10">
+                <Button asChild variant="outline" size="lg" className="border-primary text-primary bg-primary/10 hover:bg-primary/20">
                   <Link to="/contact">Talk to Us</Link>
                 </Button>
               </div>
