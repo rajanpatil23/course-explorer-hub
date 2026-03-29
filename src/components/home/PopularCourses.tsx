@@ -1,7 +1,8 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
-import { Star, Clock, Users, ArrowRight } from "lucide-react";
+import { Star, Clock, Users, ArrowRight, ChevronRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { categories, type BadgeType } from "@/data/courses";
 import courseThumbnails from "@/components/courses/courseThumbnails";
 import categoryThumbnails from "@/components/courses/categoryThumbnails";
