@@ -88,21 +88,23 @@ const PopularCourses = () => {
                   {course.name}
                 </h3>
 
-                {/* Price + stats on left, rating on right */}
+                {/* Stats on left, rating + price on right */}
                 <div className="flex items-start justify-between">
                   <div className="flex flex-col gap-1.5">
+                    <span className="flex items-center gap-1 text-xs text-muted-foreground"><Clock className="w-3.5 h-3.5 text-primary" /> {course.duration.includes("|") ? course.duration.split("|")[1].trim() : course.duration}</span>
+                    <span className="flex items-center gap-1 text-xs text-muted-foreground"><Users className="w-3.5 h-3.5 text-primary" /> {course.learners}</span>
+                  </div>
+                  <div className="flex flex-col items-end gap-1">
+                    <div className="flex items-center gap-0.5">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-3.5 h-3.5 fill-amber text-amber" />
+                      ))}
+                      <span className="font-semibold text-foreground text-xs ml-1">5.0</span>
+                    </div>
                     <div className="flex items-center gap-1.5">
                       <span className="line-through text-muted-foreground text-xs">₹{course.originalPrice}</span>
                       <span className="font-heading font-bold text-xl text-foreground">₹{course.price}</span>
                     </div>
-                    <span className="flex items-center gap-1 text-xs text-muted-foreground"><Clock className="w-3.5 h-3.5 text-primary" /> {course.duration.includes("|") ? course.duration.split("|")[1].trim() : course.duration}</span>
-                    <span className="flex items-center gap-1 text-xs text-muted-foreground"><Users className="w-3.5 h-3.5 text-primary" /> {course.learners}</span>
-                  </div>
-                  <div className="flex items-center gap-0.5">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-3.5 h-3.5 fill-amber text-amber" />
-                    ))}
-                    <span className="font-semibold text-foreground text-xs ml-1">5.0</span>
                   </div>
                 </div>
 
