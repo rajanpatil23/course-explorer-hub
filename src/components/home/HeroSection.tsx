@@ -72,7 +72,7 @@ const HeroSection = () => {
                   {["R", "M", "V", "A"].map((initial, i) => (
                     <div
                       key={i}
-                      className="w-8 h-8 rounded-full bg-primary/70 border-2 border-hero flex items-center justify-center text-xs font-bold text-primary-foreground"
+                      className="w-8 h-8 rounded-full bg-primary/70 border-2 border-background flex items-center justify-center text-xs font-bold text-primary-foreground"
                     >
                       {initial}
                     </div>
