@@ -76,9 +76,9 @@ const BlogHeroCarousel = () => {
                 </div>
               </div>
 
-              {/* Right — Image inset */}
-              <div className="p-4 md:p-6 hidden md:block">
-                <div className="relative w-full h-full rounded-xl overflow-hidden">
+              {/* Right — Square Image */}
+              <div className="p-4 md:p-6 hidden md:flex items-center justify-center">
+                <div className="relative w-full aspect-square rounded-xl overflow-hidden">
                   {image ? (
                     <img
                       src={image}
