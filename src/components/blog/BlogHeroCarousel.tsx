@@ -39,7 +39,7 @@ const BlogHeroCarousel = () => {
           >
             <div className="grid md:grid-cols-2 gap-0 items-stretch">
               {/* Left — Content */}
-              <div className="flex flex-col justify-between p-6 md:p-10 lg:p-12">
+              <div className="flex flex-col justify-between p-6 md:p-10 lg:p-12 md:py-14 lg:py-16">
                 <div className="flex items-center justify-between mb-5">
                   <span className="text-[11px] font-bold uppercase tracking-wider text-primary-foreground bg-primary px-3 py-1 rounded-md">
                     {post.category}
