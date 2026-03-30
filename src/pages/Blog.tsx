@@ -91,10 +91,15 @@ const Blog = () => {
                     )}
                   </div>
                   <div className="p-5">
-                    <span className="text-[10px] font-semibold text-primary bg-primary/10 px-2 py-0.5 rounded-full">
-                      {post.category}
-                    </span>
-                    <h3 className="font-heading font-bold text-foreground text-sm mt-3 mb-2 leading-snug line-clamp-2 group-hover:text-primary transition-colors">
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-[10px] font-semibold text-primary bg-primary/10 px-2 py-0.5 rounded-full">
+                        {post.category}
+                      </span>
+                      <span className="text-[10px] text-muted-foreground">
+                        {new Date(post.date).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })}
+                      </span>
+                    </div>
+                    <h3 className="font-heading font-bold text-foreground text-sm mb-2 leading-snug line-clamp-2 group-hover:text-primary transition-colors">
                       {post.title}
                     </h3>
                     <p className="text-xs text-muted-foreground line-clamp-2 mb-3">{post.excerpt}</p>
@@ -106,9 +111,6 @@ const Blog = () => {
                         <Clock className="w-3 h-3" /> {post.readTime}
                       </span>
                     </div>
-                    <p className="text-[10px] text-muted-foreground mt-1">
-                      {new Date(post.date).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })}
-                    </p>
                   </div>
                 </Link>
               ))}
