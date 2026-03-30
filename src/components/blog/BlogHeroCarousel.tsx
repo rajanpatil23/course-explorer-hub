@@ -36,8 +36,8 @@ const BlogHeroCarousel = () => {
           <Link to={`/blog/${post.slug}`} className="group block">
             <div className="grid md:grid-cols-[1fr,1fr] gap-0">
               {/* Left — Content */}
-              <div className="flex flex-col p-6 md:p-8 lg:p-10">
-                <div className="flex items-center justify-between mb-3">
+              <div className="flex flex-col p-5 md:p-6 lg:p-8">
+                <div className="flex items-center justify-between mb-2">
                   <span className="text-[11px] font-bold uppercase tracking-wider text-primary-foreground bg-primary px-3 py-1 rounded-md">
                     {post.category}
                   </span>
@@ -50,15 +50,15 @@ const BlogHeroCarousel = () => {
                   </span>
                 </div>
 
-                <h2 className="font-heading text-2xl sm:text-3xl md:text-[1.75rem] lg:text-[2rem] xl:text-[2.25rem] font-bold text-foreground leading-[1.15] mb-3 group-hover:text-primary transition-colors line-clamp-4">
+                <h2 className="font-heading text-2xl sm:text-3xl md:text-[1.75rem] lg:text-[2rem] xl:text-[2.25rem] font-bold text-foreground leading-[1.15] mb-2 group-hover:text-primary transition-colors line-clamp-4">
                   {post.title}
                 </h2>
 
-                <p className="text-muted-foreground text-sm md:text-[15px] leading-relaxed line-clamp-3 mb-3">
+                <p className="text-muted-foreground text-sm md:text-[15px] leading-relaxed line-clamp-3 mb-2">
                   {post.excerpt}
                 </p>
 
-                <p className="text-xs text-muted-foreground mb-8">{post.readTime}</p>
+                <p className="text-xs text-muted-foreground mb-4">{post.readTime}</p>
 
                 <div className="flex items-center gap-3 mt-auto">
                   <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-sm shrink-0">
@@ -72,7 +72,7 @@ const BlogHeroCarousel = () => {
               </div>
 
               {/* Right — Image */}
-              <div className="hidden md:flex items-center p-5 md:p-8 lg:p-10 md:pl-0">
+              <div className="hidden md:flex items-center p-5 md:py-6 md:pr-6 lg:py-8 lg:pr-8 md:pl-0">
                 <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden">
                   {image ? (
                     <img
@@ -93,7 +93,7 @@ const BlogHeroCarousel = () => {
           </Link>
 
           {/* Navigation */}
-          <div className="flex items-center justify-center gap-3 px-6 pb-6 pt-0">
+          <div className="flex items-center justify-center gap-3 px-6 pb-4 pt-0">
             <button
               onClick={prev}
               aria-label="Previous"
