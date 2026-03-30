@@ -76,7 +76,7 @@ const Blog = () => {
               </div>
             </div>
           ) : (
-            <div className="flex items-center gap-2 mb-8">
+            <div className="flex items-stretch gap-3 mb-8">
               <div className="flex-1 bg-card border border-border rounded-xl px-3 py-2 overflow-x-auto scrollbar-thin">
                 <div className="flex items-center gap-2 min-w-max">
                   {blogCategories.map((cat) => (
@@ -96,7 +96,7 @@ const Blog = () => {
               </div>
               <button
                 onClick={() => setShowSearch(true)}
-                className="self-stretch w-12 rounded-xl border border-border flex items-center justify-center hover:border-primary/40 transition-colors shrink-0"
+                className="aspect-square self-stretch rounded-xl border border-border flex items-center justify-center hover:border-primary/40 transition-colors shrink-0"
               >
                 <Search className="w-4 h-4 text-muted-foreground" />
               </button>
