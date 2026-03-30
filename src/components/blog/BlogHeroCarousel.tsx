@@ -34,37 +34,33 @@ const BlogHeroCarousel = () => {
       <div className="container">
         <div className="bg-secondary/50 rounded-2xl md:rounded-3xl overflow-hidden">
           <Link to={`/blog/${post.slug}`} className="group block">
-            <div className="grid md:grid-cols-2 gap-0 items-stretch">
+            <div className="grid md:grid-cols-[1fr,1fr] gap-0">
               {/* Left — Content */}
-              <div className="flex flex-col justify-between p-6 md:p-10 lg:p-12 md:py-10 lg:py-12">
-                {/* Top group: badge + title + description */}
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-primary-foreground bg-primary px-3 py-1 rounded-md">
-                      {post.category}
-                    </span>
-                    <span className="text-xs text-muted-foreground">
-                      {new Date(post.date).toLocaleDateString("en-US", {
-                        year: "numeric",
-                        month: "long",
-                        day: "numeric",
-                      })}
-                    </span>
-                  </div>
-
-                  <h2 className="font-heading text-2xl sm:text-3xl md:text-[1.75rem] lg:text-[2rem] xl:text-[2.25rem] font-bold text-foreground leading-[1.2] mb-4 group-hover:text-primary transition-colors line-clamp-4">
-                    {post.title}
-                  </h2>
-
-                  <p className="text-muted-foreground text-sm md:text-[15px] leading-relaxed line-clamp-3 mb-4">
-                    {post.excerpt}
-                  </p>
-
-                  <p className="text-xs text-muted-foreground">{post.readTime}</p>
+              <div className="flex flex-col p-6 md:p-8 lg:p-10">
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-primary-foreground bg-primary px-3 py-1 rounded-md">
+                    {post.category}
+                  </span>
+                  <span className="text-xs text-muted-foreground">
+                    {new Date(post.date).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </span>
                 </div>
 
-                {/* Bottom group: author */}
-                <div className="flex items-center gap-3 mt-6">
+                <h2 className="font-heading text-2xl sm:text-3xl md:text-[1.75rem] lg:text-[2rem] xl:text-[2.25rem] font-bold text-foreground leading-[1.15] mb-3 group-hover:text-primary transition-colors line-clamp-4">
+                  {post.title}
+                </h2>
+
+                <p className="text-muted-foreground text-sm md:text-[15px] leading-relaxed line-clamp-3 mb-3">
+                  {post.excerpt}
+                </p>
+
+                <p className="text-xs text-muted-foreground mb-8">{post.readTime}</p>
+
+                <div className="flex items-center gap-3 mt-auto">
                   <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-sm shrink-0">
                     {post.author.split(" ").map((n) => n[0]).join("")}
                   </div>
@@ -76,8 +72,8 @@ const BlogHeroCarousel = () => {
               </div>
 
               {/* Right — Image */}
-              <div className="hidden md:flex items-center p-5 md:py-10 md:pr-10 lg:py-12 lg:pr-12 md:pl-0">
-                <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden">
+              <div className="hidden md:flex items-center p-4 md:p-6 lg:p-8 md:pl-0">
+                <div className="relative w-full aspect-square rounded-xl overflow-hidden">
                   {image ? (
                     <img
                       src={image}
