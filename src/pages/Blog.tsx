@@ -96,7 +96,7 @@ const Blog = () => {
               </div>
               <button
                 onClick={() => setShowSearch(true)}
-                className="w-10 h-10 rounded-xl border border-border flex items-center justify-center hover:border-primary/40 transition-colors shrink-0"
+                className="self-stretch w-12 rounded-xl border border-border flex items-center justify-center hover:border-primary/40 transition-colors shrink-0"
               >
                 <Search className="w-4 h-4 text-muted-foreground" />
               </button>
