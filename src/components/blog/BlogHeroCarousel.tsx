@@ -93,7 +93,7 @@ const BlogHeroCarousel = () => {
           </Link>
 
           {/* Navigation */}
-          <div className="flex items-center justify-center gap-3 px-6 pb-6 pt-0">
+          <div className="flex items-center justify-center gap-3 px-6 pb-4 pt-0">
             <button
               onClick={prev}
               aria-label="Previous"
