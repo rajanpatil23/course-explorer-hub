@@ -1,9 +1,11 @@
+import { useState } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { findBlogBySlug, blogPosts } from "@/data/blogs";
 import { blogImages } from "@/data/blogImages";
-import { ArrowLeft, Clock, Calendar, ArrowRight, Download } from "lucide-react";
+import { ArrowLeft, Clock, Calendar, ArrowRight, Download, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 
 const authorDetails: Record<string, { role: string }> = {
   "Rajiv Sharma": { role: "Project Management Expert" },
