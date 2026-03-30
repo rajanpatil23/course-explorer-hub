@@ -228,9 +228,15 @@ const BlogPost = () => {
                   </DialogDescription>
                 </DialogHeader>
                 <div className="space-y-4 pt-2">
-                  <Input placeholder="Your name" className="rounded-lg" />
-                  <Input placeholder="Email address" type="email" className="rounded-lg" />
-                  <Button className="w-full rounded-lg">Send me the guide</Button>
+                  <div>
+                    <Input placeholder="Your name" className="rounded-lg" value={guideName} onChange={(e) => { setGuideName(e.target.value); setGuideErrors((p) => ({ ...p, name: undefined })); }} />
+                    {guideErrors.name && <p className="text-[11px] text-destructive mt-1">{guideErrors.name}</p>}
+                  </div>
+                  <div>
+                    <Input placeholder="Email address" type="email" className="rounded-lg" value={guideEmail} onChange={(e) => { setGuideEmail(e.target.value); setGuideErrors((p) => ({ ...p, email: undefined })); }} />
+                    {guideErrors.email && <p className="text-[11px] text-destructive mt-1">{guideErrors.email}</p>}
+                  </div>
+                  <Button className="w-full rounded-lg" onClick={handleGuideSubmit}>Send me the guide</Button>
                 </div>
               </DialogContent>
             </Dialog>
