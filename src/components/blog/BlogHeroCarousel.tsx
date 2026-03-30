@@ -129,6 +129,7 @@ const BlogHeroCarousel = () => {
             </button>
           </div>
         </div>
+      </div>
     </section>
   );
 };
