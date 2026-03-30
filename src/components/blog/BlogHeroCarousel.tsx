@@ -97,8 +97,8 @@ const BlogHeroCarousel = () => {
             </div>
           </Link>
 
-          {/* Navigation — inside card */}
-          <div className="flex items-center justify-center gap-3 px-6 py-4 border-t border-border">
+          {/* Navigation — bottom of card, no divider */}
+          <div className="flex items-center justify-center gap-3 px-6 pb-5 pt-1">
             <button
               onClick={prev}
               aria-label="Previous"
