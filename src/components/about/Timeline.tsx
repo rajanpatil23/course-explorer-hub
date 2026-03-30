@@ -3,6 +3,7 @@ const timeline = [
   { year: "2020", title: "Went Digital", desc: "Launched fully online live training, reaching professionals in 15+ countries." },
   { year: "2022", title: "Expanded Portfolio", desc: "Added AWS, Azure, CompTIA, and SAFe certifications to our catalog." },
   { year: "2024", title: "10K+ Milestone", desc: "Crossed 10,000 trained professionals with a 98% first-attempt pass rate." },
+  { year: "2025", title: "AI & Corporate Growth", desc: "Launched AI-powered learning paths and scaled corporate training to 50+ enterprise clients." },
 ];
 
 const Timeline = () => (
