@@ -11,12 +11,12 @@ const FAQSection = () => (
     <div className="container">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-start">
         {/* Left – Eyebrow, Title, Description */}
-        <div className="lg:sticky lg:top-24">
+        <div className="lg:sticky lg:top-24 text-center lg:text-left">
           <p className="text-[10px] md:text-xs font-bold text-primary uppercase tracking-[0.2em] mb-2">FAQ</p>
           <h2 className="font-heading text-2xl md:text-4xl font-bold text-foreground mb-3 md:mb-4">
             Frequently Asked Questions
           </h2>
-          <p className="text-sm md:text-base text-muted-foreground leading-relaxed max-w-md">
+          <p className="text-sm md:text-base text-muted-foreground leading-relaxed max-w-md mx-auto lg:mx-0">
             Got questions? We've got answers. Find everything you need to know about our courses, certifications, and training programs.
           </p>
         </div>
