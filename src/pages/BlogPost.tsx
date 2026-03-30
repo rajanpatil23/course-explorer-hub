@@ -1,8 +1,16 @@
 import { useParams, Link, Navigate } from "react-router-dom";
 import { findBlogBySlug, blogPosts } from "@/data/blogs";
 import { blogImages } from "@/data/blogImages";
-import { ArrowLeft, Clock, User, Calendar, ArrowRight } from "lucide-react";
+import { ArrowLeft, Clock, Calendar, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+
+const authorDetails: Record<string, { role: string }> = {
+  "Rajiv Sharma": { role: "Project Management Expert" },
+  "Vikram Patel": { role: "Cybersecurity Specialist" },
+  "Meera Nair": { role: "Cloud Solutions Architect" },
+  "Ananya Rao": { role: "Agile Coach" },
+  "Chaitanya Gaikwad": { role: "Data Analyst" },
+};
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
