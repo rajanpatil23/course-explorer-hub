@@ -58,7 +58,7 @@ const BlogHeroCarousel = () => {
                     {post.title}
                   </h2>
 
-                  <p className="text-muted-foreground text-sm md:text-[15px] leading-relaxed line-clamp-3">
+                  <p className="text-muted-foreground text-sm md:text-[15px] leading-relaxed line-clamp-4">
                     {post.excerpt}
                   </p>
                 </div>
