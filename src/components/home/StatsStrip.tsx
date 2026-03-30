@@ -36,7 +36,7 @@ const StatItem = ({ stat, visible }: { stat: typeof stats[0]; visible: boolean }
         {(stat as any).decimals ? count.toFixed((stat as any).decimals) : Math.floor(count).toLocaleString()}
         <span className="text-primary-foreground">{stat.suffix}</span>
       </div>
-      <p className="text-[10px] md:text-sm text-muted-foreground mt-1 font-medium">{stat.label}</p>
+      <p className="text-[10px] md:text-sm text-primary-foreground/70 mt-1 font-medium">{stat.label}</p>
     </div>
   );
 };
