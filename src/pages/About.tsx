@@ -6,7 +6,7 @@ import WhatSetsUsApart from "@/components/about/WhatSetsUsApart";
 
 import TrainersSection from "@/components/home/TrainersSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
-import CorporateCTA from "@/components/home/CorporateCTA";
+
 
 const About = () => (
   <>
@@ -18,7 +18,7 @@ const About = () => (
     
     <TrainersSection />
     <TestimonialsSection />
-    <CorporateCTA />
+    
     <div className="h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
   </>
 );
