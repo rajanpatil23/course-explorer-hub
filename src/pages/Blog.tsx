@@ -59,17 +59,17 @@ const Blog = () => {
                 <ArrowLeft className="w-4 h-4" /> Back to Categories
               </button>
               <div className="relative flex-1 max-w-xl mx-auto">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                 <Input
                   placeholder="What do you want to learn today?"
-                  className="pl-9 pr-24 rounded-full border-border"
+                  className="pl-10 pr-28 rounded-full border-border h-12"
                   value={searchQuery}
                   autoFocus
                   onChange={(e) => { setSearchQuery(e.target.value); setCurrentPage(1); }}
                 />
                 <Button
                   size="sm"
-                  className="absolute right-1.5 top-1/2 -translate-y-1/2 rounded-full px-4"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full px-5 py-2"
                 >
                   Search
                 </Button>
