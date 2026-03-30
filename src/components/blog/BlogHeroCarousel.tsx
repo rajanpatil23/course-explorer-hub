@@ -54,7 +54,7 @@ const BlogHeroCarousel = () => {
                     </span>
                   </div>
 
-                  <h2 className="font-heading text-xl sm:text-2xl md:text-3xl lg:text-[2.1rem] font-bold text-foreground leading-tight mb-4 group-hover:text-primary transition-colors line-clamp-2 min-h-[2.6em] md:min-h-[2.6em]">
+                  <h2 className="font-heading text-xl sm:text-2xl md:text-3xl lg:text-[2.1rem] font-bold text-foreground leading-tight mb-4 group-hover:text-primary transition-colors line-clamp-3 min-h-[3.9em]">
                     {post.title}
                   </h2>
 
@@ -76,9 +76,9 @@ const BlogHeroCarousel = () => {
                 </div>
               </div>
 
-              {/* Right — Image inset */}
-              <div className="p-4 md:p-6 hidden md:block">
-                <div className="relative w-full h-full rounded-xl overflow-hidden">
+              {/* Right — Square Image */}
+              <div className="p-4 md:p-6 hidden md:flex items-center justify-center">
+                <div className="relative w-full aspect-square rounded-xl overflow-hidden">
                   {image ? (
                     <img
                       src={image}
