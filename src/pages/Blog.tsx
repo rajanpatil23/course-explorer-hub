@@ -5,7 +5,7 @@ import { blogImages } from "@/data/blogImages";
 import { ArrowRight, Clock, User, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-
+import BlogHeroCarousel from "@/components/blog/BlogHeroCarousel";
 
 const POSTS_PER_PAGE = 9;
 
