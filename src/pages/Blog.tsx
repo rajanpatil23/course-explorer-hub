@@ -112,7 +112,7 @@ const Blog = () => {
                     <h3 className="font-heading font-bold text-foreground text-sm mb-3 leading-snug line-clamp-2 group-hover:text-primary transition-colors">
                       {post.title}
                     </h3>
-                    <span className="flex items-center gap-1 text-[10px] text-muted-foreground mb-3">
+                    <span className="flex items-center gap-1 text-[10px] text-primary mb-3">
                       <Clock className="w-3 h-3" /> {post.readTime}
                     </span>
                     <div className="flex items-center gap-2">
