@@ -36,8 +36,8 @@ const BlogHeroCarousel = () => {
           <Link to={`/blog/${post.slug}`} className="group block">
             <div className="grid md:grid-cols-[1fr,1fr] gap-0">
               {/* Left — Content */}
-              <div className="flex flex-col p-6 md:p-8 lg:p-10">
-                <div className="flex items-center justify-between mb-3">
+              <div className="flex flex-col p-5 md:p-6 lg:p-8">
+                <div className="flex items-center justify-between mb-2">
                   <span className="text-[11px] font-bold uppercase tracking-wider text-primary-foreground bg-primary px-3 py-1 rounded-md">
                     {post.category}
                   </span>
