@@ -56,7 +56,7 @@ const StatsStrip = () => {
   return (
     <section ref={ref} className="relative z-20 -mt-14 md:-mt-24 mb-12 md:mb-24">
       <div className="container">
-        <div className="relative max-w-5xl mx-auto border border-primary/20 rounded-2xl bg-primary/10 px-4 py-6 md:px-10 md:py-10 shadow-lg overflow-hidden">
+        <div className="relative max-w-5xl mx-auto border border-primary/30 rounded-2xl bg-primary px-4 py-6 md:px-10 md:py-10 shadow-lg overflow-hidden">
           {/* Decorative — concentric rings */}
           <div className="absolute -top-10 -left-10 w-40 h-40 rounded-full border-2 border-primary/10 z-0" />
           <div className="absolute -top-6 -left-6 w-28 h-28 rounded-full border border-primary/15 z-0" />
