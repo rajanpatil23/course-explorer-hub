@@ -116,11 +116,11 @@ const CourseCategories = () => {
                 >
                   <div className="relative bg-card rounded-2xl border border-border p-6 h-full flex flex-col items-center text-center hover:shadow-lg hover:border-primary/30 transition-all duration-300">
                     {/* Inner rounded container for logo */}
-                    <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center mb-5 group-hover:scale-105 transition-transform duration-300">
+                    <div className="w-16 h-16 rounded-xl bg-secondary flex items-center justify-center mb-5 group-hover:scale-105 transition-transform duration-300">
                       <img
                         src={cat.logo}
                         alt={cat.title}
-                        className="w-6 h-6 object-contain"
+                        className="w-10 h-10 object-contain"
                         loading="lazy"
                         width={512}
                         height={512}
