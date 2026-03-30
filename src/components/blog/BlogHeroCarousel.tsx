@@ -72,8 +72,8 @@ const BlogHeroCarousel = () => {
               </div>
 
               {/* Right — Image */}
-              <div className="hidden md:flex items-center p-4 md:p-6 lg:p-8 md:pl-0">
-                <div className="relative w-full aspect-square rounded-xl overflow-hidden">
+              <div className="hidden md:flex items-center p-5 md:p-8 lg:p-10 md:pl-0">
+                <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden">
                   {image ? (
                     <img
                       src={image}
