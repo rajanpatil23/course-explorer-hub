@@ -41,8 +41,8 @@ const BlogHeroCarousel = () => {
               {/* Left — Content */}
               <div className="flex flex-col justify-between p-6 md:p-10 lg:p-12">
                 <div>
-                  <div className="flex items-center gap-4 mb-5">
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-amber-700 bg-amber-100 px-3 py-1 rounded-full">
+                  <div className="flex items-center justify-between mb-5">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-primary-foreground bg-primary px-3 py-1 rounded-md">
                       {post.category}
                     </span>
                     <span className="text-xs text-muted-foreground">
