@@ -40,36 +40,39 @@ const BlogHeroCarousel = () => {
             <div className="grid md:grid-cols-2 gap-0 items-stretch">
               {/* Left — Content */}
               <div className="flex flex-col justify-between p-6 md:p-10 lg:p-12 md:py-16 lg:py-20">
-                <div className="flex items-center justify-between mb-5">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-primary-foreground bg-primary px-3 py-1 rounded-md">
-                    {post.category}
-                  </span>
-                  <span className="text-xs text-muted-foreground">
-                    {new Date(post.date).toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    })}
-                  </span>
+                <div>
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-primary-foreground bg-primary px-3 py-1 rounded-md">
+                      {post.category}
+                    </span>
+                    <span className="text-xs text-muted-foreground">
+                      {new Date(post.date).toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      })}
+                    </span>
+                  </div>
+
+                  <h2 className="font-heading text-xl sm:text-2xl md:text-2xl lg:text-3xl font-bold text-foreground leading-snug mb-2 group-hover:text-primary transition-colors line-clamp-3">
+                    {post.title}
+                  </h2>
+
+                  <p className="text-muted-foreground text-sm md:text-[15px] leading-relaxed line-clamp-3">
+                    {post.excerpt}
+                  </p>
                 </div>
 
-                <h2 className="font-heading text-xl sm:text-2xl md:text-2xl lg:text-3xl font-bold text-foreground leading-snug mb-3 group-hover:text-primary transition-colors line-clamp-3">
-                  {post.title}
-                </h2>
-
-                <p className="text-muted-foreground text-sm md:text-[15px] leading-relaxed line-clamp-3 mb-4">
-                  {post.excerpt}
-                </p>
-
-                <p className="text-xs text-muted-foreground mb-6">{post.readTime}</p>
-
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-sm shrink-0">
-                    {post.author.split(" ").map((n) => n[0]).join("")}
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-foreground leading-tight">{post.author}</p>
-                    <p className="text-xs text-muted-foreground">{author.role}</p>
+                <div>
+                  <p className="text-xs text-muted-foreground mb-3">{post.readTime}</p>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-sm shrink-0">
+                      {post.author.split(" ").map((n) => n[0]).join("")}
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-foreground leading-tight">{post.author}</p>
+                      <p className="text-xs text-muted-foreground">{author.role}</p>
+                    </div>
                   </div>
                 </div>
               </div>
