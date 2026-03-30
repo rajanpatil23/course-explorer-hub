@@ -3,7 +3,7 @@ import StatsStrip from "@/components/home/StatsStrip";
 import OurStory from "@/components/about/OurStory";
 import Timeline from "@/components/about/Timeline";
 import WhatSetsUsApart from "@/components/about/WhatSetsUsApart";
-import PartnersStrip from "@/components/home/PartnersStrip";
+
 import TrainersSection from "@/components/home/TrainersSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
 import CorporateCTA from "@/components/home/CorporateCTA";
@@ -15,7 +15,7 @@ const About = () => (
     <OurStory />
     <Timeline />
     <WhatSetsUsApart />
-    <PartnersStrip />
+    
     <TrainersSection />
     <TestimonialsSection />
     <CorporateCTA />
