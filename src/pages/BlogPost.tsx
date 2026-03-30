@@ -20,6 +20,43 @@ const BlogPost = () => {
   const post = slug ? findBlogBySlug(slug) : undefined;
   const [guideOpen, setGuideOpen] = useState(false);
 
+  // Consultation form
+  const [consultName, setConsultName] = useState("");
+  const [consultPhone, setConsultPhone] = useState("");
+  const [consultErrors, setConsultErrors] = useState<{ name?: string; phone?: string }>({});
+
+  // Guide form
+  const [guideName, setGuideName] = useState("");
+  const [guideEmail, setGuideEmail] = useState("");
+  const [guideErrors, setGuideErrors] = useState<{ name?: string; email?: string }>({});
+
+  const handleConsultSubmit = () => {
+    const errors: { name?: string; phone?: string } = {};
+    if (!consultName.trim()) errors.name = "Name is required";
+    if (!consultPhone.trim()) errors.phone = "Phone number is required";
+    else if (!/^[0-9+\-\s()]{7,15}$/.test(consultPhone.trim())) errors.phone = "Enter a valid phone number";
+    setConsultErrors(errors);
+    if (Object.keys(errors).length === 0) {
+      // TODO: handle submission
+      setConsultName("");
+      setConsultPhone("");
+    }
+  };
+
+  const handleGuideSubmit = () => {
+    const errors: { name?: string; email?: string } = {};
+    if (!guideName.trim()) errors.name = "Name is required";
+    if (!guideEmail.trim()) errors.email = "Email is required";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(guideEmail.trim())) errors.email = "Enter a valid email";
+    setGuideErrors(errors);
+    if (Object.keys(errors).length === 0) {
+      // TODO: handle submission
+      setGuideName("");
+      setGuideEmail("");
+      setGuideOpen(false);
+    }
+  };
+
   if (!post) return <Navigate to="/blog" replace />;
 
   const related = blogPosts
