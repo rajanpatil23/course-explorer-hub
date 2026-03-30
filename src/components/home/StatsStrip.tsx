@@ -56,7 +56,7 @@ const StatsStrip = () => {
   return (
     <section ref={ref} className="relative z-20 -mt-14 md:-mt-24 mb-12 md:mb-24">
       <div className="container">
-        <div className="max-w-5xl mx-auto border border-border rounded-2xl bg-card px-4 py-6 md:px-10 md:py-10 shadow-lg">
+        <div className="max-w-5xl mx-auto border border-primary/20 rounded-2xl bg-primary/10 px-4 py-6 md:px-10 md:py-10 shadow-lg">
           <div className="grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-8">
             {stats.map((s, i) => (
               <div key={i} className={i >= 3 ? "hidden lg:block" : ""}>
