@@ -6,6 +6,7 @@ import { ArrowLeft, Clock, Calendar, ArrowRight, Download, X } from "lucide-reac
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import BlogContent from "@/components/blog/BlogContent";
 
 const authorDetails: Record<string, { role: string }> = {
   "Rajiv Sharma": { role: "Project Management Expert" },
