@@ -45,16 +45,16 @@ const HeroSection = () => {
       <div className="container relative z-10 py-10 md:py-20 lg:py-24 pb-20 md:pb-32 lg:pb-36">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left content */}
-          <div>
+          <div className="text-center lg:text-left">
             <h1 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[3.25rem] font-extrabold leading-[1.12] mb-4 md:mb-5">
               Enhance Skills With Our Specialists - <span className="text-gradient-primary">Anytime, Anywhere</span>
             </h1>
-            <p className="text-sm md:text-lg text-muted-foreground mb-6 md:mb-8 max-w-lg leading-relaxed">
+            <p className="text-sm md:text-lg text-muted-foreground mb-6 md:mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed">
               Prepare to take the next step in your career with industry-recognized certification training. Begin your
               immersive learning journey with us.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-3 mb-6 md:mb-8">
+            <div className="flex flex-col sm:flex-row gap-3 mb-6 md:mb-8 justify-center lg:justify-start">
               <Button
                 size="lg"
                 onClick={scrollToCourses}
