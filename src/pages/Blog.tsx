@@ -112,19 +112,17 @@ const Blog = () => {
                     <h3 className="font-heading font-bold text-foreground text-sm mb-3 leading-snug line-clamp-2 group-hover:text-primary transition-colors">
                       {post.title}
                     </h3>
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <div className="w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-[10px] shrink-0">
-                          {post.author.split(" ").map((n) => n[0]).join("")}
-                        </div>
-                        <div>
-                          <p className="text-[11px] font-semibold text-foreground leading-tight">{post.author}</p>
-                          <p className="text-[10px] text-muted-foreground">{(authorDetails[post.author] || { role: "Contributor" }).role}</p>
-                        </div>
+                    <span className="flex items-center gap-1 text-[10px] text-muted-foreground mb-3">
+                      <Clock className="w-3 h-3" /> {post.readTime}
+                    </span>
+                    <div className="flex items-center gap-2">
+                      <div className="w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-[10px] shrink-0">
+                        {post.author.split(" ").map((n) => n[0]).join("")}
                       </div>
-                      <span className="flex items-center gap-1 text-[10px] text-muted-foreground">
-                        <Clock className="w-3 h-3" /> {post.readTime}
-                      </span>
+                      <div>
+                        <p className="text-[11px] font-semibold text-foreground leading-tight">{post.author}</p>
+                        <p className="text-[10px] text-muted-foreground">{(authorDetails[post.author] || { role: "Contributor" }).role}</p>
+                      </div>
                     </div>
                   </div>
                 </Link>
