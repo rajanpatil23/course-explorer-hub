@@ -89,6 +89,8 @@ const BlogPost = () => {
         </div>
       </section>
 
+      <article className="py-10 md:py-16 bg-background">
+        <div className="container max-w-3xl">
           {/* Content */}
           <div className="prose prose-sm dark:prose-invert prose-headings:font-heading prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-a:text-primary max-w-none">
             {post.content.split("\n\n").map((block, i) => {
