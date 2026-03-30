@@ -6,6 +6,7 @@ import { ArrowLeft, Clock, Calendar, ArrowRight, Download, X } from "lucide-reac
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import BlogContent from "@/components/blog/BlogContent";
 
 const authorDetails: Record<string, { role: string }> = {
   "Rajiv Sharma": { role: "Project Management Expert" },
@@ -117,60 +118,8 @@ const BlogPost = () => {
         <div className="container">
           <div className="grid md:grid-cols-[3fr_1fr] gap-8">
             {/* Left Column — Content */}
-            <div className="bg-card border border-border rounded-xl p-6 md:p-8">
-              <div className="prose prose-sm dark:prose-invert prose-headings:font-heading prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-a:text-primary max-w-none">
-                {post.content.split("\n\n").map((block, i) => {
-                  if (block.startsWith("## ")) {
-                    return <h2 key={i}>{block.replace("## ", "")}</h2>;
-                  }
-                  if (block.startsWith("### ")) {
-                    return <h3 key={i}>{block.replace("### ", "")}</h3>;
-                  }
-                  if (block.startsWith("- ")) {
-                    return (
-                      <ul key={i}>
-                        {block.split("\n").map((li, j) => (
-                          <li key={j} dangerouslySetInnerHTML={{ __html: li.replace(/^- /, "").replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") }} />
-                        ))}
-                      </ul>
-                    );
-                  }
-                  if (block.match(/^\d+\./)) {
-                    return (
-                      <ol key={i}>
-                        {block.split("\n").map((li, j) => (
-                          <li key={j} dangerouslySetInnerHTML={{ __html: li.replace(/^\d+\.\s*/, "").replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") }} />
-                        ))}
-                      </ol>
-                    );
-                  }
-                  if (block.startsWith("|")) {
-                    const rows = block.split("\n").filter((r) => !r.match(/^\|[\s-|]+$/));
-                    if (rows.length < 2) return null;
-                    const headers = rows[0].split("|").filter(Boolean).map((h) => h.trim());
-                    const body = rows.slice(1);
-                    return (
-                      <div key={i} className="overflow-x-auto">
-                        <table>
-                          <thead>
-                            <tr>{headers.map((h, hi) => <th key={hi}>{h}</th>)}</tr>
-                          </thead>
-                          <tbody>
-                            {body.map((row, ri) => (
-                              <tr key={ri}>
-                                {row.split("|").filter(Boolean).map((cell, ci) => (
-                                  <td key={ci}>{cell.trim()}</td>
-                                ))}
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
-                      </div>
-                    );
-                  }
-                  return <p key={i} dangerouslySetInnerHTML={{ __html: block.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") }} />;
-                })}
-              </div>
+            <div className="bg-card border border-border rounded-xl p-6 md:p-10">
+              <BlogContent content={post.content} />
 
               {/* CTA */}
               <div className="mt-12 bg-primary/5 border border-primary/20 rounded-xl p-6 md:p-8 text-center">
