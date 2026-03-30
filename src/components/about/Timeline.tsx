@@ -1,9 +1,8 @@
 const timeline = [
-  { year: "2018", title: "Founded", desc: "Started with PMI certifications and a small team of 3 trainers." },
-  { year: "2020", title: "Went Digital", desc: "Launched fully online live training, reaching professionals in 15+ countries." },
-  { year: "2022", title: "Expanded Portfolio", desc: "Added AWS, Azure, CompTIA, and SAFe certifications to our catalog." },
-  { year: "2024", title: "10K+ Milestone", desc: "Crossed 10,000 trained professionals with a 98% first-attempt pass rate." },
-  { year: "2025", title: "AI & Corporate Growth", desc: "Launched AI-powered learning paths and scaled corporate training to 50+ enterprise clients." },
+  { year: "2018", title: "Foundation", desc: "Began with project management training, a focused curriculum, and a small expert trainer network." },
+  { year: "2019–2020", title: "Digital Expansion", desc: "Shifted into live online learning and started reaching professionals beyond local classroom delivery." },
+  { year: "2021–2022", title: "Portfolio Growth", desc: "Expanded into cloud, cybersecurity, agile, and IT certifications to serve broader career goals." },
+  { year: "2023–Now", title: "Scale & Impact", desc: "Grew learner outcomes, strengthened enterprise training, and continued scaling high-quality certification programs." },
 ];
 
 const Timeline = () => (
@@ -13,7 +12,7 @@ const Timeline = () => (
         <p className="text-[10px] md:text-xs font-bold text-primary uppercase tracking-[0.2em] mb-2">Our Journey</p>
         <h2 className="font-heading text-2xl md:text-4xl font-bold text-foreground">Key Milestones</h2>
       </div>
-      <div className="grid grid-cols-2 lg:grid-cols-5 gap-3 md:gap-6">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
         {timeline.map((item, i) => (
           <div key={item.year} className="relative group">
             <div className="bg-card border border-border rounded-xl md:rounded-2xl p-4 md:p-6 h-full hover:shadow-lg hover:border-primary/30 transition-all duration-300">
