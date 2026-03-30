@@ -6,7 +6,7 @@ import WhatSetsUsApart from "@/components/about/WhatSetsUsApart";
 
 import TrainersSection from "@/components/home/TrainersSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
-import CorporateCTA from "@/components/home/CorporateCTA";
+
 
 const About = () => (
   <>
