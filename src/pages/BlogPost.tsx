@@ -30,31 +30,22 @@ const BlogPost = () => {
         <div className="container">
           <div className="bg-secondary/50 rounded-2xl md:rounded-3xl overflow-hidden">
             <div className="grid md:grid-cols-2 gap-0">
-              {/* Left — Content */}
               <div className="flex flex-col p-5 md:p-6 lg:p-8">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-[11px] font-bold uppercase tracking-wider text-primary-foreground bg-primary px-3 py-1 rounded-md">
                     {post.category}
                   </span>
                   <span className="text-xs text-muted-foreground">
-                    {new Date(post.date).toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    })}
+                    {new Date(post.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
                   </span>
                 </div>
-
                 <h1 className="font-heading text-2xl sm:text-3xl md:text-[1.75rem] lg:text-[2rem] xl:text-[2.25rem] font-bold text-foreground leading-[1.15] mb-2">
                   {post.title}
                 </h1>
-
                 <p className="text-muted-foreground text-sm md:text-[15px] leading-relaxed line-clamp-3 mb-2">
                   {post.excerpt}
                 </p>
-
                 <p className="text-xs text-primary mb-4">{post.readTime} read</p>
-
                 <div className="flex items-center gap-3 mt-auto">
                   <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-sm shrink-0">
                     {post.author.split(" ").map((n) => n[0]).join("")}
@@ -65,21 +56,13 @@ const BlogPost = () => {
                   </div>
                 </div>
               </div>
-
-              {/* Right — Image */}
               <div className="hidden md:flex items-center p-5 md:py-6 md:pr-6 lg:py-8 lg:pr-8 md:pl-0">
                 <div className="relative w-full aspect-[3/2] rounded-xl overflow-hidden">
                   {slug && blogImages[slug] ? (
-                    <img
-                      src={blogImages[slug]}
-                      alt={post.title}
-                      className="absolute inset-0 w-full h-full object-cover"
-                    />
+                    <img src={blogImages[slug]} alt={post.title} className="absolute inset-0 w-full h-full object-cover" />
                   ) : (
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-secondary to-accent/10 flex items-center justify-center">
-                      <span className="text-primary/20 font-heading font-bold text-2xl text-center px-8">
-                        {post.category}
-                      </span>
+                      <span className="text-primary/20 font-heading font-bold text-2xl text-center px-8">{post.category}</span>
                     </div>
                   )}
                 </div>
@@ -91,96 +74,135 @@ const BlogPost = () => {
 
       <article className="py-10 md:py-16 bg-background">
         <div className="container">
-          {/* Content */}
-          <div className="prose prose-sm dark:prose-invert prose-headings:font-heading prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-a:text-primary max-w-none">
-            {post.content.split("\n\n").map((block, i) => {
-              if (block.startsWith("## ")) {
-                return <h2 key={i}>{block.replace("## ", "")}</h2>;
-              }
-              if (block.startsWith("### ")) {
-                return <h3 key={i}>{block.replace("### ", "")}</h3>;
-              }
-              if (block.startsWith("- ")) {
-                return (
-                  <ul key={i}>
-                    {block.split("\n").map((li, j) => (
-                      <li key={j} dangerouslySetInnerHTML={{ __html: li.replace(/^- /, "").replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") }} />
-                    ))}
-                  </ul>
-                );
-              }
-              if (block.match(/^\d+\./)) {
-                return (
-                  <ol key={i}>
-                    {block.split("\n").map((li, j) => (
-                      <li key={j} dangerouslySetInnerHTML={{ __html: li.replace(/^\d+\.\s*/, "").replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") }} />
-                    ))}
-                  </ol>
-                );
-              }
-              if (block.startsWith("|")) {
-                const rows = block.split("\n").filter((r) => !r.match(/^\|[\s-|]+$/));
-                if (rows.length < 2) return null;
-                const headers = rows[0].split("|").filter(Boolean).map((h) => h.trim());
-                const body = rows.slice(1);
-                return (
-                  <div key={i} className="overflow-x-auto">
-                    <table>
-                      <thead>
-                        <tr>{headers.map((h, hi) => <th key={hi}>{h}</th>)}</tr>
-                      </thead>
-                      <tbody>
-                        {body.map((row, ri) => (
-                          <tr key={ri}>
-                            {row.split("|").filter(Boolean).map((cell, ci) => (
-                              <td key={ci}>{cell.trim()}</td>
-                            ))}
-                          </tr>
+          <div className="grid md:grid-cols-[3fr_1fr] gap-8">
+            {/* Left Column — Content */}
+            <div>
+              <div className="prose prose-sm dark:prose-invert prose-headings:font-heading prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-a:text-primary max-w-none">
+                {post.content.split("\n\n").map((block, i) => {
+                  if (block.startsWith("## ")) {
+                    return <h2 key={i}>{block.replace("## ", "")}</h2>;
+                  }
+                  if (block.startsWith("### ")) {
+                    return <h3 key={i}>{block.replace("### ", "")}</h3>;
+                  }
+                  if (block.startsWith("- ")) {
+                    return (
+                      <ul key={i}>
+                        {block.split("\n").map((li, j) => (
+                          <li key={j} dangerouslySetInnerHTML={{ __html: li.replace(/^- /, "").replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") }} />
                         ))}
-                      </tbody>
-                    </table>
-                  </div>
-                );
-              }
-              return <p key={i} dangerouslySetInnerHTML={{ __html: block.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") }} />;
-            })}
-          </div>
-
-          {/* CTA */}
-          <div className="mt-12 bg-primary/5 border border-primary/20 rounded-xl p-6 md:p-8 text-center">
-            <h3 className="font-heading text-lg font-bold text-foreground mb-2">Ready to Get Certified?</h3>
-            <p className="text-sm text-muted-foreground mb-4">Explore our expert-led training programs and take the next step in your career.</p>
-            <Button asChild>
-              <Link to="/">Explore Courses <ArrowRight className="w-4 h-4 ml-1" /></Link>
-            </Button>
-          </div>
-
-          {/* Related Posts */}
-          {related.length > 0 && (
-            <div className="mt-14">
-              <h3 className="font-heading text-lg font-bold text-foreground mb-6">Related Articles</h3>
-              <div className="grid sm:grid-cols-3 gap-4">
-                {related.map((r) => (
-                  <Link
-                    key={r.slug}
-                    to={`/blog/${r.slug}`}
-                    className="bg-card border border-border rounded-lg overflow-hidden hover:shadow-md transition-shadow group"
-                  >
-                    {blogImages[r.slug] && (
-                      <img src={blogImages[r.slug]} alt={r.title} className="w-full h-28 object-cover" loading="lazy" />
-                    )}
-                    <div className="p-4">
-                      <span className="text-[10px] font-semibold text-primary">{r.category}</span>
-                      <h4 className="font-heading font-bold text-foreground text-xs mt-1 line-clamp-2 group-hover:text-primary transition-colors">
-                        {r.title}
-                      </h4>
-                      <p className="text-[10px] text-muted-foreground mt-2">{r.readTime} · {r.author}</p>
-                    </div>
-                  </Link>
-                ))}
+                      </ul>
+                    );
+                  }
+                  if (block.match(/^\d+\./)) {
+                    return (
+                      <ol key={i}>
+                        {block.split("\n").map((li, j) => (
+                          <li key={j} dangerouslySetInnerHTML={{ __html: li.replace(/^\d+\.\s*/, "").replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") }} />
+                        ))}
+                      </ol>
+                    );
+                  }
+                  if (block.startsWith("|")) {
+                    const rows = block.split("\n").filter((r) => !r.match(/^\|[\s-|]+$/));
+                    if (rows.length < 2) return null;
+                    const headers = rows[0].split("|").filter(Boolean).map((h) => h.trim());
+                    const body = rows.slice(1);
+                    return (
+                      <div key={i} className="overflow-x-auto">
+                        <table>
+                          <thead>
+                            <tr>{headers.map((h, hi) => <th key={hi}>{h}</th>)}</tr>
+                          </thead>
+                          <tbody>
+                            {body.map((row, ri) => (
+                              <tr key={ri}>
+                                {row.split("|").filter(Boolean).map((cell, ci) => (
+                                  <td key={ci}>{cell.trim()}</td>
+                                ))}
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    );
+                  }
+                  return <p key={i} dangerouslySetInnerHTML={{ __html: block.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") }} />;
+                })}
               </div>
+
+              {/* CTA */}
+              <div className="mt-12 bg-primary/5 border border-primary/20 rounded-xl p-6 md:p-8 text-center">
+                <h3 className="font-heading text-lg font-bold text-foreground mb-2">Ready to Get Certified?</h3>
+                <p className="text-sm text-muted-foreground mb-4">Explore our expert-led training programs and take the next step in your career.</p>
+                <Button asChild>
+                  <Link to="/">Explore Courses <ArrowRight className="w-4 h-4 ml-1" /></Link>
+                </Button>
+              </div>
+
+              {/* Related Posts */}
+              {related.length > 0 && (
+                <div className="mt-14">
+                  <h3 className="font-heading text-lg font-bold text-foreground mb-6">Related Articles</h3>
+                  <div className="grid sm:grid-cols-3 gap-4">
+                    {related.map((r) => (
+                      <Link
+                        key={r.slug}
+                        to={`/blog/${r.slug}`}
+                        className="bg-card border border-border rounded-lg overflow-hidden hover:shadow-md transition-shadow group"
+                      >
+                        {blogImages[r.slug] && (
+                          <img src={blogImages[r.slug]} alt={r.title} className="w-full h-28 object-cover" loading="lazy" />
+                        )}
+                        <div className="p-4">
+                          <span className="text-[10px] font-semibold text-primary">{r.category}</span>
+                          <h4 className="font-heading font-bold text-foreground text-xs mt-1 line-clamp-2 group-hover:text-primary transition-colors">
+                            {r.title}
+                          </h4>
+                          <p className="text-[10px] text-muted-foreground mt-2">{r.readTime} · {r.author}</p>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
-          )}
+
+            {/* Right Column — Sidebar */}
+            <aside className="hidden md:block">
+              <div className="sticky top-24 space-y-6">
+                <div className="bg-card border border-border rounded-xl p-5">
+                  <h4 className="font-heading font-bold text-foreground text-sm mb-3">About the Author</h4>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-sm shrink-0">
+                      {post.author.split(" ").map((n) => n[0]).join("")}
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-foreground leading-tight">{post.author}</p>
+                      <p className="text-xs text-muted-foreground">{(authorDetails[post.author] || { role: "Contributor" }).role}</p>
+                    </div>
+                  </div>
+                </div>
+
+                {related.length > 0 && (
+                  <div className="bg-card border border-border rounded-xl p-5">
+                    <h4 className="font-heading font-bold text-foreground text-sm mb-3">Related Articles</h4>
+                    <div className="space-y-3">
+                      {related.map((r) => (
+                        <Link
+                          key={r.slug}
+                          to={`/blog/${r.slug}`}
+                          className="block text-xs text-foreground hover:text-primary transition-colors font-medium leading-snug"
+                        >
+                          {r.title}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </aside>
+          </div>
         </div>
       </article>
 
