@@ -63,7 +63,7 @@ const BlogHeroCarousel = () => {
 
                 <p className="text-xs text-muted-foreground mb-6">{post.readTime}</p>
 
-                <div className="flex items-center gap-3 pt-2">
+                <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-sm shrink-0">
                     {post.author.split(" ").map((n) => n[0]).join("")}
                   </div>
