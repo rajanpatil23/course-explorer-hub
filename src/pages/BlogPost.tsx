@@ -77,7 +77,7 @@ const BlogPost = () => {
         <div className="container">
           <div className="grid md:grid-cols-[3fr_1fr] gap-8">
             {/* Left Column — Content */}
-            <div>
+            <div className="bg-card border border-border rounded-xl p-6 md:p-8">
               <div className="prose prose-sm dark:prose-invert prose-headings:font-heading prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-a:text-primary max-w-none">
                 {post.content.split("\n\n").map((block, i) => {
                   if (block.startsWith("## ")) {
