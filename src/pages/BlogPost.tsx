@@ -172,35 +172,29 @@ const BlogPost = () => {
             {/* Right Column — Sidebar */}
             <aside className="hidden md:block">
               <div className="sticky top-24 space-y-6">
-                <div className="bg-card border border-border rounded-xl p-5">
-                  <h4 className="font-heading font-bold text-foreground text-sm mb-3">About the Author</h4>
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-sm shrink-0">
-                      {post.author.split(" ").map((n) => n[0]).join("")}
-                    </div>
-                    <div>
-                      <p className="text-sm font-semibold text-foreground leading-tight">{post.author}</p>
-                      <p className="text-xs text-muted-foreground">{(authorDetails[post.author] || { role: "Contributor" }).role}</p>
-                    </div>
+                {/* Consultation Form */}
+                <div className="bg-card border border-border rounded-xl p-6">
+                  <h4 className="font-heading font-bold text-foreground text-lg mb-1">Get Free Consultation</h4>
+                  <p className="text-sm text-muted-foreground mb-4">Talk to an expert to plan your next move.</p>
+                  <div className="space-y-3">
+                    <Input placeholder="Your name" className="rounded-lg" />
+                    <Input placeholder="Phone number" className="rounded-lg" />
+                    <Button className="w-full rounded-lg">Submit</Button>
                   </div>
+                  <p className="text-[10px] text-muted-foreground mt-3 text-center">
+                    By submitting, you accept our{" "}
+                    <Link to="/privacy" className="text-primary hover:underline">Privacy Policy</Link>.
+                  </p>
                 </div>
 
-                {related.length > 0 && (
-                  <div className="bg-card border border-border rounded-xl p-5">
-                    <h4 className="font-heading font-bold text-foreground text-sm mb-3">Related Articles</h4>
-                    <div className="space-y-3">
-                      {related.map((r) => (
-                        <Link
-                          key={r.slug}
-                          to={`/blog/${r.slug}`}
-                          className="block text-xs text-foreground hover:text-primary transition-colors font-medium leading-snug"
-                        >
-                          {r.title}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                )}
+                {/* Download Guide */}
+                <div className="bg-card border border-border rounded-xl p-6">
+                  <h4 className="font-heading font-bold text-foreground text-lg mb-1">Ready to learn more?</h4>
+                  <p className="text-sm text-muted-foreground mb-4">Download our quick guide to get started.</p>
+                  <Button variant="outline" className="rounded-lg text-primary border-primary/30 hover:bg-primary/5">
+                    <Download className="w-4 h-4 mr-2" /> Download Guide
+                  </Button>
+                </div>
               </div>
             </aside>
           </div>
