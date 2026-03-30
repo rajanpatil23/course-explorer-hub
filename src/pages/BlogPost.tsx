@@ -20,6 +20,43 @@ const BlogPost = () => {
   const post = slug ? findBlogBySlug(slug) : undefined;
   const [guideOpen, setGuideOpen] = useState(false);
 
+  // Consultation form
+  const [consultName, setConsultName] = useState("");
+  const [consultPhone, setConsultPhone] = useState("");
+  const [consultErrors, setConsultErrors] = useState<{ name?: string; phone?: string }>({});
+
+  // Guide form
+  const [guideName, setGuideName] = useState("");
+  const [guideEmail, setGuideEmail] = useState("");
+  const [guideErrors, setGuideErrors] = useState<{ name?: string; email?: string }>({});
+
+  const handleConsultSubmit = () => {
+    const errors: { name?: string; phone?: string } = {};
+    if (!consultName.trim()) errors.name = "Name is required";
+    if (!consultPhone.trim()) errors.phone = "Phone number is required";
+    else if (!/^[0-9+\-\s()]{7,15}$/.test(consultPhone.trim())) errors.phone = "Enter a valid phone number";
+    setConsultErrors(errors);
+    if (Object.keys(errors).length === 0) {
+      // TODO: handle submission
+      setConsultName("");
+      setConsultPhone("");
+    }
+  };
+
+  const handleGuideSubmit = () => {
+    const errors: { name?: string; email?: string } = {};
+    if (!guideName.trim()) errors.name = "Name is required";
+    if (!guideEmail.trim()) errors.email = "Email is required";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(guideEmail.trim())) errors.email = "Enter a valid email";
+    setGuideErrors(errors);
+    if (Object.keys(errors).length === 0) {
+      // TODO: handle submission
+      setGuideName("");
+      setGuideEmail("");
+      setGuideOpen(false);
+    }
+  };
+
   if (!post) return <Navigate to="/blog" replace />;
 
   const related = blogPosts
@@ -154,9 +191,15 @@ const BlogPost = () => {
                   <h4 className="font-heading font-bold text-foreground text-lg mb-1">Get Free Consultation</h4>
                   <p className="text-sm text-muted-foreground mb-4">Talk to an expert to plan your next move.</p>
                   <div className="space-y-3">
-                    <Input placeholder="Your name" className="rounded-lg" />
-                    <Input placeholder="Phone number" className="rounded-lg" />
-                    <Button className="w-full rounded-lg">Submit</Button>
+                    <div>
+                      <Input placeholder="Your name" className="rounded-lg" value={consultName} onChange={(e) => { setConsultName(e.target.value); setConsultErrors((p) => ({ ...p, name: undefined })); }} />
+                      {consultErrors.name && <p className="text-[11px] text-destructive mt-1">{consultErrors.name}</p>}
+                    </div>
+                    <div>
+                      <Input placeholder="Phone number" className="rounded-lg" value={consultPhone} onChange={(e) => { setConsultPhone(e.target.value); setConsultErrors((p) => ({ ...p, phone: undefined })); }} />
+                      {consultErrors.phone && <p className="text-[11px] text-destructive mt-1">{consultErrors.phone}</p>}
+                    </div>
+                    <Button className="w-full rounded-lg" onClick={handleConsultSubmit}>Submit</Button>
                   </div>
                   <p className="text-[10px] text-muted-foreground mt-3 text-center">
                     By submitting, you accept our{" "}
@@ -185,9 +228,15 @@ const BlogPost = () => {
                   </DialogDescription>
                 </DialogHeader>
                 <div className="space-y-4 pt-2">
-                  <Input placeholder="Your name" className="rounded-lg" />
-                  <Input placeholder="Email address" type="email" className="rounded-lg" />
-                  <Button className="w-full rounded-lg">Send me the guide</Button>
+                  <div>
+                    <Input placeholder="Your name" className="rounded-lg" value={guideName} onChange={(e) => { setGuideName(e.target.value); setGuideErrors((p) => ({ ...p, name: undefined })); }} />
+                    {guideErrors.name && <p className="text-[11px] text-destructive mt-1">{guideErrors.name}</p>}
+                  </div>
+                  <div>
+                    <Input placeholder="Email address" type="email" className="rounded-lg" value={guideEmail} onChange={(e) => { setGuideEmail(e.target.value); setGuideErrors((p) => ({ ...p, email: undefined })); }} />
+                    {guideErrors.email && <p className="text-[11px] text-destructive mt-1">{guideErrors.email}</p>}
+                  </div>
+                  <Button className="w-full rounded-lg" onClick={handleGuideSubmit}>Send me the guide</Button>
                 </div>
               </DialogContent>
             </Dialog>
