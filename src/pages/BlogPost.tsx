@@ -18,6 +18,7 @@ const authorDetails: Record<string, { role: string }> = {
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
   const post = slug ? findBlogBySlug(slug) : undefined;
+  const [guideOpen, setGuideOpen] = useState(false);
 
   if (!post) return <Navigate to="/blog" replace />;
 
