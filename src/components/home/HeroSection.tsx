@@ -109,7 +109,7 @@ const HeroSection = () => {
               <p className="text-[10px] md:text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-2">
                 Official Certification Partner
               </p>
-              <div className="relative overflow-hidden max-w-md">
+              <div className="relative overflow-hidden max-w-md mx-auto lg:mx-0">
                 <div className="flex animate-marquee items-center gap-8 md:gap-10 w-max">
                   {[...partners, ...partners].map((p, i) => (
                     <img
