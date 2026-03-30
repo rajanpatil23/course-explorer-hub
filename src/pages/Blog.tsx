@@ -77,7 +77,7 @@ const Blog = () => {
             </div>
           ) : (
             <div className="flex items-center gap-2 mb-8">
-              <div className="flex-1 bg-card border border-border rounded-xl p-3 overflow-x-auto scrollbar-thin">
+              <div className="flex-1 bg-card border border-border rounded-xl px-3 py-1 overflow-x-auto scrollbar-thin">
                 <div className="flex items-center gap-2 min-w-max">
                   {blogCategories.map((cat) => (
                     <button
