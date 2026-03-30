@@ -37,7 +37,7 @@ const BlogHeroCarousel = () => {
             to={`/blog/${post.slug}`}
             className="group block"
           >
-            <div className="grid md:grid-cols-2 gap-0">
+            <div className="grid md:grid-cols-2 gap-0 items-center">
               {/* Left — Content */}
               <div className="flex flex-col p-6 md:p-10 lg:p-12">
                 <div className="flex items-center justify-between mb-5">
@@ -75,7 +75,7 @@ const BlogHeroCarousel = () => {
               </div>
 
               {/* Right — Image */}
-              <div className="hidden md:flex items-center p-5">
+              <div className="hidden md:block p-4 md:py-10 md:pr-10 lg:py-12 lg:pr-12">
                 <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden">
                   {image ? (
                     <img
