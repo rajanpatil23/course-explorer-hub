@@ -37,8 +37,6 @@ const Blog = () => {
   return (
     <div className="min-h-screen">
 
-      {/* Hero Carousel */}
-      <BlogHeroCarousel />
 
       <section className="py-10 md:py-16 bg-background">
         <div className="container max-w-6xl">
