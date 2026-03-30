@@ -15,7 +15,7 @@ const About = () => (
     <OurStory />
     <Timeline />
     <WhatSetsUsApart />
-    <PartnersStrip />
+    
     <TrainersSection />
     <TestimonialsSection />
     <CorporateCTA />
