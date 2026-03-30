@@ -31,7 +31,7 @@ const BlogHeroCarousel = () => {
 
   return (
     <section className="bg-secondary/50 py-10 md:py-16">
-      <div className="container max-w-6xl">
+      <div className="container">
         <Link
           to={`/blog/${post.slug}`}
           className="group block bg-card rounded-2xl md:rounded-3xl overflow-hidden border border-border shadow-sm hover:shadow-lg transition-shadow"
