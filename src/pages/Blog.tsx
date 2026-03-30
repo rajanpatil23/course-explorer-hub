@@ -5,6 +5,7 @@ import { blogImages } from "@/data/blogImages";
 import { ArrowRight, Clock, User, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import BlogHeroCarousel from "@/components/blog/BlogHeroCarousel";
 
 const POSTS_PER_PAGE = 9;
 
@@ -36,18 +37,8 @@ const Blog = () => {
   return (
     <div className="min-h-screen">
 
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-primary/10 via-secondary to-background py-14 md:py-20">
-        <div className="container text-center max-w-3xl">
-          <p className="text-sm font-semibold text-primary uppercase tracking-widest mb-2">Blog</p>
-          <h1 className="font-heading text-3xl md:text-5xl font-bold text-foreground mb-4">
-            The EduEdge Insights
-          </h1>
-          <p className="text-muted-foreground max-w-xl mx-auto">
-            Career guides, certification tips &amp; industry trends to keep you ahead.
-          </p>
-        </div>
-      </section>
+      {/* Hero Carousel */}
+      <BlogHeroCarousel />
 
       <section className="py-10 md:py-16 bg-background">
         <div className="container max-w-6xl">
