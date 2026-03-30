@@ -70,7 +70,7 @@ const StatsStrip = () => {
           </div>
           <div className="absolute top-0 right-1/4 w-32 h-32 rounded-full bg-primary/5 blur-[60px] z-0" />
           <div className="absolute bottom-0 left-1/4 w-24 h-24 rounded-full bg-accent/5 blur-[40px] z-0" />
-          <div className="grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-8">
+          <div className="grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-8 relative z-10">
             {stats.map((s, i) => (
               <div key={i} className={i >= 3 ? "hidden lg:block" : ""}>
                 <StatItem stat={s} visible={visible} />
