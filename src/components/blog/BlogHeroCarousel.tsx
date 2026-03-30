@@ -54,7 +54,7 @@ const BlogHeroCarousel = () => {
                     </span>
                   </div>
 
-                  <h2 className="font-heading text-xl sm:text-2xl md:text-3xl lg:text-[2.1rem] font-bold text-foreground leading-tight mb-4 group-hover:text-primary transition-colors line-clamp-2 min-h-[2.6em] md:min-h-[2.6em]">
+                  <h2 className="font-heading text-xl sm:text-2xl md:text-3xl lg:text-[2.1rem] font-bold text-foreground leading-tight mb-4 group-hover:text-primary transition-colors line-clamp-3 min-h-[3.9em]">
                     {post.title}
                   </h2>
 
