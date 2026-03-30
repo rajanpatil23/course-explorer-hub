@@ -37,7 +37,7 @@ const BlogHeroCarousel = () => {
             to={`/blog/${post.slug}`}
             className="group block"
           >
-            <div className="grid md:grid-cols-2 gap-0">
+            <div className="grid md:grid-cols-2 gap-0 items-center">
               {/* Left — Content */}
               <div className="flex flex-col p-6 md:p-10 lg:p-12">
                 <div className="flex items-center justify-between mb-5">
