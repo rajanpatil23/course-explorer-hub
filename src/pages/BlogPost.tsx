@@ -140,34 +140,34 @@ const BlogPost = () => {
                   <Link to="/">Explore Courses <ArrowRight className="w-4 h-4 ml-1" /></Link>
                 </Button>
               </div>
-            </div>
 
-          {/* Related Posts */}
-          {related.length > 0 && (
-            <div className="mt-10">
-              <h3 className="font-heading text-lg font-bold text-foreground mb-6">Related Articles</h3>
-              <div className="grid sm:grid-cols-3 lg:grid-cols-4 gap-4">
-                {related.map((r) => (
-                  <Link
-                    key={r.slug}
-                    to={`/blog/${r.slug}`}
-                    className="bg-card border border-border rounded-lg overflow-hidden hover:shadow-md transition-shadow group"
-                  >
-                    {blogImages[r.slug] && (
-                      <img src={blogImages[r.slug]} alt={r.title} className="w-full h-28 object-cover" loading="lazy" />
-                    )}
-                    <div className="p-4">
-                      <span className="text-[10px] font-semibold text-primary">{r.category}</span>
-                      <h4 className="font-heading font-bold text-foreground text-xs mt-1 line-clamp-2 group-hover:text-primary transition-colors">
-                        {r.title}
-                      </h4>
-                      <p className="text-[10px] text-muted-foreground mt-2">{r.readTime} · {r.author}</p>
-                    </div>
-                  </Link>
-                ))}
-              </div>
+              {/* Related Posts */}
+              {related.length > 0 && (
+                <div className="mt-14">
+                  <h3 className="font-heading text-lg font-bold text-foreground mb-6">Related Articles</h3>
+                  <div className="grid sm:grid-cols-3 gap-4">
+                    {related.map((r) => (
+                      <Link
+                        key={r.slug}
+                        to={`/blog/${r.slug}`}
+                        className="bg-card border border-border rounded-lg overflow-hidden hover:shadow-md transition-shadow group"
+                      >
+                        {blogImages[r.slug] && (
+                          <img src={blogImages[r.slug]} alt={r.title} className="w-full h-28 object-cover" loading="lazy" />
+                        )}
+                        <div className="p-4">
+                          <span className="text-[10px] font-semibold text-primary">{r.category}</span>
+                          <h4 className="font-heading font-bold text-foreground text-xs mt-1 line-clamp-2 group-hover:text-primary transition-colors">
+                            {r.title}
+                          </h4>
+                          <p className="text-[10px] text-muted-foreground mt-2">{r.readTime} · {r.author}</p>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
-          )}
 
             {/* Right Column — Sidebar */}
             <aside className="hidden md:block">
