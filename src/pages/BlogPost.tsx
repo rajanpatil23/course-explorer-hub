@@ -1,8 +1,16 @@
 import { useParams, Link, Navigate } from "react-router-dom";
 import { findBlogBySlug, blogPosts } from "@/data/blogs";
 import { blogImages } from "@/data/blogImages";
-import { ArrowLeft, Clock, User, Calendar, ArrowRight } from "lucide-react";
+import { ArrowLeft, Clock, Calendar, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+
+const authorDetails: Record<string, { role: string }> = {
+  "Rajiv Sharma": { role: "Project Management Expert" },
+  "Vikram Patel": { role: "Cybersecurity Specialist" },
+  "Meera Nair": { role: "Cloud Solutions Architect" },
+  "Ananya Rao": { role: "Agile Coach" },
+  "Chaitanya Gaikwad": { role: "Data Analyst" },
+};
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -17,46 +25,72 @@ const BlogPost = () => {
   return (
     <div className="min-h-screen">
 
-      {/* Breadcrumb */}
-      <div className="bg-secondary/30 border-b border-border">
-        <div className="container py-3 flex items-center gap-2 text-xs text-muted-foreground">
-          <Link to="/" className="hover:text-primary">Home</Link>
-          <span>/</span>
-          <Link to="/blog" className="hover:text-primary">Blog</Link>
-          <span>/</span>
-          <span className="text-foreground line-clamp-1">{post.title}</span>
+      {/* Hero Section */}
+      <section className="bg-background pt-4 md:pt-6 pb-0">
+        <div className="container">
+          <div className="bg-secondary/50 rounded-2xl md:rounded-3xl overflow-hidden">
+            <div className="grid md:grid-cols-2 gap-0">
+              {/* Left — Content */}
+              <div className="flex flex-col p-5 md:p-6 lg:p-8">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-primary-foreground bg-primary px-3 py-1 rounded-md">
+                    {post.category}
+                  </span>
+                  <span className="text-xs text-muted-foreground">
+                    {new Date(post.date).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </span>
+                </div>
+
+                <h1 className="font-heading text-2xl sm:text-3xl md:text-[1.75rem] lg:text-[2rem] xl:text-[2.25rem] font-bold text-foreground leading-[1.15] mb-2">
+                  {post.title}
+                </h1>
+
+                <p className="text-muted-foreground text-sm md:text-[15px] leading-relaxed line-clamp-3 mb-2">
+                  {post.excerpt}
+                </p>
+
+                <p className="text-xs text-primary mb-4">{post.readTime} read</p>
+
+                <div className="flex items-center gap-3 mt-auto">
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-sm shrink-0">
+                    {post.author.split(" ").map((n) => n[0]).join("")}
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-foreground leading-tight">{post.author}</p>
+                    <p className="text-xs text-muted-foreground">{(authorDetails[post.author] || { role: "Contributor" }).role}</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right — Image */}
+              <div className="hidden md:flex items-center p-5 md:py-6 md:pr-6 lg:py-8 lg:pr-8 md:pl-0">
+                <div className="relative w-full aspect-[3/2] rounded-xl overflow-hidden">
+                  {slug && blogImages[slug] ? (
+                    <img
+                      src={blogImages[slug]}
+                      alt={post.title}
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-secondary to-accent/10 flex items-center justify-center">
+                      <span className="text-primary/20 font-heading font-bold text-2xl text-center px-8">
+                        {post.category}
+                      </span>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
 
       <article className="py-10 md:py-16 bg-background">
         <div className="container max-w-3xl">
-          <Link to="/blog" className="inline-flex items-center gap-1 text-sm text-primary hover:underline mb-6">
-            <ArrowLeft className="w-4 h-4" /> Back to Blog
-          </Link>
-
-          <span className="inline-block text-xs font-semibold text-primary bg-primary/10 px-2.5 py-0.5 rounded-full mb-4">
-            {post.category}
-          </span>
-
-          <h1 className="font-heading text-2xl md:text-4xl font-bold text-foreground mb-4 leading-tight">
-            {post.title}
-          </h1>
-
-          <div className="flex flex-wrap gap-4 text-xs text-muted-foreground mb-6">
-            <span className="flex items-center gap-1"><User className="w-3.5 h-3.5" /> {post.author}</span>
-            <span className="flex items-center gap-1">
-              <Calendar className="w-3.5 h-3.5" />
-              {new Date(post.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
-            </span>
-            <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {post.readTime} read</span>
-          </div>
-
-          {slug && blogImages[slug] && (
-            <div className="rounded-xl overflow-hidden mb-8">
-              <img src={blogImages[slug]} alt={post.title} className="w-full h-auto object-cover" width={800} height={512} />
-            </div>
-          )}
-
           {/* Content */}
           <div className="prose prose-sm dark:prose-invert prose-headings:font-heading prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-a:text-primary max-w-none">
             {post.content.split("\n\n").map((block, i) => {
