@@ -47,7 +47,7 @@ const Blog = () => {
       <BlogHeroCarousel />
 
       <section className="py-10 md:py-16 bg-background">
-        <div className="container max-w-6xl">
+        <div className="container">
           {/* Search + Filters */}
           <div className="flex flex-col md:flex-row gap-4 mb-8">
             <div className="relative flex-1 max-w-sm">
