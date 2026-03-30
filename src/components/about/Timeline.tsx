@@ -19,8 +19,6 @@ const Timeline = () => (
         </div>
         {timeline.map((item, i) => (
           <div key={item.year} className="relative group z-10">
-            {/* Dot marker */}
-            <div className="hidden lg:block absolute -top-3 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full border-2 border-primary bg-card z-20" />
             <div className="bg-card border border-border rounded-xl md:rounded-2xl p-4 md:p-6 h-full hover:shadow-lg hover:border-primary/30 transition-all duration-300">
               <span className="inline-block font-heading text-2xl md:text-3xl font-extrabold text-primary/20 group-hover:text-primary/40 transition-colors mb-2">
                 {item.year}
