@@ -50,34 +50,60 @@ const Blog = () => {
 
       <section className="py-10 md:py-16 bg-background">
         <div className="container">
-          {/* Search + Filters */}
-          <div className="flex flex-col md:flex-row gap-4 mb-8">
-            <div className="relative flex-1 max-w-sm">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-              <Input
-                placeholder="Search articles..."
-                className="pl-9"
-                value={searchQuery}
-                onChange={(e) => { setSearchQuery(e.target.value); setCurrentPage(1); }}
-              />
-            </div>
-          </div>
-
-          {/* Category Tabs */}
-          <div className="flex flex-wrap gap-2 mb-8">
-            {blogCategories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => changeCat(cat)}
-                className={`text-xs font-semibold px-3 py-1.5 rounded-full border transition-colors ${
-                  activeCategory === cat
-                    ? "bg-primary text-primary-foreground border-primary"
-                    : "bg-card text-muted-foreground border-border hover:border-primary/50"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
+          {/* Filter Bar */}
+          <div className="bg-card border border-border rounded-xl p-3 mb-8">
+            {showSearch ? (
+              <div className="flex items-center gap-3">
+                <button
+                  onClick={() => { setShowSearch(false); setSearchQuery(""); setCurrentPage(1); }}
+                  className="flex items-center gap-1.5 text-sm font-medium text-foreground border border-border rounded-full px-4 py-2 hover:border-primary/40 transition-colors shrink-0"
+                >
+                  <ArrowLeft className="w-4 h-4" /> Back to Categories
+                </button>
+                <div className="relative flex-1 max-w-xl mx-auto">
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                  <Input
+                    placeholder="What do you want to learn today?"
+                    className="pl-9 pr-20 rounded-full border-border"
+                    value={searchQuery}
+                    autoFocus
+                    onChange={(e) => { setSearchQuery(e.target.value); setCurrentPage(1); }}
+                  />
+                  <Button
+                    size="sm"
+                    className="absolute right-1.5 top-1/2 -translate-y-1/2 rounded-full px-4"
+                  >
+                    Search
+                  </Button>
+                </div>
+              </div>
+            ) : (
+              <div className="flex items-center gap-2">
+                <div className="flex-1 overflow-x-auto scrollbar-thin">
+                  <div className="flex items-center gap-2 min-w-max">
+                    {blogCategories.map((cat) => (
+                      <button
+                        key={cat}
+                        onClick={() => changeCat(cat)}
+                        className={`text-sm font-medium px-4 py-2 rounded-full whitespace-nowrap transition-colors ${
+                          activeCategory === cat
+                            ? "bg-primary text-primary-foreground"
+                            : "text-foreground hover:bg-muted"
+                        }`}
+                      >
+                        {cat}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+                <button
+                  onClick={() => setShowSearch(true)}
+                  className="w-10 h-10 rounded-xl border border-border flex items-center justify-center hover:border-primary/40 transition-colors shrink-0"
+                >
+                  <Search className="w-4 h-4 text-muted-foreground" />
+                </button>
+              </div>
+            )}
           </div>
 
           {/* Blog Grid */}
