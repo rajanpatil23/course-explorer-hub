@@ -139,7 +139,8 @@ const BlogPost = () => {
                 <Button asChild>
                   <Link to="/">Explore Courses <ArrowRight className="w-4 h-4 ml-1" /></Link>
                 </Button>
-          </div>
+              </div>
+            </div>
 
           {/* Related Posts */}
           {related.length > 0 && (
