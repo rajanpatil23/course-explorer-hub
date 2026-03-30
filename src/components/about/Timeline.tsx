@@ -13,7 +13,7 @@ const Timeline = () => (
         <p className="text-[10px] md:text-xs font-bold text-primary uppercase tracking-[0.2em] mb-2">Our Journey</p>
         <h2 className="font-heading text-2xl md:text-4xl font-bold text-foreground">Key Milestones</h2>
       </div>
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
+      <div className="grid grid-cols-2 lg:grid-cols-5 gap-3 md:gap-6">
         {timeline.map((item, i) => (
           <div key={item.year} className="relative group">
             <div className="bg-card border border-border rounded-xl md:rounded-2xl p-4 md:p-6 h-full hover:shadow-lg hover:border-primary/30 transition-all duration-300">
