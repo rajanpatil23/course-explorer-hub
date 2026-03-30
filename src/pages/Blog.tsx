@@ -5,7 +5,6 @@ import { blogImages } from "@/data/blogImages";
 import { ArrowRight, Clock, Search, ArrowLeft } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Button } from "@/components/ui/button";
 import BlogHeroCarousel from "@/components/blog/BlogHeroCarousel";
 
 const authorDetails: Record<string, { role: string }> = {
