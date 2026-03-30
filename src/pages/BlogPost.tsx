@@ -191,9 +191,15 @@ const BlogPost = () => {
                   <h4 className="font-heading font-bold text-foreground text-lg mb-1">Get Free Consultation</h4>
                   <p className="text-sm text-muted-foreground mb-4">Talk to an expert to plan your next move.</p>
                   <div className="space-y-3">
-                    <Input placeholder="Your name" className="rounded-lg" />
-                    <Input placeholder="Phone number" className="rounded-lg" />
-                    <Button className="w-full rounded-lg">Submit</Button>
+                    <div>
+                      <Input placeholder="Your name" className="rounded-lg" value={consultName} onChange={(e) => { setConsultName(e.target.value); setConsultErrors((p) => ({ ...p, name: undefined })); }} />
+                      {consultErrors.name && <p className="text-[11px] text-destructive mt-1">{consultErrors.name}</p>}
+                    </div>
+                    <div>
+                      <Input placeholder="Phone number" className="rounded-lg" value={consultPhone} onChange={(e) => { setConsultPhone(e.target.value); setConsultErrors((p) => ({ ...p, phone: undefined })); }} />
+                      {consultErrors.phone && <p className="text-[11px] text-destructive mt-1">{consultErrors.phone}</p>}
+                    </div>
+                    <Button className="w-full rounded-lg" onClick={handleConsultSubmit}>Submit</Button>
                   </div>
                   <p className="text-[10px] text-muted-foreground mt-3 text-center">
                     By submitting, you accept our{" "}
