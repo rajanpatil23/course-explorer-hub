@@ -32,7 +32,7 @@ const BlogHeroCarousel = () => {
   return (
     <section className="bg-background pt-4 md:pt-6 pb-0">
       <div className="container">
-        <div className="bg-secondary/40 rounded-2xl md:rounded-3xl overflow-hidden border border-border shadow-sm">
+        <div>
           <Link
             to={`/blog/${post.slug}`}
             className="group block"
