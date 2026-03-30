@@ -109,10 +109,9 @@ const Blog = () => {
                         {new Date(post.date).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })}
                       </span>
                     </div>
-                    <h3 className="font-heading font-bold text-foreground text-sm mb-2 leading-snug line-clamp-2 group-hover:text-primary transition-colors">
+                    <h3 className="font-heading font-bold text-foreground text-sm mb-3 leading-snug line-clamp-2 group-hover:text-primary transition-colors">
                       {post.title}
                     </h3>
-                    <p className="text-xs text-muted-foreground line-clamp-2 mb-3">{post.excerpt}</p>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
                         <div className="w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-[10px] shrink-0">
