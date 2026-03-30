@@ -37,9 +37,9 @@ const BlogHeroCarousel = () => {
             to={`/blog/${post.slug}`}
             className="group block"
           >
-            <div className="grid md:grid-cols-2 gap-0 items-center">
+            <div className="grid md:grid-cols-2 gap-0 items-stretch">
               {/* Left — Content */}
-              <div className="flex flex-col p-6 md:p-10 lg:p-12">
+              <div className="flex flex-col justify-center p-6 md:p-10 lg:p-12">
                 <div className="flex items-center justify-between mb-5">
                   <span className="text-[11px] font-bold uppercase tracking-wider text-primary-foreground bg-primary px-3 py-1 rounded-md">
                     {post.category}
@@ -63,7 +63,7 @@ const BlogHeroCarousel = () => {
 
                 <p className="text-xs text-muted-foreground mb-6">{post.readTime}</p>
 
-                <div className="flex items-center gap-3 mt-auto">
+                <div className="flex items-center gap-3 pt-2">
                   <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-sm shrink-0">
                     {post.author.split(" ").map((n) => n[0]).join("")}
                   </div>
@@ -75,7 +75,7 @@ const BlogHeroCarousel = () => {
               </div>
 
               {/* Right — Image */}
-              <div className="hidden md:block p-4 md:py-10 md:pr-10 lg:py-12 lg:pr-12">
+              <div className="hidden md:flex items-center p-4 md:py-10 md:pr-10 lg:py-12 lg:pr-12">
                 <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden">
                   {image ? (
                     <img
