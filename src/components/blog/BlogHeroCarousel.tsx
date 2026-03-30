@@ -30,7 +30,7 @@ const BlogHeroCarousel = () => {
   const author = authorDetails[post.author] || { role: "Contributor" };
 
   return (
-    <section className="bg-background py-10 md:py-16">
+    <section className="bg-background pt-4 md:pt-6 pb-0">
       <div className="container">
         <div className="bg-secondary/40 rounded-2xl md:rounded-3xl overflow-hidden border border-border shadow-sm">
           <Link
