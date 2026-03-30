@@ -1,9 +1,11 @@
+import { useState } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { findBlogBySlug, blogPosts } from "@/data/blogs";
 import { blogImages } from "@/data/blogImages";
-import { ArrowLeft, Clock, Calendar, ArrowRight, Download } from "lucide-react";
+import { ArrowLeft, Clock, Calendar, ArrowRight, Download, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 
 const authorDetails: Record<string, { role: string }> = {
   "Rajiv Sharma": { role: "Project Management Expert" },
@@ -16,6 +18,7 @@ const authorDetails: Record<string, { role: string }> = {
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
   const post = slug ? findBlogBySlug(slug) : undefined;
+  const [guideOpen, setGuideOpen] = useState(false);
 
   if (!post) return <Navigate to="/blog" replace />;
 
@@ -165,12 +168,29 @@ const BlogPost = () => {
                 <div className="bg-card border border-border rounded-xl p-6">
                   <h4 className="font-heading font-bold text-foreground text-lg mb-1">Ready to learn more?</h4>
                   <p className="text-sm text-muted-foreground mb-4">Download our quick guide to get started.</p>
-                  <Button variant="outline" className="rounded-lg text-primary border-primary/30 hover:bg-primary/5">
+                  <Button variant="outline" className="rounded-lg text-primary border-primary/30 hover:bg-primary/5" onClick={() => setGuideOpen(true)}>
                     <Download className="w-4 h-4 mr-2" /> Download Guide
                   </Button>
                 </div>
               </div>
             </aside>
+
+            {/* Download Guide Dialog */}
+            <Dialog open={guideOpen} onOpenChange={setGuideOpen}>
+              <DialogContent className="sm:max-w-md">
+                <DialogHeader>
+                  <DialogTitle className="font-heading text-xl font-bold text-foreground">Get Your Free Guide</DialogTitle>
+                  <DialogDescription className="text-sm text-muted-foreground">
+                    Enter your details and we'll send it right over.
+                  </DialogDescription>
+                </DialogHeader>
+                <div className="space-y-4 pt-2">
+                  <Input placeholder="Your name" className="rounded-lg" />
+                  <Input placeholder="Email address" type="email" className="rounded-lg" />
+                  <Button className="w-full rounded-lg">Send me the guide</Button>
+                </div>
+              </DialogContent>
+            </Dialog>
           </div>
 
           {/* Related Articles — Full Width */}
