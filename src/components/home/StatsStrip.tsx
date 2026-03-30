@@ -56,8 +56,21 @@ const StatsStrip = () => {
   return (
     <section ref={ref} className="relative z-20 -mt-14 md:-mt-24 mb-12 md:mb-24">
       <div className="container">
-        <div className="max-w-5xl mx-auto border border-primary/20 rounded-2xl bg-primary/10 px-4 py-6 md:px-10 md:py-10 shadow-lg">
-          <div className="grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-8">
+        <div className="relative max-w-5xl mx-auto border border-primary/20 rounded-2xl bg-primary/10 px-4 py-6 md:px-10 md:py-10 shadow-lg overflow-hidden">
+          {/* Decorative elements */}
+          <div className="absolute -top-4 -left-4 w-20 h-20 grid grid-cols-4 gap-2 z-0 opacity-40">
+            {Array.from({ length: 16 }).map((_, i) => (
+              <div key={`tl-${i}`} className="w-1.5 h-1.5 rounded-full bg-primary/50" />
+            ))}
+          </div>
+          <div className="absolute -bottom-4 -right-4 w-20 h-20 grid grid-cols-4 gap-2 z-0 opacity-40">
+            {Array.from({ length: 16 }).map((_, i) => (
+              <div key={`br-${i}`} className="w-1.5 h-1.5 rounded-full bg-accent/50" />
+            ))}
+          </div>
+          <div className="absolute top-0 right-1/4 w-32 h-32 rounded-full bg-primary/5 blur-[60px] z-0" />
+          <div className="absolute bottom-0 left-1/4 w-24 h-24 rounded-full bg-accent/5 blur-[40px] z-0" />
+          <div className="grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-8 relative z-10">
             {stats.map((s, i) => (
               <div key={i} className={i >= 3 ? "hidden lg:block" : ""}>
                 <StatItem stat={s} visible={visible} />
