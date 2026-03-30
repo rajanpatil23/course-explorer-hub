@@ -18,7 +18,7 @@ const About = () => (
     
     <TrainersSection />
     <TestimonialsSection />
-    <CorporateCTA />
+    
     <div className="h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
   </>
 );
