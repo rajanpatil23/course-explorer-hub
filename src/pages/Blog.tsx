@@ -111,11 +111,17 @@ const Blog = () => {
                       {post.title}
                     </h3>
                     <p className="text-xs text-muted-foreground line-clamp-2 mb-3">{post.excerpt}</p>
-                    <div className="flex items-center justify-between text-[10px] text-muted-foreground">
-                      <span className="flex items-center gap-1">
-                        <User className="w-3 h-3" /> {post.author}
-                      </span>
-                      <span className="flex items-center gap-1">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <div className="w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-[10px] shrink-0">
+                          {post.author.split(" ").map((n) => n[0]).join("")}
+                        </div>
+                        <div>
+                          <p className="text-[11px] font-semibold text-foreground leading-tight">{post.author}</p>
+                          <p className="text-[10px] text-muted-foreground">{(authorDetails[post.author] || { role: "Contributor" }).role}</p>
+                        </div>
+                      </div>
+                      <span className="flex items-center gap-1 text-[10px] text-muted-foreground">
                         <Clock className="w-3 h-3" /> {post.readTime}
                       </span>
                     </div>
