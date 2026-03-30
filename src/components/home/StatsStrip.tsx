@@ -32,7 +32,7 @@ const StatItem = ({ stat, visible }: { stat: typeof stats[0]; visible: boolean }
   const count = useCountUp(stat.value, 2000, (stat as any).decimals || 0, visible);
   return (
     <div className="text-center">
-      <div className="font-heading text-2xl md:text-4xl font-semibold text-primary">
+      <div className="font-heading text-2xl md:text-4xl font-semibold text-primary-foreground">
         {(stat as any).decimals ? count.toFixed((stat as any).decimals) : Math.floor(count).toLocaleString()}
         <span className="text-primary">{stat.suffix}</span>
       </div>
