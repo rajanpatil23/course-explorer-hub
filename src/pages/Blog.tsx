@@ -22,6 +22,7 @@ const Blog = () => {
   const [activeCategory, setActiveCategory] = useState("All Posts");
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
+  const [showSearch, setShowSearch] = useState(false);
 
   const filtered = useMemo(() => {
     let posts = blogPosts;
