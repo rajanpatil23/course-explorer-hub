@@ -5,7 +5,7 @@ import { blogImages } from "@/data/blogImages";
 import { ArrowRight, Clock, User, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-
+import BlogHeroCarousel from "@/components/blog/BlogHeroCarousel";
 
 const POSTS_PER_PAGE = 9;
 
@@ -36,7 +36,7 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen">
-
+      <BlogHeroCarousel />
 
       <section className="py-10 md:py-16 bg-background">
         <div className="container max-w-6xl">
