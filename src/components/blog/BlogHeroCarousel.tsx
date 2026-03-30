@@ -37,7 +37,7 @@ const BlogHeroCarousel = () => {
             to={`/blog/${post.slug}`}
             className="group block"
           >
-            <div className="grid md:grid-cols-2 gap-0">
+            <div className="grid md:grid-cols-2 gap-0 items-stretch">
               {/* Left — Content */}
               <div className="flex flex-col justify-between p-6 md:p-10 lg:p-12">
                 <div>
@@ -76,21 +76,23 @@ const BlogHeroCarousel = () => {
                 </div>
               </div>
 
-              {/* Right — Image */}
-              <div className="relative h-56 md:h-auto min-h-[280px]">
-                {image ? (
-                  <img
-                    src={image}
-                    alt={post.title}
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
-                ) : (
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-secondary to-accent/10 flex items-center justify-center">
-                    <span className="text-primary/20 font-heading font-bold text-2xl text-center px-8">
-                      {post.category}
-                    </span>
-                  </div>
-                )}
+              {/* Right — Image inset */}
+              <div className="p-4 md:p-6 hidden md:block">
+                <div className="relative w-full h-full rounded-xl overflow-hidden">
+                  {image ? (
+                    <img
+                      src={image}
+                      alt={post.title}
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-secondary to-accent/10 flex items-center justify-center">
+                      <span className="text-primary/20 font-heading font-bold text-2xl text-center px-8">
+                        {post.category}
+                      </span>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           </Link>
