@@ -192,12 +192,32 @@ const BlogPost = () => {
                   <p className="text-sm text-muted-foreground mb-4">Talk to an expert to plan your next move.</p>
                   <div className="space-y-3">
                     <div>
-                      <Input placeholder="Your name" className="rounded-lg" value={consultName} onChange={(e) => { setConsultName(e.target.value); setConsultErrors((p) => ({ ...p, name: undefined })); }} />
-                      {consultErrors.name && <p className="text-[11px] text-destructive mt-1">{consultErrors.name}</p>}
+                      <Input
+                        placeholder="Your name"
+                        value={consultName}
+                        onChange={(e) => { setConsultName(e.target.value); setConsultErrors((p) => ({ ...p, name: undefined })); }}
+                        className={`rounded-lg transition-colors ${consultErrors.name ? "border-destructive ring-2 ring-destructive/20 placeholder:text-destructive/60" : ""}`}
+                      />
+                      {consultErrors.name && (
+                        <p className="flex items-center gap-1 text-[11px] text-destructive mt-1.5 animate-in slide-in-from-top-1 fade-in duration-200">
+                          <span className="inline-flex items-center justify-center w-3.5 h-3.5 rounded-full bg-destructive/10 text-destructive text-[9px] font-bold shrink-0">!</span>
+                          {consultErrors.name}
+                        </p>
+                      )}
                     </div>
                     <div>
-                      <Input placeholder="Phone number" className="rounded-lg" value={consultPhone} onChange={(e) => { setConsultPhone(e.target.value); setConsultErrors((p) => ({ ...p, phone: undefined })); }} />
-                      {consultErrors.phone && <p className="text-[11px] text-destructive mt-1">{consultErrors.phone}</p>}
+                      <Input
+                        placeholder="Phone number"
+                        value={consultPhone}
+                        onChange={(e) => { setConsultPhone(e.target.value); setConsultErrors((p) => ({ ...p, phone: undefined })); }}
+                        className={`rounded-lg transition-colors ${consultErrors.phone ? "border-destructive ring-2 ring-destructive/20 placeholder:text-destructive/60" : ""}`}
+                      />
+                      {consultErrors.phone && (
+                        <p className="flex items-center gap-1 text-[11px] text-destructive mt-1.5 animate-in slide-in-from-top-1 fade-in duration-200">
+                          <span className="inline-flex items-center justify-center w-3.5 h-3.5 rounded-full bg-destructive/10 text-destructive text-[9px] font-bold shrink-0">!</span>
+                          {consultErrors.phone}
+                        </p>
+                      )}
                     </div>
                     <Button className="w-full rounded-lg" onClick={handleConsultSubmit}>Submit</Button>
                   </div>
@@ -229,12 +249,33 @@ const BlogPost = () => {
                 </DialogHeader>
                 <div className="space-y-4 pt-2">
                   <div>
-                    <Input placeholder="Your name" className="rounded-lg" value={guideName} onChange={(e) => { setGuideName(e.target.value); setGuideErrors((p) => ({ ...p, name: undefined })); }} />
-                    {guideErrors.name && <p className="text-[11px] text-destructive mt-1">{guideErrors.name}</p>}
+                    <Input
+                      placeholder="Your name"
+                      value={guideName}
+                      onChange={(e) => { setGuideName(e.target.value); setGuideErrors((p) => ({ ...p, name: undefined })); }}
+                      className={`rounded-lg transition-colors ${guideErrors.name ? "border-destructive ring-2 ring-destructive/20 placeholder:text-destructive/60" : ""}`}
+                    />
+                    {guideErrors.name && (
+                      <p className="flex items-center gap-1 text-[11px] text-destructive mt-1.5 animate-in slide-in-from-top-1 fade-in duration-200">
+                        <span className="inline-flex items-center justify-center w-3.5 h-3.5 rounded-full bg-destructive/10 text-destructive text-[9px] font-bold shrink-0">!</span>
+                        {guideErrors.name}
+                      </p>
+                    )}
                   </div>
                   <div>
-                    <Input placeholder="Email address" type="email" className="rounded-lg" value={guideEmail} onChange={(e) => { setGuideEmail(e.target.value); setGuideErrors((p) => ({ ...p, email: undefined })); }} />
-                    {guideErrors.email && <p className="text-[11px] text-destructive mt-1">{guideErrors.email}</p>}
+                    <Input
+                      placeholder="Email address"
+                      type="email"
+                      value={guideEmail}
+                      onChange={(e) => { setGuideEmail(e.target.value); setGuideErrors((p) => ({ ...p, email: undefined })); }}
+                      className={`rounded-lg transition-colors ${guideErrors.email ? "border-destructive ring-2 ring-destructive/20 placeholder:text-destructive/60" : ""}`}
+                    />
+                    {guideErrors.email && (
+                      <p className="flex items-center gap-1 text-[11px] text-destructive mt-1.5 animate-in slide-in-from-top-1 fade-in duration-200">
+                        <span className="inline-flex items-center justify-center w-3.5 h-3.5 rounded-full bg-destructive/10 text-destructive text-[9px] font-bold shrink-0">!</span>
+                        {guideErrors.email}
+                      </p>
+                    )}
                   </div>
                   <Button className="w-full rounded-lg" onClick={handleGuideSubmit}>Send me the guide</Button>
                 </div>
