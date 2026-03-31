@@ -3,8 +3,8 @@ import { useState, useRef } from "react";
 
 const timeline = [
   { year: "2018", desc: "Founded with project management training, focused curriculum, and a growing expert network.", position: "top" as const },
-  { year: "2020", desc: "Expanded our reach to global learners, growing professional communities across many nations.", position: "bottom" as const },
-  { year: "2022", desc: "Launched corporate training programs, partnering with top organizations to upskill all teams.", position: "top" as const },
+  { year: "2020", desc: "Expanded our reach to global learners, growing professional communities across nations.", position: "bottom" as const },
+  { year: "2022", desc: "Launched corporate training programs, partnering with top organizations to upskill teams.", position: "top" as const },
   { year: "2024", desc: "Hit major learner milestones and deepened ties with leading accreditation bodies worldwide.", position: "bottom" as const },
   { year: "2026", desc: "Redefining professional education through bold innovation and a strong learner-first focus.", position: "top" as const },
 ];
