@@ -47,8 +47,8 @@ const Timeline = () => {
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
             <div className="relative min-w-[900px] md:min-w-[1100px] px-8">
-              {/* Top cards (position: top) */}
-              <div className="flex mb-2">
+              {/* Top cards (position: top) — aligned to dot center */}
+              <div className="flex">
                 {timeline.map((item, i) => (
                   <div key={i} className="flex-1 flex justify-center px-2">
                     {item.position === "top" ? (
@@ -56,46 +56,42 @@ const Timeline = () => {
                         <div className="bg-gradient-to-br from-card to-secondary/50 border border-border/60 rounded-xl p-5 max-w-[190px] shadow-md hover:shadow-lg hover:border-primary/40 transition-all duration-300 border-l-[3px] border-l-primary">
                           <p className="text-xs text-foreground/70 leading-relaxed text-center font-medium">{item.desc}</p>
                         </div>
-                        <div className="w-px h-6 bg-primary/40" />
+                        <div className="w-px h-8 bg-primary/40" />
                       </div>
                     ) : (
-                      <div className="h-full" />
+                      <div />
                     )}
                   </div>
                 ))}
               </div>
 
-              {/* The gradient bar with year labels and dots */}
-              <div className="relative h-12 flex items-center">
-                {/* Gradient bar */}
+              {/* The gradient bar with dots centered per column, year inside bar */}
+              <div className="relative h-10 flex items-center">
                 <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-10 rounded-full bg-gradient-to-r from-primary via-primary/80 to-accent shadow-lg" />
 
-                {/* Year labels + dots */}
-                <div className="relative flex w-full">
+                <div className="relative flex w-full h-full">
                   {timeline.map((item, i) => (
-                    <div key={i} className="flex-1 flex justify-center">
-                      <div className="flex items-center gap-2">
-                        <span className="text-sm md:text-base font-bold text-primary-foreground relative z-10">{item.year}</span>
-                        <div className="w-5 h-5 rounded-full bg-background border-[3px] border-primary/30 shadow-md relative z-10" />
-                      </div>
+                    <div key={i} className="flex-1 flex items-center justify-center relative">
+                      <span className="text-sm md:text-base font-bold text-primary-foreground relative z-10 mr-2">{item.year}</span>
+                      <div className="w-6 h-6 rounded-full bg-background border-[3px] border-background/80 shadow-lg relative z-10 shrink-0" />
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* Bottom cards (position: bottom) */}
-              <div className="flex mt-2">
+              {/* Bottom cards (position: bottom) — aligned to dot center */}
+              <div className="flex">
                 {timeline.map((item, i) => (
                   <div key={i} className="flex-1 flex justify-center px-2">
                     {item.position === "bottom" ? (
                       <div className="flex flex-col items-center">
-                        <div className="w-px h-6 bg-primary/40" />
+                        <div className="w-px h-8 bg-primary/40" />
                         <div className="bg-gradient-to-br from-card to-secondary/50 border border-border/60 rounded-xl p-5 max-w-[190px] shadow-md hover:shadow-lg hover:border-primary/40 transition-all duration-300 border-l-[3px] border-l-primary">
                           <p className="text-xs text-foreground/70 leading-relaxed text-center font-medium">{item.desc}</p>
                         </div>
                       </div>
                     ) : (
-                      <div className="h-full" />
+                      <div />
                     )}
                   </div>
                 ))}
