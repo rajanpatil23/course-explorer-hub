@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { Mail, Phone, Clock, MessageSquare, Send, Headphones, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Mail, Phone, Clock, MessageSquare, Send, ArrowRight, CheckCircle2 } from "lucide-react";
 
 const contactCards = [
   {
@@ -53,28 +53,38 @@ const Contact = () => {
 
   return (
     <div>
-      {/* Hero */}
-      <section className="relative bg-hero overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-primary rounded-full blur-3xl" />
-          <div className="absolute bottom-10 right-20 w-96 h-96 bg-accent rounded-full blur-3xl" />
-        </div>
-        <div className="container relative z-10 py-16 md:py-24 text-center max-w-3xl">
-          <div className="w-14 h-14 rounded-2xl bg-primary/20 flex items-center justify-center mx-auto mb-5">
-            <Headphones className="w-7 h-7 text-primary" />
-          </div>
-          <h1 className="font-heading text-3xl md:text-5xl font-bold text-hero-foreground mb-4">
-            Get in Touch
+      {/* Hero — light theme matching home/about */}
+      <section className="relative bg-muted/40 text-foreground overflow-hidden rounded-b-[3rem] md:rounded-b-[8rem] shadow-sm">
+        <div
+          className="absolute inset-0 opacity-[0.07]"
+          style={{
+            backgroundImage: `linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)`,
+            backgroundSize: "40px 40px",
+          }}
+        />
+        <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-br from-background via-background/80 to-transparent z-[1]" />
+        <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-background via-background/80 to-transparent z-[1]" />
+        <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-background via-background/80 to-transparent z-[1]" />
+        <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-background via-background/80 to-transparent z-[1]" />
+        <div className="absolute top-20 right-20 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[180px] z-[2]" />
+        <div className="absolute bottom-0 left-10 w-[400px] h-[400px] rounded-full bg-accent/5 blur-[120px] z-[2]" />
+
+        <div className="container relative z-10 py-14 md:py-24 pb-24 md:pb-36 text-center">
+          <p className="text-[10px] md:text-xs font-bold text-primary uppercase tracking-[0.2em] mb-3">
+            Contact Us
+          </p>
+          <h1 className="font-heading text-3xl md:text-5xl font-extrabold leading-[1.12] mb-4 md:mb-5">
+            Let's Start a{" "}
+            <span className="text-gradient-primary">Conversation</span>
           </h1>
-          <p className="text-hero-foreground/70 max-w-xl mx-auto">
+          <p className="text-sm md:text-lg text-muted-foreground leading-relaxed max-w-xl mx-auto">
             Have questions about certifications? Our training advisors are here to help you choose the right path.
           </p>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background to-transparent" />
       </section>
 
-      {/* Contact Cards */}
-      <section className="relative -mt-8 z-20 pb-6">
+      {/* Contact Cards — floating overlap */}
+      <section className="relative -mt-16 md:-mt-20 z-20 pb-6">
         <div className="container max-w-5xl">
           <div className="grid sm:grid-cols-3 gap-4 md:gap-6">
             {contactCards.map((card) => (
@@ -103,7 +113,15 @@ const Contact = () => {
       {/* Form + Sidebar */}
       <section className="py-14 md:py-20 bg-background">
         <div className="container max-w-6xl">
-          <div className="grid lg:grid-cols-5 gap-10 items-start">
+          <div className="text-center mb-10 md:mb-14">
+            <p className="text-[10px] md:text-xs font-bold text-primary uppercase tracking-[0.2em] mb-2">Enquiry Form</p>
+            <h2 className="font-heading text-2xl md:text-4xl font-bold text-foreground">Send Us Your Query</h2>
+            <p className="text-sm md:text-base text-muted-foreground mt-3 max-w-2xl mx-auto">
+              Fill in the form below and our team will get back to you within 24 hours.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-5 gap-8 md:gap-10 items-start">
             {/* Form */}
             <div className="lg:col-span-3">
               <div className="bg-card border border-border rounded-2xl p-6 md:p-8">
@@ -112,8 +130,8 @@ const Contact = () => {
                     <MessageSquare className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h2 className="font-heading text-xl font-bold text-foreground">Send Your Enquiry</h2>
-                    <p className="text-muted-foreground text-sm">Fill in the form and we'll get back to you shortly.</p>
+                    <h3 className="font-heading text-lg font-bold text-foreground">Send Your Enquiry</h3>
+                    <p className="text-muted-foreground text-sm">We'll respond within one business day.</p>
                   </div>
                 </div>
 
@@ -190,18 +208,16 @@ const Contact = () => {
               </div>
 
               {/* Quick CTA */}
-              <div className="bg-hero rounded-2xl p-6 relative overflow-hidden">
-                <div className="absolute inset-0 opacity-10">
-                  <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary rounded-full blur-2xl" />
-                </div>
+              <div className="bg-card border border-border rounded-2xl p-6 relative overflow-hidden">
+                <div className="absolute bottom-0 right-0 w-20 h-20 bg-primary/[0.04] rounded-tl-[3rem] pointer-events-none" />
                 <div className="relative z-10">
-                  <h3 className="font-heading font-bold text-hero-foreground text-base mb-2">
+                  <h3 className="font-heading font-bold text-foreground text-base mb-2">
                     Prefer to talk now?
                   </h3>
-                  <p className="text-hero-foreground/70 text-sm mb-4">
+                  <p className="text-muted-foreground text-sm mb-4">
                     Call or WhatsApp our advisor for an instant consultation.
                   </p>
-                  <Button asChild variant="outline" size="sm" className="border-primary text-primary bg-primary/10 hover:bg-primary/20">
+                  <Button asChild variant="outline" size="sm" className="border-primary/30 text-primary hover:bg-primary/5">
                     <a href="tel:+918851467220">
                       <Phone className="w-4 h-4 mr-2" />
                       +91 88514 67220
