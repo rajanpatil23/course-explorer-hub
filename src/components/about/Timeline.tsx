@@ -2,11 +2,11 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useRef } from "react";
 
 const timeline = [
-  { year: "2018", desc: "Founded with a focus on project management training and a small expert trainer network.", position: "top" as const },
-  { year: "2020", desc: "Expanded access to international learners, growing our community across 50+ countries.", position: "bottom" as const },
-  { year: "2022", desc: "Launched corporate training programs, partnering with organizations to upskill teams.", position: "top" as const },
-  { year: "2024", desc: "Crossed major learner milestones and deepened partnerships with global accreditation bodies.", position: "bottom" as const },
-  { year: "2026", desc: "Continuing to redefine professional education with innovation and learner-first thinking.", position: "top" as const },
+  { year: "2018", desc: "Founded with project management training, focused curriculum, and a growing expert network.", position: "top" as const },
+  { year: "2020", desc: "Expanded our global reach to learners, growing professional communities across all nations.", position: "bottom" as const },
+  { year: "2022", desc: "Launched corporate training programs and partnered with top organizations to upskill teams.", position: "top" as const },
+  { year: "2024", desc: "Hit major learner milestones and deepened ties with leading accreditation bodies worldwide.", position: "bottom" as const },
+  { year: "2026", desc: "Redefining professional education through bold innovation and a strong learner-first focus.", position: "top" as const },
 ];
 
 const Timeline = () => {
