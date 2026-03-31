@@ -84,64 +84,47 @@ const TrainingGallery = () => {
 
           {/* Central canvas — realistic laptop/screen look */}
           <div className="relative w-[85%] max-w-md md:max-w-lg">
-            {/* Outer bezel — dark frame like a real screen */}
-            <div className="rounded-2xl bg-[#1a1a1a] p-[6px] md:p-2 shadow-[0_20px_60px_-10px_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.05)]">
-              {/* Inner bezel highlight */}
-              <div className="rounded-xl bg-gradient-to-b from-[#2a2a2a] to-[#1a1a1a] p-[2px]">
-                {/* Screen area */}
-                <div className="rounded-[10px] overflow-hidden relative bg-card">
-                  {/* Dotted canvas background */}
-                  <div className="absolute inset-0 pointer-events-none z-0 opacity-[0.15]" style={{ backgroundImage: 'radial-gradient(circle, hsl(var(--muted-foreground)) 1px, transparent 1px)', backgroundSize: '16px 16px' }} />
+            {/* Clean soft outer wrapper */}
+            <div className="rounded-2xl bg-background/80 p-3 md:p-4 shadow-xl border border-border/30">
+              {/* Canvas area */}
+              <div className="rounded-xl overflow-hidden relative bg-card">
+                {/* Dotted canvas background */}
+                <div className="absolute inset-0 pointer-events-none z-0 opacity-[0.15]" style={{ backgroundImage: 'radial-gradient(circle, hsl(var(--muted-foreground)) 1px, transparent 1px)', backgroundSize: '16px 16px' }} />
 
-                  {/* Slide content */}
-                  <div className="relative p-8 md:p-12 min-h-[260px] md:min-h-[300px] flex flex-col items-center justify-center text-center">
-                    {/* Decorative gradient corner */}
-                    <div className={`absolute top-0 right-0 w-32 h-32 md:w-40 md:h-40 bg-gradient-to-bl ${slide.accent} opacity-[0.07] rounded-bl-[4rem] pointer-events-none transition-all duration-700`} />
-                    <div className={`absolute bottom-0 left-0 w-24 h-24 md:w-32 md:h-32 bg-gradient-to-tr ${slide.accent} opacity-[0.05] rounded-tr-[3rem] pointer-events-none transition-all duration-700`} />
+                {/* Slide content */}
+                <div className="relative p-8 md:p-12 min-h-[260px] md:min-h-[300px] flex flex-col items-center justify-center text-center">
+                  <div className={`absolute top-0 right-0 w-32 h-32 md:w-40 md:h-40 bg-gradient-to-bl ${slide.accent} opacity-[0.07] rounded-bl-[4rem] pointer-events-none transition-all duration-700`} />
+                  <div className={`absolute bottom-0 left-0 w-24 h-24 md:w-32 md:h-32 bg-gradient-to-tr ${slide.accent} opacity-[0.05] rounded-tr-[3rem] pointer-events-none transition-all duration-700`} />
 
-                    <div key={`icon-${active}`} className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-5 animate-fade-in-up">
-                      {slide.icon}
-                    </div>
-                    <span key={`label-${active}`} className="text-[10px] md:text-xs font-bold text-primary uppercase tracking-[0.2em] mb-2 animate-fade-in-up">
-                      {slide.label}
-                    </span>
-                    <h3 key={`title-${active}`} className="font-heading text-xl md:text-2xl font-bold text-foreground mb-3 md:mb-4 animate-fade-in-up">
-                      {slide.title}
-                    </h3>
-                    <p key={`body-${active}`} className="text-sm md:text-base text-muted-foreground leading-relaxed max-w-sm animate-fade-in-up">
-                      {slide.body}
-                    </p>
+                  <div key={`icon-${active}`} className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-5 animate-fade-in-up">
+                    {slide.icon}
                   </div>
+                  <span key={`label-${active}`} className="text-[10px] md:text-xs font-bold text-primary uppercase tracking-[0.2em] mb-2 animate-fade-in-up">
+                    {slide.label}
+                  </span>
+                  <h3 key={`title-${active}`} className="font-heading text-xl md:text-2xl font-bold text-foreground mb-3 md:mb-4 animate-fade-in-up">
+                    {slide.title}
+                  </h3>
+                  <p key={`body-${active}`} className="text-sm md:text-base text-muted-foreground leading-relaxed max-w-sm animate-fade-in-up">
+                    {slide.body}
+                  </p>
+                </div>
 
-                  {/* Bottom bar with nav */}
-                  <div className="flex items-center justify-between px-6 py-3 border-t border-border bg-secondary/50">
-                    <button onClick={() => setActive((p) => (p - 1 + slides.length) % slides.length)} className="w-8 h-8 rounded-full flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted transition-colors" aria-label="Previous slide">
-                      <ChevronLeft className="w-4 h-4" />
-                    </button>
-                    <div className="flex items-center gap-2">
-                      {slides.map((_, i) => (
-                        <button key={i} onClick={() => setActive(i)} className={`rounded-full transition-all duration-300 ${i === active ? "w-6 h-2 bg-primary" : "w-2 h-2 bg-muted-foreground/30 hover:bg-muted-foreground/50"}`} aria-label={`Go to slide ${i + 1}`} />
-                      ))}
-                    </div>
-                    <button onClick={() => setActive((p) => (p + 1) % slides.length)} className="w-8 h-8 rounded-full flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted transition-colors" aria-label="Next slide">
-                      <ChevronRight className="w-4 h-4" />
-                    </button>
+                {/* Bottom bar with nav */}
+                <div className="flex items-center justify-between px-6 py-3 border-t border-border bg-secondary/50">
+                  <button onClick={() => setActive((p) => (p - 1 + slides.length) % slides.length)} className="w-8 h-8 rounded-full flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted transition-colors" aria-label="Previous slide">
+                    <ChevronLeft className="w-4 h-4" />
+                  </button>
+                  <div className="flex items-center gap-2">
+                    {slides.map((_, i) => (
+                      <button key={i} onClick={() => setActive(i)} className={`rounded-full transition-all duration-300 ${i === active ? "w-6 h-2 bg-primary" : "w-2 h-2 bg-muted-foreground/30 hover:bg-muted-foreground/50"}`} aria-label={`Go to slide ${i + 1}`} />
+                    ))}
                   </div>
+                  <button onClick={() => setActive((p) => (p + 1) % slides.length)} className="w-8 h-8 rounded-full flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted transition-colors" aria-label="Next slide">
+                    <ChevronRight className="w-4 h-4" />
+                  </button>
                 </div>
               </div>
-            </div>
-
-            {/* Stand / chin — like a monitor base */}
-            <div className="flex justify-center mt-0">
-              <div className="w-16 h-3 md:w-20 md:h-4 bg-gradient-to-b from-[#2a2a2a] to-[#1a1a1a] rounded-b-lg" />
-            </div>
-            <div className="flex justify-center">
-              <div className="w-28 h-[3px] md:w-36 md:h-1 bg-gradient-to-r from-transparent via-[#2a2a2a] to-transparent rounded-full" />
-            </div>
-
-            {/* Reflection under the screen */}
-            <div className="flex justify-center mt-1">
-              <div className="w-[70%] h-3 bg-primary-foreground/[0.03] rounded-full blur-md" />
             </div>
           </div>
         </div>
