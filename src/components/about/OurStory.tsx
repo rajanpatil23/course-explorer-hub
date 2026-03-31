@@ -36,14 +36,14 @@ const OurStory = () => (
         </div>
 
         {/* Right — image */}
-        <div className="rounded-2xl overflow-hidden">
+        <div className="rounded-2xl overflow-hidden max-h-[350px]">
           <img
             src={storyImg}
             alt="EduEdge team collaborating in a modern training environment"
-            className="w-full h-auto object-cover rounded-2xl"
+            className="w-full h-full object-cover rounded-2xl max-h-[350px]"
             loading="lazy"
             width={800}
-            height={900}
+            height={400}
           />
         </div>
       </div>
