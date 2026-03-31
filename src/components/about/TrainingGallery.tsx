@@ -70,14 +70,10 @@ const TrainingGallery = () => {
       <Sparkle className="absolute w-3 h-3 text-primary-foreground/25 bottom-[30%] left-[32%]" />
 
       <div className="container relative z-10">
-        {/* Section header */}
-        <div className="text-center mb-10 md:mb-14">
-          <p className="text-[10px] md:text-xs font-bold text-primary-foreground/60 uppercase tracking-[0.2em] mb-2">What Drives Us</p>
-          <h2 className="font-heading text-2xl md:text-4xl font-bold text-primary-foreground">
-            Built on Purpose, Powered by Passion
-          </h2>
-          <p className="text-sm md:text-base text-primary-foreground/60 mt-3 max-w-xl mx-auto">
-            Everything we do is guided by a clear mission, a bold vision, and values that put learners first.
+        {/* Tagline */}
+        <div className="text-center mb-8 md:mb-10">
+          <p className="text-primary-foreground/70 text-sm md:text-base font-medium italic">
+            More freedom to learn the way you want
           </p>
         </div>
 
