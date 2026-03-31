@@ -17,6 +17,56 @@ const authorDetails: Record<string, { role: string }> = {
 
 const POSTS_PER_PAGE = 9;
 
+const MobileCategoryDropdown = ({
+  categories,
+  active,
+  onChange,
+}: {
+  categories: string[];
+  active: string;
+  onChange: (cat: string) => void;
+}) => {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
+
+  return (
+    <div ref={ref} className="relative">
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-between bg-card border border-border rounded-xl px-3.5 py-2.5 text-xs font-medium text-foreground"
+      >
+        {active}
+        <ChevronDown className={`w-4 h-4 text-muted-foreground transition-transform ${open ? "rotate-180" : ""}`} />
+      </button>
+      {open && (
+        <div className="absolute top-full left-0 right-0 mt-1 bg-card border border-border rounded-xl shadow-lg z-50 py-1 max-h-60 overflow-y-auto">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => { onChange(cat); setOpen(false); }}
+              className={`w-full text-left px-3.5 py-2 text-xs transition-colors ${
+                active === cat
+                  ? "bg-primary/10 text-primary font-semibold"
+                  : "text-foreground hover:bg-muted"
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
 const Blog = () => {
   const [activeCategory, setActiveCategory] = useState("All Posts");
   const [searchQuery, setSearchQuery] = useState("");
