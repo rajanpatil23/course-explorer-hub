@@ -89,9 +89,11 @@ const TrainingGallery = () => {
               {/* Inner bezel highlight */}
               <div className="rounded-xl bg-gradient-to-b from-[#2a2a2a] to-[#1a1a1a] p-[2px]">
                 {/* Screen area */}
-                <div className="rounded-[10px] bg-card overflow-hidden relative">
-                  {/* Screen glare overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] via-transparent to-transparent pointer-events-none z-20 rounded-[10px]" />
+                <div className="rounded-[10px] overflow-hidden relative" style={{ backgroundColor: '#faf8f5', backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'6\' height=\'6\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence baseFrequency=\'0.9\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'6\' height=\'6\' filter=\'url(%23n)\' opacity=\'0.04\'/%3E%3C/svg%3E")' }}>
+                  {/* Canvas texture overlay — woven linen effect */}
+                  <div className="absolute inset-0 pointer-events-none z-20 rounded-[10px] opacity-[0.035]" style={{ backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.08) 2px, rgba(0,0,0,0.08) 3px), repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0,0,0,0.06) 2px, rgba(0,0,0,0.06) 3px)' }} />
+                  {/* Subtle warm vignette */}
+                  <div className="absolute inset-0 pointer-events-none z-20 rounded-[10px] bg-[radial-gradient(ellipse_at_center,transparent_50%,rgba(139,119,90,0.06)_100%)]" />
 
                   {/* Slide content */}
                   <div className="relative p-8 md:p-12 min-h-[260px] md:min-h-[300px] flex flex-col items-center justify-center text-center">
