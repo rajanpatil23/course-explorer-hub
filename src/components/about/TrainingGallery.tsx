@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Rocket, Lightbulb, ChevronLeft, ChevronRight } from "lucide-react";
+import { Rocket, Lightbulb, Heart, ChevronLeft, ChevronRight } from "lucide-react";
 import gallery1 from "@/assets/about-gallery-1.jpg";
 import gallery2 from "@/assets/about-gallery-2.jpg";
 import gallery3 from "@/assets/about-gallery-3.jpg";
@@ -20,6 +20,13 @@ const slides = [
     title: "The Most Trusted Training Platform",
     body: "To become the world's most trusted platform for IT certification training — known for quality instruction, exceptional pass rates, and measurable career outcomes that transform lives.",
     accent: "from-accent to-accent/70",
+  },
+  {
+    icon: <Heart className="w-8 h-8 md:w-10 md:h-10" />,
+    label: "Our Values",
+    title: "Excellence, Integrity & Impact",
+    body: "We believe in learner-first thinking, transparent practices, and measurable outcomes. Every course, trainer, and resource is chosen to deliver real-world impact and lasting professional growth.",
+    accent: "from-primary to-accent/70",
   },
 ];
 
