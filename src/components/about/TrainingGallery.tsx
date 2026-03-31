@@ -25,7 +25,7 @@ const slides = [
     icon: <Heart className="w-8 h-8 md:w-10 md:h-10" />,
     label: "Our Values",
     title: "Excellence, Integrity & Impact",
-    body: "We believe in learner-first thinking, transparent practices, and measurable outcomes. Every course, trainer, and resource is chosen to deliver real-world impact and lasting professional growth.",
+    body: "We believe in learner-first thinking, transparent practices, and measurable outcomes. Every course, trainer, and resource is chosen to deliver real-world impact and lasting professional growth for every individual.",
     accent: "from-primary to-accent/70",
   },
 ];
@@ -109,7 +109,7 @@ const TrainingGallery = () => {
                 <div className="absolute inset-0 pointer-events-none z-0 opacity-[0.15]" style={{ backgroundImage: 'radial-gradient(circle, hsl(var(--muted-foreground)) 1px, transparent 1px)', backgroundSize: '16px 16px' }} />
 
                 {/* Slide content */}
-                <div className="relative p-8 md:p-12 min-h-[260px] md:min-h-[300px] flex flex-col items-center justify-center text-center">
+                <div className="relative p-8 md:p-12 min-h-[280px] md:min-h-[320px] flex flex-col items-center justify-center text-center">
                   <div className={`absolute top-0 right-0 w-32 h-32 md:w-40 md:h-40 bg-gradient-to-bl ${slide.accent} opacity-[0.07] rounded-bl-[4rem] pointer-events-none transition-all duration-700`} />
                   <div className={`absolute bottom-0 left-0 w-24 h-24 md:w-32 md:h-32 bg-gradient-to-tr ${slide.accent} opacity-[0.05] rounded-tr-[3rem] pointer-events-none transition-all duration-700`} />
 
