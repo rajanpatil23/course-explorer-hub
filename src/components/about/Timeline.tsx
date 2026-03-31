@@ -6,7 +6,7 @@ const timeline = [
   { year: "2020", desc: "Expanded our global reach to learners, growing professional communities across all nations.", position: "bottom" as const },
   { year: "2022", desc: "Launched corporate training programs and partnered with top organizations to upskill teams.", position: "top" as const },
   { year: "2024", desc: "Hit major learner milestones and deepened ties with leading accreditation bodies worldwide.", position: "bottom" as const },
-  { year: "2026", desc: "Redefining professional education through bold innovation, emerging technologies, and a strong learner-first focus.", position: "top" as const },
+  { year: "2026", desc: "Redefining professional education through bold innovation, emerging technologies, and a learner-first focus.", position: "top" as const },
 ];
 
 const Timeline = () => {
