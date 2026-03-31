@@ -88,8 +88,8 @@ const Timeline = () => {
                     {item.position === "bottom" ? (
                       <div className="flex flex-col items-center">
                         <div className="w-[3px] h-8 bg-primary/50 rounded-full" />
-                        <div className="bg-gradient-to-br from-card to-secondary/50 border border-border/60 rounded-xl p-5 max-w-[190px] shadow-md hover:shadow-lg hover:border-primary/40 transition-all duration-300 border-l-[3px] border-l-primary">
-                          <p className="text-xs text-foreground/70 leading-relaxed text-center font-medium">{item.desc}</p>
+                        <div className="bg-gradient-to-br from-card to-secondary/50 border border-border/60 rounded-xl p-5 max-w-[190px] shadow-md border-l-[3px] border-l-primary transition-all duration-300 ease-out hover:shadow-xl hover:shadow-primary/15 hover:border-primary/40 hover:translate-y-1.5 hover:scale-[1.03] group cursor-default">
+                          <p className="text-xs text-foreground/70 leading-relaxed text-center font-medium group-hover:text-foreground transition-colors duration-300">{item.desc}</p>
                         </div>
                       </div>
                     ) : (
