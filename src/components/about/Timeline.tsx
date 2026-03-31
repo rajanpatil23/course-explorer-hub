@@ -2,12 +2,15 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useRef } from "react";
 
 const timeline = [
-  { year: "2018", title: "Foundation", desc: "Began with project management training, a focused curriculum, and a small expert trainer network.", position: "top" as const },
-  { year: "2019", title: "Digital Expansion", desc: "Shifted into live online learning and started reaching professionals beyond local classroom delivery.", position: "bottom" as const },
-  { year: "2020", title: "Global Reach", desc: "Expanded access to international learners, growing our community across 50+ countries worldwide.", position: "top" as const },
-  { year: "2021", title: "Portfolio Growth", desc: "Added cloud, cybersecurity, agile, and IT certifications to serve broader career goals.", position: "bottom" as const },
-  { year: "2022", title: "Enterprise Training", desc: "Launched corporate training programs, partnering with organizations to upskill their teams at scale.", position: "top" as const },
-  { year: "2023", title: "Scale & Impact", desc: "Grew learner outcomes, strengthened enterprise training, and continued scaling high-quality programs.", position: "bottom" as const },
+  { year: "2018", desc: "Founded with a focus on project management training and a small expert trainer network.", position: "top" as const },
+  { year: "2019", desc: "Shifted into live online learning, reaching professionals beyond local classrooms.", position: "bottom" as const },
+  { year: "2020", desc: "Expanded access to international learners, growing our community across 50+ countries.", position: "top" as const },
+  { year: "2021", desc: "Added cloud, cybersecurity, agile, and IT certification tracks to our portfolio.", position: "bottom" as const },
+  { year: "2022", desc: "Launched corporate training programs, partnering with organizations to upskill teams.", position: "top" as const },
+  { year: "2023", desc: "Strengthened enterprise training and scaled high-quality programs globally.", position: "bottom" as const },
+  { year: "2024", desc: "Crossed major learner milestones and deepened partnerships with global accreditation bodies.", position: "top" as const },
+  { year: "2025", desc: "Introduced AI-powered learning paths and personalized certification roadmaps.", position: "bottom" as const },
+  { year: "2026", desc: "Continuing to redefine professional education with innovation and learner-first thinking.", position: "top" as const },
 ];
 
 const Timeline = () => {
