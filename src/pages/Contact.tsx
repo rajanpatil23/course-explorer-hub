@@ -121,7 +121,7 @@ const Contact = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-5 gap-8 md:gap-10 items-start">
+          <div className="grid lg:grid-cols-5 gap-8 md:gap-10 items-stretch">
             {/* Form */}
             <div className="lg:col-span-3">
               <div className="bg-card border border-border rounded-2xl p-6 md:p-8">
