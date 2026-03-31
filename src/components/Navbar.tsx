@@ -97,7 +97,7 @@ const Navbar = () => {
               {categories.map(cat => (
                 <Link
                   key={cat.slug}
-                  to={`/courses?category=${cat.slug}`}
+                  to={`/courses/category/${cat.slug}`}
                   onClick={() => setMobileOpen(false)}
                   className="block py-1.5 text-sm text-muted-foreground"
                 >
