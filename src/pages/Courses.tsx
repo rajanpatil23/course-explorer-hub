@@ -1,25 +1,60 @@
 import { useState, useMemo } from "react";
-import { Link } from "react-router-dom";
-import { Search, ArrowRight } from "lucide-react";
+import { useSearchParams } from "react-router-dom";
+import { Search } from "lucide-react";
 import CourseCard from "@/components/courses/CourseCard";
 import { categories } from "@/data/courses";
 
+const INITIAL_SHOW = 9;
+
 const Courses = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const initialCat = searchParams.get("category") || "all";
+  const [activeTab, setActiveTab] = useState(initialCat);
   const [search, setSearch] = useState("");
+  const [showAll, setShowAll] = useState<Record<string, boolean>>({});
+
   const allCourses = useMemo(() => categories.flatMap(c => c.courses), []);
 
-  const filteredCourses = useMemo(() => {
-    if (search.trim().length < 2) return [];
-    const q = search.toLowerCase();
-    return allCourses.filter(c =>
-      c.name.toLowerCase().includes(q) || c.code.toLowerCase().includes(q) || c.skills.some(s => s.toLowerCase().includes(q))
-    );
-  }, [search, allCourses]);
+  const tabs = [
+    { id: "all", label: "All Courses", count: allCourses.length },
+    ...categories.map(c => ({ id: c.slug, label: c.name, count: c.courses.length })),
+  ];
 
-  const isSearching = search.trim().length >= 2;
+  const filteredCourses = useMemo(() => {
+    let courses = activeTab === "all" ? allCourses : categories.find(c => c.slug === activeTab)?.courses || [];
+    if (search.trim().length >= 2) {
+      const q = search.toLowerCase();
+      courses = courses.filter(c =>
+        c.name.toLowerCase().includes(q) || c.code.toLowerCase().includes(q) || c.skills.some(s => s.toLowerCase().includes(q))
+      );
+    }
+    return courses;
+  }, [activeTab, search, allCourses]);
+
+  const displayed = showAll[activeTab] ? filteredCourses : filteredCourses.slice(0, INITIAL_SHOW);
+
+  const handleTabChange = (tabId: string) => {
+    setActiveTab(tabId);
+    setShowAll({});
+    if (tabId === "all") {
+      setSearchParams({});
+    } else {
+      setSearchParams({ category: tabId });
+    }
+  };
+
+  // Sync URL param changes
+  useMemo(() => {
+    const cat = searchParams.get("category");
+    if (cat && cat !== activeTab) {
+      setActiveTab(cat);
+      setShowAll({});
+    }
+  }, [searchParams]);
 
   return (
     <div className="min-h-screen pb-14 md:pb-0">
+
       {/* Hero */}
       <section className="bg-hero text-hero-foreground py-14 md:py-20">
         <div className="container text-center">
@@ -47,50 +82,50 @@ const Courses = () => {
         </div>
       </section>
 
+      {/* Tabs + Courses */}
       <section className="py-12 md:py-16 bg-background">
         <div className="container">
-          {isSearching ? (
-            <>
-              <p className="text-sm text-muted-foreground mb-8">
-                {filteredCourses.length} result{filteredCourses.length !== 1 ? "s" : ""} for "{search}"
-              </p>
-              {filteredCourses.length > 0 ? (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {filteredCourses.map(course => (
-                    <CourseCard key={course.code} course={course} />
-                  ))}
-                </div>
-              ) : (
-                <p className="text-center text-muted-foreground py-12">No courses match your search. Try a different keyword.</p>
-              )}
-            </>
-          ) : (
-            <>
-              <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-8">Browse by Category</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {categories.map(cat => (
-                  <Link
-                    key={cat.slug}
-                    to={`/courses/category/${cat.slug}`}
-                    className="group bg-card rounded-2xl border border-border p-6 md:p-8 hover:shadow-lg hover:border-primary/30 transition-all duration-300"
-                  >
-                    <h3 className="font-heading font-bold text-lg text-foreground mb-2 group-hover:text-primary transition-colors">
-                      {cat.name}
-                    </h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                      {cat.description}
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs font-semibold text-primary">{cat.courses.length} Courses</span>
-                      <ArrowRight className="w-4 h-4 text-primary group-hover:translate-x-1 transition-transform" />
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </>
+          {/* Category tabs */}
+          <div className="flex flex-wrap gap-2 justify-center mb-10">
+            {tabs.map(tab => (
+              <button
+                key={tab.id}
+                onClick={() => handleTabChange(tab.id)}
+                className={`whitespace-nowrap px-5 py-2.5 rounded-full text-sm font-semibold transition-colors border ${
+                  activeTab === tab.id
+                    ? "bg-primary text-primary-foreground border-primary"
+                    : "bg-card text-muted-foreground border-border hover:border-primary/40 hover:text-foreground"
+                }`}
+              >
+                {tab.label} ({tab.count})
+              </button>
+            ))}
+          </div>
+
+          {/* Course grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {displayed.map(course => (
+              <CourseCard key={course.code} course={course} />
+            ))}
+          </div>
+
+          {filteredCourses.length === 0 && (
+            <p className="text-center text-muted-foreground py-12">No courses match your search. Try a different keyword.</p>
+          )}
+
+          {filteredCourses.length > INITIAL_SHOW && !showAll[activeTab] && (
+            <div className="text-center mt-10">
+              <button
+                onClick={() => setShowAll(prev => ({ ...prev, [activeTab]: true }))}
+                className="text-primary font-semibold hover:underline inline-flex items-center gap-1"
+              >
+                Load More Courses →
+              </button>
+            </div>
           )}
         </div>
       </section>
+
     </div>
   );
 };

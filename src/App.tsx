@@ -7,7 +7,6 @@ import Layout from "./components/Layout";
 import Index from "./pages/Index";
 import Courses from "./pages/Courses";
 import CourseDetail from "./pages/CourseDetail";
-import CategoryCourses from "./pages/CategoryCourses";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Blog from "./pages/Blog";
@@ -28,7 +27,6 @@ const App = () => (
           <Route element={<Layout />}>
             <Route path="/" element={<Index />} />
             <Route path="/courses" element={<Courses />} />
-            <Route path="/courses/category/:categorySlug" element={<CategoryCourses />} />
             <Route path="/courses/:slug" element={<CourseDetail />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
