@@ -27,7 +27,7 @@ const Timeline = () => {
   };
 
   return (
-    <section className="py-14 md:py-24 bg-secondary rounded-t-[3rem] md:rounded-t-[8rem]">
+    <section className="py-14 md:py-24 bg-secondary rounded-b-[3rem] md:rounded-b-[8rem]">
       <div className="container max-w-6xl">
         {/* Header */}
         <div className="text-center mb-10 md:mb-16">
