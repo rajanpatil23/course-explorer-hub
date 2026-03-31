@@ -19,13 +19,12 @@ const FloatingImg = ({ src, alt, className }: { src: string; alt: string; classN
 
 const TrainingGallery = () => (
   <section className="py-16 md:py-24 bg-primary relative overflow-hidden">
-    {/* Smooth elliptical orbit rings */}
+    {/* Smooth elliptical orbit rings — contained within section, connecting the 6 images */}
     <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-      <svg className="absolute w-[130%] h-[130%]" viewBox="0 0 1000 600" fill="none" xmlns="http://www.w3.org/2000/svg">
-        {/* Three smooth concentric tilted ellipses */}
-        <ellipse cx="500" cy="300" rx="480" ry="220" stroke="hsl(var(--primary-foreground) / 0.12)" strokeWidth="1" transform="rotate(-8 500 300)" />
-        <ellipse cx="500" cy="300" rx="460" ry="260" stroke="hsl(var(--primary-foreground) / 0.10)" strokeWidth="1" transform="rotate(5 500 300)" />
-        <ellipse cx="500" cy="300" rx="490" ry="240" stroke="hsl(var(--primary-foreground) / 0.08)" strokeWidth="1" transform="rotate(-2 500 300)" />
+      <svg className="absolute w-full h-full" viewBox="0 0 1000 600" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="500" cy="300" rx="420" ry="200" stroke="hsl(var(--primary-foreground) / 0.12)" strokeWidth="1" transform="rotate(-6 500 300)" />
+        <ellipse cx="500" cy="300" rx="380" ry="230" stroke="hsl(var(--primary-foreground) / 0.10)" strokeWidth="1" transform="rotate(4 500 300)" />
+        <ellipse cx="500" cy="300" rx="400" ry="215" stroke="hsl(var(--primary-foreground) / 0.08)" strokeWidth="1" transform="rotate(-1 500 300)" />
       </svg>
     </div>
 
