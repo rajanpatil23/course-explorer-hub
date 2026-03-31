@@ -46,7 +46,7 @@ const Navbar = () => {
                   {categories.map((cat) => (
                     <Link
                       key={cat.slug}
-                      to={`/courses?category=${cat.slug}`}
+                      to={`/courses/category/${cat.slug}`}
                       onClick={() => setDropdownOpen(false)}
                       className="block px-4 py-2 text-sm text-muted-foreground hover:bg-teal-light hover:text-primary transition-colors"
                     >
@@ -97,7 +97,7 @@ const Navbar = () => {
               {categories.map(cat => (
                 <Link
                   key={cat.slug}
-                  to={`/courses?category=${cat.slug}`}
+                  to={`/courses/category/${cat.slug}`}
                   onClick={() => setMobileOpen(false)}
                   className="block py-1.5 text-sm text-muted-foreground"
                 >

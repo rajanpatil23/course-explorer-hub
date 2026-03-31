@@ -7,12 +7,12 @@ import { useToast } from "@/hooks/use-toast";
 import logoWhite from "@/assets/logo-white.jpg";
 
 const quickLinks = [
-  { label: "All Courses", href: "/" },
-  { label: "Project Management", href: "/?category=project-management" },
-  { label: "Cybersecurity", href: "/?category=cybersecurity" },
-  { label: "Microsoft Azure", href: "/?category=azure" },
-  { label: "AWS", href: "/?category=aws" },
-  { label: "SAFe® Agile", href: "/?category=safe-agile" },
+  { label: "All Courses", href: "/courses" },
+  { label: "Project Management", href: "/courses/category/project-management" },
+  { label: "Cybersecurity", href: "/courses/category/cybersecurity" },
+  { label: "Microsoft Azure", href: "/courses/category/azure" },
+  { label: "AWS", href: "/courses/category/aws" },
+  { label: "SAFe® Agile", href: "/courses/category/safe-agile" },
 ];
 
 const companyLinks = [
