@@ -101,25 +101,6 @@ const Timeline = () => {
             </div>
           </div>
 
-          {/* Navigation arrows */}
-          <div className="flex justify-center gap-3 mt-6">
-            <button
-              onClick={() => scroll(-1)}
-              disabled={!canScrollLeft}
-              className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted transition-colors disabled:opacity-30"
-              aria-label="Scroll left"
-            >
-              <ChevronLeft className="w-4 h-4" />
-            </button>
-            <button
-              onClick={() => scroll(1)}
-              disabled={!canScrollRight}
-              className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted transition-colors disabled:opacity-30"
-              aria-label="Scroll right"
-            >
-              <ChevronRight className="w-4 h-4" />
-            </button>
-          </div>
         </div>
       </div>
     </section>
