@@ -72,8 +72,9 @@ const BlogHeroCarousel = () => {
               </div>
 
               {/* Right — Image */}
-              <div className="hidden md:flex items-center p-5 md:py-6 md:pr-6 lg:py-8 lg:pr-8 md:pl-0">
-                <div className="relative w-full aspect-[3/2] rounded-xl overflow-hidden">
+              {/* Image — mobile: below text, desktop: right side */}
+              <div className="flex items-center px-4 pb-2 md:p-5 md:py-6 md:pr-6 lg:py-8 lg:pr-8 md:pl-0">
+                <div className="relative w-full aspect-[2/1] md:aspect-[3/2] rounded-lg md:rounded-xl overflow-hidden">
                   {image ? (
                     <img
                       src={image}
@@ -82,7 +83,7 @@ const BlogHeroCarousel = () => {
                     />
                   ) : (
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-secondary to-accent/10 flex items-center justify-center">
-                      <span className="text-primary/20 font-heading font-bold text-2xl text-center px-8">
+                      <span className="text-primary/20 font-heading font-bold text-lg md:text-2xl text-center px-8">
                         {post.category}
                       </span>
                     </div>
