@@ -34,8 +34,8 @@ const BlogHeroCarousel = () => {
       <div className="container px-3 md:px-4">
         <div className="bg-secondary/50 rounded-xl md:rounded-3xl overflow-hidden">
           <Link to={`/blog/${post.slug}`} className="group block">
-            <div className="grid md:grid-cols-[1fr,1fr] gap-0">
-              {/* Left — Content */}
+            <div className="flex flex-col-reverse md:grid md:grid-cols-[1fr,1fr] gap-0">
+              {/* Content — below image on mobile, left on desktop */}
               <div className="flex flex-col p-4 md:p-6 lg:p-8">
                 <div className="flex items-center justify-between mb-1.5 md:mb-2">
                   <span className="text-[10px] md:text-[11px] font-bold uppercase tracking-wider text-primary-foreground bg-primary px-2.5 py-0.5 md:px-3 md:py-1 rounded-md">
@@ -71,9 +71,8 @@ const BlogHeroCarousel = () => {
                 </div>
               </div>
 
-              {/* Right — Image */}
-              {/* Image — mobile: below text, desktop: right side */}
-              <div className="flex items-center px-4 pb-2 md:p-5 md:py-6 md:pr-6 lg:py-8 lg:pr-8 md:pl-0">
+              {/* Image — above content on mobile, right on desktop */}
+              <div className="flex items-center px-4 pt-4 pb-0 md:p-5 md:py-6 md:pr-6 lg:py-8 lg:pr-8 md:pl-0">
                 <div className="relative w-full aspect-[2/1] md:aspect-[3/2] rounded-lg md:rounded-xl overflow-hidden">
                   {image ? (
                     <img
