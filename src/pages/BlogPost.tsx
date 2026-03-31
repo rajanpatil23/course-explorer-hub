@@ -71,6 +71,16 @@ const BlogPost = () => {
       <section className="bg-background pt-3 md:pt-6 pb-0">
         <div className="container px-3 md:px-4">
           <div className="bg-secondary/50 rounded-xl md:rounded-3xl overflow-hidden">
+            {/* Breadcrumb */}
+            <div className="px-4 pt-3 md:px-6 md:pt-4 lg:px-8 lg:pt-5">
+              <nav className="flex items-center gap-1 text-[10px] md:text-xs text-muted-foreground">
+                <Link to="/" className="hover:text-primary transition-colors">Home</Link>
+                <span>/</span>
+                <Link to="/blog" className="hover:text-primary transition-colors">Blog</Link>
+                <span>/</span>
+                <span className="text-foreground font-medium truncate max-w-[180px] md:max-w-xs">{post.title}</span>
+              </nav>
+            </div>
             <div className="flex flex-col-reverse md:grid md:grid-cols-2 gap-0">
               <div className="flex flex-col p-4 md:p-6 lg:p-8">
                 <div className="flex items-center justify-between mb-1.5 md:mb-2">
