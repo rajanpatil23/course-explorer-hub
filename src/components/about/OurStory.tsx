@@ -4,7 +4,7 @@ import storyImg from "@/assets/our-story.jpg";
 const partners = ["PMI Partner", "CompTIA Partner", "AWS Partner", "Microsoft Partner", "SAFe Partner"];
 
 const OurStory = () => (
-  <section className="py-14 md:py-24 bg-background">
+  <section className="py-10 md:py-16 bg-background">
     <div className="container max-w-6xl">
       <div className="text-center mb-10 md:mb-14">
         <p className="text-[10px] md:text-xs font-bold text-primary uppercase tracking-[0.2em] mb-2">Our Story</p>
