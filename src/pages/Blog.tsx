@@ -79,13 +79,22 @@ const Blog = () => {
             </div>
           ) : (
             <div className="flex items-center gap-2 md:gap-3 mb-6 md:mb-8">
-              <div className="flex-1 bg-card border border-border rounded-xl px-2 md:px-3 py-1.5 md:py-2 overflow-x-auto scrollbar-thin">
-                <div className="flex items-center gap-1.5 md:gap-2 min-w-max">
+              {/* Mobile: Dropdown */}
+              <div className="md:hidden flex-1 relative">
+                <MobileCategoryDropdown
+                  categories={blogCategories}
+                  active={activeCategory}
+                  onChange={changeCat}
+                />
+              </div>
+              {/* Desktop: Scrollable pills */}
+              <div className="hidden md:flex flex-1 bg-card border border-border rounded-xl px-3 py-2 overflow-x-auto scrollbar-thin">
+                <div className="flex items-center gap-2 min-w-max">
                   {blogCategories.map((cat) => (
                     <button
                       key={cat}
                       onClick={() => changeCat(cat)}
-                      className={`text-xs md:text-sm font-medium px-3 py-1.5 md:px-4 md:py-2 rounded-full whitespace-nowrap transition-colors ${
+                      className={`text-sm font-medium px-4 py-2 rounded-full whitespace-nowrap transition-colors ${
                         activeCategory === cat
                           ? "bg-primary text-primary-foreground"
                           : "text-foreground hover:bg-muted"
