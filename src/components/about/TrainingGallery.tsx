@@ -19,12 +19,13 @@ const FloatingImg = ({ src, alt, className }: { src: string; alt: string; classN
 
 const TrainingGallery = () => (
   <section className="py-16 md:py-24 bg-primary relative overflow-hidden">
-    {/* Smooth elliptical orbit rings — contained within section, connecting the 6 images */}
+    {/* Smooth elliptical orbit rings — crossing at top, bottom, left (mid-left img), right (mid-right img) */}
     <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
       <svg className="absolute w-full h-full" viewBox="0 0 1000 600" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <ellipse cx="500" cy="300" rx="420" ry="200" stroke="hsl(var(--primary-foreground) / 0.12)" strokeWidth="1" transform="rotate(-6 500 300)" />
-        <ellipse cx="500" cy="300" rx="380" ry="230" stroke="hsl(var(--primary-foreground) / 0.10)" strokeWidth="1" transform="rotate(4 500 300)" />
-        <ellipse cx="500" cy="300" rx="400" ry="215" stroke="hsl(var(--primary-foreground) / 0.08)" strokeWidth="1" transform="rotate(-1 500 300)" />
+        {/* Ring 1: wider horizontally, narrower vertically — crosses at left & right */}
+        <ellipse cx="500" cy="300" rx="430" ry="180" stroke="hsl(var(--primary-foreground) / 0.12)" strokeWidth="1.2" transform="rotate(-12 500 300)" />
+        {/* Ring 2: narrower horizontally, taller vertically — crosses at top & bottom */}
+        <ellipse cx="500" cy="300" rx="350" ry="250" stroke="hsl(var(--primary-foreground) / 0.10)" strokeWidth="1.2" transform="rotate(12 500 300)" />
       </svg>
     </div>
 
