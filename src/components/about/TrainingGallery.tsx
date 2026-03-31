@@ -25,7 +25,7 @@ const slides = [
     icon: <Heart className="w-8 h-8 md:w-10 md:h-10" />,
     label: "Our Values",
     title: "Excellence, Integrity & Impact",
-    body: "We believe in learner-first thinking, transparent practices, and measurable outcomes. Every course, trainer, and resource is chosen to deliver real-world impact and lasting professional growth.",
+    body: "We believe in learner-first thinking, transparent practices, and measurable outcomes. Every course, trainer, and resource is chosen to deliver real-world impact and lasting professional growth for every individual.",
     accent: "from-primary to-accent/70",
   },
 ];
