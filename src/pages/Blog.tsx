@@ -23,8 +23,10 @@ const Blog = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [showSearch, setShowSearch] = useState(false);
 
+  const heroSlugs = useMemo(() => new Set(blogPosts.slice(0, 5).map(p => p.slug)), []);
+
   const filtered = useMemo(() => {
-    let posts = blogPosts;
+    let posts = blogPosts.filter(p => !heroSlugs.has(p.slug));
     if (activeCategory !== "All Posts") {
       posts = posts.filter((p) => p.category === activeCategory);
     }
@@ -33,7 +35,7 @@ const Blog = () => {
       posts = posts.filter((p) => p.title.toLowerCase().includes(q) || p.excerpt.toLowerCase().includes(q));
     }
     return posts;
-  }, [activeCategory, searchQuery]);
+  }, [activeCategory, searchQuery, heroSlugs]);
 
   const totalPages = Math.ceil(filtered.length / POSTS_PER_PAGE);
   const paged = filtered.slice((currentPage - 1) * POSTS_PER_PAGE, currentPage * POSTS_PER_PAGE);
