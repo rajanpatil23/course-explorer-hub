@@ -71,7 +71,7 @@ const BlogPost = () => {
       <section className="bg-background pt-3 md:pt-6 pb-0">
         <div className="container px-3 md:px-4">
           <div className="bg-secondary/50 rounded-xl md:rounded-3xl overflow-hidden">
-            <div className="grid md:grid-cols-2 gap-0">
+            <div className="flex flex-col-reverse md:grid md:grid-cols-2 gap-0">
               <div className="flex flex-col p-4 md:p-6 lg:p-8">
                 <div className="flex items-center justify-between mb-1.5 md:mb-2">
                   <span className="text-[10px] md:text-[11px] font-bold uppercase tracking-wider text-primary-foreground bg-primary px-2.5 py-0.5 md:px-3 md:py-1 rounded-md">
@@ -98,13 +98,13 @@ const BlogPost = () => {
                   </div>
                 </div>
               </div>
-              <div className="hidden md:flex items-center p-5 md:py-6 md:pr-6 lg:py-8 lg:pr-8 md:pl-0">
-                <div className="relative w-full aspect-[3/2] rounded-xl overflow-hidden">
+              <div className="flex items-center px-4 pt-4 pb-0 md:p-5 md:py-6 md:pr-6 lg:py-8 lg:pr-8 md:pl-0">
+                <div className="relative w-full aspect-[2/1] md:aspect-[3/2] rounded-lg md:rounded-xl overflow-hidden">
                   {slug && blogImages[slug] ? (
                     <img src={blogImages[slug]} alt={post.title} className="absolute inset-0 w-full h-full object-cover" />
                   ) : (
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-secondary to-accent/10 flex items-center justify-center">
-                      <span className="text-primary/20 font-heading font-bold text-2xl text-center px-8">{post.category}</span>
+                      <span className="text-primary/20 font-heading font-bold text-lg md:text-2xl text-center px-8">{post.category}</span>
                     </div>
                   )}
                 </div>
