@@ -53,36 +53,42 @@ const TrainingGallery = () => {
   const slide = slides[active];
 
   return (
-    <section className="py-16 md:py-24 bg-primary relative overflow-hidden">
-      {/* 3 elliptical rings intersecting at N, S, E, W */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <svg className="absolute w-full h-full" viewBox="0 0 1000 600" preserveAspectRatio="none" fill="none">
-          <ellipse cx="500" cy="300" rx="440" ry="200" stroke="hsl(var(--primary-foreground) / 0.22)" strokeWidth="1.5" transform="rotate(-30 500 300)" />
-          <ellipse cx="500" cy="300" rx="440" ry="200" stroke="hsl(var(--primary-foreground) / 0.18)" strokeWidth="1.5" transform="rotate(0 500 300)" />
-          <ellipse cx="500" cy="300" rx="440" ry="200" stroke="hsl(var(--primary-foreground) / 0.22)" strokeWidth="1.5" transform="rotate(30 500 300)" />
-        </svg>
+    <section className="bg-primary overflow-hidden">
+      {/* Header — clean, no rings behind */}
+      <div className="pt-16 md:pt-24 pb-8 md:pb-10">
+        <div className="container">
+          <div className="text-center">
+            <span className="inline-block text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-primary-foreground/60 mb-3">What Drives Us</span>
+            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-4">
+              Built on Purpose, Powered by Passion
+            </h2>
+            <p className="text-primary-foreground/70 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
+              Everything we do is guided by a clear mission, a bold vision, and values that put learners first.
+            </p>
+          </div>
+        </div>
       </div>
 
-      {/* Sparkles */}
-      <Sparkle className="absolute w-4 h-4 md:w-5 md:h-5 text-primary-foreground/40 top-[32%] left-[20%]" />
-      <Sparkle className="absolute w-3 h-3 md:w-4 md:h-4 text-primary-foreground/30 top-[18%] right-[30%]" />
-      <Sparkle className="absolute w-5 h-5 md:w-6 md:h-6 text-primary-foreground/35 bottom-[22%] right-[38%]" />
-      <Sparkle className="absolute w-3 h-3 text-primary-foreground/25 bottom-[30%] left-[32%]" />
-
-      <div className="container relative z-10">
-        {/* Section header */}
-        <div className="text-center mb-12 md:mb-16">
-          <span className="inline-block text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-primary-foreground/60 mb-3">What Drives Us</span>
-          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-4">
-            Built on Purpose, Powered by Passion
-          </h2>
-          <p className="text-primary-foreground/70 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
-            Everything we do is guided by a clear mission, a bold vision, and values that put learners first.
-          </p>
+      {/* Cards + rings area */}
+      <div className="relative pb-16 md:pb-24">
+        {/* Rings scoped to this div */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <svg className="absolute w-full h-full" viewBox="0 0 1000 600" preserveAspectRatio="none" fill="none">
+            <ellipse cx="500" cy="300" rx="440" ry="200" stroke="hsl(var(--primary-foreground) / 0.22)" strokeWidth="1.5" transform="rotate(-30 500 300)" />
+            <ellipse cx="500" cy="300" rx="440" ry="200" stroke="hsl(var(--primary-foreground) / 0.18)" strokeWidth="1.5" transform="rotate(0 500 300)" />
+            <ellipse cx="500" cy="300" rx="440" ry="200" stroke="hsl(var(--primary-foreground) / 0.22)" strokeWidth="1.5" transform="rotate(30 500 300)" />
+          </svg>
         </div>
 
-        {/* Gallery layout */}
-        <div className="relative min-h-[420px] md:min-h-[520px] flex items-center justify-center">
+        {/* Sparkles */}
+        <Sparkle className="absolute w-4 h-4 md:w-5 md:h-5 text-primary-foreground/40 top-[32%] left-[20%]" />
+        <Sparkle className="absolute w-3 h-3 md:w-4 md:h-4 text-primary-foreground/30 top-[18%] right-[30%]" />
+        <Sparkle className="absolute w-5 h-5 md:w-6 md:h-6 text-primary-foreground/35 bottom-[22%] right-[38%]" />
+        <Sparkle className="absolute w-3 h-3 text-primary-foreground/25 bottom-[30%] left-[32%]" />
+
+        <div className="container relative z-10">
+          {/* Gallery layout */}
+          <div className="relative min-h-[420px] md:min-h-[520px] flex items-center justify-center">
           {/* Corner images */}
           <FloatingImg src={gallery1} alt="Team collaboration" className="top-[4%] left-[4%] w-40 h-28 md:w-48 md:h-32" />
           <FloatingImg src={gallery2} alt="Team discussion" className="top-[4%] right-[4%] w-40 h-28 md:w-48 md:h-32" />
@@ -138,6 +144,7 @@ const TrainingGallery = () => {
               </div>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </section>
