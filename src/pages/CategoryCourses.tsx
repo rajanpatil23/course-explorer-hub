@@ -47,7 +47,6 @@ const CategoryCourses = () => {
                 {category.name}{" "}
                 <span className="text-gradient-primary">Courses</span>
               </h1>
-              <p className="text-sm md:text-lg text-muted-foreground leading-relaxed max-w-lg mx-auto lg:mx-0">
               <p className="text-sm md:text-lg text-muted-foreground leading-relaxed max-w-lg mx-auto lg:mx-0 mb-6 md:mb-8">
                 {category.description}
               </p>
