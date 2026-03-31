@@ -22,12 +22,9 @@ const TrainingGallery = () => (
     {/* 3 elliptical rings intersecting at N, S, E, W */}
     <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
       <svg className="absolute w-full h-full" viewBox="0 0 1000 600" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
-        {/* Ring 1: tilted left — passes through top & bottom center, left & right sides */}
-        <ellipse cx="500" cy="300" rx="440" ry="200" stroke="hsl(var(--primary-foreground) / 0.13)" strokeWidth="1.2" transform="rotate(-30 500 300)" />
-        {/* Ring 2: horizontal / slight tilt — widest ring */}
-        <ellipse cx="500" cy="300" rx="440" ry="200" stroke="hsl(var(--primary-foreground) / 0.10)" strokeWidth="1.2" transform="rotate(0 500 300)" />
-        {/* Ring 3: tilted right — mirror of ring 1 */}
-        <ellipse cx="500" cy="300" rx="440" ry="200" stroke="hsl(var(--primary-foreground) / 0.13)" strokeWidth="1.2" transform="rotate(30 500 300)" />
+        <ellipse cx="500" cy="300" rx="440" ry="200" stroke="hsl(var(--primary-foreground) / 0.22)" strokeWidth="1.5" transform="rotate(-30 500 300)" />
+        <ellipse cx="500" cy="300" rx="440" ry="200" stroke="hsl(var(--primary-foreground) / 0.18)" strokeWidth="1.5" transform="rotate(0 500 300)" />
+        <ellipse cx="500" cy="300" rx="440" ry="200" stroke="hsl(var(--primary-foreground) / 0.22)" strokeWidth="1.5" transform="rotate(30 500 300)" />
       </svg>
     </div>
 
