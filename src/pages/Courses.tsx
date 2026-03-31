@@ -84,23 +84,9 @@ const Courses = () => {
                 Professional Certification &{" "}
                 <span className="text-gradient-primary">Training Courses</span>
               </h1>
-              <p className="text-sm md:text-lg text-muted-foreground leading-relaxed max-w-lg mx-auto lg:mx-0 mb-6 md:mb-8">
+              <p className="text-sm md:text-lg text-muted-foreground leading-relaxed max-w-lg mx-auto lg:mx-0">
                 Browse our full catalog of accredited certification programs across the most in-demand domains.
               </p>
-
-              {/* Search */}
-              <div className="max-w-md mx-auto lg:mx-0">
-                <div className="relative">
-                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-                  <input
-                    type="text"
-                    placeholder="Search certifications… e.g., PMP, AZ-900, Security+"
-                    value={search}
-                    onChange={e => setSearch(e.target.value)}
-                    className="w-full pl-12 pr-4 py-3.5 rounded-xl border border-border bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 text-sm"
-                  />
-                </div>
-              </div>
             </div>
 
             {/* Right - Hero image */}
