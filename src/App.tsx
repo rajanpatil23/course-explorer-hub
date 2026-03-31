@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Layout from "./components/Layout";
 import Index from "./pages/Index";
 import Courses from "./pages/Courses";
+import CategoryCourses from "./pages/CategoryCourses";
 import CourseDetail from "./pages/CourseDetail";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
