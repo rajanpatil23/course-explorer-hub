@@ -145,6 +145,7 @@ const TrainingGallery = () => {
             </div>
           </div>
         </div>
+        </div>
       </div>
     </section>
   );
