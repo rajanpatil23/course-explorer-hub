@@ -30,18 +30,18 @@ const BlogHeroCarousel = () => {
   const author = authorDetails[post.author] || { role: "Contributor" };
 
   return (
-    <section className="bg-background pt-4 md:pt-6 pb-0">
-      <div className="container">
-        <div className="bg-secondary/50 rounded-2xl md:rounded-3xl overflow-hidden">
+    <section className="bg-background pt-3 md:pt-6 pb-0">
+      <div className="container px-3 md:px-4">
+        <div className="bg-secondary/50 rounded-xl md:rounded-3xl overflow-hidden">
           <Link to={`/blog/${post.slug}`} className="group block">
             <div className="grid md:grid-cols-[1fr,1fr] gap-0">
               {/* Left — Content */}
-              <div className="flex flex-col p-5 md:p-6 lg:p-8">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-primary-foreground bg-primary px-3 py-1 rounded-md">
+              <div className="flex flex-col p-4 md:p-6 lg:p-8">
+                <div className="flex items-center justify-between mb-1.5 md:mb-2">
+                  <span className="text-[10px] md:text-[11px] font-bold uppercase tracking-wider text-primary-foreground bg-primary px-2.5 py-0.5 md:px-3 md:py-1 rounded-md">
                     {post.category}
                   </span>
-                  <span className="text-xs text-muted-foreground">
+                  <span className="text-[10px] md:text-xs text-muted-foreground">
                     {new Date(post.date).toLocaleDateString("en-US", {
                       year: "numeric",
                       month: "long",
@@ -50,23 +50,23 @@ const BlogHeroCarousel = () => {
                   </span>
                 </div>
 
-                <h2 className="font-heading text-2xl sm:text-3xl md:text-[1.75rem] lg:text-[2rem] xl:text-[2.25rem] font-bold text-foreground leading-[1.15] mb-2 group-hover:text-primary transition-colors line-clamp-4">
+                <h2 className="font-heading text-lg sm:text-xl md:text-[1.75rem] lg:text-[2rem] xl:text-[2.25rem] font-bold text-foreground leading-[1.15] mb-1.5 md:mb-2 group-hover:text-primary transition-colors line-clamp-3 md:line-clamp-4">
                   {post.title}
                 </h2>
 
-                <p className="text-muted-foreground text-sm md:text-[15px] leading-relaxed line-clamp-3 mb-2">
+                <p className="text-muted-foreground text-xs md:text-[15px] leading-relaxed line-clamp-2 md:line-clamp-3 mb-1.5 md:mb-2">
                   {post.excerpt}
                 </p>
 
-                <p className="text-xs text-muted-foreground mb-4">{post.readTime}</p>
+                <p className="text-[10px] md:text-xs text-muted-foreground mb-3 md:mb-4">{post.readTime}</p>
 
-                <div className="flex items-center gap-3 mt-auto">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-sm shrink-0">
+                <div className="flex items-center gap-2.5 md:gap-3 mt-auto">
+                  <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-[10px] md:text-sm shrink-0">
                     {post.author.split(" ").map((n) => n[0]).join("")}
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-foreground leading-tight">{post.author}</p>
-                    <p className="text-xs text-muted-foreground">{author.role}</p>
+                    <p className="text-xs md:text-sm font-semibold text-foreground leading-tight">{post.author}</p>
+                    <p className="text-[10px] md:text-xs text-muted-foreground">{author.role}</p>
                   </div>
                 </div>
               </div>
@@ -93,16 +93,16 @@ const BlogHeroCarousel = () => {
           </Link>
 
           {/* Navigation */}
-          <div className="flex items-center justify-center gap-3 px-6 pb-4 pt-0">
+          <div className="flex items-center justify-center gap-2 md:gap-3 px-4 md:px-6 pb-3 md:pb-4 pt-0">
             <button
               onClick={prev}
               aria-label="Previous"
-              className="w-9 h-9 rounded-full border border-border bg-background flex items-center justify-center hover:border-primary/40 transition-colors"
+              className="w-8 h-8 md:w-9 md:h-9 rounded-full border border-border bg-background flex items-center justify-center hover:border-primary/40 transition-colors"
             >
-              <ChevronLeft className="w-4 h-4 text-muted-foreground" />
+              <ChevronLeft className="w-3.5 h-3.5 md:w-4 md:h-4 text-muted-foreground" />
             </button>
 
-            <div className="flex items-center gap-1.5">
+            <div className="flex items-center gap-1 md:gap-1.5">
               {latestPosts.map((_, i) => (
                 <button
                   key={i}
@@ -110,8 +110,8 @@ const BlogHeroCarousel = () => {
                   aria-label={`Go to slide ${i + 1}`}
                   className={`rounded-full transition-all duration-300 ${
                     i === current
-                      ? "w-6 h-2.5 bg-primary"
-                      : "w-2.5 h-2.5 bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                      ? "w-5 h-2 md:w-6 md:h-2.5 bg-primary"
+                      : "w-2 h-2 md:w-2.5 md:h-2.5 bg-muted-foreground/30 hover:bg-muted-foreground/50"
                   }`}
                 />
               ))}
@@ -120,9 +120,9 @@ const BlogHeroCarousel = () => {
             <button
               onClick={next}
               aria-label="Next"
-              className="w-9 h-9 rounded-full border border-border bg-background flex items-center justify-center hover:border-primary/40 transition-colors"
+              className="w-8 h-8 md:w-9 md:h-9 rounded-full border border-border bg-background flex items-center justify-center hover:border-primary/40 transition-colors"
             >
-              <ChevronRight className="w-4 h-4 text-muted-foreground" />
+              <ChevronRight className="w-3.5 h-3.5 md:w-4 md:h-4 text-muted-foreground" />
             </button>
           </div>
         </div>
