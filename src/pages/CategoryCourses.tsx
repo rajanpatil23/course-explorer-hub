@@ -1,5 +1,6 @@
 import { useParams, Navigate } from "react-router-dom";
 import { useMemo } from "react";
+import { Star } from "lucide-react";
 import { categories } from "@/data/courses";
 import CourseCard from "@/components/courses/CourseCard";
 import heroCourses from "@/assets/hero-courses.jpg";
