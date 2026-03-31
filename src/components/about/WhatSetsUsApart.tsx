@@ -10,7 +10,7 @@ const items = [
 ];
 
 const WhatSetsUsApart = () => (
-  <section className="py-12 md:py-24 bg-background">
+  <section className="py-14 md:py-24 bg-background">
     <div className="container max-w-6xl">
       <div className="text-center mb-10 md:mb-14">
         <p className="text-[10px] md:text-xs font-bold text-primary uppercase tracking-[0.2em] mb-2">Why Choose Us</p>
@@ -19,12 +19,10 @@ const WhatSetsUsApart = () => (
           We don't just prepare you for exams — we prepare you for real-world success with industry-leading training.
         </p>
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
-        {items.map((item, i) => (
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
+        {items.map((item) => (
           <div key={item.title} className="group bg-card border border-border rounded-xl md:rounded-2xl p-4 md:p-6 hover:shadow-lg hover:border-primary/30 transition-all duration-300 relative overflow-hidden">
-            {/* Subtle decoration */}
             <div className="absolute bottom-0 right-0 w-16 h-16 bg-primary/[0.03] rounded-tl-[2.5rem] pointer-events-none" />
-
             <div className="relative z-10">
               <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-primary/10 flex items-center justify-center mb-3 md:mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300 text-primary">
                 {item.icon}
