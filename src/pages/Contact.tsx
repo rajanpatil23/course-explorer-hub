@@ -192,10 +192,10 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Sidebar */}
-            <div className="lg:col-span-2 space-y-6">
+            {/* Sidebar — stretch to match form height */}
+            <div className="lg:col-span-2 flex flex-col gap-6">
               {/* What you get */}
-              <div className="bg-primary/5 border border-primary/10 rounded-2xl p-6">
+              <div className="bg-primary/5 border border-primary/10 rounded-2xl p-6 flex-1">
                 <h3 className="font-heading font-bold text-foreground text-base mb-4">What You'll Get</h3>
                 <ul className="space-y-3">
                   {benefits.map((b) => (
@@ -208,7 +208,7 @@ const Contact = () => {
               </div>
 
               {/* Quick CTA */}
-              <div className="bg-card border border-border rounded-2xl p-6 relative overflow-hidden">
+              <div className="bg-card border border-border rounded-2xl p-6 relative overflow-hidden flex-1">
                 <div className="absolute bottom-0 right-0 w-20 h-20 bg-primary/[0.04] rounded-tl-[3rem] pointer-events-none" />
                 <div className="relative z-10">
                   <h3 className="font-heading font-bold text-foreground text-base mb-2">
@@ -223,21 +223,6 @@ const Contact = () => {
                       +91 88514 67220
                     </a>
                   </Button>
-                </div>
-              </div>
-
-              {/* Social links */}
-              <div className="bg-card border border-border rounded-2xl p-6">
-                <h3 className="font-heading font-bold text-foreground text-base mb-3">Follow Us</h3>
-                <div className="flex flex-wrap gap-2">
-                  {["LinkedIn", "Instagram", "Facebook", "YouTube"].map((s) => (
-                    <span
-                      key={s}
-                      className="inline-block text-xs font-semibold bg-secondary text-muted-foreground px-3 py-1.5 rounded-full hover:bg-primary/10 hover:text-primary cursor-pointer transition-colors"
-                    >
-                      {s}
-                    </span>
-                  ))}
                 </div>
               </div>
             </div>
