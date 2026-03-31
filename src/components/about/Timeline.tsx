@@ -72,8 +72,10 @@ const Timeline = () => {
                 <div className="relative flex w-full h-full">
                   {timeline.map((item, i) => (
                     <div key={i} className="flex-1 relative flex items-center justify-center">
-                      <span className="text-sm md:text-base font-bold text-primary-foreground z-10 mr-3">{item.year}</span>
-                      <div className="absolute right-[calc(50%-12px)] top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-background border-[3px] border-background/80 shadow-lg z-20" />
+                      {/* Year label positioned to the left of center */}
+                      <span className="absolute right-[calc(50%+14px)] text-sm md:text-base font-bold text-primary-foreground z-10 whitespace-nowrap">{item.year}</span>
+                      {/* Dot at exact center */}
+                      <div className="w-6 h-6 rounded-full bg-background border-[3px] border-background/80 shadow-lg z-20" />
                     </div>
                   ))}
                 </div>
