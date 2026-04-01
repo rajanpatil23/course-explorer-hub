@@ -58,6 +58,7 @@ export interface Category {
   description: string;
   icon: string;
   heroPoints: string[];
+  faqs: { q: string; a: string }[];
   courses: Course[];
 }
 
