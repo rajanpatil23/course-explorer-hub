@@ -1,6 +1,6 @@
 import { useParams, Navigate, Link } from "react-router-dom";
 import { useMemo } from "react";
-import { Star, CheckCircle } from "lucide-react";
+import { Star, CheckCircle, ShieldCheck, Users, CalendarCheck } from "lucide-react";
 import { categories } from "@/data/courses";
 import CourseCard from "@/components/courses/CourseCard";
 import { Button } from "@/components/ui/button";
