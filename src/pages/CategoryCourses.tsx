@@ -1,7 +1,7 @@
 import { useParams, Navigate, Link } from "react-router-dom";
 import { useMemo, useState, useCallback, useEffect } from "react";
-import { Star, CheckCircle, Users, ChevronRight, ChevronLeft } from "lucide-react";
-import { categories } from "@/data/courses";
+import { Star, CheckCircle, ChevronRight, ChevronLeft } from "lucide-react";
+import { categories, type Course } from "@/data/courses";
 import { blogPosts } from "@/data/blogs";
 import PopularCourseCard from "@/components/courses/PopularCourseCard";
 import { Button } from "@/components/ui/button";
@@ -16,6 +16,66 @@ import {
 } from "@/components/ui/accordion";
 import heroCourses from "@/assets/hero-courses.jpg";
 import advisorModel from "@/assets/advisor-model.png";
+
+const CourseGridCarousel = ({ courses }: { courses: Course[] }) => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false, align: "start", slidesToScroll: 1 });
+  const [canPrev, setCanPrev] = useState(false);
+  const [canNext, setCanNext] = useState(false);
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setCanPrev(emblaApi.canScrollPrev());
+    setCanNext(emblaApi.canScrollNext());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    emblaApi.on("select", onSelect);
+    onSelect();
+  }, [emblaApi, onSelect]);
+
+  return (
+    <section id="courses-grid" className="py-12 md:py-16 bg-background">
+      <div className="container">
+        {/* Mobile: Carousel */}
+        <div className="md:hidden">
+          <div className="overflow-hidden" ref={emblaRef}>
+            <div className="flex -ml-4">
+              {courses.map((course) => (
+                <div key={course.code} className="flex-[0_0_80%] min-w-0 pl-4">
+                  <PopularCourseCard course={course} />
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="flex items-center justify-center gap-3 mt-6">
+            <button
+              onClick={() => emblaApi?.scrollPrev()}
+              disabled={!canPrev}
+              className="w-9 h-9 rounded-full border border-border bg-card flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors disabled:opacity-40"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+            <button
+              onClick={() => emblaApi?.scrollNext()}
+              disabled={!canNext}
+              className="w-9 h-9 rounded-full border border-border bg-card flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors disabled:opacity-40"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+
+        {/* Desktop: Grid */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {courses.map((course) => (
+            <PopularCourseCard key={course.code} course={course} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
 
 const CategoryCourses = () => {
   const { categorySlug } = useParams<{ categorySlug: string }>();
@@ -104,67 +164,6 @@ const CategoryCourses = () => {
                   </div>
                 </div>
               </div>
-import type { Course } from "@/data/courses";
-
-const CourseGridCarousel = ({ courses }: { courses: Course[] }) => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false, align: "start", slidesToScroll: 1 });
-  const [canPrev, setCanPrev] = useState(false);
-  const [canNext, setCanNext] = useState(false);
-
-  const onSelect = useCallback(() => {
-    if (!emblaApi) return;
-    setCanPrev(emblaApi.canScrollPrev());
-    setCanNext(emblaApi.canScrollNext());
-  }, [emblaApi]);
-
-  useEffect(() => {
-    if (!emblaApi) return;
-    emblaApi.on("select", onSelect);
-    onSelect();
-  }, [emblaApi, onSelect]);
-
-  return (
-    <section id="courses-grid" className="py-12 md:py-16 bg-background">
-      <div className="container">
-        {/* Mobile: Carousel */}
-        <div className="md:hidden">
-          <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex -ml-4">
-              {courses.map((course) => (
-                <div key={course.code} className="flex-[0_0_80%] min-w-0 pl-4">
-                  <PopularCourseCard course={course} />
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="flex items-center justify-center gap-3 mt-6">
-            <button
-              onClick={() => emblaApi?.scrollPrev()}
-              disabled={!canPrev}
-              className="w-9 h-9 rounded-full border border-border bg-card flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors disabled:opacity-40"
-            >
-              <ChevronLeft className="w-4 h-4" />
-            </button>
-            <button
-              onClick={() => emblaApi?.scrollNext()}
-              disabled={!canNext}
-              className="w-9 h-9 rounded-full border border-border bg-card flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors disabled:opacity-40"
-            >
-              <ChevronRight className="w-4 h-4" />
-            </button>
-          </div>
-        </div>
-
-        {/* Desktop: Grid */}
-        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {courses.map((course) => (
-            <PopularCourseCard key={course.code} course={course} />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
 
               {/* 3 Category-specific points */}
               <div className="space-y-3 mb-7 max-w-lg mx-auto lg:mx-0">
@@ -268,6 +267,7 @@ const CourseGridCarousel = ({ courses }: { courses: Course[] }) => {
           </div>
         </div>
       </section>
+
       {/* FAQ Section */}
       <section className="py-12 md:py-24 bg-secondary rounded-b-[3rem] md:rounded-b-[8rem]">
         <div className="container">
@@ -303,6 +303,7 @@ const CourseGridCarousel = ({ courses }: { courses: Course[] }) => {
           </div>
         </div>
       </section>
+
       {/* Blog Highlights */}
       <BlogCarouselSection
         blogs={relatedBlogs}
