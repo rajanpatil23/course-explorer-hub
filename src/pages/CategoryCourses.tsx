@@ -1,12 +1,12 @@
 import { useParams, Navigate, Link } from "react-router-dom";
 import { useMemo } from "react";
-import { Star, CheckCircle, Users, ChevronRight, ArrowRight } from "lucide-react";
+import { Star, CheckCircle, Users, ChevronRight } from "lucide-react";
 import { categories } from "@/data/courses";
 import { blogPosts } from "@/data/blogs";
-import { blogImages } from "@/data/blogImages";
 import CourseCard from "@/components/courses/CourseCard";
 import { Button } from "@/components/ui/button";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
+import BlogCarouselSection from "@/components/courses/BlogCarouselSection";
 import {
   Accordion,
   AccordionContent,
@@ -184,8 +184,7 @@ const CategoryCourses = () => {
             />
             <div className="absolute top-0 right-0 w-[300px] h-[300px] rounded-full bg-primary/10 blur-[120px]" />
 
-            <div className="relative z-10 flex items-center gap-6 md:gap-10 px-6 md:px-10 lg:px-14">
-              {/* Model image */}
+            <div className="relative z-10 flex flex-col md:flex-row items-center gap-4 md:gap-10 px-5 md:px-10 lg:px-14">
               <div className="hidden md:block shrink-0 self-end">
                 <img
                   src={advisorModel}
@@ -193,19 +192,15 @@ const CategoryCourses = () => {
                   className="h-[140px] lg:h-[160px] object-contain"
                 />
               </div>
-
-              {/* Content */}
-              <div className="flex-1 py-6 md:py-8">
-                <h3 className="font-heading text-lg md:text-xl lg:text-2xl font-bold mb-1">
+              <div className="flex-1 py-5 md:py-8 text-center md:text-left">
+                <h3 className="font-heading text-base md:text-xl lg:text-2xl font-bold mb-1">
                   Talk to Our Expert Learning Advisor Today
                 </h3>
-                <p className="text-hero-foreground/70 text-sm md:text-base">
+                <p className="text-hero-foreground/70 text-xs md:text-base">
                   and Earn your {category.name} success. Call Now!
                 </p>
               </div>
-
-              {/* CTA */}
-              <div className="shrink-0">
+              <div className="shrink-0 pb-5 md:pb-0">
                 <Button
                   size="lg"
                   className="bg-background text-foreground hover:bg-background/90 font-semibold px-6 md:px-8"
@@ -256,59 +251,11 @@ const CategoryCourses = () => {
         </div>
       </section>
       {/* Blog Highlights */}
-      {relatedBlogs.length > 0 && (
-        <section className="py-12 md:py-24 bg-background rounded-t-[3rem] md:rounded-t-[8rem]">
-          <div className="container">
-            <p className="text-center text-[10px] md:text-xs font-bold text-primary uppercase tracking-[0.2em] mb-2">Our Latest Blogs</p>
-            <h2 className="font-heading text-2xl md:text-4xl font-bold text-center text-foreground mb-2 md:mb-3">
-              {category.name} Insights & Guides
-            </h2>
-            <p className="text-center text-muted-foreground text-xs md:text-sm max-w-2xl mx-auto mb-10 md:mb-14">
-              Expert articles, exam tips, and career advice to support your {category.name} certification journey.
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-              {relatedBlogs.map((post) => (
-                <Link
-                  key={post.slug}
-                  to={`/blog/${post.slug}`}
-                  className="group bg-card rounded-xl border border-border overflow-hidden hover:shadow-lg transition-all hover:border-primary/20 flex flex-col h-full"
-                >
-                  <div className="p-3 md:p-4 pb-0">
-                    <div className="h-36 md:h-44 rounded-lg overflow-hidden">
-                      {blogImages[post.slug] ? (
-                        <img src={blogImages[post.slug]} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-                      ) : (
-                        <div className="w-full h-full bg-secondary flex items-center justify-center">
-                          <span className="text-xs font-bold text-primary uppercase tracking-widest">{post.category}</span>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                  <div className="p-4 md:p-5 flex flex-col flex-1">
-                    <p className="text-[10px] md:text-xs text-muted-foreground mb-1.5 md:mb-2">{post.date} · {post.readTime}</p>
-                    <h3 className="font-heading font-bold text-foreground text-xs md:text-sm leading-snug mb-2 md:mb-3 group-hover:text-primary transition-colors line-clamp-2">
-                      {post.title}
-                    </h3>
-                    <p className="text-[10px] md:text-xs text-muted-foreground line-clamp-2 mb-2 md:mb-3">{post.excerpt}</p>
-                    <span className="inline-flex items-center gap-1 text-[10px] md:text-xs font-semibold text-primary mt-auto">
-                      Read More <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-                    </span>
-                  </div>
-                </Link>
-              ))}
-            </div>
-
-            <div className="text-center mt-8 md:mt-10">
-              <Link to="/blog">
-                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6 md:px-8 py-2.5 md:py-3 rounded-lg gap-2 text-sm md:text-base">
-                  View All Articles <ArrowRight className="w-4 h-4" />
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </section>
-      )}
+      <BlogCarouselSection
+        blogs={relatedBlogs}
+        title={`${category.name} Insights & Guides`}
+        subtitle={`Expert articles, exam tips, and career advice to support your ${category.name} certification journey.`}
+      />
     </div>
   );
 };
