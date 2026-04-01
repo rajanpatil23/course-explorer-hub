@@ -189,13 +189,13 @@ const Courses = () => {
       {/* Tabs + Courses */}
       <section className="py-12 md:py-16 bg-background">
         <div className="container">
-          {/* Category tabs */}
-          <div className="flex flex-wrap gap-2 justify-center mb-10">
+          {/* Category tabs — horizontal scroll on mobile */}
+          <div className="flex gap-2 justify-start md:justify-center mb-10 overflow-x-auto pb-2 -mx-4 px-4 md:mx-0 md:px-0 md:flex-wrap scrollbar-hide">
             {tabs.map(tab => (
               <button
                 key={tab.id}
                 onClick={() => handleTabChange(tab.id)}
-                className={`whitespace-nowrap px-5 py-2.5 rounded-full text-sm font-semibold transition-colors border ${
+                className={`whitespace-nowrap px-4 md:px-5 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-semibold transition-colors border shrink-0 ${
                   activeTab === tab.id
                     ? "bg-primary text-primary-foreground border-primary"
                     : "bg-card text-muted-foreground border-border hover:border-primary/40 hover:text-foreground"
