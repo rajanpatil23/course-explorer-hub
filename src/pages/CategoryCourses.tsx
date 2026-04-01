@@ -270,7 +270,7 @@ const CategoryCourses = () => {
       {relatedBlogs.length > 0 && (
         <section className="py-12 md:py-24 bg-background rounded-t-[3rem] md:rounded-t-[8rem]">
           <div className="container">
-            <p className="text-center text-[10px] md:text-xs font-bold text-primary uppercase tracking-[0.2em] mb-2">Resources</p>
+            <p className="text-center text-[10px] md:text-xs font-bold text-primary uppercase tracking-[0.2em] mb-2">Our Latest Blogs</p>
             <h2 className="font-heading text-2xl md:text-4xl font-bold text-center text-foreground mb-2 md:mb-3">
               {category.name} Insights & Guides
             </h2>
