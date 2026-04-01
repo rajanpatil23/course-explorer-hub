@@ -1,4 +1,3 @@
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useRef } from "react";
 
 const timeline = [
@@ -27,19 +26,40 @@ const Timeline = () => {
   };
 
   return (
-    <section className="py-14 md:py-24 bg-secondary rounded-b-[3rem] md:rounded-b-[8rem]">
+    <section className="py-10 md:py-24 bg-secondary rounded-b-[3rem] md:rounded-b-[8rem]">
       <div className="container max-w-6xl">
         {/* Header */}
-        <div className="text-center mb-10 md:mb-16">
+        <div className="text-center mb-8 md:mb-16">
           <p className="text-[10px] md:text-xs font-bold text-primary uppercase tracking-[0.2em] mb-2">Our Journey</p>
-          <h2 className="font-heading text-2xl md:text-4xl font-bold text-foreground mb-3">EduEdge Through the Years</h2>
-          <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          <h2 className="font-heading text-xl md:text-4xl font-bold text-foreground mb-2 md:mb-3">EduEdge Through the Years</h2>
+          <p className="text-[11px] md:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             From a small training initiative to a globally recognized certification platform — upholding quality and consistency, training thousands of professionals across multiple countries.
           </p>
         </div>
 
-        {/* Timeline — horizontal scroll */}
-        <div className="relative">
+        {/* Mobile: vertical timeline */}
+        <div className="md:hidden space-y-4 px-2">
+          {timeline.map((item, i) => (
+            <div key={i} className="flex gap-3 items-start">
+              {/* Left: year + dot */}
+              <div className="flex flex-col items-center flex-shrink-0">
+                <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                  <span className="text-[9px] font-bold text-primary-foreground">{item.year}</span>
+                </div>
+                {i < timeline.length - 1 && (
+                  <div className="w-[2px] h-8 bg-primary/30 rounded-full mt-1" />
+                )}
+              </div>
+              {/* Right: card */}
+              <div className="bg-card border border-border/60 rounded-xl p-3 flex-1 border-l-[3px] border-l-primary">
+                <p className="text-[11px] text-muted-foreground leading-relaxed font-medium">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop: horizontal timeline */}
+        <div className="hidden md:block relative">
           <div
             ref={scrollRef}
             onScroll={checkScroll}
@@ -47,7 +67,7 @@ const Timeline = () => {
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
             <div className="relative min-w-[900px] md:min-w-[1100px] px-8">
-              {/* Top cards (position: top) — aligned to dot center */}
+              {/* Top cards */}
               <div className="flex">
                 {timeline.map((item, i) => (
                   <div key={i} className="flex-1 flex justify-center px-2">
@@ -65,23 +85,20 @@ const Timeline = () => {
                 ))}
               </div>
 
-              {/* The gradient bar with dots centered per column, year inside bar */}
+              {/* The gradient bar */}
               <div className="relative h-10 flex items-center">
                 <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-10 rounded-full bg-gradient-to-r from-primary via-primary/80 to-accent shadow-lg" />
-
                 <div className="relative flex w-full h-full">
                   {timeline.map((item, i) => (
                     <div key={i} className="flex-1 relative flex items-center justify-center">
-                      {/* Year label positioned to the left of center */}
                       <span className="absolute right-[calc(50%+14px)] text-sm md:text-base font-bold text-primary-foreground z-10 whitespace-nowrap">{item.year}</span>
-                      {/* Dot at exact center */}
                       <div className="w-6 h-6 rounded-full bg-background border-[3px] border-background/80 shadow-lg z-20" />
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* Bottom cards (position: bottom) — aligned to dot center */}
+              {/* Bottom cards */}
               <div className="flex">
                 {timeline.map((item, i) => (
                   <div key={i} className="flex-1 flex justify-center px-2">
@@ -100,7 +117,6 @@ const Timeline = () => {
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>
