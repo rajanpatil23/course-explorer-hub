@@ -156,6 +156,9 @@ const CategoryCourses = () => {
         </div>
       </section>
 
+      {/* Testimonials */}
+      <TestimonialsSection />
+
       {/* Advisor CTA Banner */}
       <section className="pb-14 md:pb-0">
         <div className="container">
