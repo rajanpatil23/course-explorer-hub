@@ -111,12 +111,12 @@ const Contact = () => {
       </section>
 
       {/* Form + Sidebar */}
-      <section className="py-14 md:py-20 bg-background">
+      <section className="py-10 md:py-20 bg-background">
         <div className="container max-w-6xl">
-          <div className="text-center mb-10 md:mb-14">
+          <div className="text-center mb-8 md:mb-14">
             <p className="text-[10px] md:text-xs font-bold text-primary uppercase tracking-[0.2em] mb-2">Enquiry Form</p>
-            <h2 className="font-heading text-2xl md:text-4xl font-bold text-foreground">Send Us Your Query</h2>
-            <p className="text-sm md:text-base text-muted-foreground mt-3 max-w-2xl mx-auto">
+            <h2 className="font-heading text-xl md:text-4xl font-bold text-foreground">Send Us Your Query</h2>
+            <p className="text-xs md:text-base text-muted-foreground mt-2 md:mt-3 max-w-2xl mx-auto">
               Fill in the form below and our team will get back to you within 24 hours.
             </p>
           </div>
