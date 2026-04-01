@@ -8,21 +8,21 @@ import gallery5 from "@/assets/about-gallery-5.jpg";
 
 const slides = [
   {
-    icon: <Rocket className="w-8 h-8 md:w-10 md:h-10" />,
+    icon: <Rocket className="w-6 h-6 md:w-10 md:h-10" />,
     label: "Our Mission",
     title: "Empowering Professionals Worldwide",
     body: "To make globally recognized IT certifications accessible, affordable, and achievable — accelerating career growth, organizational impact, and lifelong learning for professionals everywhere.",
     accent: "from-primary to-primary/70",
   },
   {
-    icon: <Lightbulb className="w-8 h-8 md:w-10 md:h-10" />,
+    icon: <Lightbulb className="w-6 h-6 md:w-10 md:h-10" />,
     label: "Our Vision",
     title: "The Most Trusted Training Platform",
     body: "To become the world's most trusted platform for IT certification training — known for quality instruction, exceptional pass rates, and measurable career outcomes that transform lives.",
     accent: "from-accent to-accent/70",
   },
   {
-    icon: <Heart className="w-8 h-8 md:w-10 md:h-10" />,
+    icon: <Heart className="w-6 h-6 md:w-10 md:h-10" />,
     label: "Our Values",
     title: "Excellence, Integrity & Impact",
     body: "We believe in learner-first thinking, transparent practices, and measurable outcomes. Every course, trainer, and resource is chosen to deliver real-world impact and lasting professional growth for every individual.",
@@ -54,15 +54,15 @@ const TrainingGallery = () => {
 
   return (
     <section className="bg-primary overflow-hidden">
-      {/* Header — clean, no rings behind */}
-      <div className="pt-16 md:pt-24 pb-8 md:pb-10">
+      {/* Header */}
+      <div className="pt-8 md:pt-24 pb-4 md:pb-10">
         <div className="container">
           <div className="text-center">
-            <span className="inline-block text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-primary-foreground/60 mb-3">What Drives Us</span>
-            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-4">
+            <span className="inline-block text-[10px] md:text-sm font-bold uppercase tracking-[0.2em] text-primary-foreground/60 mb-2 md:mb-3">What Drives Us</span>
+            <h2 className="font-heading text-xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-2 md:mb-4">
               Built on Purpose, Powered by Passion
             </h2>
-            <p className="text-primary-foreground/70 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
+            <p className="text-primary-foreground/70 text-[11px] md:text-base max-w-2xl mx-auto leading-relaxed">
               Everything we do is guided by a clear mission, a bold vision, and values that put learners first.
             </p>
           </div>
@@ -70,75 +70,71 @@ const TrainingGallery = () => {
       </div>
 
       {/* Cards + rings area */}
-      <div className="relative pb-16 md:pb-24">
+      <div className="relative pb-8 md:pb-24">
         {/* Rings scoped to this div */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <svg className="absolute w-full h-full" viewBox="0 0 1000 600" preserveAspectRatio="none" fill="none">
+          <svg className="absolute w-full h-full hidden md:block" viewBox="0 0 1000 600" preserveAspectRatio="none" fill="none">
             <ellipse cx="500" cy="300" rx="440" ry="200" stroke="hsl(var(--primary-foreground) / 0.22)" strokeWidth="1.5" transform="rotate(-30 500 300)" />
             <ellipse cx="500" cy="300" rx="440" ry="200" stroke="hsl(var(--primary-foreground) / 0.18)" strokeWidth="1.5" transform="rotate(0 500 300)" />
             <ellipse cx="500" cy="300" rx="440" ry="200" stroke="hsl(var(--primary-foreground) / 0.22)" strokeWidth="1.5" transform="rotate(30 500 300)" />
           </svg>
         </div>
 
-        {/* Sparkles */}
-        <Sparkle className="absolute w-4 h-4 md:w-5 md:h-5 text-primary-foreground/40 top-[32%] left-[20%]" />
-        <Sparkle className="absolute w-3 h-3 md:w-4 md:h-4 text-primary-foreground/30 top-[18%] right-[30%]" />
-        <Sparkle className="absolute w-5 h-5 md:w-6 md:h-6 text-primary-foreground/35 bottom-[22%] right-[38%]" />
-        <Sparkle className="absolute w-3 h-3 text-primary-foreground/25 bottom-[30%] left-[32%]" />
+        {/* Sparkles - hidden on mobile */}
+        <Sparkle className="absolute w-4 h-4 md:w-5 md:h-5 text-primary-foreground/40 top-[32%] left-[20%] hidden md:block" />
+        <Sparkle className="absolute w-3 h-3 md:w-4 md:h-4 text-primary-foreground/30 top-[18%] right-[30%] hidden md:block" />
+        <Sparkle className="absolute w-5 h-5 md:w-6 md:h-6 text-primary-foreground/35 bottom-[22%] right-[38%] hidden md:block" />
+        <Sparkle className="absolute w-3 h-3 text-primary-foreground/25 bottom-[30%] left-[32%] hidden md:block" />
 
         <div className="container relative z-10">
           {/* Gallery layout */}
-          <div className="relative min-h-[420px] md:min-h-[520px] flex items-center justify-center">
-          {/* Corner images */}
+          <div className="relative min-h-[280px] md:min-h-[520px] flex items-center justify-center">
+          {/* Corner images - hidden on mobile via FloatingImg */}
           <FloatingImg src={gallery1} alt="Team collaboration" className="top-[4%] left-[4%] w-40 h-28 md:w-48 md:h-32" />
           <FloatingImg src={gallery2} alt="Team discussion" className="top-[4%] right-[4%] w-40 h-28 md:w-48 md:h-32" />
           <FloatingImg src={gallery4} alt="Team celebration" className="bottom-[4%] left-[6%] w-40 h-28 md:w-48 md:h-32" />
           <FloatingImg src={gallery5} alt="Professional at work" className="bottom-[4%] right-[4%] w-40 h-28 md:w-48 md:h-32" />
-
-          {/* Mid-left & mid-right */}
           <FloatingImg src={gallery3} alt="Professional handshake" className="top-[38%] left-[1%] w-36 h-24 md:w-40 md:h-28" />
           <FloatingImg src={gallery1} alt="Teamwork" className="top-[38%] right-[1%] w-36 h-24 md:w-40 md:h-28" />
 
-          {/* Central canvas — realistic laptop/screen look */}
-          <div className="relative w-[85%] max-w-md md:max-w-lg">
-            {/* Clean soft outer wrapper */}
-            <div className="rounded-2xl bg-background/80 p-3 md:p-4 shadow-xl border border-border/30">
-              {/* Canvas area */}
-              <div className="rounded-xl overflow-hidden relative bg-card">
+          {/* Central canvas */}
+          <div className="relative w-[95%] max-w-md md:w-[85%] md:max-w-lg">
+            <div className="rounded-xl md:rounded-2xl bg-background/80 p-2 md:p-4 shadow-xl border border-border/30">
+              <div className="rounded-lg md:rounded-xl overflow-hidden relative bg-card">
                 {/* Dotted canvas background */}
                 <div className="absolute inset-0 pointer-events-none z-0 opacity-[0.15]" style={{ backgroundImage: 'radial-gradient(circle, hsl(var(--muted-foreground)) 1px, transparent 1px)', backgroundSize: '16px 16px' }} />
 
                 {/* Slide content */}
-                <div className="relative p-8 md:p-12 min-h-[280px] md:min-h-[320px] flex flex-col items-center justify-center text-center">
-                  <div className={`absolute top-0 right-0 w-32 h-32 md:w-40 md:h-40 bg-gradient-to-bl ${slide.accent} opacity-[0.07] rounded-bl-[4rem] pointer-events-none transition-all duration-700`} />
-                  <div className={`absolute bottom-0 left-0 w-24 h-24 md:w-32 md:h-32 bg-gradient-to-tr ${slide.accent} opacity-[0.05] rounded-tr-[3rem] pointer-events-none transition-all duration-700`} />
+                <div className="relative p-4 md:p-12 min-h-[210px] md:min-h-[320px] flex flex-col items-center justify-center text-center">
+                  <div className={`absolute top-0 right-0 w-20 h-20 md:w-40 md:h-40 bg-gradient-to-bl ${slide.accent} opacity-[0.07] rounded-bl-[3rem] md:rounded-bl-[4rem] pointer-events-none transition-all duration-700`} />
+                  <div className={`absolute bottom-0 left-0 w-16 h-16 md:w-32 md:h-32 bg-gradient-to-tr ${slide.accent} opacity-[0.05] rounded-tr-[2rem] md:rounded-tr-[3rem] pointer-events-none transition-all duration-700`} />
 
-                  <div key={`icon-${active}`} className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-5 animate-fade-in-up">
+                  <div key={`icon-${active}`} className="w-10 h-10 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-3 md:mb-5 animate-fade-in-up">
                     {slide.icon}
                   </div>
-                  <span key={`label-${active}`} className="text-[10px] md:text-xs font-bold text-primary uppercase tracking-[0.2em] mb-2 animate-fade-in-up">
+                  <span key={`label-${active}`} className="text-[9px] md:text-xs font-bold text-primary uppercase tracking-[0.2em] mb-1.5 md:mb-2 animate-fade-in-up">
                     {slide.label}
                   </span>
-                  <h3 key={`title-${active}`} className="font-heading text-xl md:text-2xl font-bold text-foreground mb-3 md:mb-4 animate-fade-in-up">
+                  <h3 key={`title-${active}`} className="font-heading text-base md:text-2xl font-bold text-foreground mb-2 md:mb-4 animate-fade-in-up">
                     {slide.title}
                   </h3>
-                  <p key={`body-${active}`} className="text-sm md:text-base text-muted-foreground leading-relaxed max-w-sm animate-fade-in-up">
+                  <p key={`body-${active}`} className="text-[11px] md:text-base text-muted-foreground leading-relaxed max-w-sm animate-fade-in-up">
                     {slide.body}
                   </p>
                 </div>
 
                 {/* Bottom bar with nav */}
-                <div className="flex items-center justify-between px-6 py-3 border-t border-border bg-secondary/50">
-                  <button onClick={() => setActive((p) => (p - 1 + slides.length) % slides.length)} className="w-8 h-8 rounded-full flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted transition-colors" aria-label="Previous slide">
-                    <ChevronLeft className="w-4 h-4" />
+                <div className="flex items-center justify-between px-4 md:px-6 py-2 md:py-3 border-t border-border bg-secondary/50">
+                  <button onClick={() => setActive((p) => (p - 1 + slides.length) % slides.length)} className="w-7 h-7 md:w-8 md:h-8 rounded-full flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted transition-colors" aria-label="Previous slide">
+                    <ChevronLeft className="w-3.5 h-3.5 md:w-4 md:h-4" />
                   </button>
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-1.5 md:gap-2">
                     {slides.map((_, i) => (
-                      <button key={i} onClick={() => setActive(i)} className={`rounded-full transition-all duration-300 ${i === active ? "w-6 h-2 bg-primary" : "w-2 h-2 bg-muted-foreground/30 hover:bg-muted-foreground/50"}`} aria-label={`Go to slide ${i + 1}`} />
+                      <button key={i} onClick={() => setActive(i)} className={`rounded-full transition-all duration-300 ${i === active ? "w-5 h-1.5 md:w-6 md:h-2 bg-primary" : "w-1.5 h-1.5 md:w-2 md:h-2 bg-muted-foreground/30 hover:bg-muted-foreground/50"}`} aria-label={`Go to slide ${i + 1}`} />
                     ))}
                   </div>
-                  <button onClick={() => setActive((p) => (p + 1) % slides.length)} className="w-8 h-8 rounded-full flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted transition-colors" aria-label="Next slide">
-                    <ChevronRight className="w-4 h-4" />
+                  <button onClick={() => setActive((p) => (p + 1) % slides.length)} className="w-7 h-7 md:w-8 md:h-8 rounded-full flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted transition-colors" aria-label="Next slide">
+                    <ChevronRight className="w-3.5 h-3.5 md:w-4 md:h-4" />
                   </button>
                 </div>
               </div>
