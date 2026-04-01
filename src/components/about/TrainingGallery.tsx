@@ -100,7 +100,7 @@ const TrainingGallery = () => {
           <FloatingImg src={gallery1} alt="Teamwork" className="top-[38%] right-[1%] w-36 h-24 md:w-40 md:h-28" />
 
           {/* Central canvas — realistic laptop/screen look */}
-          <div className="relative w-[85%] max-w-md md:max-w-lg">
+          <div className="relative w-[92%] max-w-md md:w-[85%] md:max-w-lg">
             {/* Clean soft outer wrapper */}
             <div className="rounded-2xl bg-background/80 p-3 md:p-4 shadow-xl border border-border/30">
               {/* Canvas area */}
