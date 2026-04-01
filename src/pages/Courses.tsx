@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 import { Star, ChevronRight, ArrowRight, ShieldCheck, Users, CalendarCheck } from "lucide-react";
 import { useSearchParams, Link } from "react-router-dom";
-import CourseCard from "@/components/courses/CourseCard";
+import PopularCourseCard from "@/components/courses/PopularCourseCard";
 import { categories } from "@/data/courses";
 import { blogPosts } from "@/data/blogs";
 import { Button } from "@/components/ui/button";
