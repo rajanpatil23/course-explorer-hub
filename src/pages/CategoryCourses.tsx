@@ -19,10 +19,24 @@ import advisorModel from "@/assets/advisor-model.png";
 const CategoryCourses = () => {
   const { categorySlug } = useParams<{ categorySlug: string }>();
 
+  const blogCategoryMap: Record<string, string> = {
+    "project-management": "PMI & Project Management",
+    "cybersecurity": "CompTIA & Cybersecurity",
+    "azure": "Microsoft & Azure",
+    "aws": "AWS & Cloud Computing",
+    "safe-agile": "SAFe & Agile Frameworks",
+  };
+
   const category = useMemo(
     () => categories.find((c) => c.slug === categorySlug),
     [categorySlug]
   );
+
+  const relatedBlogs = useMemo(() => {
+    const blogCat = categorySlug ? blogCategoryMap[categorySlug] : undefined;
+    if (!blogCat) return [];
+    return blogPosts.filter((p) => p.category === blogCat).slice(0, 3);
+  }, [categorySlug]);
 
   if (!category) {
     return <Navigate to="/courses" replace />;
