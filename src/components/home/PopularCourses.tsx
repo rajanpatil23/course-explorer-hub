@@ -1,7 +1,7 @@
 import { useState, useMemo, useCallback, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, ChevronRight, ChevronLeft } from "lucide-react";
-import { categories, type BadgeType } from "@/data/courses";
+import { categories } from "@/data/courses";
 import PopularCourseCard from "@/components/courses/PopularCourseCard";
 import useEmblaCarousel from "embla-carousel-react";
 
