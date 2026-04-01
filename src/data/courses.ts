@@ -1882,6 +1882,13 @@ export const categories: Category[] = [
       "Learn from AWS Certified Instructors with Deep Cloud Architecture & DevOps Expertise.",
       "Get Exam-Focused Preparation with Practice Tests Closely Aligned to Actual Exam Patterns.",
     ],
+    faqs: [
+      { q: "Which AWS certification should I start with?", a: "AWS Certified Cloud Practitioner (CLF-C02) is the ideal starting point. It covers cloud fundamentals and requires no prior AWS experience. From there, you can progress to Associate-level certifications based on your role." },
+      { q: "What is the difference between Associate and Professional AWS certifications?", a: "Associate certifications validate foundational cloud skills (1+ year experience recommended). Professional certifications are for experienced practitioners (2+ years) and cover advanced architecture, DevOps, and multi-account strategies." },
+      { q: "Do your AWS courses include hands-on labs?", a: "Yes, all AWS training includes lab-based exercises on real AWS environments. You'll deploy services, configure infrastructure, and troubleshoot issues — exactly like in production." },
+      { q: "How long are AWS certifications valid?", a: "AWS certifications are valid for 3 years. You can recertify by passing the current version of the exam or a higher-level certification before expiry." },
+      { q: "Can I take multiple AWS certifications?", a: "Absolutely. Many professionals hold multiple AWS certifications to demonstrate breadth. A common path is Cloud Practitioner → Solutions Architect Associate → a specialty or Professional cert." },
+    ],
     courses: [
       enrichCourse({ name: "AWS Certified Cloud Practitioner (CLF-C02)", code: "AWS-CCP", duration: "1–2 Days | 8 Hrs", level: "Beginner", skills: ["Cloud Fundamentals", "AWS Core Services", "Billing"], learners: "14K+", badge: "Popular", category: "AWS" }),
       enrichCourse({ name: "AWS Certified Solutions Architect – Associate (SAA-C03)", code: "AWS-SAA", duration: "4 Days | 32 Hrs", level: "Intermediate", skills: ["Architecture Design", "High Availability", "Cost Optimization"], learners: "12K+", badge: "Popular", category: "AWS" }),
