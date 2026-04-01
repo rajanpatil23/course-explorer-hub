@@ -40,7 +40,7 @@ const Timeline = () => {
         {/* Mobile: vertical timeline */}
         <div className="md:hidden relative px-2">
           {/* Continuous vertical line */}
-          <div className="absolute left-[2rem] top-4 bottom-4 w-[2px] bg-primary/30 -translate-x-1/2" />
+          <div className="absolute left-[calc(0.5rem+1rem)] top-4 bottom-4 w-[2px] bg-primary/30" />
           
           <div className="space-y-4">
             {timeline.map((item, i) => (
