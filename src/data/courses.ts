@@ -1800,6 +1800,13 @@ export const categories: Category[] = [
       "Join Live Interactive Training Sessions Led by Certified Project Managers & Industry Experts.",
       "Get Exam Support & Application Guidance From Experienced Trainers with Personalized Q&A Sessions.",
     ],
+    faqs: [
+      { q: "Which project management certification should I start with?", a: "If you're new to project management, start with CAPM® to build foundational knowledge. If you already have 3+ years of PM experience, go directly for PMP®. Our learning advisors can help you choose the right path." },
+      { q: "How many contact hours do I need for PMP® eligibility?", a: "You need 35 contact hours of formal project management education. Our PMP® training program provides the full 35 contact hours required by PMI, along with application assistance." },
+      { q: "Are PMI certifications valid worldwide?", a: "Yes, all PMI certifications (PMP®, CAPM®, PMI-ACP®, etc.) are globally recognised and respected across industries. They are among the most sought-after credentials for project professionals." },
+      { q: "What is the PMP® exam format?", a: "The PMP® exam consists of 180 questions to be completed in 230 minutes. It covers Predictive, Agile, and Hybrid methodologies across three domains: People, Process, and Business Environment." },
+      { q: "Do you provide exam application support?", a: "Yes, our trainers guide you through the entire PMI application process, including documenting project experience, selecting the right category, and responding to audit requests if selected." },
+    ],
     courses: [
       enrichCourse({ name: "Project Management Professional (PMP®)", code: "PMI-PMP", duration: "4–8 Days | 35 Contact Hrs", level: "Intermediate", skills: ["PMBOK 7th Edition", "Predictive & Agile", "Stakeholder Mgmt"], learners: "25K+", badge: "Popular", category: "Project Management" }),
       enrichCourse({ name: "Certified Associate in Project Management (CAPM®)", code: "PMI-CAPM", duration: "3–6 Days | 23 Contact Hrs", level: "Beginner", skills: ["Project Fundamentals", "Planning", "Scheduling"], learners: "8K+", badge: "Trending", category: "Project Management" }),
