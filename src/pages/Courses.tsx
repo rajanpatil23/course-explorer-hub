@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { Star, ChevronRight, ArrowRight } from "lucide-react";
+import { Star, ChevronRight, ArrowRight, ShieldCheck, Users, CalendarCheck } from "lucide-react";
 import { useSearchParams, Link } from "react-router-dom";
 import CourseCard from "@/components/courses/CourseCard";
 import { categories } from "@/data/courses";
