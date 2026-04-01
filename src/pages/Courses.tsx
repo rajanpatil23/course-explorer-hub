@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 import { Star, ChevronRight, ArrowRight, ShieldCheck, Users, CalendarCheck } from "lucide-react";
 import { useSearchParams, Link } from "react-router-dom";
-import CourseCard from "@/components/courses/CourseCard";
+import PopularCourseCard from "@/components/courses/PopularCourseCard";
 import { categories } from "@/data/courses";
 import { blogPosts } from "@/data/blogs";
 import { Button } from "@/components/ui/button";
@@ -208,7 +208,7 @@ const Courses = () => {
           {/* Course grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {displayed.map(course => (
-              <CourseCard key={course.code} course={course} />
+              <PopularCourseCard key={course.code} course={course} />
             ))}
           </div>
 
@@ -274,6 +274,13 @@ const Courses = () => {
                     Contact Us <ChevronRight className="w-4 h-4 ml-1" />
                   </Link>
                 </Button>
+              </div>
+              <div className="md:hidden shrink-0 self-center">
+                <img
+                  src={advisorModel}
+                  alt="Learning advisor"
+                  className="h-[120px] object-contain"
+                />
               </div>
             </div>
           </div>
