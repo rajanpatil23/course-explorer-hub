@@ -1793,6 +1793,11 @@ export const categories: Category[] = [
     slug: "project-management",
     description: "Master globally recognised project management methodologies and frameworks.",
     icon: "clipboard-check",
+    heroPoints: [
+      "Earn Globally Recognized Project Management Certifications to Validate Leadership Capabilities.",
+      "Join Live Interactive Training Sessions Led by Certified Project Managers & Industry Experts.",
+      "Get Exam Support & Application Guidance From Experienced Trainers with Personalized Q&A Sessions.",
+    ],
     courses: [
       enrichCourse({ name: "Project Management Professional (PMP®)", code: "PMI-PMP", duration: "4–8 Days | 35 Contact Hrs", level: "Intermediate", skills: ["PMBOK 7th Edition", "Predictive & Agile", "Stakeholder Mgmt"], learners: "25K+", badge: "Popular", category: "Project Management" }),
       enrichCourse({ name: "Certified Associate in Project Management (CAPM®)", code: "PMI-CAPM", duration: "3–6 Days | 23 Contact Hrs", level: "Beginner", skills: ["Project Fundamentals", "Planning", "Scheduling"], learners: "8K+", badge: "Trending", category: "Project Management" }),
