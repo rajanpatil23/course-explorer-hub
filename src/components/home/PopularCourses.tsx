@@ -79,7 +79,7 @@ const PopularCourses = () => {
             <div className="flex -ml-4">
               {courses.map(course => (
                 <div key={course.code} className="flex-[0_0_80%] min-w-0 pl-4">
-                  <CourseCard course={course} />
+                  <PopularCourseCard course={course} />
                 </div>
               ))}
             </div>
@@ -105,7 +105,7 @@ const PopularCourses = () => {
         {/* Desktop: Grid */}
         <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-6">
           {courses.map(course => (
-            <CourseCard key={course.code} course={course} />
+            <PopularCourseCard key={course.code} course={course} />
           ))}
         </div>
 
