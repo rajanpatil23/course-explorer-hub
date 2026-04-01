@@ -184,7 +184,7 @@ const CategoryCourses = () => {
       </div>
 
       {/* Advisor CTA Banner */}
-      <section className="pb-14 md:pb-0">
+      <section className="pb-14 md:pb-0 bg-secondary">
         <div className="container">
           <div className="relative bg-hero text-hero-foreground rounded-2xl overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-hero via-hero/95 to-primary/20" />
