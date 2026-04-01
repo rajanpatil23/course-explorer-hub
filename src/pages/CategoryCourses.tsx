@@ -1,12 +1,13 @@
 import { useParams, Navigate, Link } from "react-router-dom";
-import { useMemo } from "react";
-import { Star, CheckCircle, Users, ChevronRight } from "lucide-react";
+import { useMemo, useState, useCallback, useEffect } from "react";
+import { Star, CheckCircle, Users, ChevronRight, ChevronLeft } from "lucide-react";
 import { categories } from "@/data/courses";
 import { blogPosts } from "@/data/blogs";
-import CourseCard from "@/components/courses/CourseCard";
+import PopularCourseCard from "@/components/courses/PopularCourseCard";
 import { Button } from "@/components/ui/button";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
 import BlogCarouselSection from "@/components/courses/BlogCarouselSection";
+import useEmblaCarousel from "embla-carousel-react";
 import {
   Accordion,
   AccordionContent,
