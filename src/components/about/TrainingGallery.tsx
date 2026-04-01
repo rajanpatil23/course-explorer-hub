@@ -62,7 +62,7 @@ const TrainingGallery = () => {
             <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-4">
               Built on Purpose, Powered by Passion
             </h2>
-            <p className="text-primary-foreground/70 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
+            <p className="text-primary-foreground/70 text-xs md:text-base max-w-2xl mx-auto leading-relaxed">
               Everything we do is guided by a clear mission, a bold vision, and values that put learners first.
             </p>
           </div>
