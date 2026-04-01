@@ -69,11 +69,11 @@ const Contact = () => {
         <div className="absolute top-20 right-20 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[180px] z-[2]" />
         <div className="absolute bottom-0 left-10 w-[400px] h-[400px] rounded-full bg-accent/5 blur-[120px] z-[2]" />
 
-        <div className="container relative z-10 py-14 md:py-24 pb-24 md:pb-36 text-center">
+        <div className="container relative z-10 py-10 md:py-24 pb-20 md:pb-36 text-center">
           <p className="text-[10px] md:text-xs font-bold text-primary uppercase tracking-[0.2em] mb-3">
             Contact Us
           </p>
-          <h1 className="font-heading text-3xl md:text-5xl font-extrabold leading-[1.12] mb-4 md:mb-5">
+          <h1 className="font-heading text-2xl sm:text-3xl md:text-5xl font-extrabold leading-[1.12] mb-3 md:mb-5">
             Let's Start a{" "}
             <span className="text-gradient-primary">Conversation</span>
           </h1>
