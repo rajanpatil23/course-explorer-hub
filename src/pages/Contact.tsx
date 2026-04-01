@@ -84,25 +84,25 @@ const Contact = () => {
       </section>
 
       {/* Contact Cards — floating overlap */}
-      <section className="relative -mt-16 md:-mt-20 z-20 pb-6">
+      <section className="relative -mt-12 md:-mt-20 z-20 pb-6">
         <div className="container max-w-5xl">
-          <div className="grid sm:grid-cols-3 gap-4 md:gap-6">
+          <div className="grid grid-cols-3 gap-2 md:gap-6">
             {contactCards.map((card) => (
               <div
                 key={card.title}
-                className="group bg-card border border-border rounded-2xl p-6 text-center hover:shadow-lg hover:border-primary/30 transition-all duration-300"
+                className="group bg-card border border-border rounded-xl md:rounded-2xl p-3 md:p-6 text-center hover:shadow-lg hover:border-primary/30 transition-all duration-300"
               >
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
-                  <card.icon className="w-6 h-6 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
+                <div className="w-9 h-9 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-2 md:mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
+                  <card.icon className="w-4 h-4 md:w-6 md:h-6 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
                 </div>
-                <h3 className="font-heading font-bold text-foreground text-base mb-1">{card.title}</h3>
-                <p className="text-muted-foreground text-sm mb-3">{card.desc}</p>
+                <h3 className="font-heading font-bold text-foreground text-xs md:text-base mb-0.5 md:mb-1">{card.title}</h3>
+                <p className="text-muted-foreground text-[10px] md:text-sm mb-1 md:mb-3 hidden sm:block">{card.desc}</p>
                 {card.href ? (
-                  <a href={card.href} className="text-sm font-semibold text-primary hover:underline">
+                  <a href={card.href} className="text-[10px] md:text-sm font-semibold text-primary hover:underline break-all">
                     {card.detail}
                   </a>
                 ) : (
-                  <p className="text-sm font-semibold text-primary">{card.detail}</p>
+                  <p className="text-[10px] md:text-sm font-semibold text-primary break-all">{card.detail}</p>
                 )}
               </div>
             ))}
