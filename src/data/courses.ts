@@ -57,6 +57,7 @@ export interface Category {
   slug: string;
   description: string;
   icon: string;
+  heroPoints: string[];
   courses: Course[];
 }
 
@@ -1793,6 +1794,11 @@ export const categories: Category[] = [
     slug: "project-management",
     description: "Master globally recognised project management methodologies and frameworks.",
     icon: "clipboard-check",
+    heroPoints: [
+      "Earn Globally Recognized Project Management Certifications to Validate Leadership Capabilities.",
+      "Join Live Interactive Training Sessions Led by Certified Project Managers & Industry Experts.",
+      "Get Exam Support & Application Guidance From Experienced Trainers with Personalized Q&A Sessions.",
+    ],
     courses: [
       enrichCourse({ name: "Project Management Professional (PMP®)", code: "PMI-PMP", duration: "4–8 Days | 35 Contact Hrs", level: "Intermediate", skills: ["PMBOK 7th Edition", "Predictive & Agile", "Stakeholder Mgmt"], learners: "25K+", badge: "Popular", category: "Project Management" }),
       enrichCourse({ name: "Certified Associate in Project Management (CAPM®)", code: "PMI-CAPM", duration: "3–6 Days | 23 Contact Hrs", level: "Beginner", skills: ["Project Fundamentals", "Planning", "Scheduling"], learners: "8K+", badge: "Trending", category: "Project Management" }),
@@ -1807,6 +1813,11 @@ export const categories: Category[] = [
     slug: "cybersecurity",
     description: "Build and validate essential cybersecurity, networking, and infrastructure skills.",
     icon: "shield-check",
+    heroPoints: [
+      "Earn Industry-Standard CompTIA Certifications Recognized by Employers Worldwide.",
+      "Train with Hands-On Labs & Performance-Based Questions Mirroring Real Exam Scenarios.",
+      "Get Dedicated Exam Prep Support Including Practice Tests & Personalized Study Plans.",
+    ],
     courses: [
       enrichCourse({ name: "CompTIA Security+ (SY0-701)", code: "COMP-SEC+", duration: "5 Days | 40 Hrs", level: "Beginner", skills: ["Threat Analysis", "Network Security", "Cryptography"], learners: "18K+", badge: "Popular", category: "Cybersecurity — CompTIA" }),
       enrichCourse({ name: "CompTIA Network+ (N10-009)", code: "COMP-NET+", duration: "5 Days | 40 Hrs", level: "Beginner", skills: ["Network Architecture", "Troubleshooting", "Security"], learners: "12K+", badge: "Popular", category: "Cybersecurity — CompTIA" }),
@@ -1823,6 +1834,11 @@ export const categories: Category[] = [
     slug: "azure",
     description: "Master Microsoft Azure services from fundamentals to expert-level architecture.",
     icon: "cloud",
+    heroPoints: [
+      "Prepare for Official Microsoft Azure Certifications with Authorized Training Materials.",
+      "Learn from Microsoft Certified Trainers with Real-World Cloud Architecture Experience.",
+      "Access Hands-On Labs in Live Azure Environments to Build Practical Cloud Skills.",
+    ],
     courses: [
       enrichCourse({ name: "Microsoft Azure Fundamentals (AZ-900)", code: "AZ-900", duration: "1–2 Days | 8 Hrs", level: "Beginner", skills: ["Cloud Concepts", "Azure Services", "Pricing"], learners: "20K+", badge: "Popular", category: "Microsoft Azure" }),
       enrichCourse({ name: "Microsoft Azure Administrator (AZ-104)", code: "AZ-104", duration: "4 Days | 32 Hrs", level: "Intermediate", skills: ["Identity", "Storage", "Compute"], learners: "15K+", badge: "Popular", category: "Microsoft Azure" }),
@@ -1839,6 +1855,11 @@ export const categories: Category[] = [
     slug: "aws",
     description: "Gain hands-on expertise in Amazon Web Services with lab-based, exam-focused training.",
     icon: "server",
+    heroPoints: [
+      "Prepare for AWS Certifications with Lab-Based Training on Real AWS Environments.",
+      "Learn from AWS Certified Instructors with Deep Cloud Architecture & DevOps Expertise.",
+      "Get Exam-Focused Preparation with Practice Tests Closely Aligned to Actual Exam Patterns.",
+    ],
     courses: [
       enrichCourse({ name: "AWS Certified Cloud Practitioner (CLF-C02)", code: "AWS-CCP", duration: "1–2 Days | 8 Hrs", level: "Beginner", skills: ["Cloud Fundamentals", "AWS Core Services", "Billing"], learners: "14K+", badge: "Popular", category: "AWS" }),
       enrichCourse({ name: "AWS Certified Solutions Architect – Associate (SAA-C03)", code: "AWS-SAA", duration: "4 Days | 32 Hrs", level: "Intermediate", skills: ["Architecture Design", "High Availability", "Cost Optimization"], learners: "12K+", badge: "Popular", category: "AWS" }),
@@ -1853,6 +1874,11 @@ export const categories: Category[] = [
     slug: "safe-agile",
     description: "Scale agile practices across your enterprise with accredited SAFe training programs.",
     icon: "layers",
+    heroPoints: [
+      "Earn Accredited SAFe® Certifications from Scaled Agile Inc. to Lead Enterprise Transformations.",
+      "Learn from Certified SAFe® Practice Consultants with Real Agile Transformation Experience.",
+      "Get Hands-On with PI Planning Simulations, Lean Portfolio Exercises & Team-Based Activities.",
+    ],
     courses: [
       enrichCourse({ name: "Leading SAFe® 6.0 (SAFe Agilist – SA)", code: "SAFE-LSA", duration: "2 Days | 16 Hrs", level: "Intermediate", skills: ["Lean-Agile Mindset", "SAFe Principles", "PI Planning"], learners: "9K+", badge: "Popular", category: "SAFe® Agile" }),
       enrichCourse({ name: "SAFe® Scrum Master (SSM)", code: "SAFE-SSM", duration: "2 Days | 16 Hrs", level: "Intermediate", skills: ["Scrum in SAFe", "Iteration Execution", "Team Facilitation"], learners: "7K+", badge: "Popular", category: "SAFe® Agile" }),
