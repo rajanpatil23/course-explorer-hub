@@ -4,8 +4,9 @@ import { useSearchParams, Link } from "react-router-dom";
 import CourseCard from "@/components/courses/CourseCard";
 import { categories } from "@/data/courses";
 import { blogPosts } from "@/data/blogs";
-import { blogImages } from "@/data/blogImages";
 import { Button } from "@/components/ui/button";
+import TestimonialsSection from "@/components/home/TestimonialsSection";
+import BlogCarouselSection from "@/components/courses/BlogCarouselSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
 import {
   Accordion,
