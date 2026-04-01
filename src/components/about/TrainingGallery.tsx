@@ -88,7 +88,7 @@ const TrainingGallery = () => {
 
         <div className="container relative z-10">
           {/* Gallery layout */}
-          <div className="relative min-h-[420px] md:min-h-[520px] flex items-center justify-center">
+          <div className="relative min-h-[320px] md:min-h-[520px] flex items-center justify-center">
           {/* Corner images */}
           <FloatingImg src={gallery1} alt="Team collaboration" className="top-[4%] left-[4%] w-40 h-28 md:w-48 md:h-32" />
           <FloatingImg src={gallery2} alt="Team discussion" className="top-[4%] right-[4%] w-40 h-28 md:w-48 md:h-32" />
