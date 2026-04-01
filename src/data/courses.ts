@@ -1854,6 +1854,11 @@ export const categories: Category[] = [
     slug: "aws",
     description: "Gain hands-on expertise in Amazon Web Services with lab-based, exam-focused training.",
     icon: "server",
+    heroPoints: [
+      "Prepare for AWS Certifications with Lab-Based Training on Real AWS Environments.",
+      "Learn from AWS Certified Instructors with Deep Cloud Architecture & DevOps Expertise.",
+      "Get Exam-Focused Preparation with Practice Tests Closely Aligned to Actual Exam Patterns.",
+    ],
     courses: [
       enrichCourse({ name: "AWS Certified Cloud Practitioner (CLF-C02)", code: "AWS-CCP", duration: "1–2 Days | 8 Hrs", level: "Beginner", skills: ["Cloud Fundamentals", "AWS Core Services", "Billing"], learners: "14K+", badge: "Popular", category: "AWS" }),
       enrichCourse({ name: "AWS Certified Solutions Architect – Associate (SAA-C03)", code: "AWS-SAA", duration: "4 Days | 32 Hrs", level: "Intermediate", skills: ["Architecture Design", "High Availability", "Cost Optimization"], learners: "12K+", badge: "Popular", category: "AWS" }),
