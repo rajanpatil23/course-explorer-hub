@@ -1826,6 +1826,13 @@ export const categories: Category[] = [
       "Train with Hands-On Labs & Performance-Based Questions Mirroring Real Exam Scenarios.",
       "Get Dedicated Exam Prep Support Including Practice Tests & Personalized Study Plans.",
     ],
+    faqs: [
+      { q: "Which CompTIA certification should I start with?", a: "For beginners, CompTIA A+ is the ideal starting point for general IT knowledge. If you're focused on networking, start with Network+. For cybersecurity specifically, Security+ is the recommended entry-level certification." },
+      { q: "Are CompTIA certifications recognised globally?", a: "Yes, CompTIA certifications are vendor-neutral and recognised worldwide. They are approved by the US Department of Defense (DoD 8570) and valued by employers across all industries." },
+      { q: "How long are CompTIA certifications valid?", a: "Most CompTIA certifications are valid for 3 years. You can renew through continuing education (CE) credits, earning a higher-level certification, or retaking the exam before expiry." },
+      { q: "Do CompTIA exams include hands-on questions?", a: "Yes, CompTIA exams feature Performance-Based Questions (PBQs) that simulate real-world scenarios. Our training includes dedicated PBQ practice labs to prepare you for these." },
+      { q: "What is the pass rate for your CompTIA training programs?", a: "Our learners achieve a 90%+ first-attempt pass rate across all CompTIA certifications, thanks to our hands-on labs, practice exams, and personalised study plans." },
+    ],
     courses: [
       enrichCourse({ name: "CompTIA Security+ (SY0-701)", code: "COMP-SEC+", duration: "5 Days | 40 Hrs", level: "Beginner", skills: ["Threat Analysis", "Network Security", "Cryptography"], learners: "18K+", badge: "Popular", category: "Cybersecurity — CompTIA" }),
       enrichCourse({ name: "CompTIA Network+ (N10-009)", code: "COMP-NET+", duration: "5 Days | 40 Hrs", level: "Beginner", skills: ["Network Architecture", "Troubleshooting", "Security"], learners: "12K+", badge: "Popular", category: "Cybersecurity — CompTIA" }),
