@@ -275,6 +275,13 @@ const Courses = () => {
                   </Link>
                 </Button>
               </div>
+              <div className="md:hidden shrink-0 self-center">
+                <img
+                  src={advisorModel}
+                  alt="Learning advisor"
+                  className="h-[120px] object-contain"
+                />
+              </div>
             </div>
           </div>
         </div>
