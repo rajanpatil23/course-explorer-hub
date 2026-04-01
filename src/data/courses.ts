@@ -1873,6 +1873,11 @@ export const categories: Category[] = [
     slug: "safe-agile",
     description: "Scale agile practices across your enterprise with accredited SAFe training programs.",
     icon: "layers",
+    heroPoints: [
+      "Earn Accredited SAFe® Certifications from Scaled Agile Inc. to Lead Enterprise Transformations.",
+      "Learn from Certified SAFe® Practice Consultants with Real Agile Transformation Experience.",
+      "Get Hands-On with PI Planning Simulations, Lean Portfolio Exercises & Team-Based Activities.",
+    ],
     courses: [
       enrichCourse({ name: "Leading SAFe® 6.0 (SAFe Agilist – SA)", code: "SAFE-LSA", duration: "2 Days | 16 Hrs", level: "Intermediate", skills: ["Lean-Agile Mindset", "SAFe Principles", "PI Planning"], learners: "9K+", badge: "Popular", category: "SAFe® Agile" }),
       enrichCourse({ name: "SAFe® Scrum Master (SSM)", code: "SAFE-SSM", duration: "2 Days | 16 Hrs", level: "Intermediate", skills: ["Scrum in SAFe", "Iteration Execution", "Team Facilitation"], learners: "7K+", badge: "Popular", category: "SAFe® Agile" }),
