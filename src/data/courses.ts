@@ -1812,6 +1812,11 @@ export const categories: Category[] = [
     slug: "cybersecurity",
     description: "Build and validate essential cybersecurity, networking, and infrastructure skills.",
     icon: "shield-check",
+    heroPoints: [
+      "Earn Industry-Standard CompTIA Certifications Recognized by Employers Worldwide.",
+      "Train with Hands-On Labs & Performance-Based Questions Mirroring Real Exam Scenarios.",
+      "Get Dedicated Exam Prep Support Including Practice Tests & Personalized Study Plans.",
+    ],
     courses: [
       enrichCourse({ name: "CompTIA Security+ (SY0-701)", code: "COMP-SEC+", duration: "5 Days | 40 Hrs", level: "Beginner", skills: ["Threat Analysis", "Network Security", "Cryptography"], learners: "18K+", badge: "Popular", category: "Cybersecurity — CompTIA" }),
       enrichCourse({ name: "CompTIA Network+ (N10-009)", code: "COMP-NET+", duration: "5 Days | 40 Hrs", level: "Beginner", skills: ["Network Architecture", "Troubleshooting", "Security"], learners: "12K+", badge: "Popular", category: "Cybersecurity — CompTIA" }),
