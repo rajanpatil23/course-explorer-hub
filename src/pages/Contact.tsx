@@ -124,7 +124,7 @@ const Contact = () => {
           <div className="grid lg:grid-cols-5 gap-8 md:gap-10 items-stretch">
             {/* Form */}
             <div className="lg:col-span-3">
-              <div className="bg-card border border-border rounded-2xl p-6 md:p-8">
+              <div className="bg-card border border-border rounded-2xl p-5 md:p-8">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                     <MessageSquare className="w-5 h-5 text-primary" />
