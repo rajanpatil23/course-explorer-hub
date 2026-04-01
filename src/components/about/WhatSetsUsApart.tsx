@@ -10,12 +10,12 @@ const items = [
 ];
 
 const WhatSetsUsApart = () => (
-  <section className="py-14 md:py-24 bg-background">
+  <section className="py-8 md:py-24 bg-background">
     <div className="container max-w-6xl">
-      <div className="text-center mb-10 md:mb-14">
+      <div className="text-center mb-6 md:mb-14">
         <p className="text-[10px] md:text-xs font-bold text-primary uppercase tracking-[0.2em] mb-2">Why Choose Us</p>
-        <h2 className="font-heading text-2xl md:text-4xl font-bold text-foreground">What Sets Us Apart</h2>
-        <p className="text-sm md:text-base text-muted-foreground mt-3 max-w-2xl mx-auto">
+        <h2 className="font-heading text-xl md:text-4xl font-bold text-foreground">What Sets Us Apart</h2>
+        <p className="text-[11px] md:text-base text-muted-foreground mt-2 md:mt-3 max-w-2xl mx-auto">
           We don't just prepare you for exams — we prepare you for real-world success with industry-leading training.
         </p>
       </div>
