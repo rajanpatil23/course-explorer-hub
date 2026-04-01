@@ -1833,6 +1833,11 @@ export const categories: Category[] = [
     slug: "azure",
     description: "Master Microsoft Azure services from fundamentals to expert-level architecture.",
     icon: "cloud",
+    heroPoints: [
+      "Prepare for Official Microsoft Azure Certifications with Authorized Training Materials.",
+      "Learn from Microsoft Certified Trainers with Real-World Cloud Architecture Experience.",
+      "Access Hands-On Labs in Live Azure Environments to Build Practical Cloud Skills.",
+    ],
     courses: [
       enrichCourse({ name: "Microsoft Azure Fundamentals (AZ-900)", code: "AZ-900", duration: "1–2 Days | 8 Hrs", level: "Beginner", skills: ["Cloud Concepts", "Azure Services", "Pricing"], learners: "20K+", badge: "Popular", category: "Microsoft Azure" }),
       enrichCourse({ name: "Microsoft Azure Administrator (AZ-104)", code: "AZ-104", duration: "4 Days | 32 Hrs", level: "Intermediate", skills: ["Identity", "Storage", "Compute"], learners: "15K+", badge: "Popular", category: "Microsoft Azure" }),
