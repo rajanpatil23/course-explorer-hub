@@ -38,24 +38,26 @@ const Timeline = () => {
         </div>
 
         {/* Mobile: vertical timeline */}
-        <div className="md:hidden space-y-4 px-2">
-          {timeline.map((item, i) => (
-            <div key={i} className="flex gap-3 items-start">
-              {/* Left: year + dot */}
-              <div className="flex flex-col items-center flex-shrink-0">
-                <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
-                  <span className="text-[9px] font-bold text-primary-foreground">{item.year}</span>
+        <div className="md:hidden relative px-2">
+          {/* Continuous vertical line */}
+          <div className="absolute left-[2rem] top-4 bottom-4 w-[2px] bg-primary/30 -translate-x-1/2" />
+          
+          <div className="space-y-4">
+            {timeline.map((item, i) => (
+              <div key={i} className="flex gap-3 items-start relative">
+                {/* Left: year circle */}
+                <div className="flex-shrink-0 relative z-10">
+                  <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                    <span className="text-[9px] font-bold text-primary-foreground">{item.year}</span>
+                  </div>
                 </div>
-                {i < timeline.length - 1 && (
-                  <div className="w-[2px] h-8 bg-primary/30 rounded-full mt-1" />
-                )}
+                {/* Right: card */}
+                <div className="bg-card border border-border/60 rounded-xl p-3 flex-1 border-l-[3px] border-l-primary">
+                  <p className="text-[11px] text-muted-foreground leading-relaxed font-medium">{item.desc}</p>
+                </div>
               </div>
-              {/* Right: card */}
-              <div className="bg-card border border-border/60 rounded-xl p-3 flex-1 border-l-[3px] border-l-primary">
-                <p className="text-[11px] text-muted-foreground leading-relaxed font-medium">{item.desc}</p>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
         {/* Desktop: horizontal timeline */}
