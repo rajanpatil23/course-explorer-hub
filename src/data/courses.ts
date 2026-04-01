@@ -1854,6 +1854,13 @@ export const categories: Category[] = [
       "Learn from Microsoft Certified Trainers with Real-World Cloud Architecture Experience.",
       "Access Hands-On Labs in Live Azure Environments to Build Practical Cloud Skills.",
     ],
+    faqs: [
+      { q: "Which Azure certification should I start with?", a: "Azure Fundamentals (AZ-900) is the recommended starting point for anyone new to cloud computing. It requires no prior experience and provides a solid foundation for more advanced Azure certifications." },
+      { q: "Are Microsoft Azure certifications role-based?", a: "Yes, Microsoft organises Azure certifications by role — Administrator (AZ-104), Developer (AZ-204), Solutions Architect (AZ-305), and Security Engineer (AZ-500). Choose based on your career path." },
+      { q: "How long are Azure certifications valid?", a: "Most Azure role-based certifications are valid for 1 year. Microsoft offers a free online renewal assessment that you can take before expiry to extend your certification." },
+      { q: "Do you use official Microsoft courseware?", a: "Yes, all our Azure training programs use official Microsoft Learn courseware and are delivered by Microsoft Certified Trainers (MCTs) with real-world cloud experience." },
+      { q: "Will I get hands-on lab access?", a: "Absolutely. Our Azure training includes hands-on labs in live Azure environments so you can practice deploying, managing, and securing cloud resources during the course." },
+    ],
     courses: [
       enrichCourse({ name: "Microsoft Azure Fundamentals (AZ-900)", code: "AZ-900", duration: "1–2 Days | 8 Hrs", level: "Beginner", skills: ["Cloud Concepts", "Azure Services", "Pricing"], learners: "20K+", badge: "Popular", category: "Microsoft Azure" }),
       enrichCourse({ name: "Microsoft Azure Administrator (AZ-104)", code: "AZ-104", duration: "4 Days | 32 Hrs", level: "Intermediate", skills: ["Identity", "Storage", "Compute"], learners: "15K+", badge: "Popular", category: "Microsoft Azure" }),
