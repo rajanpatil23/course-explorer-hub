@@ -160,8 +160,16 @@ const CategoryCourses = () => {
       <section className="pb-14 md:pb-0">
         <div className="container">
           <div className="relative bg-hero text-hero-foreground rounded-2xl overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-hero via-hero/95 to-primary/20" />
-            <div className="absolute top-0 right-0 w-[300px] h-[300px] rounded-full bg-primary/10 blur-[100px]" />
+            <div className="absolute inset-0 bg-gradient-to-br from-hero via-hero/95 to-primary/20" />
+            <div
+              className="absolute inset-0 opacity-[0.07]"
+              style={{
+                backgroundImage: `linear-gradient(hsl(var(--primary-foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary-foreground)) 1px, transparent 1px)`,
+                backgroundSize: "40px 40px",
+              }}
+            />
+            <div className="absolute top-0 right-0 w-[300px] h-[300px] rounded-full bg-primary/15 blur-[100px]" />
+            <div className="absolute bottom-0 left-10 w-[200px] h-[200px] rounded-full bg-accent/10 blur-[80px]" />
 
             <div className="relative z-10 flex items-center gap-6 md:gap-10 px-6 md:px-10 lg:px-14">
               {/* Model image */}
