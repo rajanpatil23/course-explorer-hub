@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { Star, ChevronRight, ArrowRight } from "lucide-react";
+import { Star, ChevronRight, ArrowRight, ShieldCheck, Users, CalendarCheck } from "lucide-react";
 import { useSearchParams, Link } from "react-router-dom";
 import CourseCard from "@/components/courses/CourseCard";
 import { categories } from "@/data/courses";
@@ -110,8 +110,22 @@ const Courses = () => {
                 Browse our full catalog of accredited certification programs across the most in-demand domains.
               </p>
 
+              {/* Short highlights */}
+              <div className="flex flex-wrap items-center gap-4 md:gap-6 justify-center lg:justify-start mt-6 mb-6">
+                {[
+                  { icon: ShieldCheck, label: "Accredited Certification" },
+                  { icon: Users, label: "Expert Instructors" },
+                  { icon: CalendarCheck, label: "Flexible Schedule" },
+                ].map(({ icon: Icon, label }) => (
+                  <div key={label} className="flex items-center gap-1.5 text-sm text-foreground font-medium">
+                    <Icon className="w-4 h-4 text-primary" />
+                    <span>{label}</span>
+                  </div>
+                ))}
+              </div>
+
               {/* Rated by Learners */}
-              <div className="flex flex-wrap items-center gap-4 md:gap-6 justify-center lg:justify-start mt-6 md:mt-8">
+              <div className="flex flex-wrap items-center gap-4 md:gap-6 justify-center lg:justify-start">
                 <div className="flex items-center gap-2">
                   <div className="flex -space-x-2">
                     {[
