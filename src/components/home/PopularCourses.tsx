@@ -5,6 +5,11 @@ import { categories, type BadgeType } from "@/data/courses";
 import PopularCourseCard from "@/components/courses/PopularCourseCard";
 import useEmblaCarousel from "embla-carousel-react";
 
+const tabs = [
+  { id: "all", label: "All Courses" },
+  ...categories.map(c => ({ id: c.slug, label: c.name })),
+];
+
 const PopularCourses = () => {
   const [active, setActive] = useState("all");
   const allCourses = useMemo(() => categories.flatMap(c => c.courses), []);
