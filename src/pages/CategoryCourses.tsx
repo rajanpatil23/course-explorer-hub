@@ -155,6 +155,50 @@ const CategoryCourses = () => {
           </div>
         </div>
       </section>
+
+      {/* Advisor CTA Banner */}
+      <section className="pb-14 md:pb-0">
+        <div className="container">
+          <div className="relative bg-hero text-hero-foreground rounded-2xl overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-hero via-hero/95 to-primary/20" />
+            <div className="absolute top-0 right-0 w-[300px] h-[300px] rounded-full bg-primary/10 blur-[100px]" />
+
+            <div className="relative z-10 flex items-center gap-6 md:gap-10 px-6 md:px-10 lg:px-14">
+              {/* Model image */}
+              <div className="hidden md:block shrink-0 self-end">
+                <img
+                  src={advisorModel}
+                  alt="Learning advisor"
+                  className="h-[140px] lg:h-[160px] object-contain"
+                />
+              </div>
+
+              {/* Content */}
+              <div className="flex-1 py-6 md:py-8">
+                <h3 className="font-heading text-lg md:text-xl lg:text-2xl font-bold mb-1">
+                  Talk to Our Expert Learning Advisor Today
+                </h3>
+                <p className="text-hero-foreground/70 text-sm md:text-base">
+                  and Earn your {category.name} success. Call Now!
+                </p>
+              </div>
+
+              {/* CTA */}
+              <div className="shrink-0">
+                <Button
+                  size="lg"
+                  className="bg-background text-foreground hover:bg-background/90 font-semibold px-6 md:px-8"
+                  asChild
+                >
+                  <Link to="/contact">
+                    Contact Us <ChevronRight className="w-4 h-4 ml-1" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
