@@ -5,6 +5,8 @@ import { categories } from "@/data/courses";
 import CourseCard from "@/components/courses/CourseCard";
 import { Button } from "@/components/ui/button";
 import heroCourses from "@/assets/hero-courses.jpg";
+import advisorModel from "@/assets/advisor-model.png";
+import { ChevronRight } from "lucide-react";
 
 const CategoryCourses = () => {
   const { categorySlug } = useParams<{ categorySlug: string }>();
