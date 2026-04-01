@@ -209,7 +209,7 @@ const CategoryCourses = () => {
                   </Link>
                 </Button>
               </div>
-              <div className="md:hidden shrink-0 self-end">
+              <div className="md:hidden shrink-0 self-center">
                 <img
                   src={advisorModel}
                   alt="Learning advisor"
