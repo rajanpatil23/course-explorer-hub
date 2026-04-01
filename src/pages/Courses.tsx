@@ -7,7 +7,6 @@ import { blogPosts } from "@/data/blogs";
 import { Button } from "@/components/ui/button";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
 import BlogCarouselSection from "@/components/courses/BlogCarouselSection";
-import TestimonialsSection from "@/components/home/TestimonialsSection";
 import {
   Accordion,
   AccordionContent,
