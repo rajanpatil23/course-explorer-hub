@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { Star } from "lucide-react";
 import { useSearchParams } from "react-router-dom";
 import { Search } from "lucide-react";
 import CourseCard from "@/components/courses/CourseCard";
