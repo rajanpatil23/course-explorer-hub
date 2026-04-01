@@ -35,13 +35,15 @@ const AboutHero = () => (
           <p className="text-sm md:text-lg text-muted-foreground leading-relaxed max-w-lg mx-auto lg:mx-0 mb-6 md:mb-8">
             We bridge the gap between academic knowledge and industry requirements, delivering expert-led training that prepares you to excel.
           </p>
-          <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
-            <Button asChild size="lg" className="bg-primary hover:bg-teal-dark text-primary-foreground font-semibold px-8 text-base gap-2">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+            <Button asChild size="lg" className="bg-primary hover:bg-teal-dark text-primary-foreground font-semibold px-8 text-base gap-2 w-full sm:w-auto">
               <Link to="/courses">Explore Courses <ArrowRight className="ml-2 w-4 h-4" /></Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="border-primary/30 text-primary hover:bg-primary/5 font-semibold px-8 text-base">
-              <Link to="/contact">Talk to Us</Link>
-            </Button>
+            <Link to="/contact" className="w-full sm:w-auto">
+              <Button variant="outline" size="lg" className="border-primary/30 text-primary hover:bg-primary/5 font-semibold px-8 text-base w-full sm:w-auto">
+                Talk to Us
+              </Button>
+            </Link>
           </div>
         </div>
 
