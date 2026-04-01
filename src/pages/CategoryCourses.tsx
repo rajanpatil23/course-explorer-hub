@@ -6,12 +6,6 @@ import CourseCard from "@/components/courses/CourseCard";
 import { Button } from "@/components/ui/button";
 import heroCourses from "@/assets/hero-courses.jpg";
 
-const highlights = [
-  { icon: ShieldCheck, label: "Accredited Certification" },
-  { icon: Users, label: "Expert Instructors" },
-  { icon: CalendarCheck, label: "Flexible Schedule" },
-];
-
 const CategoryCourses = () => {
   const { categorySlug } = useParams<{ categorySlug: string }>();
 
@@ -46,9 +40,6 @@ const CategoryCourses = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             {/* Left content */}
             <div className="text-center lg:text-left">
-              <p className="text-[10px] md:text-xs font-bold text-primary uppercase tracking-[0.2em] mb-3">
-                {category.courses.length} Courses Available
-              </p>
               <h1 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[3.25rem] font-extrabold leading-[1.12] mb-4 md:mb-5">
                 {category.name}{" "}
                 <span className="text-gradient-primary">Courses</span>
@@ -89,12 +80,12 @@ const CategoryCourses = () => {
                 </div>
               </div>
 
-              {/* 3 Highlights */}
-              <div className="flex flex-wrap items-center gap-4 md:gap-6 justify-center lg:justify-start mb-7">
-                {highlights.map(({ icon: Icon, label }) => (
-                  <div key={label} className="flex items-center gap-1.5 text-sm text-foreground font-medium">
-                    <Icon className="w-4 h-4 text-primary" />
-                    <span>{label}</span>
+              {/* 3 Category-specific points */}
+              <div className="space-y-3 mb-7 max-w-lg mx-auto lg:mx-0">
+                {category.heroPoints.map((point, i) => (
+                  <div key={i} className="flex items-start gap-2.5 text-left">
+                    <CheckCircle className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+                    <p className="text-sm md:text-[15px] text-foreground leading-relaxed font-medium">{point}</p>
                   </div>
                 ))}
               </div>
