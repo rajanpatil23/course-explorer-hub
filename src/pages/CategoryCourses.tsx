@@ -179,7 +179,9 @@ const CategoryCourses = () => {
       </section>
 
       {/* Testimonials */}
-      <TestimonialsSection />
+      <div className="bg-secondary [&>section]:bg-secondary">
+        <TestimonialsSection />
+      </div>
 
       {/* Advisor CTA Banner */}
       <section className="pb-14 md:pb-0">
