@@ -1,7 +1,9 @@
 import { useParams, Navigate, Link } from "react-router-dom";
 import { useMemo } from "react";
-import { Star, CheckCircle, ShieldCheck, Users, CalendarCheck, ChevronRight } from "lucide-react";
+import { Star, CheckCircle, ShieldCheck, Users, CalendarCheck, ChevronRight, ArrowRight } from "lucide-react";
 import { categories } from "@/data/courses";
+import { blogPosts } from "@/data/blogs";
+import { blogImages } from "@/data/blogImages";
 import CourseCard from "@/components/courses/CourseCard";
 import { Button } from "@/components/ui/button";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
