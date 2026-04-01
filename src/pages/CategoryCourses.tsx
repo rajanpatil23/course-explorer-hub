@@ -124,7 +124,7 @@ const CategoryCourses = () => {
               </div>
             </div>
 
-            {/* Right - Hero image (desktop) */}
+            {/* Right - Hero image */}
             <div className="relative hidden lg:block">
               <div className="absolute -top-6 -right-6 w-28 h-28 grid grid-cols-5 gap-2.5 z-0">
                 {Array.from({ length: 25 }).map((_, i) => (
@@ -147,17 +147,6 @@ const CategoryCourses = () => {
                   height={1080}
                 />
               </div>
-            </div>
-
-            {/* Hero image (mobile) */}
-            <div className="lg:hidden rounded-2xl overflow-hidden shadow-lg border border-border">
-              <img
-                src={heroCourses}
-                alt={`${category.name} certification training`}
-                className="w-full h-[200px] object-cover"
-                width={1920}
-                height={1080}
-              />
             </div>
           </div>
         </div>
