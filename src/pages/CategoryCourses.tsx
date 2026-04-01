@@ -1,12 +1,12 @@
 import { useParams, Navigate, Link } from "react-router-dom";
 import { useMemo } from "react";
-import { Star, CheckCircle, ShieldCheck, Users, CalendarCheck } from "lucide-react";
+import { Star, CheckCircle, ShieldCheck, Users, CalendarCheck, ChevronRight } from "lucide-react";
 import { categories } from "@/data/courses";
 import CourseCard from "@/components/courses/CourseCard";
 import { Button } from "@/components/ui/button";
+import TestimonialsSection from "@/components/home/TestimonialsSection";
 import heroCourses from "@/assets/hero-courses.jpg";
 import advisorModel from "@/assets/advisor-model.png";
-import { ChevronRight } from "lucide-react";
 
 const CategoryCourses = () => {
   const { categorySlug } = useParams<{ categorySlug: string }>();
@@ -155,6 +155,9 @@ const CategoryCourses = () => {
           </div>
         </div>
       </section>
+
+      {/* Testimonials */}
+      <TestimonialsSection />
 
       {/* Advisor CTA Banner */}
       <section className="pb-14 md:pb-0">
