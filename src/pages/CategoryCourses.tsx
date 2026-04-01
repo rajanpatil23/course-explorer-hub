@@ -179,7 +179,7 @@ const CategoryCourses = () => {
       </section>
 
       {/* Testimonials */}
-      <div className="bg-secondary rounded-t-[3rem] md:rounded-t-[8rem] [&>section]:bg-secondary">
+      <div className="bg-secondary rounded-t-[3rem] md:rounded-t-[8rem] overflow-hidden [&>section]:bg-secondary">
         <TestimonialsSection />
       </div>
 
