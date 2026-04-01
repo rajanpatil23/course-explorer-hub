@@ -1,12 +1,31 @@
 import { useState, useMemo } from "react";
-import { Star } from "lucide-react";
-import { useSearchParams } from "react-router-dom";
-import { Search } from "lucide-react";
+import { Star, ChevronRight, ArrowRight } from "lucide-react";
+import { useSearchParams, Link } from "react-router-dom";
 import CourseCard from "@/components/courses/CourseCard";
 import { categories } from "@/data/courses";
+import { blogPosts } from "@/data/blogs";
+import { blogImages } from "@/data/blogImages";
+import { Button } from "@/components/ui/button";
+import TestimonialsSection from "@/components/home/TestimonialsSection";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import heroCourses from "@/assets/hero-courses.jpg";
+import advisorModel from "@/assets/advisor-model.png";
 
 const INITIAL_SHOW = 9;
+
+const generalFaqs = [
+  { q: "What certifications does The EduEdge offer?", a: "We offer accredited certifications across Project Management (PMP, CAPM, PMI-ACP), Cybersecurity (CompTIA Security+, CySA+, CASP+), Microsoft Azure, AWS Cloud Computing, and SAFe Agile frameworks." },
+  { q: "Are the courses instructor-led or self-paced?", a: "All our courses are live, instructor-led sessions conducted by certified industry experts. You also get access to recorded sessions and self-paced study materials for revision." },
+  { q: "How do I choose the right course for my career?", a: "Our learning advisors can help you select the best certification based on your experience, career goals, and industry demand. Contact us for a free consultation." },
+  { q: "Do you offer corporate training programs?", a: "Yes, we offer customized corporate training solutions for teams of all sizes. Our programs can be tailored to your organization's specific needs and schedule." },
+  { q: "What is the refund policy?", a: "We offer a full refund if you cancel 7 days before the course start date. For details, please review our terms and conditions or contact our support team." },
+  { q: "Will I receive a certificate after completing the course?", a: "Yes, upon successful completion of each course, you'll receive an industry-recognized certificate that you can share on LinkedIn and with employers." },
+];
 
 const Courses = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -53,6 +72,8 @@ const Courses = () => {
       setShowAll({});
     }
   }, [searchParams]);
+
+  const recentBlogs = useMemo(() => blogPosts.slice(0, 3), []);
 
   return (
     <div className="min-h-screen pb-14 md:pb-0">
@@ -194,6 +215,147 @@ const Courses = () => {
         </div>
       </section>
 
+      {/* Testimonials */}
+      <div className="bg-secondary rounded-t-[3rem] md:rounded-t-[8rem] overflow-hidden [&>section]:bg-secondary">
+        <TestimonialsSection />
+      </div>
+
+      {/* Advisor CTA Banner */}
+      <section className="bg-secondary pb-14 md:pb-0">
+        <div className="container">
+          <div className="relative bg-hero text-hero-foreground rounded-2xl overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-hero via-hero/95 to-primary/20" />
+            <div
+              className="absolute -top-6 -left-4 w-[110%] h-[90%] pointer-events-none opacity-20"
+              style={{
+                backgroundImage: "radial-gradient(circle, hsl(var(--primary)) 1.2px, transparent 1.2px)",
+                backgroundSize: "18px 18px",
+              }}
+            />
+            <div className="absolute top-0 right-0 w-[300px] h-[300px] rounded-full bg-primary/10 blur-[120px]" />
+
+            <div className="relative z-10 flex items-center gap-6 md:gap-10 px-6 md:px-10 lg:px-14">
+              <div className="hidden md:block shrink-0 self-end">
+                <img
+                  src={advisorModel}
+                  alt="Learning advisor"
+                  className="h-[140px] lg:h-[160px] object-contain"
+                />
+              </div>
+              <div className="flex-1 py-6 md:py-8">
+                <h3 className="font-heading text-lg md:text-xl lg:text-2xl font-bold mb-1">
+                  Talk to Our Expert Learning Advisor Today
+                </h3>
+                <p className="text-hero-foreground/70 text-sm md:text-base">
+                  and kickstart your certification journey. Call Now!
+                </p>
+              </div>
+              <div className="shrink-0">
+                <Button
+                  size="lg"
+                  className="bg-background text-foreground hover:bg-background/90 font-semibold px-6 md:px-8"
+                  asChild
+                >
+                  <Link to="/contact">
+                    Contact Us <ChevronRight className="w-4 h-4 ml-1" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-12 md:py-24 bg-secondary rounded-b-[3rem] md:rounded-b-[8rem]">
+        <div className="container">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-start">
+            <div className="lg:sticky lg:top-24 text-center lg:text-left">
+              <p className="text-[10px] md:text-xs font-bold text-primary uppercase tracking-[0.2em] mb-2">FAQ</p>
+              <h2 className="font-heading text-2xl md:text-4xl font-bold text-foreground mb-3 md:mb-4">
+                Frequently Asked Questions
+              </h2>
+              <p className="text-sm md:text-base text-muted-foreground leading-relaxed max-w-md mx-auto lg:mx-0">
+                Everything you need to know about our professional certification training programs.
+              </p>
+            </div>
+
+            <div>
+              <Accordion type="single" collapsible className="space-y-2 md:space-y-3">
+                {generalFaqs.map((faq, i) => (
+                  <AccordionItem
+                    key={i}
+                    value={`faq-${i}`}
+                    className="bg-card border border-border rounded-xl px-4 md:px-6 data-[state=open]:shadow-md transition-shadow"
+                  >
+                    <AccordionTrigger className="text-xs md:text-sm font-semibold text-foreground text-left py-4 md:py-5 hover:no-underline">
+                      {faq.q}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-xs md:text-sm text-muted-foreground leading-relaxed pb-4 md:pb-5">
+                      {faq.a}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Blog Highlights */}
+      {recentBlogs.length > 0 && (
+        <section className="py-12 md:py-24 bg-background rounded-t-[3rem] md:rounded-t-[8rem]">
+          <div className="container">
+            <p className="text-center text-[10px] md:text-xs font-bold text-primary uppercase tracking-[0.2em] mb-2">Our Latest Blogs</p>
+            <h2 className="font-heading text-2xl md:text-4xl font-bold text-center text-foreground mb-2 md:mb-3">
+              Insights & Career Guides
+            </h2>
+            <p className="text-center text-muted-foreground text-xs md:text-sm max-w-2xl mx-auto mb-10 md:mb-14">
+              Expert articles, exam tips, and career advice to support your professional certification journey.
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+              {recentBlogs.map((post) => (
+                <Link
+                  key={post.slug}
+                  to={`/blog/${post.slug}`}
+                  className="group bg-card rounded-xl border border-border overflow-hidden hover:shadow-lg transition-all hover:border-primary/20 flex flex-col h-full"
+                >
+                  <div className="p-3 md:p-4 pb-0">
+                    <div className="h-36 md:h-44 rounded-lg overflow-hidden">
+                      {blogImages[post.slug] ? (
+                        <img src={blogImages[post.slug]} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                      ) : (
+                        <div className="w-full h-full bg-secondary flex items-center justify-center">
+                          <span className="text-xs font-bold text-primary uppercase tracking-widest">{post.category}</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                  <div className="p-4 md:p-5 flex flex-col flex-1">
+                    <p className="text-[10px] md:text-xs text-muted-foreground mb-1.5 md:mb-2">{post.date} · {post.readTime}</p>
+                    <h3 className="font-heading font-bold text-foreground text-xs md:text-sm leading-snug mb-2 md:mb-3 group-hover:text-primary transition-colors line-clamp-2">
+                      {post.title}
+                    </h3>
+                    <p className="text-[10px] md:text-xs text-muted-foreground line-clamp-2 mb-2 md:mb-3">{post.excerpt}</p>
+                    <span className="inline-flex items-center gap-1 text-[10px] md:text-xs font-semibold text-primary mt-auto">
+                      Read More <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                    </span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+
+            <div className="text-center mt-8 md:mt-10">
+              <Link to="/blog">
+                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6 md:px-8 py-2.5 md:py-3 rounded-lg gap-2 text-sm md:text-base">
+                  View All Articles <ArrowRight className="w-4 h-4" />
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
     </div>
   );
 };
