@@ -1,9 +1,16 @@
-import { useParams, Navigate } from "react-router-dom";
+import { useParams, Navigate, Link } from "react-router-dom";
 import { useMemo } from "react";
-import { Star } from "lucide-react";
+import { Star, ShieldCheck, Users, CalendarCheck } from "lucide-react";
 import { categories } from "@/data/courses";
 import CourseCard from "@/components/courses/CourseCard";
+import { Button } from "@/components/ui/button";
 import heroCourses from "@/assets/hero-courses.jpg";
+
+const highlights = [
+  { icon: ShieldCheck, label: "Accredited Certification" },
+  { icon: Users, label: "Expert Instructors" },
+  { icon: CalendarCheck, label: "Flexible Schedule" },
+];
 
 const CategoryCourses = () => {
   const { categorySlug } = useParams<{ categorySlug: string }>();
@@ -19,9 +26,8 @@ const CategoryCourses = () => {
 
   return (
     <div className="min-h-screen pb-14 md:pb-0">
-      {/* Hero — matches Home & About hero style */}
+      {/* Hero */}
       <section className="relative bg-muted/40 text-foreground overflow-hidden rounded-b-[3rem] md:rounded-b-[8rem] shadow-sm">
-        {/* Grid pattern */}
         <div
           className="absolute inset-0 opacity-[0.07]"
           style={{
@@ -47,12 +53,12 @@ const CategoryCourses = () => {
                 {category.name}{" "}
                 <span className="text-gradient-primary">Courses</span>
               </h1>
-              <p className="text-sm md:text-lg text-muted-foreground leading-relaxed max-w-lg mx-auto lg:mx-0 mb-6 md:mb-8">
+              <p className="text-sm md:text-lg text-muted-foreground leading-relaxed max-w-lg mx-auto lg:mx-0 mb-6">
                 {category.description}
               </p>
 
               {/* Rated by Learners */}
-              <div className="flex flex-wrap items-center gap-4 md:gap-6 justify-center lg:justify-start">
+              <div className="flex flex-wrap items-center gap-4 md:gap-6 justify-center lg:justify-start mb-6">
                 <div className="flex items-center gap-2">
                   <div className="flex -space-x-2">
                     {[
@@ -81,6 +87,26 @@ const CategoryCourses = () => {
                     </div>
                   </div>
                 </div>
+              </div>
+
+              {/* 3 Highlights */}
+              <div className="flex flex-wrap items-center gap-4 md:gap-6 justify-center lg:justify-start mb-7">
+                {highlights.map(({ icon: Icon, label }) => (
+                  <div key={label} className="flex items-center gap-1.5 text-sm text-foreground font-medium">
+                    <Icon className="w-4 h-4 text-primary" />
+                    <span>{label}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* CTAs */}
+              <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
+                <Button size="lg" className="font-semibold px-8" asChild>
+                  <a href="#courses-grid">Explore Courses</a>
+                </Button>
+                <Button size="lg" variant="outline" className="font-semibold px-8" asChild>
+                  <Link to="/contact">Talk to an Advisor</Link>
+                </Button>
               </div>
             </div>
 
@@ -113,7 +139,7 @@ const CategoryCourses = () => {
       </section>
 
       {/* Courses Grid */}
-      <section className="py-12 md:py-16 bg-background">
+      <section id="courses-grid" className="py-12 md:py-16 bg-background">
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {category.courses.map((course) => (
