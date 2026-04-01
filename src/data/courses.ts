@@ -58,6 +58,7 @@ export interface Category {
   description: string;
   icon: string;
   heroPoints: string[];
+  faqs: { q: string; a: string }[];
   courses: Course[];
 }
 
@@ -1799,6 +1800,13 @@ export const categories: Category[] = [
       "Join Live Interactive Training Sessions Led by Certified Project Managers & Industry Experts.",
       "Get Exam Support & Application Guidance From Experienced Trainers with Personalized Q&A Sessions.",
     ],
+    faqs: [
+      { q: "Which project management certification should I start with?", a: "If you're new to project management, start with CAPM® to build foundational knowledge. If you already have 3+ years of PM experience, go directly for PMP®. Our learning advisors can help you choose the right path." },
+      { q: "How many contact hours do I need for PMP® eligibility?", a: "You need 35 contact hours of formal project management education. Our PMP® training program provides the full 35 contact hours required by PMI, along with application assistance." },
+      { q: "Are PMI certifications valid worldwide?", a: "Yes, all PMI certifications (PMP®, CAPM®, PMI-ACP®, etc.) are globally recognised and respected across industries. They are among the most sought-after credentials for project professionals." },
+      { q: "What is the PMP® exam format?", a: "The PMP® exam consists of 180 questions to be completed in 230 minutes. It covers Predictive, Agile, and Hybrid methodologies across three domains: People, Process, and Business Environment." },
+      { q: "Do you provide exam application support?", a: "Yes, our trainers guide you through the entire PMI application process, including documenting project experience, selecting the right category, and responding to audit requests if selected." },
+    ],
     courses: [
       enrichCourse({ name: "Project Management Professional (PMP®)", code: "PMI-PMP", duration: "4–8 Days | 35 Contact Hrs", level: "Intermediate", skills: ["PMBOK 7th Edition", "Predictive & Agile", "Stakeholder Mgmt"], learners: "25K+", badge: "Popular", category: "Project Management" }),
       enrichCourse({ name: "Certified Associate in Project Management (CAPM®)", code: "PMI-CAPM", duration: "3–6 Days | 23 Contact Hrs", level: "Beginner", skills: ["Project Fundamentals", "Planning", "Scheduling"], learners: "8K+", badge: "Trending", category: "Project Management" }),
@@ -1817,6 +1825,13 @@ export const categories: Category[] = [
       "Earn Industry-Standard CompTIA Certifications Recognized by Employers Worldwide.",
       "Train with Hands-On Labs & Performance-Based Questions Mirroring Real Exam Scenarios.",
       "Get Dedicated Exam Prep Support Including Practice Tests & Personalized Study Plans.",
+    ],
+    faqs: [
+      { q: "Which CompTIA certification should I start with?", a: "For beginners, CompTIA A+ is the ideal starting point for general IT knowledge. If you're focused on networking, start with Network+. For cybersecurity specifically, Security+ is the recommended entry-level certification." },
+      { q: "Are CompTIA certifications recognised globally?", a: "Yes, CompTIA certifications are vendor-neutral and recognised worldwide. They are approved by the US Department of Defense (DoD 8570) and valued by employers across all industries." },
+      { q: "How long are CompTIA certifications valid?", a: "Most CompTIA certifications are valid for 3 years. You can renew through continuing education (CE) credits, earning a higher-level certification, or retaking the exam before expiry." },
+      { q: "Do CompTIA exams include hands-on questions?", a: "Yes, CompTIA exams feature Performance-Based Questions (PBQs) that simulate real-world scenarios. Our training includes dedicated PBQ practice labs to prepare you for these." },
+      { q: "What is the pass rate for your CompTIA training programs?", a: "Our learners achieve a 90%+ first-attempt pass rate across all CompTIA certifications, thanks to our hands-on labs, practice exams, and personalised study plans." },
     ],
     courses: [
       enrichCourse({ name: "CompTIA Security+ (SY0-701)", code: "COMP-SEC+", duration: "5 Days | 40 Hrs", level: "Beginner", skills: ["Threat Analysis", "Network Security", "Cryptography"], learners: "18K+", badge: "Popular", category: "Cybersecurity — CompTIA" }),
@@ -1839,6 +1854,13 @@ export const categories: Category[] = [
       "Learn from Microsoft Certified Trainers with Real-World Cloud Architecture Experience.",
       "Access Hands-On Labs in Live Azure Environments to Build Practical Cloud Skills.",
     ],
+    faqs: [
+      { q: "Which Azure certification should I start with?", a: "Azure Fundamentals (AZ-900) is the recommended starting point for anyone new to cloud computing. It requires no prior experience and provides a solid foundation for more advanced Azure certifications." },
+      { q: "Are Microsoft Azure certifications role-based?", a: "Yes, Microsoft organises Azure certifications by role — Administrator (AZ-104), Developer (AZ-204), Solutions Architect (AZ-305), and Security Engineer (AZ-500). Choose based on your career path." },
+      { q: "How long are Azure certifications valid?", a: "Most Azure role-based certifications are valid for 1 year. Microsoft offers a free online renewal assessment that you can take before expiry to extend your certification." },
+      { q: "Do you use official Microsoft courseware?", a: "Yes, all our Azure training programs use official Microsoft Learn courseware and are delivered by Microsoft Certified Trainers (MCTs) with real-world cloud experience." },
+      { q: "Will I get hands-on lab access?", a: "Absolutely. Our Azure training includes hands-on labs in live Azure environments so you can practice deploying, managing, and securing cloud resources during the course." },
+    ],
     courses: [
       enrichCourse({ name: "Microsoft Azure Fundamentals (AZ-900)", code: "AZ-900", duration: "1–2 Days | 8 Hrs", level: "Beginner", skills: ["Cloud Concepts", "Azure Services", "Pricing"], learners: "20K+", badge: "Popular", category: "Microsoft Azure" }),
       enrichCourse({ name: "Microsoft Azure Administrator (AZ-104)", code: "AZ-104", duration: "4 Days | 32 Hrs", level: "Intermediate", skills: ["Identity", "Storage", "Compute"], learners: "15K+", badge: "Popular", category: "Microsoft Azure" }),
@@ -1860,6 +1882,13 @@ export const categories: Category[] = [
       "Learn from AWS Certified Instructors with Deep Cloud Architecture & DevOps Expertise.",
       "Get Exam-Focused Preparation with Practice Tests Closely Aligned to Actual Exam Patterns.",
     ],
+    faqs: [
+      { q: "Which AWS certification should I start with?", a: "AWS Certified Cloud Practitioner (CLF-C02) is the ideal starting point. It covers cloud fundamentals and requires no prior AWS experience. From there, you can progress to Associate-level certifications based on your role." },
+      { q: "What is the difference between Associate and Professional AWS certifications?", a: "Associate certifications validate foundational cloud skills (1+ year experience recommended). Professional certifications are for experienced practitioners (2+ years) and cover advanced architecture, DevOps, and multi-account strategies." },
+      { q: "Do your AWS courses include hands-on labs?", a: "Yes, all AWS training includes lab-based exercises on real AWS environments. You'll deploy services, configure infrastructure, and troubleshoot issues — exactly like in production." },
+      { q: "How long are AWS certifications valid?", a: "AWS certifications are valid for 3 years. You can recertify by passing the current version of the exam or a higher-level certification before expiry." },
+      { q: "Can I take multiple AWS certifications?", a: "Absolutely. Many professionals hold multiple AWS certifications to demonstrate breadth. A common path is Cloud Practitioner → Solutions Architect Associate → a specialty or Professional cert." },
+    ],
     courses: [
       enrichCourse({ name: "AWS Certified Cloud Practitioner (CLF-C02)", code: "AWS-CCP", duration: "1–2 Days | 8 Hrs", level: "Beginner", skills: ["Cloud Fundamentals", "AWS Core Services", "Billing"], learners: "14K+", badge: "Popular", category: "AWS" }),
       enrichCourse({ name: "AWS Certified Solutions Architect – Associate (SAA-C03)", code: "AWS-SAA", duration: "4 Days | 32 Hrs", level: "Intermediate", skills: ["Architecture Design", "High Availability", "Cost Optimization"], learners: "12K+", badge: "Popular", category: "AWS" }),
@@ -1878,6 +1907,13 @@ export const categories: Category[] = [
       "Earn Accredited SAFe® Certifications from Scaled Agile Inc. to Lead Enterprise Transformations.",
       "Learn from Certified SAFe® Practice Consultants with Real Agile Transformation Experience.",
       "Get Hands-On with PI Planning Simulations, Lean Portfolio Exercises & Team-Based Activities.",
+    ],
+    faqs: [
+      { q: "What is SAFe® and who is it for?", a: "SAFe® (Scaled Agile Framework) is a set of practices for implementing agile at enterprise scale. It's designed for organisations with multiple agile teams that need alignment, collaboration, and governance across large programs." },
+      { q: "Do I need Scrum experience before taking a SAFe® course?", a: "Basic familiarity with Agile and Scrum concepts is helpful but not mandatory for Leading SAFe® or SAFe® Scrum Master. Our trainers cover foundational concepts as part of the curriculum." },
+      { q: "Are SAFe® certifications accredited by Scaled Agile Inc.?", a: "Yes, all our SAFe® courses are officially accredited by Scaled Agile Inc. Upon passing the exam, you receive a certification directly from Scaled Agile with access to their community platform." },
+      { q: "How long is a SAFe® certification valid?", a: "SAFe® certifications are valid for 1 year. To maintain your certification, you need to pay an annual renewal fee and earn 10 continuing education credits through Scaled Agile's platform." },
+      { q: "Which SAFe® certification is best for managers and leaders?", a: "Leading SAFe® (SA certification) is the most popular choice for managers, directors, and executives. For portfolio-level leadership, SAFe® Lean Portfolio Management (LPM) is recommended." },
     ],
     courses: [
       enrichCourse({ name: "Leading SAFe® 6.0 (SAFe Agilist – SA)", code: "SAFE-LSA", duration: "2 Days | 16 Hrs", level: "Intermediate", skills: ["Lean-Agile Mindset", "SAFe Principles", "PI Planning"], learners: "9K+", badge: "Popular", category: "SAFe® Agile" }),
