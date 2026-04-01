@@ -67,9 +67,21 @@ const CategoryCourses = () => {
                 {category.name}{" "}
                 <span className="text-gradient-primary">Courses</span>
               </h1>
-              <p className="text-sm md:text-lg text-muted-foreground leading-relaxed max-w-lg mx-auto lg:mx-0 mb-6">
+              <p className="text-sm md:text-lg text-muted-foreground leading-relaxed max-w-lg mx-auto lg:mx-0 mb-6 md:mb-8">
                 {category.description}
               </p>
+
+              {/* CTAs */}
+              <div className="flex flex-col sm:flex-row gap-3 mb-6 md:mb-8 justify-center lg:justify-start">
+                <Button size="lg" className="bg-primary hover:bg-teal-dark text-primary-foreground font-semibold px-8 text-base gap-2 w-full sm:w-auto" asChild>
+                  <a href="#courses-grid">Explore Courses <ChevronRight className="w-4 h-4" /></a>
+                </Button>
+                <Link to="/contact" className="w-full sm:w-auto">
+                  <Button size="lg" variant="outline" className="border-primary/30 text-primary hover:bg-primary/5 font-semibold px-8 text-base w-full sm:w-auto">
+                    Talk to an Advisor
+                  </Button>
+                </Link>
+              </div>
 
               {/* Rated by Learners */}
               <div className="flex flex-wrap items-center gap-4 md:gap-6 justify-center lg:justify-start mb-6">
@@ -104,23 +116,13 @@ const CategoryCourses = () => {
               </div>
 
               {/* 3 Category-specific points */}
-              <div className="space-y-3 mb-7 max-w-lg mx-auto lg:mx-0">
+              <div className="space-y-2 md:space-y-3 max-w-lg mx-auto lg:mx-0">
                 {category.heroPoints.map((point, i) => (
                   <div key={i} className="flex items-start gap-2.5 text-left">
-                    <CheckCircle className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-                    <p className="text-sm md:text-[15px] text-foreground leading-relaxed font-medium">{point}</p>
+                    <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-primary mt-0.5 shrink-0" />
+                    <p className="text-xs md:text-[15px] text-foreground leading-relaxed font-medium">{point}</p>
                   </div>
                 ))}
-              </div>
-
-              {/* CTAs */}
-              <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
-                <Button size="lg" className="font-semibold px-8" asChild>
-                  <a href="#courses-grid">Explore Courses</a>
-                </Button>
-                <Button size="lg" variant="outline" className="font-semibold px-8" asChild>
-                  <Link to="/contact">Talk to an Advisor</Link>
-                </Button>
               </div>
             </div>
 
