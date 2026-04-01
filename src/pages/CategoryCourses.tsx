@@ -1,13 +1,12 @@
 import { useParams, Navigate, Link } from "react-router-dom";
-import { useMemo, useState, useCallback, useEffect } from "react";
-import { Star, CheckCircle, ChevronRight, ChevronLeft } from "lucide-react";
-import { categories, type Course } from "@/data/courses";
+import { useMemo } from "react";
+import { Star, CheckCircle, ChevronRight } from "lucide-react";
+import { categories } from "@/data/courses";
 import { blogPosts } from "@/data/blogs";
 import PopularCourseCard from "@/components/courses/PopularCourseCard";
 import { Button } from "@/components/ui/button";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
 import BlogCarouselSection from "@/components/courses/BlogCarouselSection";
-import useEmblaCarousel from "embla-carousel-react";
 import {
   Accordion,
   AccordionContent,
@@ -16,67 +15,6 @@ import {
 } from "@/components/ui/accordion";
 import heroCourses from "@/assets/hero-courses.jpg";
 import advisorModel from "@/assets/advisor-model.png";
-
-const CourseGridCarousel = ({ courses }: { courses: Course[] }) => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false, align: "start", slidesToScroll: 1 });
-  const [canPrev, setCanPrev] = useState(false);
-  const [canNext, setCanNext] = useState(false);
-
-  const onSelect = useCallback(() => {
-    if (!emblaApi) return;
-    setCanPrev(emblaApi.canScrollPrev());
-    setCanNext(emblaApi.canScrollNext());
-  }, [emblaApi]);
-
-  useEffect(() => {
-    if (!emblaApi) return;
-    emblaApi.on("select", onSelect);
-    onSelect();
-  }, [emblaApi, onSelect]);
-
-  return (
-    <section id="courses-grid" className="py-12 md:py-16 bg-background">
-      <div className="container">
-        {/* Mobile: Carousel */}
-        <div className="md:hidden">
-          <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex -ml-4">
-              {courses.map((course) => (
-                <div key={course.code} className="flex-[0_0_80%] min-w-0 pl-4">
-                  <PopularCourseCard course={course} />
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="flex items-center justify-center gap-3 mt-6">
-            <button
-              onClick={() => emblaApi?.scrollPrev()}
-              disabled={!canPrev}
-              className="w-9 h-9 rounded-full border border-border bg-card flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors disabled:opacity-40"
-            >
-              <ChevronLeft className="w-4 h-4" />
-            </button>
-            <button
-              onClick={() => emblaApi?.scrollNext()}
-              disabled={!canNext}
-              className="w-9 h-9 rounded-full border border-border bg-card flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors disabled:opacity-40"
-            >
-              <ChevronRight className="w-4 h-4" />
-            </button>
-          </div>
-        </div>
-
-        {/* Desktop: Grid */}
-        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {courses.map((course) => (
-            <PopularCourseCard key={course.code} course={course} />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
 const CategoryCourses = () => {
   const { categorySlug } = useParams<{ categorySlug: string }>();
 
@@ -214,8 +152,16 @@ const CategoryCourses = () => {
         </div>
       </section>
 
-      {/* Courses */}
-      <CourseGridCarousel courses={category.courses} />
+      {/* Courses Grid */}
+      <section id="courses-grid" className="py-12 md:py-16 bg-background">
+        <div className="container">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {category.courses.map((course) => (
+              <PopularCourseCard key={course.code} course={course} />
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Testimonials */}
       <div className="bg-secondary rounded-t-[3rem] md:rounded-t-[8rem] overflow-hidden [&>section]:bg-secondary">
