@@ -1908,6 +1908,13 @@ export const categories: Category[] = [
       "Learn from Certified SAFe® Practice Consultants with Real Agile Transformation Experience.",
       "Get Hands-On with PI Planning Simulations, Lean Portfolio Exercises & Team-Based Activities.",
     ],
+    faqs: [
+      { q: "What is SAFe® and who is it for?", a: "SAFe® (Scaled Agile Framework) is a set of practices for implementing agile at enterprise scale. It's designed for organisations with multiple agile teams that need alignment, collaboration, and governance across large programs." },
+      { q: "Do I need Scrum experience before taking a SAFe® course?", a: "Basic familiarity with Agile and Scrum concepts is helpful but not mandatory for Leading SAFe® or SAFe® Scrum Master. Our trainers cover foundational concepts as part of the curriculum." },
+      { q: "Are SAFe® certifications accredited by Scaled Agile Inc.?", a: "Yes, all our SAFe® courses are officially accredited by Scaled Agile Inc. Upon passing the exam, you receive a certification directly from Scaled Agile with access to their community platform." },
+      { q: "How long is a SAFe® certification valid?", a: "SAFe® certifications are valid for 1 year. To maintain your certification, you need to pay an annual renewal fee and earn 10 continuing education credits through Scaled Agile's platform." },
+      { q: "Which SAFe® certification is best for managers and leaders?", a: "Leading SAFe® (SA certification) is the most popular choice for managers, directors, and executives. For portfolio-level leadership, SAFe® Lean Portfolio Management (LPM) is recommended." },
+    ],
     courses: [
       enrichCourse({ name: "Leading SAFe® 6.0 (SAFe Agilist – SA)", code: "SAFE-LSA", duration: "2 Days | 16 Hrs", level: "Intermediate", skills: ["Lean-Agile Mindset", "SAFe Principles", "PI Planning"], learners: "9K+", badge: "Popular", category: "SAFe® Agile" }),
       enrichCourse({ name: "SAFe® Scrum Master (SSM)", code: "SAFE-SSM", duration: "2 Days | 16 Hrs", level: "Intermediate", skills: ["Scrum in SAFe", "Iteration Execution", "Team Facilitation"], learners: "7K+", badge: "Popular", category: "SAFe® Agile" }),
