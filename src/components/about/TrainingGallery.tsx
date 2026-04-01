@@ -70,7 +70,7 @@ const TrainingGallery = () => {
       </div>
 
       {/* Cards + rings area */}
-      <div className="relative pb-16 md:pb-24">
+      <div className="relative pb-10 md:pb-24">
         {/* Rings scoped to this div */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           <svg className="absolute w-full h-full" viewBox="0 0 1000 600" preserveAspectRatio="none" fill="none">
