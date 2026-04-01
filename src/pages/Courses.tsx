@@ -249,7 +249,7 @@ const Courses = () => {
             />
             <div className="absolute top-0 right-0 w-[300px] h-[300px] rounded-full bg-primary/10 blur-[120px]" />
 
-            <div className="relative z-10 flex items-center gap-6 md:gap-10 px-6 md:px-10 lg:px-14">
+            <div className="relative z-10 flex flex-col md:flex-row items-center gap-4 md:gap-10 px-5 md:px-10 lg:px-14">
               <div className="hidden md:block shrink-0 self-end">
                 <img
                   src={advisorModel}
@@ -257,15 +257,15 @@ const Courses = () => {
                   className="h-[140px] lg:h-[160px] object-contain"
                 />
               </div>
-              <div className="flex-1 py-6 md:py-8">
-                <h3 className="font-heading text-lg md:text-xl lg:text-2xl font-bold mb-1">
+              <div className="flex-1 py-5 md:py-8 text-center md:text-left">
+                <h3 className="font-heading text-base md:text-xl lg:text-2xl font-bold mb-1">
                   Talk to Our Expert Learning Advisor Today
                 </h3>
-                <p className="text-hero-foreground/70 text-sm md:text-base">
+                <p className="text-hero-foreground/70 text-xs md:text-base">
                   and kickstart your certification journey. Call Now!
                 </p>
               </div>
-              <div className="shrink-0">
+              <div className="shrink-0 pb-5 md:pb-0">
                 <Button
                   size="lg"
                   className="bg-background text-foreground hover:bg-background/90 font-semibold px-6 md:px-8"
