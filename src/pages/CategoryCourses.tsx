@@ -80,6 +80,20 @@ const CategoryCourses = () => {
                 </div>
               </div>
 
+              {/* Short highlights */}
+              <div className="flex flex-wrap items-center gap-4 md:gap-6 justify-center lg:justify-start mb-6">
+                {[
+                  { icon: ShieldCheck, label: "Accredited Certification" },
+                  { icon: Users, label: "Expert Instructors" },
+                  { icon: CalendarCheck, label: "Flexible Schedule" },
+                ].map(({ icon: Icon, label }) => (
+                  <div key={label} className="flex items-center gap-1.5 text-sm text-foreground font-medium">
+                    <Icon className="w-4 h-4 text-primary" />
+                    <span>{label}</span>
+                  </div>
+                ))}
+              </div>
+
               {/* 3 Category-specific points */}
               <div className="space-y-3 mb-7 max-w-lg mx-auto lg:mx-0">
                 {category.heroPoints.map((point, i) => (
