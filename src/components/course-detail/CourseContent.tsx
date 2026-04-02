@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { BookOpen, CheckCircle, ArrowLeft, TrendingUp, DollarSign, Building2, Clock, Award, Users, ShieldCheck, Target, Zap, GraduationCap, FileText, Layers, BarChart3, Globe, Briefcase } from "lucide-react";
+import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Cell, RadialBarChart, RadialBar, PolarAngleAxis } from "recharts";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Card } from "@/components/ui/card";
 import type { Course } from "@/data/courses";
@@ -139,29 +140,57 @@ const CourseContent = ({ course }: { course: Course }) => (
           <span className="font-semibold text-foreground text-sm">{course.demand.jobOpenings}</span>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
-          {course.demand.roles.map((role, i) => (
-            <div key={i} className="bg-secondary rounded-lg p-4">
-              <h4 className="font-semibold text-foreground text-sm mb-2">{role.title}</h4>
-              <div className="flex items-center justify-between text-xs text-muted-foreground">
-                <div className="text-center">
-                  <p className="font-bold text-foreground text-base">{role.salaryMin}</p>
-                  <p>Min</p>
-                </div>
-                <div className="text-center">
-                  <p className="font-bold text-primary text-base">{role.salaryAvg}</p>
-                  <p>Average</p>
-                </div>
-                <div className="text-center">
-                  <p className="font-bold text-foreground text-base">{role.salaryMax}</p>
-                  <p>Max</p>
+          {course.demand.roles.map((role, i) => {
+            const parseK = (s: string) => parseInt(s.replace(/[^0-9]/g, ''));
+            const chartData = [
+              { name: "Min", value: parseK(role.salaryMin), fill: "hsl(var(--muted-foreground) / 0.3)" },
+              { name: "Avg", value: parseK(role.salaryAvg), fill: "hsl(var(--primary))" },
+              { name: "Max", value: parseK(role.salaryMax), fill: "hsl(var(--muted-foreground) / 0.5)" },
+            ];
+            const maxVal = parseK(role.salaryMax) * 1.15;
+            return (
+              <div key={i} className="bg-secondary rounded-lg p-4">
+                <h4 className="font-semibold text-foreground text-sm mb-3">{role.title}</h4>
+                <div className="h-[80px] w-full">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <BarChart data={chartData} layout="vertical" margin={{ top: 0, right: 40, left: 0, bottom: 0 }} barSize={14}>
+                      <XAxis type="number" domain={[0, maxVal]} hide />
+                      <YAxis type="category" dataKey="name" width={32} tick={{ fontSize: 10, fill: 'hsl(var(--muted-foreground))' }} axisLine={false} tickLine={false} />
+                      <Bar dataKey="value" radius={[0, 4, 4, 0]} label={{ position: 'right', fontSize: 10, fill: 'hsl(var(--foreground))', formatter: (v: number) => `$${v}K` }}>
+                        {chartData.map((entry, idx) => (
+                          <Cell key={idx} fill={entry.fill} />
+                        ))}
+                      </Bar>
+                    </BarChart>
+                  </ResponsiveContainer>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
-        <div className="flex items-center gap-2 text-sm">
-          <div className="bg-teal-light text-primary font-bold px-3 py-1 rounded-full text-xs">{course.demand.growthPercent} Growth</div>
-          <span className="text-muted-foreground text-xs">{course.demand.growthDescription}</span>
+        {/* Growth radial chart + text */}
+        <div className="flex items-center gap-4">
+          {(() => {
+            const growthNum = parseInt(course.demand.growthPercent.replace(/[^0-9]/g, ''));
+            const radialData = [{ value: growthNum, fill: "hsl(var(--primary))" }];
+            return (
+              <div className="w-16 h-16 shrink-0">
+                <ResponsiveContainer width="100%" height="100%">
+                  <RadialBarChart cx="50%" cy="50%" innerRadius="70%" outerRadius="100%" startAngle={90} endAngle={-270} data={radialData} barSize={6}>
+                    <PolarAngleAxis type="number" domain={[0, 100]} angleAxisId={0} tick={false} />
+                    <RadialBar background dataKey="value" cornerRadius={10} />
+                    <text x="50%" y="50%" textAnchor="middle" dominantBaseline="middle" className="fill-foreground text-xs font-bold">
+                      {course.demand.growthPercent}
+                    </text>
+                  </RadialBarChart>
+                </ResponsiveContainer>
+              </div>
+            );
+          })()}
+          <div>
+            <p className="text-sm font-semibold text-foreground">Growth Rate</p>
+            <p className="text-xs text-muted-foreground">{course.demand.growthDescription}</p>
+          </div>
         </div>
         {course.demand.hiringCompanies.length > 1 && (
           <div className="mt-4 pt-4 border-t border-border">
