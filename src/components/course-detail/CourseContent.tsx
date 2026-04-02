@@ -191,7 +191,7 @@ const CourseContent = ({ course }: { course: Course }) => (
                   {mod.title}
                 </span>
               </AccordionTrigger>
-              <AccordionContent className="pb-4">
+              <AccordionContent className="pb-4 border-t border-border pt-4">
                 <ul className="space-y-2 pl-11">
                   {mod.topics.map((topic, j) => (
                     <li key={j} className="flex items-start gap-2 text-sm text-muted-foreground">
