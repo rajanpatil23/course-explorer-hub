@@ -71,6 +71,7 @@ const CourseContent = ({ course, faqs }: { course: Course; faqs: { q: string; a:
   <div className="space-y-12">
     {/* Prerequisites */}
     <section>
+      <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">Requirements</p>
       <h2 className="font-heading text-2xl font-bold text-foreground mb-4">Prerequisites & Eligibility</h2>
       <ul className="space-y-2.5">
         {course.prerequisites.map((p, i) => (
