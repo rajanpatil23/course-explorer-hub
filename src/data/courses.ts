@@ -152,9 +152,6 @@ const courseDetails: Record<string, Partial<Course>> = {
       { text: "PMI Application Support & Guidance", bold: "Application Support" },
       { text: "PMBOK 7th Edition Framework Coverage", bold: "PMBOK 7th Edition" },
       { text: "Agile & Predictive Methodology Training", bold: "Agile & Predictive" },
-      { text: "Real-World Project Scenarios & Case Studies", bold: "Case Studies" },
-      { text: "Exam Day Strategy & Time Management Tips", bold: "Exam Strategy" },
-      { text: "Post-Training Mentor Support for 30 Days", bold: "Mentor Support" },
     ],
     aboutCourse: "The CAPM® certification is the ideal entry-level credential for aspiring project managers. It validates your understanding of fundamental project management processes, terminology, and best practices as defined by PMI.",
     benefits: [
@@ -209,9 +206,6 @@ const courseDetails: Record<string, Partial<Course>> = {
       { text: "Complete Exam Preparation Package", bold: "Exam Preparation" },
       { text: "Expert-Led Interactive Sessions", bold: "Interactive Sessions" },
       { text: "Real-World Scenarios & Case Studies", bold: "Case Studies" },
-      { text: "Exam Strategy & Time Management Tips", bold: "Exam Strategy" },
-      { text: "Post-Training Support & Resources", bold: "Post-Training Support" },
-      { text: "Industry-Recognized Certification Path", bold: "Certification Path" },
     ],
     aboutCourse: "The PMI-ACP® certification validates your expertise in agile principles and practices. This training covers multiple agile methodologies including Scrum, Kanban, Lean, XP, and Test-Driven Development.",
     benefits: [
@@ -266,9 +260,6 @@ const courseDetails: Record<string, Partial<Course>> = {
       { text: "Complete PMI-RMP Exam Prep Package", bold: "Exam Prep" },
       { text: "Expert-Led Interactive Sessions", bold: "Interactive Sessions" },
       { text: "Real-World Scenarios & Case Studies", bold: "Case Studies" },
-      { text: "Exam Strategy & Time Management Tips", bold: "Exam Strategy" },
-      { text: "Post-Training Support & Resources", bold: "Post-Training Support" },
-      { text: "Industry-Recognized Certification Path", bold: "Certification Path" },
     ],
     aboutCourse: "The PMI-RMP® certification validates your expertise in identifying, assessing, and managing project risks. This specialized credential is ideal for professionals focused on risk management in projects.",
     benefits: [
@@ -322,9 +313,6 @@ const courseDetails: Record<string, Partial<Course>> = {
       { text: "PMI-PBA Exam Preparation Package", bold: "Exam Preparation" },
       { text: "Expert-Led Interactive Sessions", bold: "Interactive Sessions" },
       { text: "Real-World Scenarios & Case Studies", bold: "Case Studies" },
-      { text: "Exam Strategy & Time Management Tips", bold: "Exam Strategy" },
-      { text: "Post-Training Support & Resources", bold: "Post-Training Support" },
-      { text: "Industry-Recognized Certification Path", bold: "Certification Path" },
     ],
     aboutCourse: "The PMI-PBA® certification validates your competency in business analysis. This training covers the entire requirements lifecycle from needs assessment through solution evaluation.",
     benefits: [
@@ -379,9 +367,6 @@ const courseDetails: Record<string, Partial<Course>> = {
       { text: "PgMP Application & Panel Review Prep", bold: "Panel Review Prep" },
       { text: "Expert-Led Interactive Sessions", bold: "Interactive Sessions" },
       { text: "Real-World Scenarios & Case Studies", bold: "Case Studies" },
-      { text: "Exam Strategy & Time Management Tips", bold: "Exam Strategy" },
-      { text: "Post-Training Support & Resources", bold: "Post-Training Support" },
-      { text: "Industry-Recognized Certification Path", bold: "Certification Path" },
     ],
     aboutCourse: "The PgMP® certification is among the most prestigious PMI credentials. It validates your competency in managing multiple related projects aligned with organizational strategy.",
     benefits: [
@@ -443,9 +428,6 @@ const comptiaDetails: Record<string, Partial<Course>> = {
       { text: "CompTIA Approved Study Materials", bold: "Approved Materials" },
       { text: "Expert-Led Interactive Sessions", bold: "Interactive Sessions" },
       { text: "Real-World Scenarios & Case Studies", bold: "Case Studies" },
-      { text: "Exam Strategy & Time Management Tips", bold: "Exam Strategy" },
-      { text: "Post-Training Support & Resources", bold: "Post-Training Support" },
-      { text: "Industry-Recognized Certification Path", bold: "Certification Path" },
     ],
     aboutCourse: "CompTIA Security+ is the foundational cybersecurity certification for IT professionals. SY0-701 covers the latest in threat management, cryptography, identity management, and security infrastructure.",
     benefits: [
@@ -491,9 +473,6 @@ const comptiaDetails: Record<string, Partial<Course>> = {
       { text: "Complete N10-009 Exam Prep", bold: "Exam Prep" },
       { text: "Expert-Led Interactive Sessions", bold: "Interactive Sessions" },
       { text: "Real-World Scenarios & Case Studies", bold: "Case Studies" },
-      { text: "Exam Strategy & Time Management Tips", bold: "Exam Strategy" },
-      { text: "Post-Training Support & Resources", bold: "Post-Training Support" },
-      { text: "Industry-Recognized Certification Path", bold: "Certification Path" },
     ],
     aboutCourse: "CompTIA Network+ validates the essential networking skills needed to design, configure, manage, and troubleshoot any wired and wireless network.",
     benefits: [
@@ -538,9 +517,6 @@ const comptiaDetails: Record<string, Partial<Course>> = {
       { text: "Dual Exam Preparation Package", bold: "Dual Exam Prep" },
       { text: "Expert-Led Interactive Sessions", bold: "Interactive Sessions" },
       { text: "Real-World Scenarios & Case Studies", bold: "Case Studies" },
-      { text: "Exam Strategy & Time Management Tips", bold: "Exam Strategy" },
-      { text: "Post-Training Support & Resources", bold: "Post-Training Support" },
-      { text: "Industry-Recognized Certification Path", bold: "Certification Path" },
     ],
     aboutCourse: "CompTIA A+ is the industry standard for launching IT careers. It covers essential IT skills for support roles including hardware, networking, mobile devices, operating systems, and security.",
     benefits: [
@@ -585,9 +561,6 @@ const comptiaDetails: Record<string, Partial<Course>> = {
       { text: "Vulnerability Management & Assessment", bold: "Vulnerability Management" },
       { text: "Expert-Led Interactive Sessions", bold: "Interactive Sessions" },
       { text: "Real-World Scenarios & Case Studies", bold: "Case Studies" },
-      { text: "Exam Strategy & Time Management Tips", bold: "Exam Strategy" },
-      { text: "Post-Training Support & Resources", bold: "Post-Training Support" },
-      { text: "Industry-Recognized Certification Path", bold: "Certification Path" },
     ],
     aboutCourse: "CompTIA CySA+ validates intermediate-level cybersecurity analysts' ability to detect, prevent, and respond to cybersecurity threats through continuous security monitoring.",
     benefits: [
@@ -632,9 +605,6 @@ const comptiaDetails: Record<string, Partial<Course>> = {
       { text: "Professional Report Writing", bold: "Report Writing" },
       { text: "Expert-Led Interactive Sessions", bold: "Interactive Sessions" },
       { text: "Real-World Scenarios & Case Studies", bold: "Case Studies" },
-      { text: "Exam Strategy & Time Management Tips", bold: "Exam Strategy" },
-      { text: "Post-Training Support & Resources", bold: "Post-Training Support" },
-      { text: "Industry-Recognized Certification Path", bold: "Certification Path" },
     ],
     aboutCourse: "CompTIA PenTest+ validates intermediate penetration testing skills including vulnerability assessment, planning, scoping, managing weaknesses, and communicating results.",
     benefits: [
@@ -679,9 +649,6 @@ const comptiaDetails: Record<string, Partial<Course>> = {
       { text: "High Availability & Disaster Recovery", bold: "HA & DR" },
       { text: "Expert-Led Interactive Sessions", bold: "Interactive Sessions" },
       { text: "Real-World Scenarios & Case Studies", bold: "Case Studies" },
-      { text: "Exam Strategy & Time Management Tips", bold: "Exam Strategy" },
-      { text: "Post-Training Support & Resources", bold: "Post-Training Support" },
-      { text: "Industry-Recognized Certification Path", bold: "Certification Path" },
     ],
     aboutCourse: "CompTIA Cloud+ validates the skills needed to maintain and optimize cloud infrastructure services. It covers deployment, security, troubleshooting, and cloud operations.",
     benefits: [
@@ -726,9 +693,6 @@ const comptiaDetails: Record<string, Partial<Course>> = {
       { text: "Governance & Risk Architecture", bold: "Governance & Risk" },
       { text: "Expert-Led Interactive Sessions", bold: "Interactive Sessions" },
       { text: "Real-World Scenarios & Case Studies", bold: "Case Studies" },
-      { text: "Exam Strategy & Time Management Tips", bold: "Exam Strategy" },
-      { text: "Post-Training Support & Resources", bold: "Post-Training Support" },
-      { text: "Industry-Recognized Certification Path", bold: "Certification Path" },
     ],
     aboutCourse: "CompTIA SecurityX (formerly CASP+) is the pinnacle of CompTIA security certifications. It validates advanced-level security architecture and engineering skills for enterprise environments.",
     benefits: [
@@ -773,9 +737,6 @@ const comptiaDetails: Record<string, Partial<Course>> = {
       { text: "Server Security & DR", bold: "Security & DR" },
       { text: "Expert-Led Interactive Sessions", bold: "Interactive Sessions" },
       { text: "Real-World Scenarios & Case Studies", bold: "Case Studies" },
-      { text: "Exam Strategy & Time Management Tips", bold: "Exam Strategy" },
-      { text: "Post-Training Support & Resources", bold: "Post-Training Support" },
-      { text: "Industry-Recognized Certification Path", bold: "Certification Path" },
     ],
     aboutCourse: "CompTIA Server+ validates the skills required to manage server hardware and software technologies in data center environments.",
     benefits: [
@@ -830,9 +791,6 @@ const azureDetails: Record<string, Partial<Course>> = {
       { text: "AZ-900 Exam Preparation Package", bold: "Exam Prep" },
       { text: "Expert-Led Interactive Sessions", bold: "Interactive Sessions" },
       { text: "Real-World Scenarios & Case Studies", bold: "Case Studies" },
-      { text: "Exam Strategy & Time Management Tips", bold: "Exam Strategy" },
-      { text: "Post-Training Support & Resources", bold: "Post-Training Support" },
-      { text: "Industry-Recognized Certification Path", bold: "Certification Path" },
     ],
     aboutCourse: "Microsoft Azure Fundamentals AZ-900 is the entry point for Azure cloud certifications. It covers cloud concepts, Azure services, security, privacy, pricing, and support.",
     benefits: [
@@ -883,9 +841,6 @@ const azureDetails: Record<string, Partial<Course>> = {
       { text: "Storage & Compute Management", bold: "Storage & Compute" },
       { text: "Expert-Led Interactive Sessions", bold: "Interactive Sessions" },
       { text: "Real-World Scenarios & Case Studies", bold: "Case Studies" },
-      { text: "Exam Strategy & Time Management Tips", bold: "Exam Strategy" },
-      { text: "Post-Training Support & Resources", bold: "Post-Training Support" },
-      { text: "Industry-Recognized Certification Path", bold: "Certification Path" },
     ],
     aboutCourse: "AZ-104 validates your skills in implementing, managing, and monitoring an organization's Azure environment. Covers identity, governance, storage, compute, and virtual networking.",
     benefits: [
@@ -936,9 +891,6 @@ const azureDetails: Record<string, Partial<Course>> = {
       { text: "Business Continuity & Data Solutions", bold: "Business Continuity" },
       { text: "Expert-Led Interactive Sessions", bold: "Interactive Sessions" },
       { text: "Real-World Scenarios & Case Studies", bold: "Case Studies" },
-      { text: "Exam Strategy & Time Management Tips", bold: "Exam Strategy" },
-      { text: "Post-Training Support & Resources", bold: "Post-Training Support" },
-      { text: "Industry-Recognized Certification Path", bold: "Certification Path" },
     ],
     aboutCourse: "AZ-305 validates expert-level Azure solution design skills. This certification is for experienced cloud professionals who design infrastructure solutions for Azure.",
     benefits: [
@@ -989,9 +941,6 @@ const azureDetails: Record<string, Partial<Course>> = {
       { text: "Security Operations & Monitoring", bold: "Security Operations" },
       { text: "Expert-Led Interactive Sessions", bold: "Interactive Sessions" },
       { text: "Real-World Scenarios & Case Studies", bold: "Case Studies" },
-      { text: "Exam Strategy & Time Management Tips", bold: "Exam Strategy" },
-      { text: "Post-Training Support & Resources", bold: "Post-Training Support" },
-      { text: "Industry-Recognized Certification Path", bold: "Certification Path" },
     ],
     aboutCourse: "AZ-500 validates your ability to implement security controls, maintain security posture, manage identity and access, and protect data, applications, and networks in Azure.",
     benefits: [
@@ -1042,9 +991,6 @@ const azureDetails: Record<string, Partial<Course>> = {
       { text: "Containerization & CI/CD", bold: "DevOps Integration" },
       { text: "Expert-Led Interactive Sessions", bold: "Interactive Sessions" },
       { text: "Real-World Scenarios & Case Studies", bold: "Case Studies" },
-      { text: "Exam Strategy & Time Management Tips", bold: "Exam Strategy" },
-      { text: "Post-Training Support & Resources", bold: "Post-Training Support" },
-      { text: "Industry-Recognized Certification Path", bold: "Certification Path" },
     ],
     aboutCourse: "AZ-204 validates your skills in designing, building, testing, and maintaining Azure cloud applications and services.",
     benefits: [
@@ -1095,9 +1041,6 @@ const azureDetails: Record<string, Partial<Course>> = {
       { text: "Generative AI on Azure", bold: "Generative AI" },
       { text: "Expert-Led Interactive Sessions", bold: "Interactive Sessions" },
       { text: "Real-World Scenarios & Case Studies", bold: "Case Studies" },
-      { text: "Exam Strategy & Time Management Tips", bold: "Exam Strategy" },
-      { text: "Post-Training Support & Resources", bold: "Post-Training Support" },
-      { text: "Industry-Recognized Certification Path", bold: "Certification Path" },
     ],
     aboutCourse: "AI-900 covers foundational AI and machine learning concepts and their implementation in Azure. Ideal for technical and non-technical professionals wanting to understand AI capabilities.",
     benefits: [
@@ -1148,9 +1091,6 @@ const azureDetails: Record<string, Partial<Course>> = {
       { text: "Analytics & Data Visualization", bold: "Analytics" },
       { text: "Expert-Led Interactive Sessions", bold: "Interactive Sessions" },
       { text: "Real-World Scenarios & Case Studies", bold: "Case Studies" },
-      { text: "Exam Strategy & Time Management Tips", bold: "Exam Strategy" },
-      { text: "Post-Training Support & Resources", bold: "Post-Training Support" },
-      { text: "Industry-Recognized Certification Path", bold: "Certification Path" },
     ],
     aboutCourse: "DP-900 covers core data concepts and Azure data services. It's designed for technical and non-technical professionals looking to understand data fundamentals in the cloud.",
     benefits: [
@@ -1201,9 +1141,6 @@ const azureDetails: Record<string, Partial<Course>> = {
       { text: "Microsoft 365 Pricing & Support", bold: "Pricing & Licensing" },
       { text: "Expert-Led Interactive Sessions", bold: "Interactive Sessions" },
       { text: "Real-World Scenarios & Case Studies", bold: "Case Studies" },
-      { text: "Exam Strategy & Time Management Tips", bold: "Exam Strategy" },
-      { text: "Post-Training Support & Resources", bold: "Post-Training Support" },
-      { text: "Industry-Recognized Certification Path", bold: "Certification Path" },
     ],
     aboutCourse: "MS-900 validates your understanding of cloud concepts, core Microsoft 365 services, security, compliance, privacy, and Microsoft 365 pricing and support.",
     benefits: [
@@ -1258,9 +1195,6 @@ const awsDetails: Record<string, Partial<Course>> = {
       { text: "Billing & Pricing Models", bold: "Billing & Pricing" },
       { text: "Expert-Led Interactive Sessions", bold: "Interactive Sessions" },
       { text: "Real-World Scenarios & Case Studies", bold: "Case Studies" },
-      { text: "Exam Strategy & Time Management Tips", bold: "Exam Strategy" },
-      { text: "Post-Training Support & Resources", bold: "Post-Training Support" },
-      { text: "Industry-Recognized Certification Path", bold: "Certification Path" },
     ],
     aboutCourse: "AWS Certified Cloud Practitioner is the entry-level AWS certification that validates foundational understanding of AWS Cloud concepts, services, pricing, and security.",
     benefits: [
@@ -1311,9 +1245,6 @@ const awsDetails: Record<string, Partial<Course>> = {
       { text: "Security & Compliance Architecture", bold: "Security Architecture" },
       { text: "Expert-Led Interactive Sessions", bold: "Interactive Sessions" },
       { text: "Real-World Scenarios & Case Studies", bold: "Case Studies" },
-      { text: "Exam Strategy & Time Management Tips", bold: "Exam Strategy" },
-      { text: "Post-Training Support & Resources", bold: "Post-Training Support" },
-      { text: "Industry-Recognized Certification Path", bold: "Certification Path" },
     ],
     aboutCourse: "AWS Solutions Architect Associate is the most sought-after cloud certification. It validates your ability to design distributed systems and applications on AWS.",
     benefits: [
@@ -1364,9 +1295,6 @@ const awsDetails: Record<string, Partial<Course>> = {
       { text: "CI/CD & Deployment Automation", bold: "CI/CD" },
       { text: "Expert-Led Interactive Sessions", bold: "Interactive Sessions" },
       { text: "Real-World Scenarios & Case Studies", bold: "Case Studies" },
-      { text: "Exam Strategy & Time Management Tips", bold: "Exam Strategy" },
-      { text: "Post-Training Support & Resources", bold: "Post-Training Support" },
-      { text: "Industry-Recognized Certification Path", bold: "Certification Path" },
     ],
     aboutCourse: "AWS Developer Associate validates your expertise in developing, deploying, and debugging cloud-native applications on AWS using AWS SDKs and CI/CD tools.",
     benefits: [
@@ -1417,9 +1345,6 @@ const awsDetails: Record<string, Partial<Course>> = {
       { text: "Security & Networking Operations", bold: "Security Operations" },
       { text: "Expert-Led Interactive Sessions", bold: "Interactive Sessions" },
       { text: "Real-World Scenarios & Case Studies", bold: "Case Studies" },
-      { text: "Exam Strategy & Time Management Tips", bold: "Exam Strategy" },
-      { text: "Post-Training Support & Resources", bold: "Post-Training Support" },
-      { text: "Industry-Recognized Certification Path", bold: "Certification Path" },
     ],
     aboutCourse: "AWS SysOps Administrator Associate validates your expertise in deploying, managing, and operating workloads on AWS with focus on automation and monitoring.",
     benefits: [
@@ -1470,9 +1395,6 @@ const awsDetails: Record<string, Partial<Course>> = {
       { text: "Enterprise Cost Optimization", bold: "Cost Optimization" },
       { text: "Expert-Led Interactive Sessions", bold: "Interactive Sessions" },
       { text: "Real-World Scenarios & Case Studies", bold: "Case Studies" },
-      { text: "Exam Strategy & Time Management Tips", bold: "Exam Strategy" },
-      { text: "Post-Training Support & Resources", bold: "Post-Training Support" },
-      { text: "Industry-Recognized Certification Path", bold: "Certification Path" },
     ],
     aboutCourse: "AWS Solutions Architect Professional validates advanced technical skills in designing complex AWS applications. It is one of the most challenging and valued AWS certifications.",
     benefits: [
@@ -1523,9 +1445,6 @@ const awsDetails: Record<string, Partial<Course>> = {
       { text: "Monitoring & Incident Response", bold: "Monitoring" },
       { text: "Expert-Led Interactive Sessions", bold: "Interactive Sessions" },
       { text: "Real-World Scenarios & Case Studies", bold: "Case Studies" },
-      { text: "Exam Strategy & Time Management Tips", bold: "Exam Strategy" },
-      { text: "Post-Training Support & Resources", bold: "Post-Training Support" },
-      { text: "Industry-Recognized Certification Path", bold: "Certification Path" },
     ],
     aboutCourse: "AWS DevOps Engineer Professional validates your expertise in provisioning, operating, and managing distributed application systems on the AWS platform using CI/CD and automation.",
     benefits: [
@@ -1580,9 +1499,6 @@ const safeDetails: Record<string, Partial<Course>> = {
       { text: "SAFe Agilist (SA) Certification Exam", bold: "SA Certification" },
       { text: "Expert-Led Interactive Sessions", bold: "Interactive Sessions" },
       { text: "Real-World Scenarios & Case Studies", bold: "Case Studies" },
-      { text: "Exam Strategy & Time Management Tips", bold: "Exam Strategy" },
-      { text: "Post-Training Support & Resources", bold: "Post-Training Support" },
-      { text: "Industry-Recognized Certification Path", bold: "Certification Path" },
     ],
     aboutCourse: "Leading SAFe® 6.0 is the foundational SAFe course for enterprise agility. Learn to lead Lean-Agile transformation, develop a Lean-Agile mindset, and drive PI Planning.",
     benefits: [
@@ -1633,9 +1549,6 @@ const safeDetails: Record<string, Partial<Course>> = {
       { text: "SSM Certification Exam Included", bold: "SSM Exam" },
       { text: "Expert-Led Interactive Sessions", bold: "Interactive Sessions" },
       { text: "Real-World Scenarios & Case Studies", bold: "Case Studies" },
-      { text: "Exam Strategy & Time Management Tips", bold: "Exam Strategy" },
-      { text: "Post-Training Support & Resources", bold: "Post-Training Support" },
-      { text: "Industry-Recognized Certification Path", bold: "Certification Path" },
     ],
     aboutCourse: "SAFe® Scrum Master explores the role of the Scrum Master in a SAFe enterprise. Learn to facilitate team events, coach teams, and support PI Planning execution.",
     benefits: [
@@ -1686,9 +1599,6 @@ const safeDetails: Record<string, Partial<Course>> = {
       { text: "POPM Certification Exam Included", bold: "POPM Exam" },
       { text: "Expert-Led Interactive Sessions", bold: "Interactive Sessions" },
       { text: "Real-World Scenarios & Case Studies", bold: "Case Studies" },
-      { text: "Exam Strategy & Time Management Tips", bold: "Exam Strategy" },
-      { text: "Post-Training Support & Resources", bold: "Post-Training Support" },
-      { text: "Industry-Recognized Certification Path", bold: "Certification Path" },
     ],
     aboutCourse: "SAFe® POPM teaches Product Owners and Product Managers how to drive product value in a SAFe enterprise. Learn to manage backlogs, define PI objectives, and deliver customer value.",
     benefits: [
@@ -1739,9 +1649,6 @@ const safeDetails: Record<string, Partial<Course>> = {
       { text: "SPC Certification Exam Included", bold: "SPC Exam" },
       { text: "Expert-Led Interactive Sessions", bold: "Interactive Sessions" },
       { text: "Real-World Scenarios & Case Studies", bold: "Case Studies" },
-      { text: "Exam Strategy & Time Management Tips", bold: "Exam Strategy" },
-      { text: "Post-Training Support & Resources", bold: "Post-Training Support" },
-      { text: "Industry-Recognized Certification Path", bold: "Certification Path" },
     ],
     aboutCourse: "Implementing SAFe® with SPC is the most comprehensive SAFe training. SPCs are change agents who lead SAFe transformations and can teach SAFe courses.",
     benefits: [
@@ -1792,9 +1699,6 @@ const safeDetails: Record<string, Partial<Course>> = {
       { text: "RTE Certification Exam Included", bold: "RTE Exam" },
       { text: "Expert-Led Interactive Sessions", bold: "Interactive Sessions" },
       { text: "Real-World Scenarios & Case Studies", bold: "Case Studies" },
-      { text: "Exam Strategy & Time Management Tips", bold: "Exam Strategy" },
-      { text: "Post-Training Support & Resources", bold: "Post-Training Support" },
-      { text: "Industry-Recognized Certification Path", bold: "Certification Path" },
     ],
     aboutCourse: "SAFe® RTE prepares you to coordinate Agile Release Trains, facilitate PI Planning, and enable continuous value delivery across multiple agile teams.",
     benefits: [
@@ -1845,9 +1749,6 @@ const safeDetails: Record<string, Partial<Course>> = {
       { text: "LPM Certification Exam Included", bold: "LPM Exam" },
       { text: "Expert-Led Interactive Sessions", bold: "Interactive Sessions" },
       { text: "Real-World Scenarios & Case Studies", bold: "Case Studies" },
-      { text: "Exam Strategy & Time Management Tips", bold: "Exam Strategy" },
-      { text: "Post-Training Support & Resources", bold: "Post-Training Support" },
-      { text: "Industry-Recognized Certification Path", bold: "Certification Path" },
     ],
     aboutCourse: "SAFe® LPM teaches how to align strategy and execution by applying Lean and systems thinking to portfolio management, including Lean budgets and agile governance.",
     benefits: [
