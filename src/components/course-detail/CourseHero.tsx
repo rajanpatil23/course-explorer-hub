@@ -43,10 +43,6 @@ const CourseHero = ({ course }: { course: Course }) => (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left content */}
           <div className="text-center lg:text-left">
-            <div className="flex items-center gap-3 mb-2 justify-center lg:justify-start">
-              <Badge className={`${badgeColors[course.badge]} text-xs font-semibold border-0`}>{course.badge}</Badge>
-              <span className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">{course.code}</span>
-            </div>
 
             <h1 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold leading-[1.12] mb-2 md:mb-3">
               {course.name}
