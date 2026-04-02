@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import { findCourseBySlug } from "@/data/courses";
+import { findCourseBySlug, findCourseFaqs } from "@/data/courses";
 import CourseHero from "@/components/course-detail/CourseHero";
 import SecretSauce from "@/components/course-detail/SecretSauce";
 import CourseContent from "@/components/course-detail/CourseContent";
