@@ -45,23 +45,19 @@ const CourseStatsStrip = () => {
   }, []);
 
   return (
-    <div ref={ref} className="relative rounded-2xl bg-primary px-4 py-6 md:px-10 md:py-8 shadow-lg overflow-hidden border border-primary/30 mb-10">
+    <div ref={ref} className="relative rounded-xl md:rounded-2xl bg-primary px-3 py-4 md:px-10 md:py-8 shadow-lg overflow-hidden border border-primary/30 mb-0">
       <div className="absolute -top-10 -left-10 w-40 h-40 rounded-full border-2 border-primary-foreground/10 z-0" />
-      <div className="absolute -top-6 -left-6 w-28 h-28 rounded-full border border-primary-foreground/15 z-0" />
       <div className="absolute -bottom-8 -right-8 w-36 h-36 rounded-full border-2 border-primary-foreground/10 z-0" />
-      <div className="absolute -bottom-4 -right-4 w-24 h-24 rounded-full border border-primary-foreground/15 z-0" />
-      <div className="absolute top-3 right-12 w-8 h-[2px] bg-primary-foreground/15 rotate-45 z-0" />
-      <div className="absolute bottom-4 left-14 w-8 h-[2px] bg-primary-foreground/15 -rotate-45 z-0" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-60 h-20 rounded-full bg-primary-foreground/5 blur-[80px] z-0" />
-      <div className="grid grid-cols-3 gap-4 md:gap-8 relative z-10">
+      <div className="grid grid-cols-3 gap-3 md:gap-8 relative z-10">
         {courseStats.map((s, i) => {
           const count = useCountUp(s.value, 2000, visible);
           return (
             <div key={i} className="text-center">
-              <div className="font-heading text-2xl md:text-4xl font-semibold text-primary-foreground">
+              <div className="font-heading text-lg md:text-4xl font-semibold text-primary-foreground">
                 {Math.floor(count).toLocaleString()}<span>{s.suffix}</span>
               </div>
-              <p className="text-[10px] md:text-sm text-primary-foreground/70 mt-1 font-medium">{s.label}</p>
+              <p className="text-[9px] md:text-sm text-primary-foreground/70 mt-0.5 md:mt-1 font-medium">{s.label}</p>
             </div>
           );
         })}
@@ -71,15 +67,15 @@ const CourseStatsStrip = () => {
 };
 
 const CourseContent = ({ course, faqs }: { course: Course; faqs: { q: string; a: string }[] }) => (
-  <div className="space-y-12">
+  <div className="space-y-8 md:space-y-12">
     {/* Prerequisites */}
     <section>
-      <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">Requirements</p>
-      <h2 className="font-heading text-2xl font-bold text-foreground mb-4">Prerequisites & Eligibility</h2>
-      <ul className="space-y-2.5">
+      <p className="text-[10px] md:text-xs font-semibold text-primary uppercase tracking-wider mb-1.5 md:mb-2">Requirements</p>
+      <h2 className="font-heading text-xl md:text-2xl font-bold text-foreground mb-3 md:mb-4">Prerequisites & Eligibility</h2>
+      <ul className="space-y-2">
         {course.prerequisites.map((p, i) => (
-          <li key={i} className="flex items-start gap-2.5 text-sm text-muted-foreground">
-            <CheckCircle className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+          <li key={i} className="flex items-start gap-2 text-xs md:text-sm text-muted-foreground">
+            <CheckCircle className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary shrink-0 mt-0.5" />
             {p}
           </li>
         ))}
@@ -89,45 +85,43 @@ const CourseContent = ({ course, faqs }: { course: Course; faqs: { q: string; a:
     {/* Stats Strip */}
     <CourseStatsStrip />
 
-
     {/* Course Highlights */}
     <section>
-      <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">What You'll Learn</p>
-      <h2 className="font-heading text-2xl font-bold text-foreground mb-6">Course Highlights</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-7">
+      <p className="text-[10px] md:text-xs font-semibold text-primary uppercase tracking-wider mb-1.5 md:mb-2">What You'll Learn</p>
+      <h2 className="font-heading text-xl md:text-2xl font-bold text-foreground mb-4 md:mb-6">Course Highlights</h2>
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-4 md:gap-x-8 md:gap-y-7">
         {course.courseHighlights.map((h, i) => {
           const Icon = highlightIcons[i % highlightIcons.length];
           return (
-            <div key={i} className="flex flex-col gap-3">
-              <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center">
-                <Icon className="w-5 h-5 text-primary" />
+            <div key={i} className="flex flex-col gap-2 md:gap-3">
+              <div className="w-9 h-9 md:w-11 md:h-11 rounded-lg md:rounded-xl bg-primary/10 flex items-center justify-center">
+                <Icon className="w-4 h-4 md:w-5 md:h-5 text-primary" />
               </div>
-              <p className="text-sm text-foreground leading-relaxed">{h.text}</p>
+              <p className="text-xs md:text-sm text-foreground leading-relaxed">{h.text}</p>
             </div>
           );
         })}
       </div>
     </section>
 
-
     {/* Benefits */}
     <section>
-      <Card className="bg-secondary/50 border-border p-5 md:p-8">
-        <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">Why Get Certified</p>
-        <h2 className="font-heading text-2xl font-bold text-foreground mb-6">Benefits of This Certification</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
+      <Card className="bg-secondary/50 border-border p-4 md:p-8">
+        <p className="text-[10px] md:text-xs font-semibold text-primary uppercase tracking-wider mb-1.5 md:mb-2">Why Get Certified</p>
+        <h2 className="font-heading text-xl md:text-2xl font-bold text-foreground mb-4 md:mb-6">Benefits of This Certification</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 md:gap-y-6">
           {course.benefits.map((b, i) => {
             const parts = b.split(/[.–:]\s*/);
             const title = parts[0];
             const desc = parts.length > 1 ? parts.slice(1).join('. ').trim() : '';
             return (
-              <div key={i} className="flex items-start gap-3">
-                <div className="w-9 h-9 rounded-full border-2 border-primary flex items-center justify-center shrink-0 mt-0.5">
-                  <span className="text-sm font-bold text-primary">{i + 1}</span>
+              <div key={i} className="flex items-start gap-2.5 md:gap-3">
+                <div className="w-7 h-7 md:w-9 md:h-9 rounded-full border-2 border-primary flex items-center justify-center shrink-0 mt-0.5">
+                  <span className="text-xs md:text-sm font-bold text-primary">{i + 1}</span>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-foreground text-sm mb-1">{title}</h4>
-                  {desc && <p className="text-sm text-muted-foreground leading-relaxed">{desc}</p>}
+                  <h4 className="font-semibold text-foreground text-xs md:text-sm mb-0.5 md:mb-1">{title}</h4>
+                  {desc && <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">{desc}</p>}
                 </div>
               </div>
             );
@@ -138,14 +132,14 @@ const CourseContent = ({ course, faqs }: { course: Course; faqs: { q: string; a:
 
     {/* Demand */}
     <section>
-      <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">Career Impact</p>
-      <h2 className="font-heading text-2xl font-bold text-foreground mb-4">Market Demand & Salary Insights</h2>
-      <div className="bg-card border border-border rounded-lg p-6">
-        <div className="flex items-center gap-2 mb-4">
-          <TrendingUp className="w-5 h-5 text-primary" />
-          <span className="font-semibold text-foreground text-sm">{course.demand.jobOpenings}</span>
+      <p className="text-[10px] md:text-xs font-semibold text-primary uppercase tracking-wider mb-1.5 md:mb-2">Career Impact</p>
+      <h2 className="font-heading text-xl md:text-2xl font-bold text-foreground mb-3 md:mb-4">Market Demand & Salary Insights</h2>
+      <div className="bg-card border border-border rounded-lg p-4 md:p-6">
+        <div className="flex items-center gap-2 mb-3 md:mb-4">
+          <TrendingUp className="w-4 h-4 md:w-5 md:h-5 text-primary" />
+          <span className="font-semibold text-foreground text-xs md:text-sm">{course.demand.jobOpenings}</span>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 mb-4 md:mb-5">
           {course.demand.roles.map((role, i) => {
             const parseK = (s: string) => parseInt(s.replace(/[^0-9]/g, ''));
             const chartData = [
@@ -155,14 +149,14 @@ const CourseContent = ({ course, faqs }: { course: Course; faqs: { q: string; a:
             ];
             const maxVal = parseK(role.salaryMax) * 1.15;
             return (
-              <div key={i} className="bg-secondary rounded-lg p-4">
-                <h4 className="font-semibold text-foreground text-sm mb-3">{role.title}</h4>
-                <div className="h-[80px] w-full">
+              <div key={i} className="bg-secondary rounded-lg p-3 md:p-4">
+                <h4 className="font-semibold text-foreground text-xs md:text-sm mb-2 md:mb-3">{role.title}</h4>
+                <div className="h-[70px] md:h-[80px] w-full">
                   <ResponsiveContainer width="100%" height="100%">
-                    <BarChart data={chartData} layout="vertical" margin={{ top: 0, right: 40, left: 0, bottom: 0 }} barSize={14}>
+                    <BarChart data={chartData} layout="vertical" margin={{ top: 0, right: 35, left: 0, bottom: 0 }} barSize={12}>
                       <XAxis type="number" domain={[0, maxVal]} hide />
-                      <YAxis type="category" dataKey="name" width={32} tick={{ fontSize: 10, fill: 'hsl(var(--muted-foreground))' }} axisLine={false} tickLine={false} />
-                      <Bar dataKey="value" radius={[0, 4, 4, 0]} label={{ position: 'right', fontSize: 10, fill: 'hsl(var(--foreground))', formatter: (v: number) => `$${v}K` }}>
+                      <YAxis type="category" dataKey="name" width={28} tick={{ fontSize: 9, fill: 'hsl(var(--muted-foreground))' }} axisLine={false} tickLine={false} />
+                      <Bar dataKey="value" radius={[0, 4, 4, 0]} label={{ position: 'right', fontSize: 9, fill: 'hsl(var(--foreground))', formatter: (v: number) => `$${v}K` }}>
                         {chartData.map((entry, idx) => (
                           <Cell key={idx} fill={entry.fill} />
                         ))}
@@ -175,17 +169,17 @@ const CourseContent = ({ course, faqs }: { course: Course; faqs: { q: string; a:
           })}
         </div>
         {/* Growth radial chart + text */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3 md:gap-4">
           {(() => {
             const growthNum = parseInt(course.demand.growthPercent.replace(/[^0-9]/g, ''));
             const radialData = [{ value: growthNum, fill: "hsl(var(--primary))" }];
             return (
-              <div className="w-16 h-16 shrink-0">
+              <div className="w-14 h-14 md:w-16 md:h-16 shrink-0">
                 <ResponsiveContainer width="100%" height="100%">
-                  <RadialBarChart cx="50%" cy="50%" innerRadius="70%" outerRadius="100%" startAngle={90} endAngle={-270} data={radialData} barSize={6}>
+                  <RadialBarChart cx="50%" cy="50%" innerRadius="70%" outerRadius="100%" startAngle={90} endAngle={-270} data={radialData} barSize={5}>
                     <PolarAngleAxis type="number" domain={[0, 100]} angleAxisId={0} tick={false} />
                     <RadialBar background dataKey="value" cornerRadius={10} />
-                    <text x="50%" y="50%" textAnchor="middle" dominantBaseline="middle" className="fill-foreground text-xs font-bold">
+                    <text x="50%" y="50%" textAnchor="middle" dominantBaseline="middle" className="fill-foreground text-[10px] md:text-xs font-bold">
                       {course.demand.growthPercent}
                     </text>
                   </RadialBarChart>
@@ -194,26 +188,20 @@ const CourseContent = ({ course, faqs }: { course: Course; faqs: { q: string; a:
             );
           })()}
           <div>
-            <p className="text-sm font-semibold text-foreground">Growth Rate</p>
-            <p className="text-xs text-muted-foreground">{course.demand.growthDescription}</p>
+            <p className="text-xs md:text-sm font-semibold text-foreground">Growth Rate</p>
+            <p className="text-[10px] md:text-xs text-muted-foreground">{course.demand.growthDescription}</p>
           </div>
         </div>
         {course.demand.hiringCompanies?.length > 1 && (
-          <div className="mt-4 pt-4 border-t border-border">
-            <p className="text-xs text-muted-foreground mb-2">Hiring Companies</p>
-            <div className="flex flex-wrap items-center gap-4">
+          <div className="mt-3 md:mt-4 pt-3 md:pt-4 border-t border-border">
+            <p className="text-[10px] md:text-xs text-muted-foreground mb-2">Hiring Companies</p>
+            <div className="flex flex-wrap items-center gap-3 md:gap-4">
               {course.demand.hiringCompanies.map(c => {
                 const logo = companyLogos[c.toLowerCase()];
                 return logo ? (
-                  <img
-                    key={c}
-                    src={logo}
-                    alt={c}
-                    title={c}
-                    className="h-8 w-8 object-contain rounded"
-                  />
+                  <img key={c} src={logo} alt={c} title={c} className="h-6 w-6 md:h-8 md:w-8 object-contain rounded" />
                 ) : (
-                  <span key={c} className="bg-secondary text-foreground text-xs font-medium px-3 py-1.5 rounded-full border border-border">{c}</span>
+                  <span key={c} className="bg-secondary text-foreground text-[10px] md:text-xs font-medium px-2 md:px-3 py-1 md:py-1.5 rounded-full border border-border">{c}</span>
                 );
               })}
             </div>
@@ -224,23 +212,23 @@ const CourseContent = ({ course, faqs }: { course: Course; faqs: { q: string; a:
 
     {/* Curriculum */}
     <section id="curriculum">
-      <div className="bg-secondary/50 border border-border rounded-2xl p-5 md:p-8">
-        <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">Syllabus</p>
-        <h2 className="font-heading text-2xl font-bold text-foreground mb-4">Course Curriculum</h2>
-        <Accordion type="multiple" defaultValue={["module-0"]} className="space-y-3">
+      <div className="bg-secondary/50 border border-border rounded-xl md:rounded-2xl p-4 md:p-8">
+        <p className="text-[10px] md:text-xs font-semibold text-primary uppercase tracking-wider mb-1.5 md:mb-2">Syllabus</p>
+        <h2 className="font-heading text-xl md:text-2xl font-bold text-foreground mb-3 md:mb-4">Course Curriculum</h2>
+        <Accordion type="multiple" defaultValue={["module-0"]} className="space-y-2 md:space-y-3">
           {course.curriculum.map((mod, i) => (
-            <AccordionItem key={i} value={`module-${i}`} className="bg-card border border-border rounded-lg px-5">
-              <AccordionTrigger className="text-left font-semibold text-foreground hover:no-underline py-4">
-                <span className="flex items-center gap-3">
-                  <span className="w-8 h-8 rounded-full bg-teal-light text-primary text-sm font-bold flex items-center justify-center shrink-0">{i + 1}</span>
+            <AccordionItem key={i} value={`module-${i}`} className="bg-card border border-border rounded-lg px-3 md:px-5">
+              <AccordionTrigger className="text-left font-semibold text-foreground hover:no-underline py-3 md:py-4 text-xs md:text-sm">
+                <span className="flex items-center gap-2 md:gap-3">
+                  <span className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-teal-light text-primary text-xs md:text-sm font-bold flex items-center justify-center shrink-0">{i + 1}</span>
                   {mod.title}
                 </span>
               </AccordionTrigger>
-              <AccordionContent className="pb-4 border-t border-border pt-4">
-                <ul className="space-y-2 pl-11">
+              <AccordionContent className="pb-3 md:pb-4 border-t border-border pt-3 md:pt-4">
+                <ul className="space-y-1.5 md:space-y-2 pl-8 md:pl-11">
                   {mod.topics.map((topic, j) => (
-                    <li key={j} className="flex items-start gap-2 text-sm text-muted-foreground">
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0 mt-[7px]" />
+                    <li key={j} className="flex items-start gap-2 text-xs md:text-sm text-muted-foreground">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0 mt-[5px] md:mt-[7px]" />
                       {topic}
                     </li>
                   ))}
@@ -254,7 +242,7 @@ const CourseContent = ({ course, faqs }: { course: Course; faqs: { q: string; a:
 
     {/* Schedule CTA Banner */}
     <section>
-      <div className="relative bg-hero text-hero-foreground rounded-2xl overflow-hidden">
+      <div className="relative bg-hero text-hero-foreground rounded-xl md:rounded-2xl overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-hero via-hero/95 to-primary/20" />
         <div
           className="absolute -top-6 -left-4 w-[110%] h-[90%] pointer-events-none opacity-20"
@@ -265,26 +253,26 @@ const CourseContent = ({ course, faqs }: { course: Course; faqs: { q: string; a:
         />
         <div className="absolute top-0 right-0 w-[300px] h-[300px] rounded-full bg-primary/10 blur-[120px]" />
 
-        <div className="relative z-10 flex flex-col md:flex-row items-center gap-4 md:gap-10 px-5 md:px-10 lg:px-14">
+        <div className="relative z-10 flex flex-col md:flex-row items-center gap-3 md:gap-10 px-4 md:px-10 lg:px-14">
           <div className="hidden md:block shrink-0 self-end">
             <img src={advisorModel} alt="Learning advisor" className="h-[140px] lg:h-[160px] object-contain" />
           </div>
-          <div className="flex-1 py-5 md:py-8 text-center md:text-left">
-            <h3 className="font-heading text-sm md:text-base lg:text-lg font-bold">
+          <div className="flex-1 py-4 md:py-8 text-center md:text-left">
+            <h3 className="font-heading text-xs md:text-base lg:text-lg font-bold">
               Accelerate Your {course.name} Journey — Enroll Today!
             </h3>
           </div>
-          <div className="shrink-0 pb-5 md:pb-0">
+          <div className="shrink-0 pb-4 md:pb-0">
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 bg-background text-foreground font-semibold px-6 md:px-8 py-3 rounded-lg hover:bg-background/90 transition-colors text-sm"
+              className="inline-flex items-center gap-2 bg-background text-foreground font-semibold px-5 md:px-8 py-2.5 md:py-3 rounded-lg hover:bg-background/90 transition-colors text-xs md:text-sm"
             >
               Talk to us
-              <ChevronRight className="w-4 h-4" />
+              <ChevronRight className="w-3.5 h-3.5 md:w-4 md:h-4" />
             </Link>
           </div>
           <div className="md:hidden shrink-0 self-center">
-            <img src={advisorModel} alt="Learning advisor" className="h-[120px] object-contain" />
+            <img src={advisorModel} alt="Learning advisor" className="h-[100px] object-contain" />
           </div>
         </div>
       </div>
@@ -292,13 +280,13 @@ const CourseContent = ({ course, faqs }: { course: Course; faqs: { q: string; a:
 
     {/* What's Included */}
     <section>
-      <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">Your Package</p>
-      <h2 className="font-heading text-2xl font-bold text-foreground mb-4">What's Included</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <p className="text-[10px] md:text-xs font-semibold text-primary uppercase tracking-wider mb-1.5 md:mb-2">Your Package</p>
+      <h2 className="font-heading text-xl md:text-2xl font-bold text-foreground mb-3 md:mb-4">What's Included</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 md:gap-3">
         {course.includes.map((item, i) => (
-          <div key={i} className="flex items-start gap-2.5">
-            <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-            <span className="text-sm text-foreground">{item}</span>
+          <div key={i} className="flex items-start gap-2">
+            <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-primary shrink-0 mt-0.5" />
+            <span className="text-xs md:text-sm text-foreground">{item}</span>
           </div>
         ))}
       </div>
@@ -307,16 +295,16 @@ const CourseContent = ({ course, faqs }: { course: Course; faqs: { q: string; a:
     {/* Course FAQ */}
     {faqs.length > 0 && (
       <section>
-        <div className="bg-secondary/50 border border-border rounded-2xl p-5 md:p-8">
-          <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">FAQ</p>
-          <h2 className="font-heading text-2xl font-bold text-foreground mb-6">Frequently Asked Questions</h2>
-          <Accordion type="single" collapsible className="space-y-3">
+        <div className="bg-secondary/50 border border-border rounded-xl md:rounded-2xl p-4 md:p-8">
+          <p className="text-[10px] md:text-xs font-semibold text-primary uppercase tracking-wider mb-1.5 md:mb-2">FAQ</p>
+          <h2 className="font-heading text-xl md:text-2xl font-bold text-foreground mb-4 md:mb-6">Frequently Asked Questions</h2>
+          <Accordion type="single" collapsible className="space-y-2 md:space-y-3">
             {faqs.map((faq, i) => (
-              <AccordionItem key={i} value={`course-faq-${i}`} className="bg-card border border-border rounded-lg px-5">
-                <AccordionTrigger className="text-left font-semibold text-foreground hover:no-underline py-4 text-sm">
+              <AccordionItem key={i} value={`course-faq-${i}`} className="bg-card border border-border rounded-lg px-3 md:px-5">
+                <AccordionTrigger className="text-left font-semibold text-foreground hover:no-underline py-3 md:py-4 text-xs md:text-sm">
                   {faq.q}
                 </AccordionTrigger>
-                <AccordionContent className="text-sm text-muted-foreground leading-relaxed pb-4 border-t border-border pt-4">
+                <AccordionContent className="text-xs md:text-sm text-muted-foreground leading-relaxed pb-3 md:pb-4 border-t border-border pt-3 md:pt-4">
                   {faq.a}
                 </AccordionContent>
               </AccordionItem>

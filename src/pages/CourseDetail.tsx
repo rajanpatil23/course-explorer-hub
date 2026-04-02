@@ -29,7 +29,7 @@ const CourseDetail = () => {
       <CourseHero course={course} />
       <SecretSauce items={course.secretSauce} courseName={course.name} />
 
-      <div className="container py-10 md:py-14">
+      <div className="container py-6 md:py-14">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           <div className="lg:col-span-2">
             <CourseContent course={course} faqs={courseFaqs} />
