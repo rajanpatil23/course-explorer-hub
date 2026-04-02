@@ -208,7 +208,7 @@ const CourseContent = ({ course, faqs }: { course: Course; faqs: { q: string; a:
                     src={logo}
                     alt={c}
                     title={c}
-                    className="h-8 w-8 object-contain grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100 rounded"
+                    className="h-8 w-8 object-contain rounded"
                   />
                 ) : (
                   <span key={c} className="bg-secondary text-foreground text-xs font-medium px-3 py-1.5 rounded-full border border-border">{c}</span>
