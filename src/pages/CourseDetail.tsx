@@ -30,11 +30,11 @@ const CourseDetail = () => {
       <SecretSauce items={course.secretSauce} courseName={course.name} />
 
       <div className="container py-6 md:py-14">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           <div className="lg:col-span-2">
             <CourseContent course={course} faqs={courseFaqs} />
           </div>
-          <div className="lg:min-h-full">
+          <div>
             <CourseSidebar course={course} />
           </div>
         </div>
