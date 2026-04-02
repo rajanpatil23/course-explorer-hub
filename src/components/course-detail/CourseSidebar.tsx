@@ -43,7 +43,7 @@ const CourseSidebar = ({ course }: { course: Course }) => {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="h-full">
       <div className="sticky top-20 space-y-4 max-h-[calc(100vh-6rem)] overflow-y-auto scrollbar-thin pr-1">
         {/* Pricing card — always visible */}
         <div className="bg-card border border-border rounded-lg p-6 shadow-sm">
