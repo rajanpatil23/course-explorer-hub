@@ -48,10 +48,10 @@ const CourseHero = ({ course }: { course: Course }) => (
               <span className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">{course.code}</span>
             </div>
 
-            <h1 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[3.25rem] font-extrabold leading-[1.12] mb-4 md:mb-5">
+            <h1 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold leading-[1.12] mb-2 md:mb-3">
               {course.name}
             </h1>
-            <p className="text-sm md:text-lg text-muted-foreground leading-relaxed max-w-lg mx-auto lg:mx-0 mb-6 md:mb-8">
+            <p className="text-sm md:text-base text-muted-foreground leading-relaxed max-w-lg mx-auto lg:mx-0 mb-4 md:mb-5">
               {course.subtitle}
             </p>
 
