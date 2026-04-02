@@ -270,12 +270,9 @@ const CourseContent = ({ course, faqs }: { course: Course; faqs: { q: string; a:
             <img src={advisorModel} alt="Learning advisor" className="h-[140px] lg:h-[160px] object-contain" />
           </div>
           <div className="flex-1 py-5 md:py-8 text-center md:text-left">
-            <h3 className="font-heading text-base md:text-xl lg:text-2xl font-bold mb-1">
+            <h3 className="font-heading text-base md:text-xl lg:text-2xl font-bold">
               Accelerate Your {course.name} Journey — Enroll Today!
             </h3>
-            <p className="text-hero-foreground/70 text-xs md:text-base">
-              Get expert guidance, flexible schedules & exclusive resources to ace your certification.
-            </p>
           </div>
           <div className="shrink-0 pb-5 md:pb-0">
             <Link
