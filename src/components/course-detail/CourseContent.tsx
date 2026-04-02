@@ -67,7 +67,7 @@ const CourseStatsStrip = () => {
   );
 };
 
-const CourseContent = ({ course }: { course: Course }) => (
+const CourseContent = ({ course, faqs }: { course: Course; faqs: { q: string; a: string }[] }) => (
   <div className="space-y-12">
     {/* Prerequisites */}
     <section>
@@ -246,6 +246,28 @@ const CourseContent = ({ course }: { course: Course }) => (
         ))}
       </div>
     </section>
+
+    {/* Course FAQ */}
+    {faqs.length > 0 && (
+      <section>
+        <div className="bg-secondary/50 border border-border rounded-2xl p-5 md:p-8">
+          <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">FAQ</p>
+          <h2 className="font-heading text-2xl font-bold text-foreground mb-6">Frequently Asked Questions</h2>
+          <Accordion type="single" collapsible className="space-y-3">
+            {faqs.map((faq, i) => (
+              <AccordionItem key={i} value={`course-faq-${i}`} className="bg-card border border-border rounded-lg px-5">
+                <AccordionTrigger className="text-left font-semibold text-foreground hover:no-underline py-4 text-sm">
+                  {faq.q}
+                </AccordionTrigger>
+                <AccordionContent className="text-sm text-muted-foreground leading-relaxed pb-4 border-t border-border pt-4">
+                  {faq.a}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </section>
+    )}
   </div>
 );
 

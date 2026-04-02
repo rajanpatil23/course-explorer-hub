@@ -1935,6 +1935,15 @@ export function findCourseBySlug(slug: string): Course | undefined {
   return undefined;
 }
 
+// Helper to find category FAQs for a given course slug
+export function findCourseFaqs(slug: string): { q: string; a: string }[] {
+  for (const cat of categories) {
+    const course = cat.courses.find(c => c.slug === slug);
+    if (course) return cat.faqs;
+  }
+  return [];
+}
+
 export const testimonials = [
   { name: "Priya M.", designation: "Project Manager, TCS", course: "PMP® Certification Training", quote: "The PMP training at The EduEdge was exceptional. The instructor broke down complex PMBOK concepts into practical, real-world scenarios. I passed on my first attempt with Above Target scores across all domains." },
   { name: "Rajesh K.", designation: "Cloud Architect, Infosys", course: "AWS Solutions Architect – Associate", quote: "The hands-on lab experience was unmatched. The exam simulators were incredibly close to the real exam. I felt 100% prepared walking into the testing centre." },
