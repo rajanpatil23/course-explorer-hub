@@ -240,6 +240,7 @@ const CourseContent = ({ course, faqs }: { course: Course; faqs: { q: string; a:
 
     {/* What's Included */}
     <section>
+      <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">Your Package</p>
       <h2 className="font-heading text-2xl font-bold text-foreground mb-4">What's Included</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {course.includes.map((item, i) => (
