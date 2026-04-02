@@ -1792,6 +1792,7 @@ function enrichCourse(base: {
       "30-day recording access",
       "Certificate of completion",
       "Exam application support",
+      "Post-training mentor access",
     ],
     contactHours: details.contactHours || base.duration.match(/\d+/)?.[0] || "40",
     rating: details.rating || "4.7",
