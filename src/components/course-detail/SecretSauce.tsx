@@ -1,5 +1,5 @@
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
+
 import type { SecretSauceItem } from "@/data/courses";
 
 import sauceGuarantee from "@/assets/sauce-guarantee.png";
