@@ -56,16 +56,20 @@ const SecretSauce = ({ items, courseName }: { items: SecretSauceItem[]; courseNa
               const img = imageMap[item.icon] || sauceGuarantee;
               return (
                 <CarouselItem key={i} className="pl-3 basis-1/2 sm:basis-1/3 lg:basis-1/4">
-                  <div className="bg-card border border-border rounded-xl p-4 text-center hover:shadow-lg transition-shadow h-full flex flex-col items-center">
-                    <img
-                      src={img}
-                      alt={item.title}
-                    className="w-24 h-24 object-contain mb-3"
-                      loading="lazy"
-                      width={96}
-                      height={96}
-                    />
-                    <p className="text-xs font-semibold text-foreground leading-snug">{item.title}</p>
+                  <div className="bg-card border border-border rounded-xl overflow-hidden text-center hover:shadow-lg transition-shadow h-full flex flex-col items-center">
+                    <div className="w-full bg-primary/10 flex items-center justify-center py-5">
+                      <img
+                        src={img}
+                        alt={item.title}
+                        className="w-24 h-24 object-contain"
+                        loading="lazy"
+                        width={96}
+                        height={96}
+                      />
+                    </div>
+                    <div className="p-4">
+                      <p className="text-xs font-semibold text-foreground leading-snug">{item.title}</p>
+                    </div>
                   </div>
                 </CarouselItem>
               );
