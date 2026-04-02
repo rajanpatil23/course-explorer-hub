@@ -100,7 +100,7 @@ const CourseContent = ({ course }: { course: Course }) => (
       <ul className="space-y-2.5">
         {course.prerequisites.map((p, i) => (
           <li key={i} className="flex items-start gap-2.5 text-sm text-muted-foreground">
-            <ArrowLeft className="w-4 h-4 text-primary shrink-0 mt-0.5 rotate-180" />
+            <CheckCircle className="w-4 h-4 text-primary shrink-0 mt-0.5" />
             {p}
           </li>
         ))}
