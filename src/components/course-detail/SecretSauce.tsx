@@ -56,7 +56,7 @@ const SecretSauce = ({ items, courseName }: { items: SecretSauceItem[]; courseNa
               const img = imageMap[item.icon] || sauceGuarantee;
               return (
                 <CarouselItem key={i} className="pl-3 basis-1/2 sm:basis-1/3 lg:basis-1/4">
-                  <div className="bg-card border border-border rounded-xl p-4 text-center hover:shadow-lg transition-shadow aspect-square flex flex-col items-center justify-center">
+                  <div className="bg-card border border-border rounded-xl p-4 text-center hover:shadow-lg transition-shadow h-full flex flex-col items-center">
                     <img
                       src={img}
                       alt={item.title}
