@@ -1,3 +1,7 @@
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { ArrowUp } from "lucide-react";
+
 const Terms = () => (
   <div className="min-h-screen">
     {/* Hero — light theme matching contact */}
@@ -79,6 +83,31 @@ const Terms = () => (
               or call{" "}
               <a href="tel:+918851467220" className="text-accent hover:underline font-medium">+91 88514 67220</a>.
             </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom CTA */}
+      <div className="container max-w-6xl mt-8 pb-2">
+        <div className="text-center space-y-4">
+          <p className="text-sm text-muted-foreground">
+            Need something specific, or have a question about our terms?{" "}
+            <a href="mailto:contact@theeduedge.org" className="text-accent hover:underline font-medium">contact@theeduedge.org</a>
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <Button asChild className="rounded-full px-6">
+              <Link to="/">Go to Home</Link>
+            </Button>
+            <Button asChild variant="outline" className="rounded-full px-6">
+              <Link to="/contact">Contact Support</Link>
+            </Button>
+            <Button
+              variant="outline"
+              className="rounded-full px-6"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            >
+              Back to top <ArrowUp className="w-4 h-4 ml-1" />
+            </Button>
           </div>
         </div>
       </div>
