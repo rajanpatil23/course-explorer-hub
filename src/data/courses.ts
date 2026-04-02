@@ -71,11 +71,11 @@ const courseDetails: Record<string, Partial<Course>> = {
   "PMI-PMP": {
     subtitle: "Ace the PMP Certification Exam in the First Attempt in Just 5 Weeks",
     heroHighlights: [
-      "Boost your career with 36 hours of live PMP certification training",
-      "Prepare with a 5-week study plan and 2000+ practice questions",
-      "Experience real exams with PMI replica questions and a free simulator",
-      "Practice with 12 full-length simulation tests of 180 questions each",
-      "Ace the PMP exam with mock tests and hands-on training",
+      "36 hours of live PMP certification training",
+      "5-week study plan with 2000+ practice questions",
+      "PMI replica questions and free exam simulator",
+      "12 full-length simulation tests of 180 questions",
+      "Mock tests and hands-on training included",
     ],
     secretSauce: [
       { title: "100% Money-Back Guarantee", icon: "shield-check" },
