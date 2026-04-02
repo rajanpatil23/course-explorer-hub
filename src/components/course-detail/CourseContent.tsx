@@ -254,26 +254,41 @@ const CourseContent = ({ course, faqs }: { course: Course; faqs: { q: string; a:
 
     {/* Schedule CTA Banner */}
     <section>
-      <div className="relative rounded-2xl bg-[hsl(35,60%,92%)] overflow-hidden flex items-center">
-        {/* Model image */}
-        <div className="hidden md:flex w-40 shrink-0 items-end justify-center relative pl-4 pt-4">
-          <img src={advisorModel} alt="Advisor" className="h-40 object-contain object-bottom relative z-10" />
-        </div>
-        {/* Content */}
-        <div className="flex-1 flex flex-col md:flex-row items-center justify-between gap-4 px-6 py-5 md:py-0 md:px-8">
-          <div className="flex md:hidden w-24 h-24 items-end justify-center">
-            <img src={advisorModel} alt="Advisor" className="h-24 object-contain object-bottom" />
+      <div className="relative bg-hero text-hero-foreground rounded-2xl overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-hero via-hero/95 to-primary/20" />
+        <div
+          className="absolute -top-6 -left-4 w-[110%] h-[90%] pointer-events-none opacity-20"
+          style={{
+            backgroundImage: "radial-gradient(circle, hsl(var(--primary)) 1.2px, transparent 1.2px)",
+            backgroundSize: "18px 18px",
+          }}
+        />
+        <div className="absolute top-0 right-0 w-[300px] h-[300px] rounded-full bg-primary/10 blur-[120px]" />
+
+        <div className="relative z-10 flex flex-col md:flex-row items-center gap-4 md:gap-10 px-5 md:px-10 lg:px-14">
+          <div className="hidden md:block shrink-0 self-end">
+            <img src={advisorModel} alt="Learning advisor" className="h-[140px] lg:h-[160px] object-contain" />
           </div>
-          <h3 className="font-heading text-lg md:text-xl font-bold text-foreground text-center md:text-left">
-            Can't find a Convenient Schedule?
-          </h3>
-          <Link
-            to="/contact"
-            className="inline-flex items-center gap-2 bg-foreground text-background font-semibold px-6 py-3 rounded-lg hover:opacity-90 transition-opacity text-sm shrink-0"
-          >
-            Talk to us
-            <ChevronRight className="w-4 h-4" />
-          </Link>
+          <div className="flex-1 py-5 md:py-8 text-center md:text-left">
+            <h3 className="font-heading text-base md:text-xl lg:text-2xl font-bold mb-1">
+              Can't find a Convenient Schedule?
+            </h3>
+            <p className="text-hero-foreground/70 text-xs md:text-base">
+              Talk to our expert learning advisor and we'll help you out!
+            </p>
+          </div>
+          <div className="shrink-0 pb-5 md:pb-0">
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 bg-background text-foreground font-semibold px-6 md:px-8 py-3 rounded-lg hover:bg-background/90 transition-colors text-sm"
+            >
+              Talk to us
+              <ChevronRight className="w-4 h-4" />
+            </Link>
+          </div>
+          <div className="md:hidden shrink-0 self-center">
+            <img src={advisorModel} alt="Learning advisor" className="h-[120px] object-contain" />
+          </div>
         </div>
       </div>
     </section>
