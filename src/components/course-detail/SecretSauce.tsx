@@ -28,7 +28,7 @@ const SecretSauce = ({ items, courseName }: { items: SecretSauceItem[]; courseNa
           {items.map((item, i) => {
             const Icon = iconMap[item.icon] || CheckCircle;
             return (
-              <CarouselItem key={i} className="pl-3 basis-1/2 sm:basis-1/3 lg:basis-1/6">
+              <CarouselItem key={i} className="pl-3 basis-1/2 sm:basis-1/3 lg:basis-1/4">
                 <div className="bg-card border border-border rounded-lg p-4 text-center hover:shadow-md transition-shadow h-full">
                   <div className="w-12 h-12 bg-teal-light rounded-full flex items-center justify-center mx-auto mb-3">
                     <Icon className="w-6 h-6 text-primary" />
