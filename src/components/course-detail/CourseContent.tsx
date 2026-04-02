@@ -211,6 +211,7 @@ const CourseContent = ({ course, faqs }: { course: Course; faqs: { q: string; a:
     {/* Curriculum */}
     <section id="curriculum">
       <div className="bg-secondary/50 border border-border rounded-2xl p-5 md:p-8">
+        <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">Syllabus</p>
         <h2 className="font-heading text-2xl font-bold text-foreground mb-4">Course Curriculum</h2>
         <Accordion type="multiple" defaultValue={["module-0"]} className="space-y-3">
           {course.curriculum.map((mod, i) => (
