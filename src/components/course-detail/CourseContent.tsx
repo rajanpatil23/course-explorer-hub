@@ -68,6 +68,19 @@ const CourseStatsStrip = () => {
 
 const CourseContent = ({ course }: { course: Course }) => (
   <div className="space-y-12">
+    {/* Prerequisites */}
+    <section>
+      <h2 className="font-heading text-2xl font-bold text-foreground mb-4">Prerequisites & Eligibility</h2>
+      <ul className="space-y-2.5">
+        {course.prerequisites.map((p, i) => (
+          <li key={i} className="flex items-start gap-2.5 text-sm text-muted-foreground">
+            <CheckCircle className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+            {p}
+          </li>
+        ))}
+      </ul>
+    </section>
+
     {/* Stats Strip */}
     <CourseStatsStrip />
 
