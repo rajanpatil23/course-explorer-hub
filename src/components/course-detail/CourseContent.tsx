@@ -1,6 +1,9 @@
-import { BookOpen, CheckCircle, ArrowLeft, TrendingUp, DollarSign, Building2 } from "lucide-react";
+import { BookOpen, CheckCircle, ArrowLeft, TrendingUp, DollarSign, Building2, Clock, Award, Users, ShieldCheck, Target, Zap, GraduationCap, FileText, Layers, BarChart3, Globe, Briefcase } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Card } from "@/components/ui/card";
 import type { Course } from "@/data/courses";
+
+const highlightIcons = [Target, Zap, GraduationCap, Award, ShieldCheck, FileText, Layers, BarChart3, Globe, Briefcase, Users, Clock];
 
 const CourseContent = ({ course }: { course: Course }) => (
   <div className="space-y-12">
@@ -8,12 +11,17 @@ const CourseContent = ({ course }: { course: Course }) => (
     <section>
       <h2 className="font-heading text-2xl font-bold text-foreground mb-4">Course Highlights</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        {course.courseHighlights.map((h, i) => (
-          <div key={i} className="bg-teal-light rounded-lg p-4 flex items-start gap-3">
-            <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-            <span className="text-sm text-foreground">{h.text}</span>
-          </div>
-        ))}
+        {course.courseHighlights.map((h, i) => {
+          const Icon = highlightIcons[i % highlightIcons.length];
+          return (
+            <Card key={i} className="p-4 flex items-start gap-3 border-border/60 bg-card hover:shadow-md transition-shadow">
+              <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                <Icon className="w-[18px] h-[18px] text-primary" />
+              </div>
+              <span className="text-sm text-foreground leading-relaxed pt-1.5">{h.text}</span>
+            </Card>
+          );
+        })}
       </div>
     </section>
 
