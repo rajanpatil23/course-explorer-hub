@@ -201,22 +201,14 @@ const CourseContent = ({ course, faqs }: { course: Course; faqs: { q: string; a:
             <p className="text-xs text-muted-foreground mb-2">Hiring Companies</p>
             <div className="flex flex-wrap items-center gap-4">
               {course.demand.hiringCompanies.map(c => {
-                const domain = companyDomains[c.toLowerCase()];
-                return domain ? (
+                const logo = companyLogos[c.toLowerCase()];
+                return logo ? (
                   <img
                     key={c}
-                    src={`https://logo.clearbit.com/${domain}`}
+                    src={logo}
                     alt={c}
                     title={c}
-                    className="h-6 object-contain grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100"
-                    onError={(e) => {
-                      const el = e.currentTarget;
-                      const parent = el.parentElement!;
-                      const span = document.createElement('span');
-                      span.className = 'bg-secondary text-foreground text-xs font-medium px-3 py-1.5 rounded-full border border-border';
-                      span.textContent = c;
-                      parent.replaceChild(span, el);
-                    }}
+                    className="h-8 w-8 object-contain grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100 rounded"
                   />
                 ) : (
                   <span key={c} className="bg-secondary text-foreground text-xs font-medium px-3 py-1.5 rounded-full border border-border">{c}</span>
