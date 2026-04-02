@@ -192,7 +192,7 @@ const CourseContent = ({ course, faqs }: { course: Course; faqs: { q: string; a:
             <p className="text-xs text-muted-foreground">{course.demand.growthDescription}</p>
           </div>
         </div>
-        {course.demand.hiringCompanies.length > 1 && (
+        {course.demand.hiringCompanies?.length > 1 && (
           <div className="mt-4 pt-4 border-t border-border">
             <p className="text-xs text-muted-foreground mb-2">Hiring Companies</p>
             <div className="flex flex-wrap gap-2">
