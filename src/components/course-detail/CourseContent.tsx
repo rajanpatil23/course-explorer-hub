@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { BookOpen, CheckCircle, ArrowLeft, TrendingUp, DollarSign, Building2, Clock, Award, Users, ShieldCheck, Target, Zap, GraduationCap, FileText, Layers, BarChart3, Globe, Briefcase } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Card } from "@/components/ui/card";
@@ -5,8 +6,70 @@ import type { Course } from "@/data/courses";
 
 const highlightIcons = [Target, Zap, GraduationCap, Award, ShieldCheck, FileText, Layers, BarChart3, Globe, Briefcase, Users, Clock];
 
+const courseStats = [
+  { value: 10000, suffix: "+", label: "Professionals Trained" },
+  { value: 40, suffix: "+", label: "Workshops Every Month" },
+  { value: 30, suffix: "+", label: "Countries Served" },
+];
+
+function useCountUp(target: number, duration = 2000, trigger = false) {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    if (!trigger) return;
+    let start = 0;
+    const step = target / (duration / 16);
+    const id = setInterval(() => {
+      start += step;
+      if (start >= target) { setCount(target); clearInterval(id); }
+      else { setCount(Math.floor(start)); }
+    }, 16);
+    return () => clearInterval(id);
+  }, [trigger, target, duration]);
+  return count;
+}
+
+const CourseStatsStrip = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setVisible(true); obs.disconnect(); } }, { threshold: 0.3 });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  return (
+    <div ref={ref} className="relative rounded-2xl bg-primary px-4 py-6 md:px-10 md:py-8 shadow-lg overflow-hidden border border-primary/30 mb-10">
+      <div className="absolute -top-10 -left-10 w-40 h-40 rounded-full border-2 border-primary-foreground/10 z-0" />
+      <div className="absolute -top-6 -left-6 w-28 h-28 rounded-full border border-primary-foreground/15 z-0" />
+      <div className="absolute -bottom-8 -right-8 w-36 h-36 rounded-full border-2 border-primary-foreground/10 z-0" />
+      <div className="absolute -bottom-4 -right-4 w-24 h-24 rounded-full border border-primary-foreground/15 z-0" />
+      <div className="absolute top-3 right-12 w-8 h-[2px] bg-primary-foreground/15 rotate-45 z-0" />
+      <div className="absolute bottom-4 left-14 w-8 h-[2px] bg-primary-foreground/15 -rotate-45 z-0" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-60 h-20 rounded-full bg-primary-foreground/5 blur-[80px] z-0" />
+      <div className="grid grid-cols-3 gap-4 md:gap-8 relative z-10">
+        {courseStats.map((s, i) => {
+          const count = useCountUp(s.value, 2000, visible);
+          return (
+            <div key={i} className="text-center">
+              <div className="font-heading text-2xl md:text-4xl font-semibold text-primary-foreground">
+                {Math.floor(count).toLocaleString()}<span>{s.suffix}</span>
+              </div>
+              <p className="text-[10px] md:text-sm text-primary-foreground/70 mt-1 font-medium">{s.label}</p>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
 const CourseContent = ({ course }: { course: Course }) => (
   <div className="space-y-12">
+    {/* Stats Strip */}
+    <CourseStatsStrip />
     {/* Course Highlights */}
     <section>
       <h2 className="font-heading text-2xl font-bold text-foreground mb-4">Course Highlights</h2>
