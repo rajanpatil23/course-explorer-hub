@@ -71,6 +71,7 @@ const CourseContent = ({ course, faqs }: { course: Course; faqs: { q: string; a:
   <div className="space-y-12">
     {/* Prerequisites */}
     <section>
+      <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">Requirements</p>
       <h2 className="font-heading text-2xl font-bold text-foreground mb-4">Prerequisites & Eligibility</h2>
       <ul className="space-y-2.5">
         {course.prerequisites.map((p, i) => (
@@ -88,6 +89,7 @@ const CourseContent = ({ course, faqs }: { course: Course; faqs: { q: string; a:
 
     {/* Course Highlights */}
     <section>
+      <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">What You'll Learn</p>
       <h2 className="font-heading text-2xl font-bold text-foreground mb-4">Course Highlights</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {course.courseHighlights.map((h, i) => {
@@ -133,6 +135,7 @@ const CourseContent = ({ course, faqs }: { course: Course; faqs: { q: string; a:
 
     {/* Demand */}
     <section>
+      <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">Career Impact</p>
       <h2 className="font-heading text-2xl font-bold text-foreground mb-4">Market Demand & Salary Insights</h2>
       <div className="bg-card border border-border rounded-lg p-6">
         <div className="flex items-center gap-2 mb-4">
@@ -208,6 +211,7 @@ const CourseContent = ({ course, faqs }: { course: Course; faqs: { q: string; a:
     {/* Curriculum */}
     <section id="curriculum">
       <div className="bg-secondary/50 border border-border rounded-2xl p-5 md:p-8">
+        <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">Syllabus</p>
         <h2 className="font-heading text-2xl font-bold text-foreground mb-4">Course Curriculum</h2>
         <Accordion type="multiple" defaultValue={["module-0"]} className="space-y-3">
           {course.curriculum.map((mod, i) => (
@@ -236,6 +240,7 @@ const CourseContent = ({ course, faqs }: { course: Course; faqs: { q: string; a:
 
     {/* What's Included */}
     <section>
+      <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">Your Package</p>
       <h2 className="font-heading text-2xl font-bold text-foreground mb-4">What's Included</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {course.includes.map((item, i) => (
