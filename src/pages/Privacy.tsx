@@ -29,7 +29,7 @@ const Privacy = () => (
 
     {/* Content */}
     <section className="py-10 md:py-14 bg-background">
-      <div className="container max-w-3xl">
+      <div className="container max-w-6xl">
         <div className="bg-card border border-border rounded-xl p-6 md:p-10 shadow-sm space-y-7">
           {[
             { title: "1. Information We Collect", body: "We collect personal information you provide when you create an account, enroll in courses, or contact us. This includes your name, email address, phone number, payment information, and professional background." },

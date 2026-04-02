@@ -29,7 +29,7 @@ const Terms = () => (
 
     {/* Content */}
     <section className="py-10 md:py-14 bg-background">
-      <div className="container max-w-3xl">
+      <div className="container max-w-6xl">
         <div className="bg-card border border-border rounded-xl p-6 md:p-10 shadow-sm space-y-7">
           <p className="text-sm text-muted-foreground leading-relaxed">
             Welcome to The EduEdge (theeduedge.org). By accessing or using our website and services, you agree to be bound by the following Terms and Conditions.
