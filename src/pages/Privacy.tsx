@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowUp } from "lucide-react";
 
+const Privacy = () => (
   <div className="min-h-screen">
     {/* Hero — light theme matching contact */}
     <section className="relative bg-muted/40 text-foreground overflow-hidden rounded-b-[3rem] md:rounded-b-[8rem] shadow-sm">
