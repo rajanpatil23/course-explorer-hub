@@ -102,7 +102,7 @@ const CourseHero = ({ course }: { course: Course }) => (
             </div>
 
             {/* Hero highlights */}
-            <div className="space-y-2 md:space-y-3 max-w-lg mx-auto lg:mx-0">
+            <div className="space-y-1.5 md:space-y-2 max-w-lg mx-auto lg:mx-0">
               {course.heroHighlights.map((h, i) => (
                 <div key={i} className="flex items-start gap-2.5 text-left">
                   <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-primary mt-0.5 shrink-0" />
