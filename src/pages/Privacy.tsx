@@ -28,7 +28,7 @@ const Privacy = () => (
     </section>
 
     {/* Content */}
-    <section className="py-10 md:py-14 bg-secondary">
+    <section className="py-10 md:py-14 bg-background">
       <div className="container max-w-3xl">
         <div className="bg-card border border-border rounded-xl p-6 md:p-10 shadow-sm space-y-7">
           {[
