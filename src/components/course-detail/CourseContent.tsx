@@ -103,15 +103,6 @@ const CourseContent = ({ course }: { course: Course }) => (
       </div>
     </section>
 
-    {/* Skills */}
-    <section>
-      <h2 className="font-heading text-2xl font-bold text-foreground mb-4">Key Skills You'll Gain</h2>
-      <div className="flex flex-wrap gap-2">
-        {course.skills.map(s => (
-          <span key={s} className="bg-teal-light text-teal-dark text-sm font-medium px-3 py-1.5 rounded-full">{s}</span>
-        ))}
-      </div>
-    </section>
 
     {/* Benefits */}
     <section>
