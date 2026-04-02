@@ -178,7 +178,7 @@ const CourseContent = ({ course }: { course: Course }) => (
                 <ResponsiveContainer width="100%" height="100%">
                   <RadialBarChart cx="50%" cy="50%" innerRadius="70%" outerRadius="100%" startAngle={90} endAngle={-270} data={radialData} barSize={6}>
                     <PolarAngleAxis type="number" domain={[0, 100]} angleAxisId={0} tick={false} />
-                    <RadialBar background clockWise dataKey="value" cornerRadius={10} />
+                    <RadialBar background dataKey="value" cornerRadius={10} />
                     <text x="50%" y="50%" textAnchor="middle" dominantBaseline="middle" className="fill-foreground text-xs font-bold">
                       {course.demand.growthPercent}
                     </text>
