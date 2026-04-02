@@ -284,8 +284,9 @@ const CourseContent = ({ course, faqs }: { course: Course; faqs: { q: string; a:
               <ChevronRight className="w-4 h-4" />
             </Link>
           </div>
-          <div className="md:hidden shrink-0 self-center">
-            <img src={advisorModel} alt="Learning advisor" className="h-[120px] object-contain" />
+          <div className="md:hidden shrink-0 self-center relative">
+            <div className="absolute -bottom-1 -left-2 w-20 h-28 bg-primary/25 rounded-[50%] rotate-[-15deg] blur-[2px]" />
+            <img src={advisorModel} alt="Learning advisor" className="h-[120px] object-contain relative z-10" />
           </div>
         </div>
       </div>
