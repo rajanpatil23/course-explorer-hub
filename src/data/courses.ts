@@ -1814,9 +1814,6 @@ function enrichCourse(base: {
       { text: "Full Exam Preparation Package", bold: "Exam Preparation" },
       { text: "Expert-Led Interactive Sessions", bold: "Interactive Sessions" },
       { text: "Real-World Scenarios & Case Studies", bold: "Case Studies" },
-      { text: "Exam Strategy & Time Management Tips", bold: "Exam Strategy" },
-      { text: "Post-Training Support & Resources", bold: "Post-Training Support" },
-      { text: "Industry-Recognized Certification Path", bold: "Certification Path" },
     ],
     aboutCourse: details.aboutCourse || `Comprehensive ${base.level.toLowerCase()}-level certification training in ${base.name}. Gain practical skills with expert-led, accredited instruction.`,
     benefits: details.benefits || [
