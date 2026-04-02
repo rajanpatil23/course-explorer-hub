@@ -93,17 +93,17 @@ const CourseContent = ({ course, faqs }: { course: Course; faqs: { q: string; a:
     {/* Course Highlights */}
     <section>
       <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">What You'll Learn</p>
-      <h2 className="font-heading text-2xl font-bold text-foreground mb-4">Course Highlights</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <h2 className="font-heading text-2xl font-bold text-foreground mb-6">Course Highlights</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-7">
         {course.courseHighlights.map((h, i) => {
           const Icon = highlightIcons[i % highlightIcons.length];
           return (
-            <Card key={i} className="p-4 flex items-start gap-3 border-border/60 bg-card hover:shadow-md transition-shadow">
-              <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                <Icon className="w-[18px] h-[18px] text-primary" />
+            <div key={i} className="flex flex-col gap-3">
+              <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center">
+                <Icon className="w-5 h-5 text-primary" />
               </div>
-              <span className="text-sm text-foreground leading-relaxed pt-1.5">{h.text}</span>
-            </Card>
+              <p className="text-sm text-foreground leading-relaxed">{h.text}</p>
+            </div>
           );
         })}
       </div>
