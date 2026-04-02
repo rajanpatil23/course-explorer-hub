@@ -103,7 +103,7 @@ const CourseHero = ({ course }: { course: Course }) => (
 
             {/* Hero highlights */}
             <div className="space-y-1.5 md:space-y-2 max-w-lg mx-auto lg:mx-0">
-              {course.heroHighlights.map((h, i) => (
+              {course.heroHighlights.slice(0, 3).map((h, i) => (
                 <div key={i} className="flex items-start gap-2.5 text-left">
                   <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-primary mt-0.5 shrink-0" />
                   <p className="text-xs md:text-[15px] text-foreground leading-relaxed font-medium">{h}</p>
