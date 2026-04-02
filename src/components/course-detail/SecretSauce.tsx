@@ -1,5 +1,5 @@
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
+
 import type { SecretSauceItem } from "@/data/courses";
 
 import sauceGuarantee from "@/assets/sauce-guarantee.png";
@@ -49,7 +49,6 @@ const SecretSauce = ({ items, courseName }: { items: SecretSauceItem[]; courseNa
         </h2>
         <Carousel
           opts={{ align: "start", loop: true }}
-          plugins={[Autoplay({ delay: 2500, stopOnInteraction: false })]}
           className="w-full px-12"
         >
           <CarouselContent className="-ml-3">
