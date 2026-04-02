@@ -112,7 +112,7 @@ const CourseHero = ({ course }: { course: Course }) => (
             </div>
 
             {/* Meta bar */}
-            <div className="flex flex-wrap gap-4 md:gap-6 mt-6 md:mt-8 pt-5 border-t border-border text-xs md:text-sm text-muted-foreground justify-center lg:justify-start">
+            <div className="flex flex-wrap gap-4 md:gap-6 mt-4 md:mt-5 pt-4 border-t border-border text-xs md:text-sm text-muted-foreground justify-center lg:justify-start">
               <div className="flex items-center gap-1.5"><Clock className="w-4 h-4 text-primary" />{course.duration}</div>
               <div className="flex items-center gap-1.5"><Award className="w-4 h-4 text-primary" />{course.level}</div>
               <div className="flex items-center gap-1.5"><Users className="w-4 h-4 text-primary" />{course.contactHours} Contact Hrs</div>
