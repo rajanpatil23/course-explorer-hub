@@ -115,16 +115,25 @@ const CourseContent = ({ course }: { course: Course }) => (
 
     {/* Benefits */}
     <section>
-      <h2 className="font-heading text-2xl font-bold text-foreground mb-4">Benefits of This Certification</h2>
-      <div className="space-y-3">
-        {course.benefits.map((b, i) => (
-          <div key={i} className="flex items-start gap-3">
-            <div className="w-7 h-7 rounded-full bg-teal-light flex items-center justify-center shrink-0 mt-0.5">
-              <span className="text-xs font-bold text-primary">{i + 1}</span>
+      <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">Why Get Certified</p>
+      <h2 className="font-heading text-2xl font-bold text-foreground mb-6">Benefits of This Certification</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
+        {course.benefits.map((b, i) => {
+          const parts = b.split(/[.–:]\s*/);
+          const title = parts[0];
+          const desc = parts.length > 1 ? parts.slice(1).join('. ').trim() : '';
+          return (
+            <div key={i} className="flex items-start gap-3">
+              <div className="w-9 h-9 rounded-full border-2 border-primary flex items-center justify-center shrink-0 mt-0.5">
+                <span className="text-sm font-bold text-primary">{i + 1}</span>
+              </div>
+              <div>
+                <h4 className="font-semibold text-foreground text-sm mb-1">{title}</h4>
+                {desc && <p className="text-sm text-muted-foreground leading-relaxed">{desc}</p>}
+              </div>
             </div>
-            <p className="text-sm text-muted-foreground">{b}</p>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
 
