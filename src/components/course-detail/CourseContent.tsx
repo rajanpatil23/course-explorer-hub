@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import { BookOpen, CheckCircle, ArrowLeft, TrendingUp, DollarSign, Building2, Clock, Award, Users, ShieldCheck, Target, Zap, GraduationCap, FileText, Layers, BarChart3, Globe, Briefcase } from "lucide-react";
+import { BookOpen, CheckCircle, ArrowLeft, TrendingUp, DollarSign, Building2, Clock, Award, Users, ShieldCheck, Target, Zap, GraduationCap, FileText, Layers, BarChart3, Globe, Briefcase, ChevronRight } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Cell, RadialBarChart, RadialBar, PolarAngleAxis } from "recharts";
+import { Link } from "react-router-dom";
+import advisorModel from "@/assets/advisor-model.png";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Card } from "@/components/ui/card";
 import type { Course } from "@/data/courses";
