@@ -267,7 +267,7 @@ const CourseContent = ({ course, faqs }: { course: Course; faqs: { q: string; a:
 
         <div className="relative z-10 flex flex-col md:flex-row items-center gap-4 md:gap-10 px-5 md:px-10 lg:px-14">
           <div className="hidden md:block shrink-0 self-end relative">
-            <div className="absolute -bottom-2 -left-3 w-28 h-36 bg-primary/25 rounded-[50%] rotate-[-15deg] blur-[2px]" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-32 bg-primary/25 rounded-[50%] rotate-[-25deg] blur-[2px]" />
             <img src={advisorModel} alt="Learning advisor" className="h-[140px] lg:h-[160px] object-contain relative z-10" />
           </div>
           <div className="flex-1 py-5 md:py-8 text-center md:text-left">
@@ -285,7 +285,7 @@ const CourseContent = ({ course, faqs }: { course: Course; faqs: { q: string; a:
             </Link>
           </div>
           <div className="md:hidden shrink-0 self-center relative">
-            <div className="absolute -bottom-1 -left-2 w-20 h-28 bg-primary/25 rounded-[50%] rotate-[-15deg] blur-[2px]" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-24 bg-primary/25 rounded-[50%] rotate-[-25deg] blur-[2px]" />
             <img src={advisorModel} alt="Learning advisor" className="h-[120px] object-contain relative z-10" />
           </div>
         </div>
