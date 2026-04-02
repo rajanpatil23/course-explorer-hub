@@ -270,7 +270,7 @@ const CourseContent = ({ course, faqs }: { course: Course; faqs: { q: string; a:
             <img src={advisorModel} alt="Learning advisor" className="h-[140px] lg:h-[160px] object-contain" />
           </div>
           <div className="flex-1 py-5 md:py-8 text-center md:text-left">
-            <h3 className="font-heading text-base md:text-xl lg:text-2xl font-bold">
+            <h3 className="font-heading text-sm md:text-base lg:text-lg font-bold">
               Accelerate Your {course.name} Journey — Enroll Today!
             </h3>
           </div>
