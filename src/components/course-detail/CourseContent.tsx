@@ -135,6 +135,7 @@ const CourseContent = ({ course, faqs }: { course: Course; faqs: { q: string; a:
 
     {/* Demand */}
     <section>
+      <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">Career Impact</p>
       <h2 className="font-heading text-2xl font-bold text-foreground mb-4">Market Demand & Salary Insights</h2>
       <div className="bg-card border border-border rounded-lg p-6">
         <div className="flex items-center gap-2 mb-4">
