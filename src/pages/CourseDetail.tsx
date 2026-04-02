@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 const CourseDetail = () => {
   const { slug } = useParams<{ slug: string }>();
   const course = findCourseBySlug(slug || "");
+  const courseFaqs = findCourseFaqs(slug || "");
 
   if (!course) {
     return (
