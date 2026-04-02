@@ -4,28 +4,9 @@ import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Cell, RadialBarChart,
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Card } from "@/components/ui/card";
 import type { Course } from "@/data/courses";
+import { companyLogos } from "./companyLogos";
 
 const highlightIcons = [Target, Zap, GraduationCap, Award, ShieldCheck, FileText, Layers, BarChart3, Globe, Briefcase, Users, Clock];
-
-const companyDomains: Record<string, string> = {
-  oracle: "oracle.com", accenture: "accenture.com", "bank of america": "bankofamerica.com",
-  bosch: "bosch.com", abbott: "abbott.com", allianz: "allianz.com", deloitte: "deloitte.com",
-  tcs: "tcs.com", capgemini: "capgemini.com", ibm: "ibm.com", cognizant: "cognizant.com",
-  infosys: "infosys.com", jpmorgan: "jpmorgan.com", "goldman sachs": "goldmansachs.com",
-  pwc: "pwc.com", kpmg: "kpmg.com", wipro: "wipro.com", amazon: "amazon.com",
-  microsoft: "microsoft.com", google: "google.com", cisco: "cisco.com",
-  "lockheed martin": "lockheedmartin.com", "booz allen": "boozallen.com",
-  "at&t": "att.com", verizon: "verizon.com", comcast: "comcast.com",
-  dell: "dell.com", hp: "hp.com", apple: "apple.com", "best buy": "bestbuy.com",
-  crowdstrike: "crowdstrike.com", "palo alto networks": "paloaltonetworks.com",
-  mandiant: "mandiant.com", fireeye: "fireeye.com", "ncc group": "nccgroup.com",
-  rapid7: "rapid7.com", synack: "synack.com", hackerone: "hackerone.com",
-  rackspace: "rackspace.com", vmware: "vmware.com", ey: "ey.com",
-  hpe: "hpe.com", lenovo: "lenovo.com", "aws": "aws.amazon.com",
-  salesforce: "salesforce.com", sap: "sap.com", boeing: "boeing.com",
-  siemens: "siemens.com", ge: "ge.com", toyota: "toyota.com",
-  "scaled agile": "scaledagile.com", spotify: "spotify.com", netflix: "netflix.com",
-};
 
 const courseStats = [
   { value: 10000, suffix: "+", label: "Professionals Trained" },
@@ -220,22 +201,14 @@ const CourseContent = ({ course, faqs }: { course: Course; faqs: { q: string; a:
             <p className="text-xs text-muted-foreground mb-2">Hiring Companies</p>
             <div className="flex flex-wrap items-center gap-4">
               {course.demand.hiringCompanies.map(c => {
-                const domain = companyDomains[c.toLowerCase()];
-                return domain ? (
+                const logo = companyLogos[c.toLowerCase()];
+                return logo ? (
                   <img
                     key={c}
-                    src={`https://logo.clearbit.com/${domain}`}
+                    src={logo}
                     alt={c}
                     title={c}
-                    className="h-6 object-contain grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100"
-                    onError={(e) => {
-                      const el = e.currentTarget;
-                      const parent = el.parentElement!;
-                      const span = document.createElement('span');
-                      span.className = 'bg-secondary text-foreground text-xs font-medium px-3 py-1.5 rounded-full border border-border';
-                      span.textContent = c;
-                      parent.replaceChild(span, el);
-                    }}
+                    className="h-8 w-8 object-contain grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100 rounded"
                   />
                 ) : (
                   <span key={c} className="bg-secondary text-foreground text-xs font-medium px-3 py-1.5 rounded-full border border-border">{c}</span>
