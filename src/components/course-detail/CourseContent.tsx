@@ -180,29 +180,31 @@ const CourseContent = ({ course }: { course: Course }) => (
 
     {/* Curriculum */}
     <section id="curriculum">
-      <h2 className="font-heading text-2xl font-bold text-foreground mb-4">Course Curriculum</h2>
-      <Accordion type="multiple" defaultValue={["module-0"]} className="space-y-3">
-        {course.curriculum.map((mod, i) => (
-          <AccordionItem key={i} value={`module-${i}`} className="bg-card border border-border rounded-lg px-5">
-            <AccordionTrigger className="text-left font-semibold text-foreground hover:no-underline py-4">
-              <span className="flex items-center gap-3">
-                <span className="w-8 h-8 rounded-full bg-teal-light text-primary text-sm font-bold flex items-center justify-center shrink-0">{i + 1}</span>
-                {mod.title}
-              </span>
-            </AccordionTrigger>
-            <AccordionContent className="pb-4">
-              <ul className="space-y-2 pl-11">
-                {mod.topics.map((topic, j) => (
-                  <li key={j} className="flex items-start gap-2 text-sm text-muted-foreground">
-                    <BookOpen className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                    {topic}
-                  </li>
-                ))}
-              </ul>
-            </AccordionContent>
-          </AccordionItem>
-        ))}
-      </Accordion>
+      <div className="bg-secondary/50 border border-border rounded-2xl p-5 md:p-8">
+        <h2 className="font-heading text-2xl font-bold text-foreground mb-4">Course Curriculum</h2>
+        <Accordion type="multiple" defaultValue={["module-0"]} className="space-y-3">
+          {course.curriculum.map((mod, i) => (
+            <AccordionItem key={i} value={`module-${i}`} className="bg-card border border-border rounded-lg px-5">
+              <AccordionTrigger className="text-left font-semibold text-foreground hover:no-underline py-4">
+                <span className="flex items-center gap-3">
+                  <span className="w-8 h-8 rounded-full bg-teal-light text-primary text-sm font-bold flex items-center justify-center shrink-0">{i + 1}</span>
+                  {mod.title}
+                </span>
+              </AccordionTrigger>
+              <AccordionContent className="pb-4">
+                <ul className="space-y-2 pl-11">
+                  {mod.topics.map((topic, j) => (
+                    <li key={j} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <BookOpen className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                      {topic}
+                    </li>
+                  ))}
+                </ul>
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </div>
     </section>
 
     {/* What's Included */}
