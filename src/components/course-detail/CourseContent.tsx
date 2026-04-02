@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import { BookOpen, CheckCircle, ArrowLeft, TrendingUp, DollarSign, Building2, Clock, Award, Users, ShieldCheck, Target, Zap, GraduationCap, FileText, Layers, BarChart3, Globe, Briefcase } from "lucide-react";
+import { BookOpen, CheckCircle, ArrowLeft, TrendingUp, DollarSign, Building2, Clock, Award, Users, ShieldCheck, Target, Zap, GraduationCap, FileText, Layers, BarChart3, Globe, Briefcase, ChevronRight } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Cell, RadialBarChart, RadialBar, PolarAngleAxis } from "recharts";
+import { Link } from "react-router-dom";
+import advisorModel from "@/assets/advisor-model.png";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Card } from "@/components/ui/card";
 import type { Course } from "@/data/courses";
@@ -247,6 +249,32 @@ const CourseContent = ({ course, faqs }: { course: Course; faqs: { q: string; a:
             </AccordionItem>
           ))}
         </Accordion>
+      </div>
+    </section>
+
+    {/* Schedule CTA Banner */}
+    <section>
+      <div className="relative rounded-2xl bg-[hsl(35,60%,92%)] overflow-hidden flex items-center">
+        {/* Model image */}
+        <div className="hidden md:flex w-40 shrink-0 items-end justify-center relative pl-4 pt-4">
+          <img src={advisorModel} alt="Advisor" className="h-40 object-contain object-bottom relative z-10" />
+        </div>
+        {/* Content */}
+        <div className="flex-1 flex flex-col md:flex-row items-center justify-between gap-4 px-6 py-5 md:py-0 md:px-8">
+          <div className="flex md:hidden w-24 h-24 items-end justify-center">
+            <img src={advisorModel} alt="Advisor" className="h-24 object-contain object-bottom" />
+          </div>
+          <h3 className="font-heading text-lg md:text-xl font-bold text-foreground text-center md:text-left">
+            Can't find a Convenient Schedule?
+          </h3>
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-2 bg-foreground text-background font-semibold px-6 py-3 rounded-lg hover:opacity-90 transition-opacity text-sm shrink-0"
+          >
+            Talk to us
+            <ChevronRight className="w-4 h-4" />
+          </Link>
+        </div>
       </div>
     </section>
 
