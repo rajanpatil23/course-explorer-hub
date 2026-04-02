@@ -4,28 +4,9 @@ import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Cell, RadialBarChart,
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Card } from "@/components/ui/card";
 import type { Course } from "@/data/courses";
+import { companyLogos } from "./companyLogos";
 
 const highlightIcons = [Target, Zap, GraduationCap, Award, ShieldCheck, FileText, Layers, BarChart3, Globe, Briefcase, Users, Clock];
-
-const companyDomains: Record<string, string> = {
-  oracle: "oracle.com", accenture: "accenture.com", "bank of america": "bankofamerica.com",
-  bosch: "bosch.com", abbott: "abbott.com", allianz: "allianz.com", deloitte: "deloitte.com",
-  tcs: "tcs.com", capgemini: "capgemini.com", ibm: "ibm.com", cognizant: "cognizant.com",
-  infosys: "infosys.com", jpmorgan: "jpmorgan.com", "goldman sachs": "goldmansachs.com",
-  pwc: "pwc.com", kpmg: "kpmg.com", wipro: "wipro.com", amazon: "amazon.com",
-  microsoft: "microsoft.com", google: "google.com", cisco: "cisco.com",
-  "lockheed martin": "lockheedmartin.com", "booz allen": "boozallen.com",
-  "at&t": "att.com", verizon: "verizon.com", comcast: "comcast.com",
-  dell: "dell.com", hp: "hp.com", apple: "apple.com", "best buy": "bestbuy.com",
-  crowdstrike: "crowdstrike.com", "palo alto networks": "paloaltonetworks.com",
-  mandiant: "mandiant.com", fireeye: "fireeye.com", "ncc group": "nccgroup.com",
-  rapid7: "rapid7.com", synack: "synack.com", hackerone: "hackerone.com",
-  rackspace: "rackspace.com", vmware: "vmware.com", ey: "ey.com",
-  hpe: "hpe.com", lenovo: "lenovo.com", "aws": "aws.amazon.com",
-  salesforce: "salesforce.com", sap: "sap.com", boeing: "boeing.com",
-  siemens: "siemens.com", ge: "ge.com", toyota: "toyota.com",
-  "scaled agile": "scaledagile.com", spotify: "spotify.com", netflix: "netflix.com",
-};
 
 const courseStats = [
   { value: 10000, suffix: "+", label: "Professionals Trained" },
