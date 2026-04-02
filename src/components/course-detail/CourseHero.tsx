@@ -70,7 +70,7 @@ const CourseHero = ({ course }: { course: Course }) => (
             </div>
 
             {/* Rated by Learners */}
-            <div className="flex flex-wrap items-center gap-4 md:gap-6 justify-center lg:justify-start mb-6">
+            <div className="flex flex-wrap items-center gap-4 md:gap-6 justify-center lg:justify-start mb-4">
               <div className="flex items-center gap-2">
                 <div className="flex -space-x-2">
                   {[
