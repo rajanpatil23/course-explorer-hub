@@ -56,7 +56,7 @@ const CourseHero = ({ course }: { course: Course }) => (
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-3 mb-6 md:mb-8 justify-center lg:justify-start">
+            <div className="flex flex-col sm:flex-row gap-3 mb-4 md:mb-5 justify-center lg:justify-start">
               <Button
                 size="lg"
                 className="bg-primary hover:bg-teal-dark text-primary-foreground font-semibold px-8 text-base gap-2 w-full sm:w-auto"
