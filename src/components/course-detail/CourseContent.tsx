@@ -7,6 +7,26 @@ import type { Course } from "@/data/courses";
 
 const highlightIcons = [Target, Zap, GraduationCap, Award, ShieldCheck, FileText, Layers, BarChart3, Globe, Briefcase, Users, Clock];
 
+const companyDomains: Record<string, string> = {
+  oracle: "oracle.com", accenture: "accenture.com", "bank of america": "bankofamerica.com",
+  bosch: "bosch.com", abbott: "abbott.com", allianz: "allianz.com", deloitte: "deloitte.com",
+  tcs: "tcs.com", capgemini: "capgemini.com", ibm: "ibm.com", cognizant: "cognizant.com",
+  infosys: "infosys.com", jpmorgan: "jpmorgan.com", "goldman sachs": "goldmansachs.com",
+  pwc: "pwc.com", kpmg: "kpmg.com", wipro: "wipro.com", amazon: "amazon.com",
+  microsoft: "microsoft.com", google: "google.com", cisco: "cisco.com",
+  "lockheed martin": "lockheedmartin.com", "booz allen": "boozallen.com",
+  "at&t": "att.com", verizon: "verizon.com", comcast: "comcast.com",
+  dell: "dell.com", hp: "hp.com", apple: "apple.com", "best buy": "bestbuy.com",
+  crowdstrike: "crowdstrike.com", "palo alto networks": "paloaltonetworks.com",
+  mandiant: "mandiant.com", fireeye: "fireeye.com", "ncc group": "nccgroup.com",
+  rapid7: "rapid7.com", synack: "synack.com", hackerone: "hackerone.com",
+  rackspace: "rackspace.com", vmware: "vmware.com", ey: "ey.com",
+  hpe: "hpe.com", lenovo: "lenovo.com", "aws": "aws.amazon.com",
+  salesforce: "salesforce.com", sap: "sap.com", boeing: "boeing.com",
+  siemens: "siemens.com", ge: "ge.com", toyota: "toyota.com",
+  "scaled agile": "scaledagile.com", spotify: "spotify.com", netflix: "netflix.com",
+};
+
 const courseStats = [
   { value: 10000, suffix: "+", label: "Professionals Trained" },
   { value: 40, suffix: "+", label: "Workshops Every Month" },
@@ -198,10 +218,29 @@ const CourseContent = ({ course, faqs }: { course: Course; faqs: { q: string; a:
         {course.demand.hiringCompanies?.length > 1 && (
           <div className="mt-4 pt-4 border-t border-border">
             <p className="text-xs text-muted-foreground mb-2">Hiring Companies</p>
-            <div className="flex flex-wrap gap-2">
-              {course.demand.hiringCompanies.map(c => (
-                <span key={c} className="bg-secondary text-foreground text-xs font-medium px-3 py-1.5 rounded-full border border-border">{c}</span>
-              ))}
+            <div className="flex flex-wrap items-center gap-4">
+              {course.demand.hiringCompanies.map(c => {
+                const domain = companyDomains[c.toLowerCase()];
+                return domain ? (
+                  <img
+                    key={c}
+                    src={`https://logo.clearbit.com/${domain}`}
+                    alt={c}
+                    title={c}
+                    className="h-6 object-contain grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100"
+                    onError={(e) => {
+                      const el = e.currentTarget;
+                      const parent = el.parentElement!;
+                      const span = document.createElement('span');
+                      span.className = 'bg-secondary text-foreground text-xs font-medium px-3 py-1.5 rounded-full border border-border';
+                      span.textContent = c;
+                      parent.replaceChild(span, el);
+                    }}
+                  />
+                ) : (
+                  <span key={c} className="bg-secondary text-foreground text-xs font-medium px-3 py-1.5 rounded-full border border-border">{c}</span>
+                );
+              })}
             </div>
           </div>
         )}
