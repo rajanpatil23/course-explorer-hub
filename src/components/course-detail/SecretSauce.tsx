@@ -60,10 +60,10 @@ const SecretSauce = ({ items, courseName }: { items: SecretSauceItem[]; courseNa
                     <img
                       src={img}
                       alt={item.title}
-                      className="w-16 h-16 object-contain mb-3"
+                    className="w-24 h-24 object-contain mb-3"
                       loading="lazy"
-                      width={64}
-                      height={64}
+                      width={96}
+                      height={96}
                     />
                     <p className="text-xs font-semibold text-foreground leading-snug">{item.title}</p>
                   </div>
