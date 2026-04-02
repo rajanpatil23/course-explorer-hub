@@ -68,9 +68,6 @@ const CourseStatsStrip = () => {
 
 const CourseContent = ({ course }: { course: Course }) => (
   <div className="space-y-12">
-    {/* Stats Strip */}
-    <CourseStatsStrip />
-
     {/* Prerequisites */}
     <section>
       <h2 className="font-heading text-2xl font-bold text-foreground mb-4">Prerequisites & Eligibility</h2>
@@ -83,6 +80,10 @@ const CourseContent = ({ course }: { course: Course }) => (
         ))}
       </ul>
     </section>
+
+    {/* Stats Strip */}
+    <CourseStatsStrip />
+
 
     {/* Course Highlights */}
     <section>
