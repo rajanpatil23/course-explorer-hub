@@ -266,9 +266,8 @@ const CourseContent = ({ course, faqs }: { course: Course; faqs: { q: string; a:
         <div className="absolute top-0 right-0 w-[300px] h-[300px] rounded-full bg-primary/10 blur-[120px]" />
 
         <div className="relative z-10 flex flex-col md:flex-row items-center gap-4 md:gap-10 px-5 md:px-10 lg:px-14">
-          <div className="hidden md:block shrink-0 self-end relative">
-            <div className="absolute top-[65%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-32 bg-primary/25 rounded-[50%] rotate-[-25deg] blur-[2px]" />
-            <img src={advisorModel} alt="Learning advisor" className="h-[140px] lg:h-[160px] object-contain relative z-10" />
+          <div className="hidden md:block shrink-0 self-end">
+            <img src={advisorModel} alt="Learning advisor" className="h-[140px] lg:h-[160px] object-contain" />
           </div>
           <div className="flex-1 py-5 md:py-8 text-center md:text-left">
             <h3 className="font-heading text-sm md:text-base lg:text-lg font-bold">
@@ -284,9 +283,8 @@ const CourseContent = ({ course, faqs }: { course: Course; faqs: { q: string; a:
               <ChevronRight className="w-4 h-4" />
             </Link>
           </div>
-          <div className="md:hidden shrink-0 self-center relative">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-24 bg-primary/25 rounded-[50%] rotate-[-25deg] blur-[2px]" />
-            <img src={advisorModel} alt="Learning advisor" className="h-[120px] object-contain relative z-10" />
+          <div className="md:hidden shrink-0 self-center">
+            <img src={advisorModel} alt="Learning advisor" className="h-[120px] object-contain" />
           </div>
         </div>
       </div>
