@@ -1,19 +1,30 @@
 const Terms = () => (
   <div className="min-h-screen">
-    {/* Hero */}
-    <section className="relative bg-hero text-hero-foreground overflow-hidden">
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-10 right-10 w-64 h-64 rounded-full bg-accent/30 blur-3xl" />
-        <div className="absolute bottom-10 left-10 w-48 h-48 rounded-full bg-teal-light/20 blur-3xl" />
-      </div>
-      <div className="container relative z-10 py-12 md:py-20 text-center max-w-3xl">
-        <span className="inline-block px-3 py-1 rounded-full bg-accent/20 text-accent text-xs font-semibold tracking-wide uppercase mb-4">
+    {/* Hero — light theme matching contact */}
+    <section className="relative bg-muted/40 text-foreground overflow-hidden rounded-b-[3rem] md:rounded-b-[8rem] shadow-sm">
+      <div
+        className="absolute inset-0 opacity-[0.07]"
+        style={{
+          backgroundImage: `linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)`,
+          backgroundSize: "40px 40px",
+        }}
+      />
+      <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-br from-background via-background/80 to-transparent z-[1]" />
+      <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-background via-background/80 to-transparent z-[1]" />
+      <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-background via-background/80 to-transparent z-[1]" />
+      <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-background via-background/80 to-transparent z-[1]" />
+      <div className="absolute top-20 right-20 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[180px] z-[2]" />
+      <div className="absolute bottom-0 left-10 w-[400px] h-[400px] rounded-full bg-accent/5 blur-[120px] z-[2]" />
+
+      <div className="container relative z-10 py-10 md:py-20 text-center max-w-3xl">
+        <p className="text-[10px] md:text-xs font-bold text-primary uppercase tracking-[0.2em] mb-3">
           Legal
-        </span>
-        <h1 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold">Terms &amp; Conditions</h1>
-        <p className="text-hero-foreground/60 mt-3 text-sm">Last Updated: March 2026</p>
+        </p>
+        <h1 className="font-heading text-2xl sm:text-3xl md:text-4xl font-extrabold leading-[1.12]">
+          Terms &amp; <span className="text-gradient-primary">Conditions</span>
+        </h1>
+        <p className="text-sm text-muted-foreground mt-3">Last Updated: March 2026</p>
       </div>
-      <div className="absolute bottom-0 left-0 right-0 h-8 md:h-12 bg-secondary rounded-t-[2rem] md:rounded-t-[4rem]" />
     </section>
 
     {/* Content */}
