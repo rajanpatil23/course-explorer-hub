@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Clock, Award, CheckCircle, Calendar, Phone, Mail } from "lucide-react";
+import { Clock, Award, CheckCircle, Calendar, Phone, Mail, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import type { Course } from "@/data/courses";
 
 const upcomingBatches = [
@@ -15,6 +16,8 @@ const CourseSidebar = ({ course }: { course: Course }) => {
   const { toast } = useToast();
   const [enrollForm, setEnrollForm] = useState({ name: "", email: "", phone: "" });
   const [submitting, setSubmitting] = useState(false);
+  const [batchesOpen, setBatchesOpen] = useState(false);
+  const [formOpen, setFormOpen] = useState(false);
 
   const handleEnroll = (e: React.FormEvent) => {
     e.preventDefault();
@@ -41,8 +44,8 @@ const CourseSidebar = ({ course }: { course: Course }) => {
 
   return (
     <div className="space-y-6">
-      <div className="sticky top-20 space-y-6">
-        {/* Pricing card */}
+      <div className="sticky top-20 space-y-4 max-h-[calc(100vh-6rem)] overflow-y-auto scrollbar-thin pr-1">
+        {/* Pricing card — always visible */}
         <div className="bg-card border border-border rounded-lg p-6 shadow-sm">
           <div className="mb-4">
             <span className="text-sm text-muted-foreground line-through">${course.originalPrice}</span>
@@ -56,7 +59,10 @@ const CourseSidebar = ({ course }: { course: Course }) => {
           <Button
             size="lg"
             className="w-full bg-primary hover:bg-teal-dark text-primary-foreground font-semibold mb-3"
-            onClick={() => document.getElementById("enrollment-form")?.scrollIntoView({ behavior: "smooth" })}
+            onClick={() => {
+              setFormOpen(true);
+              setTimeout(() => document.getElementById("enrollment-form")?.scrollIntoView({ behavior: "smooth", block: "nearest" }), 100);
+            }}
           >
             Enroll Now
           </Button>
@@ -70,41 +76,63 @@ const CourseSidebar = ({ course }: { course: Course }) => {
           </div>
         </div>
 
-        {/* Schedule */}
-        <div id="schedule-section" className="bg-card border border-border rounded-lg p-6 shadow-sm">
-          <h3 className="font-heading font-bold text-lg text-foreground mb-4">Upcoming Batches</h3>
-          <div className="space-y-3">
-            {upcomingBatches.map((batch, i) => (
-              <div key={i} className="border border-border rounded-lg p-3">
-                <div className="flex items-center gap-2 mb-1">
-                  <Calendar className="w-4 h-4 text-primary" />
-                  <span className="font-semibold text-foreground text-sm">{batch.date}</span>
-                </div>
-                <p className="text-xs text-muted-foreground mb-2">{batch.format} • {batch.time}</p>
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-muted-foreground">{batch.seats} seats left</span>
-                  <Button size="sm" className="bg-primary hover:bg-teal-dark text-primary-foreground font-semibold text-xs h-7">
-                    Enroll
-                  </Button>
-                </div>
+        {/* Schedule — collapsible */}
+        <Collapsible open={batchesOpen} onOpenChange={setBatchesOpen}>
+          <div id="schedule-section" className="bg-card border border-border rounded-lg shadow-sm overflow-hidden">
+            <CollapsibleTrigger className="w-full flex items-center justify-between p-5 hover:bg-muted/50 transition-colors">
+              <div className="flex items-center gap-2">
+                <Calendar className="w-4 h-4 text-primary" />
+                <h3 className="font-heading font-bold text-base text-foreground">Upcoming Batches</h3>
               </div>
-            ))}
+              <ChevronDown className={`w-4 h-4 text-muted-foreground transition-transform duration-200 ${batchesOpen ? "rotate-180" : ""}`} />
+            </CollapsibleTrigger>
+            <CollapsibleContent>
+              <div className="px-5 pb-5 space-y-3">
+                {upcomingBatches.map((batch, i) => (
+                  <div key={i} className="border border-border rounded-lg p-3">
+                    <div className="flex items-center gap-2 mb-1">
+                      <Calendar className="w-4 h-4 text-primary" />
+                      <span className="font-semibold text-foreground text-sm">{batch.date}</span>
+                    </div>
+                    <p className="text-xs text-muted-foreground mb-2">{batch.format} • {batch.time}</p>
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs text-muted-foreground">{batch.seats} seats left</span>
+                      <Button size="sm" className="bg-primary hover:bg-teal-dark text-primary-foreground font-semibold text-xs h-7">
+                        Enroll
+                      </Button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </CollapsibleContent>
           </div>
-        </div>
+        </Collapsible>
 
-        {/* Enrollment form */}
-        <div id="enrollment-form" className="bg-card border border-border rounded-lg p-6 shadow-sm">
-          <h3 className="font-heading font-bold text-lg text-foreground mb-1">Request Enrollment</h3>
-          <p className="text-xs text-muted-foreground mb-5">Fill the form and our advisor will contact you within 24 hours.</p>
-          <form onSubmit={handleEnroll} className="space-y-3">
-            <Input placeholder="Full Name" value={enrollForm.name} onChange={e => setEnrollForm(p => ({ ...p, name: e.target.value }))} maxLength={100} required className="text-sm" />
-            <Input type="email" placeholder="Email Address" value={enrollForm.email} onChange={e => setEnrollForm(p => ({ ...p, email: e.target.value }))} maxLength={255} required className="text-sm" />
-            <Input type="tel" placeholder="Phone Number (optional)" value={enrollForm.phone} onChange={e => setEnrollForm(p => ({ ...p, phone: e.target.value }))} maxLength={15} className="text-sm" />
-            <Button type="submit" disabled={submitting} className="w-full bg-primary hover:bg-teal-dark text-primary-foreground font-semibold">
-              {submitting ? "Submitting…" : "Submit Enrollment Request"}
-            </Button>
-          </form>
-        </div>
+        {/* Enrollment form — collapsible */}
+        <Collapsible open={formOpen} onOpenChange={setFormOpen}>
+          <div id="enrollment-form" className="bg-card border border-border rounded-lg shadow-sm overflow-hidden">
+            <CollapsibleTrigger className="w-full flex items-center justify-between p-5 hover:bg-muted/50 transition-colors">
+              <div className="flex items-center gap-2">
+                <Mail className="w-4 h-4 text-primary" />
+                <h3 className="font-heading font-bold text-base text-foreground">Request Enrollment</h3>
+              </div>
+              <ChevronDown className={`w-4 h-4 text-muted-foreground transition-transform duration-200 ${formOpen ? "rotate-180" : ""}`} />
+            </CollapsibleTrigger>
+            <CollapsibleContent>
+              <div className="px-5 pb-5">
+                <p className="text-xs text-muted-foreground mb-4">Fill the form and our advisor will contact you within 24 hours.</p>
+                <form onSubmit={handleEnroll} className="space-y-3">
+                  <Input placeholder="Full Name" value={enrollForm.name} onChange={e => setEnrollForm(p => ({ ...p, name: e.target.value }))} maxLength={100} required className="text-sm" />
+                  <Input type="email" placeholder="Email Address" value={enrollForm.email} onChange={e => setEnrollForm(p => ({ ...p, email: e.target.value }))} maxLength={255} required className="text-sm" />
+                  <Input type="tel" placeholder="Phone Number (optional)" value={enrollForm.phone} onChange={e => setEnrollForm(p => ({ ...p, phone: e.target.value }))} maxLength={15} className="text-sm" />
+                  <Button type="submit" disabled={submitting} className="w-full bg-primary hover:bg-teal-dark text-primary-foreground font-semibold">
+                    {submitting ? "Submitting…" : "Submit Enrollment Request"}
+                  </Button>
+                </form>
+              </div>
+            </CollapsibleContent>
+          </div>
+        </Collapsible>
 
         {/* Contact */}
         <div className="bg-teal-light rounded-lg p-5 text-center">
