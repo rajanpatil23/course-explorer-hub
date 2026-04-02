@@ -150,6 +150,11 @@ const courseDetails: Record<string, Partial<Course>> = {
       { text: "Complete CAPM Study Guide & Materials", bold: "Study Guide" },
       { text: "Practice Exams Aligned with PMI Standards", bold: "Practice Exams" },
       { text: "PMI Application Support & Guidance", bold: "Application Support" },
+      { text: "PMBOK 7th Edition Framework Coverage", bold: "PMBOK 7th Edition" },
+      { text: "Agile & Predictive Methodology Training", bold: "Agile & Predictive" },
+      { text: "Real-World Project Scenarios & Case Studies", bold: "Case Studies" },
+      { text: "Exam Day Strategy & Time Management Tips", bold: "Exam Strategy" },
+      { text: "Post-Training Mentor Support for 30 Days", bold: "Mentor Support" },
     ],
     aboutCourse: "The CAPM® certification is the ideal entry-level credential for aspiring project managers. It validates your understanding of fundamental project management processes, terminology, and best practices as defined by PMI.",
     benefits: [
