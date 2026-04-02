@@ -67,7 +67,7 @@ const CourseStatsStrip = () => {
   );
 };
 
-const CourseContent = ({ course }: { course: Course }) => (
+const CourseContent = ({ course, faqs }: { course: Course; faqs: { q: string; a: string }[] }) => (
   <div className="space-y-12">
     {/* Prerequisites */}
     <section>
