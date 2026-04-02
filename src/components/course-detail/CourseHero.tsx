@@ -30,9 +30,9 @@ const CourseHero = ({ course }: { course: Course }) => (
       <div className="absolute top-20 right-20 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[180px] z-[2]" />
       <div className="absolute bottom-0 left-10 w-[400px] h-[400px] rounded-full bg-accent/5 blur-[120px] z-[2]" />
 
-      <div className="container relative z-10 py-10 md:py-20 lg:py-24 pb-20 md:pb-32 lg:pb-36">
+      <div className="container relative z-10 py-8 md:py-14 lg:py-16 pb-14 md:pb-20 lg:pb-24">
         {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-xs md:text-sm text-muted-foreground mb-5 md:mb-6">
+        <div className="flex items-center gap-2 text-xs md:text-sm text-muted-foreground mb-3 md:mb-4">
           <Link to="/" className="hover:text-primary transition-colors">Home</Link>
           <ChevronRight className="w-3.5 h-3.5" />
           <Link to="/courses" className="hover:text-primary transition-colors">Courses</Link>
@@ -43,20 +43,20 @@ const CourseHero = ({ course }: { course: Course }) => (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left content */}
           <div className="text-center lg:text-left">
-            <div className="flex items-center gap-3 mb-3 justify-center lg:justify-start">
+            <div className="flex items-center gap-3 mb-2 justify-center lg:justify-start">
               <Badge className={`${badgeColors[course.badge]} text-xs font-semibold border-0`}>{course.badge}</Badge>
               <span className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">{course.code}</span>
             </div>
 
-            <h1 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[3.25rem] font-extrabold leading-[1.12] mb-4 md:mb-5">
+            <h1 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold leading-[1.12] mb-2 md:mb-3">
               {course.name}
             </h1>
-            <p className="text-sm md:text-lg text-muted-foreground leading-relaxed max-w-lg mx-auto lg:mx-0 mb-6 md:mb-8">
+            <p className="text-sm md:text-base text-muted-foreground leading-relaxed max-w-lg mx-auto lg:mx-0 mb-4 md:mb-5">
               {course.subtitle}
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-3 mb-6 md:mb-8 justify-center lg:justify-start">
+            <div className="flex flex-col sm:flex-row gap-3 mb-4 md:mb-5 justify-center lg:justify-start">
               <Button
                 size="lg"
                 className="bg-primary hover:bg-teal-dark text-primary-foreground font-semibold px-8 text-base gap-2 w-full sm:w-auto"
@@ -70,7 +70,7 @@ const CourseHero = ({ course }: { course: Course }) => (
             </div>
 
             {/* Rated by Learners */}
-            <div className="flex flex-wrap items-center gap-4 md:gap-6 justify-center lg:justify-start mb-6">
+            <div className="flex flex-wrap items-center gap-4 md:gap-6 justify-center lg:justify-start mb-4">
               <div className="flex items-center gap-2">
                 <div className="flex -space-x-2">
                   {[
@@ -102,8 +102,8 @@ const CourseHero = ({ course }: { course: Course }) => (
             </div>
 
             {/* Hero highlights */}
-            <div className="space-y-2 md:space-y-3 max-w-lg mx-auto lg:mx-0">
-              {course.heroHighlights.map((h, i) => (
+            <div className="space-y-1.5 md:space-y-2 max-w-lg mx-auto lg:mx-0">
+              {course.heroHighlights.slice(0, 3).map((h, i) => (
                 <div key={i} className="flex items-start gap-2.5 text-left">
                   <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-primary mt-0.5 shrink-0" />
                   <p className="text-xs md:text-[15px] text-foreground leading-relaxed font-medium">{h}</p>
@@ -112,7 +112,7 @@ const CourseHero = ({ course }: { course: Course }) => (
             </div>
 
             {/* Meta bar */}
-            <div className="flex flex-wrap gap-4 md:gap-6 mt-6 md:mt-8 pt-5 border-t border-border text-xs md:text-sm text-muted-foreground justify-center lg:justify-start">
+            <div className="flex flex-wrap gap-4 md:gap-6 mt-4 md:mt-5 pt-4 border-t border-border text-xs md:text-sm text-muted-foreground justify-center lg:justify-start">
               <div className="flex items-center gap-1.5"><Clock className="w-4 h-4 text-primary" />{course.duration}</div>
               <div className="flex items-center gap-1.5"><Award className="w-4 h-4 text-primary" />{course.level}</div>
               <div className="flex items-center gap-1.5"><Users className="w-4 h-4 text-primary" />{course.contactHours} Contact Hrs</div>
