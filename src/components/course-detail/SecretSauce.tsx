@@ -44,30 +44,30 @@ const SecretSauce = ({ items, courseName }: { items: SecretSauceItem[]; courseNa
       </h2>
       <Carousel
         opts={{ align: "start", loop: true }}
-        className="w-full"
+        className="w-full px-12"
       >
         <CarouselContent className="-ml-3">
           {items.map((item, i) => {
             const img = imageMap[item.icon] || sauceGuarantee;
             return (
-              <CarouselItem key={i} className="pl-3 basis-1/2 sm:basis-1/3 lg:basis-1/4">
-                <div className="bg-card border border-border rounded-xl p-5 text-center hover:shadow-lg transition-shadow h-full flex flex-col items-center">
+              <CarouselItem key={i} className="pl-3 basis-1/2 sm:basis-1/3 lg:basis-1/5">
+                <div className="bg-card border border-border rounded-xl p-4 text-center hover:shadow-lg transition-shadow h-full flex flex-col items-center">
                   <img
                     src={img}
                     alt={item.title}
-                    className="w-20 h-20 object-contain mb-4"
+                    className="w-16 h-16 object-contain mb-3"
                     loading="lazy"
-                    width={80}
-                    height={80}
+                    width={64}
+                    height={64}
                   />
-                  <p className="text-sm font-semibold text-foreground leading-snug">{item.title}</p>
+                  <p className="text-xs font-semibold text-foreground leading-snug">{item.title}</p>
                 </div>
               </CarouselItem>
             );
           })}
         </CarouselContent>
-        <CarouselPrevious className="-left-4 bg-card border-border" />
-        <CarouselNext className="-right-4 bg-card border-border" />
+        <CarouselPrevious className="-left-1 bg-card border-border" />
+        <CarouselNext className="-right-1 bg-card border-border" />
       </Carousel>
     </div>
   </section>
