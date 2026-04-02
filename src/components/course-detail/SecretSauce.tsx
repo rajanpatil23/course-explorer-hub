@@ -49,7 +49,6 @@ const SecretSauce = ({ items, courseName }: { items: SecretSauceItem[]; courseNa
         </h2>
         <Carousel
           opts={{ align: "start", loop: true }}
-          plugins={[Autoplay({ delay: 2500, stopOnInteraction: false })]}
           className="w-full px-12"
         >
           <CarouselContent className="-ml-3">
