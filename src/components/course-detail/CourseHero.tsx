@@ -30,7 +30,7 @@ const CourseHero = ({ course }: { course: Course }) => (
       <div className="absolute top-20 right-20 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[180px] z-[2]" />
       <div className="absolute bottom-0 left-10 w-[400px] h-[400px] rounded-full bg-accent/5 blur-[120px] z-[2]" />
 
-      <div className="container relative z-10 py-10 md:py-20 lg:py-24 pb-20 md:pb-32 lg:pb-36">
+      <div className="container relative z-10 py-8 md:py-14 lg:py-16 pb-14 md:pb-20 lg:pb-24">
         {/* Breadcrumb */}
         <div className="flex items-center gap-2 text-xs md:text-sm text-muted-foreground mb-5 md:mb-6">
           <Link to="/" className="hover:text-primary transition-colors">Home</Link>
