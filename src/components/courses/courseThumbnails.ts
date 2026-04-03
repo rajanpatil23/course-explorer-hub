@@ -29,6 +29,7 @@ import awsSap from "@/assets/courses/aws-sap.jpg";
 import awsDop from "@/assets/courses/aws-dop.jpg";
 import safeLsa from "@/assets/courses/safe-lsa.jpg";
 import safeSsm from "@/assets/courses/safe-ssm.jpg";
+import safeSp from "@/assets/courses/safe-sp.jpg";
 import safePopm from "@/assets/courses/safe-popm.jpg";
 import safeSpc from "@/assets/courses/safe-spc.jpg";
 import safeRte from "@/assets/courses/safe-rte.jpg";
