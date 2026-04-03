@@ -71,6 +71,7 @@ const CategoryCourses = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             {/* Left content */}
+            <div className="text-center lg:text-left">
               <h1 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[3.25rem] font-extrabold leading-[1.12] mb-4 md:mb-5">
                 {category.name}{" "}
                 <span className="text-gradient-primary">Courses</span>
