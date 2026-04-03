@@ -80,8 +80,9 @@ const CourseSidebar = ({ course }: { course: Course }) => {
             size="lg"
             className="w-full bg-primary hover:bg-teal-dark text-primary-foreground font-semibold mb-3"
             onClick={() => {
+              setBatchesOpen(true);
               setFormOpen(true);
-              setTimeout(() => document.getElementById("enrollment-form")?.scrollIntoView({ behavior: "smooth", block: "nearest" }), 100);
+              setTimeout(() => document.getElementById("schedule-section")?.scrollIntoView({ behavior: "smooth", block: "nearest" }), 100);
             }}
           >
             Enroll Now
