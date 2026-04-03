@@ -66,12 +66,12 @@ const Login = () => {
               </div>
               
               <h2 className="font-heading text-2xl font-bold leading-tight mb-3">
-                {isLogin ? "Welcome Back!" : "Start Your Journey"}
+                {isLogin ? "Welcome Back!" : "Join EduEdge"}
               </h2>
               <p className="text-sm text-primary-foreground/75 leading-relaxed">
                 {isLogin
                   ? "Sign in to access your courses, track your progress, and continue learning."
-                  : "Join thousands of professionals advancing their careers with industry-recognized certifications."}
+                  : "Request your registration and join thousands of professionals advancing their careers."}
               </p>
             </div>
 
