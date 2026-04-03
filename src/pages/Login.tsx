@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 import { Eye, EyeOff, Mail, Lock, User, CheckCircle2, Shield, Award, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -8,7 +8,8 @@ import { useToast } from "@/hooks/use-toast";
 const Login = () => {
   const { toast } = useToast();
   const [showPassword, setShowPassword] = useState(false);
-  const [isLogin, setIsLogin] = useState(true);
+  const [searchParams] = useSearchParams();
+  const [isLogin, setIsLogin] = useState(searchParams.get("mode") !== "register");
   const [form, setForm] = useState({ name: "", email: "", password: "" });
   const [submitting, setSubmitting] = useState(false);
   const [registrationSubmitted, setRegistrationSubmitted] = useState(false);
