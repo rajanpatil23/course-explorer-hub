@@ -6,7 +6,7 @@ import safeLogo from "@/assets/partners/safe-logo.png";
 import isc2Logo from "@/assets/partners/isc2-logo.png";
 
 const logos = [
-  { name: "PMI", src: pmiLogo, imageClassName: "max-h-8 md:max-h-10 max-w-[5rem] md:max-w-[6.5rem]" },
+  { name: "PMI", src: pmiLogo, imageClassName: "max-h-7 md:max-h-9 max-w-[4.5rem] md:max-w-[6rem]" },
   { name: "CompTIA", src: comptiaLogo, imageClassName: "max-h-8 md:max-h-10 max-w-[6.5rem] md:max-w-[8rem]" },
   { name: "AWS", src: awsLogo, imageClassName: "max-h-8 md:max-h-10 max-w-[6.5rem] md:max-w-[8rem]" },
   { name: "Microsoft", src: microsoftLogo, imageClassName: "max-h-8 md:max-h-10 max-w-[6.5rem] md:max-w-[8rem]" },
