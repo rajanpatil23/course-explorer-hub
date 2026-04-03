@@ -50,6 +50,8 @@ export interface Course {
   contactHours: string;
   rating: string;
   reviewCount: string;
+  brochureUrl?: string;
+  badgeImage?: string;
 }
 
 export interface Category {
