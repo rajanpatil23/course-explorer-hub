@@ -128,12 +128,12 @@ const CourseSidebar = ({ course }: { course: Course }) => {
                 <Button
                   size="lg"
                   className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold"
-                  onClick={() => window.open(course.brochureUrl, "_blank")}
+                  onClick={() => setBrochureOpen(true)}
                 >
                   Download Brochure
                 </Button>
               ) : (
-                <Button size="lg" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold">
+                <Button size="lg" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold" onClick={() => setBrochureOpen(true)}>
                   Download Brochure
                 </Button>
               )}
