@@ -286,6 +286,14 @@ const CourseSidebar = ({ course }: { course: Course }) => {
             />
           )}
         </div>
+        </div>
+
+        <BrochureDialog
+          open={brochureOpen}
+          onOpenChange={setBrochureOpen}
+          courseName={course.name}
+          brochureUrl={course.brochureUrl}
+        />
       </div>
     </div>
   );
