@@ -119,7 +119,7 @@ const HeroSection = () => {
                       <img
                         src={p.logo}
                         alt={p.name}
-                        className="h-7 sm:h-8 md:h-10 w-auto object-contain"
+                        className="h-5 sm:h-6 md:h-7 w-auto object-contain"
                         loading="lazy"
                       />
                     </div>
