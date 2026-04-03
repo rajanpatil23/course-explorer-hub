@@ -84,8 +84,8 @@ const EnrollmentForm = ({
 
 const CourseSidebar = ({ course }: { course: Course }) => {
   // Card 1 state
-  const [enrollStep, setEnrollStep] = useState<"idle" | "select" | "form">("idle");
-  const [enrollBatchIdx, setEnrollBatchIdx] = useState<string>("");
+  const [enrollStep, setEnrollStep] = useState<"idle" | "select">("idle");
+  const [enrollBatchIdx, setEnrollBatchIdx] = useState<number | null>(null);
 
   // Card 2 state
   const [card2SelectedBatch, setCard2SelectedBatch] = useState<number | null>(null);
