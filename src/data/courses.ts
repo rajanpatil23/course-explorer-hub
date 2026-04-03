@@ -1953,7 +1953,7 @@ function enrichCourse(base: {
       : base.level === "Intermediate"
       ? ["1–3 years of professional experience", "Foundational knowledge in the domain"]
       : ["3+ years of professional experience", "Prior related certification recommended"]),
-    includes: [
+    includes: details.includes || [
       "Live instructor-led training",
       "Official courseware & study materials",
       "Hands-on labs & exercises",
@@ -1966,6 +1966,8 @@ function enrichCourse(base: {
     contactHours: details.contactHours || base.duration.match(/\d+/)?.[0] || "40",
     rating: details.rating || "4.7",
     reviewCount: details.reviewCount || "1,000+",
+    brochureUrl: details.brochureUrl,
+    badgeImage: details.badgeImage,
   };
 }
 
