@@ -219,7 +219,7 @@ const Login = () => {
                   size="lg"
                   className="w-full h-12 font-semibold text-[15px] mt-2"
                 >
-                  {submitting ? "Please wait…" : isLogin ? "Sign In" : "Create Account"}
+                  {submitting ? "Please wait…" : isLogin ? "Sign In" : "Request Registration"}
                 </Button>
               </form>
 
