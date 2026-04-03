@@ -69,7 +69,7 @@ const PopularCourseCard = ({ course }: { course: Course }) => {
         </Link>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default PopularCourseCard;
