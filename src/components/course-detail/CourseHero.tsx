@@ -9,9 +9,7 @@ import { categories } from "@/data/courses";
 
 const categorySlugMap: Record<string, string> = {};
 categories.forEach((cat) => {
-  cat.courses.forEach((course) => {
-    categorySlugMap[course.category] = cat.slug;
-  });
+  categorySlugMap[cat.name] = cat.slug;
 });
 
 const badgeColors: Record<BadgeType, string> = {
