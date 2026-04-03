@@ -13,7 +13,7 @@ const partners = [
   {
     name: "PMI",
     logo: pmiLogo,
-    imageClassName: "max-h-6 sm:max-h-7 md:max-h-8 max-w-[2.75rem] sm:max-w-[3.5rem] md:max-w-[4rem]",
+    imageClassName: "max-h-4 sm:max-h-5 md:max-h-6 max-w-[2rem] sm:max-w-[2.5rem] md:max-w-[3rem]",
   },
   {
     name: "CompTIA",
