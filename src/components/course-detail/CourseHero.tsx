@@ -40,13 +40,25 @@ const CourseHero = ({ course }: { course: Course }) => (
 
       <div className="container relative z-10 py-8 md:py-14 lg:py-16 pb-14 md:pb-20 lg:pb-24">
         {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-xs md:text-sm text-muted-foreground mb-3 md:mb-4">
-          <Link to="/" className="hover:text-primary transition-colors">Home</Link>
-          <ChevronRight className="w-3.5 h-3.5" />
-          <Link to="/courses" className="hover:text-primary transition-colors">Courses</Link>
-          <ChevronRight className="w-3.5 h-3.5" />
-          <span className="text-foreground font-medium truncate">{course.name}</span>
-        </div>
+        {(() => {
+          const catSlug = categorySlugMap[course.category];
+          const catObj = categories.find((c) => c.slug === catSlug);
+          return (
+            <div className="flex items-center gap-2 text-xs md:text-sm text-muted-foreground mb-3 md:mb-4">
+              <Link to="/" className="hover:text-primary transition-colors">Home</Link>
+              <ChevronRight className="w-3.5 h-3.5" />
+              {catObj ? (
+                <Link to={`/courses/category/${catObj.slug}`} className="hover:text-primary transition-colors">
+                  {catObj.name}
+                </Link>
+              ) : (
+                <Link to="/courses" className="hover:text-primary transition-colors">Courses</Link>
+              )}
+              <ChevronRight className="w-3.5 h-3.5" />
+              <span className="text-foreground font-medium truncate">{course.name}</span>
+            </div>
+          );
+        })()}
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left content */}
