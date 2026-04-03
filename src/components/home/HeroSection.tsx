@@ -10,36 +10,12 @@ import safeLogo from "@/assets/partners/safe-logo.png";
 import isc2Logo from "@/assets/partners/isc2-logo.png";
 
 const partners = [
-  {
-    name: "PMI",
-    logo: pmiLogo,
-    imageClassName: "max-h-4 sm:max-h-5 md:max-h-6 max-w-[2rem] sm:max-w-[2.5rem] md:max-w-[3rem]",
-  },
-  {
-    name: "CompTIA",
-    logo: comptiaLogo,
-    imageClassName: "max-h-5 sm:max-h-6 md:max-h-7 max-w-[4.5rem] sm:max-w-[5.75rem] md:max-w-[6.75rem]",
-  },
-  {
-    name: "AWS",
-    logo: awsLogo,
-    imageClassName: "max-h-5 sm:max-h-6 md:max-h-7 max-w-[4.5rem] sm:max-w-[5.75rem] md:max-w-[6.75rem]",
-  },
-  {
-    name: "Microsoft",
-    logo: microsoftLogo,
-    imageClassName: "max-h-5 sm:max-h-6 md:max-h-7 max-w-[4.5rem] sm:max-w-[5.75rem] md:max-w-[6.75rem]",
-  },
-  {
-    name: "SAFe",
-    logo: safeLogo,
-    imageClassName: "max-h-5 sm:max-h-6 md:max-h-7 max-w-[4.5rem] sm:max-w-[5.75rem] md:max-w-[6.75rem]",
-  },
-  {
-    name: "ISC2",
-    logo: isc2Logo,
-    imageClassName: "max-h-5 sm:max-h-6 md:max-h-7 max-w-[4.5rem] sm:max-w-[5.75rem] md:max-w-[6.75rem]",
-  },
+  { name: "PMI", logo: pmiLogo },
+  { name: "CompTIA", logo: comptiaLogo },
+  { name: "AWS", logo: awsLogo },
+  { name: "Microsoft", logo: microsoftLogo },
+  { name: "SAFe", logo: safeLogo },
+  { name: "ISC2", logo: isc2Logo },
 ];
 
 const HeroSection = () => {
@@ -138,12 +114,12 @@ const HeroSection = () => {
                   {[...partners, ...partners].map((p, i) => (
                     <div
                       key={`${p.name}-${i}`}
-                      className="flex h-8 sm:h-10 md:h-12 w-[4.5rem] sm:w-[5.5rem] md:w-[6.5rem] items-center justify-center flex-shrink-0"
+                      className="flex h-8 sm:h-10 md:h-12 items-center justify-center flex-shrink-0"
                     >
                       <img
                         src={p.logo}
                         alt={p.name}
-                        className={`${p.imageClassName} h-auto w-auto object-contain`}
+                        className="h-7 sm:h-8 md:h-10 w-auto object-contain"
                         loading="lazy"
                       />
                     </div>
