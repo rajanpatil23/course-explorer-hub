@@ -31,11 +31,13 @@ const Login = () => {
     setSubmitting(true);
     setTimeout(() => {
       setSubmitting(false);
+      if (!isLogin) {
+        setRegistrationSubmitted(true);
+        return;
+      }
       toast({
-        title: isLogin ? "Login Successful" : "Registration Requested",
-        description: isLogin
-          ? "Welcome back! Redirecting…"
-          : "Your registration request has been submitted. Our team will review and get back to you shortly.",
+        title: "Login Successful",
+        description: "Welcome back! Redirecting…",
       });
     }, 1200);
   };
