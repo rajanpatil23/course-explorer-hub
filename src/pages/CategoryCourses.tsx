@@ -64,8 +64,6 @@ const CategoryCourses = () => {
           <div className="flex items-center gap-2 text-xs md:text-sm text-muted-foreground mb-4 md:mb-6">
             <Link to="/" className="hover:text-primary transition-colors">Home</Link>
             <ChevronRight className="w-3.5 h-3.5" />
-            <Link to="/courses" className="hover:text-primary transition-colors">Courses</Link>
-            <ChevronRight className="w-3.5 h-3.5" />
             <span className="text-foreground font-medium truncate">{category.name}</span>
           </div>
 
