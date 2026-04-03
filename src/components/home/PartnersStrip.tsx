@@ -1,9 +1,9 @@
-import pmiLogo from "@/assets/partners/pmi-logo.png";
-import comptiaLogo from "@/assets/partners/comptia-logo.png";
-import awsLogo from "@/assets/partners/aws-logo.png";
-import microsoftLogo from "@/assets/partners/microsoft-logo.png";
-import safeLogo from "@/assets/partners/safe-logo.png";
-import isc2Logo from "@/assets/partners/isc2-logo.png";
+import pmiLogo from "@/assets/partners/pmi-logo-trimmed.png";
+import comptiaLogo from "@/assets/partners/comptia-logo-trimmed.png";
+import awsLogo from "@/assets/partners/aws-logo-trimmed.png";
+import microsoftLogo from "@/assets/partners/microsoft-logo-trimmed.png";
+import safeLogo from "@/assets/partners/safe-logo-trimmed.png";
+import isc2Logo from "@/assets/partners/isc2-logo-trimmed.png";
 
 const logos = [
   { name: "PMI", src: pmiLogo, imageClassName: "h-5 md:h-6 w-auto max-w-[3rem] md:max-w-[4rem]" },
