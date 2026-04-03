@@ -31,10 +31,10 @@ const Login = () => {
     setTimeout(() => {
       setSubmitting(false);
       toast({
-        title: isLogin ? "Login Successful" : "Account Created",
+        title: isLogin ? "Login Successful" : "Registration Requested",
         description: isLogin
           ? "Welcome back! Redirecting…"
-          : "Your account has been created. Please check your email to verify.",
+          : "Your registration request has been submitted. Our team will review and get back to you shortly.",
       });
     }, 1200);
   };
