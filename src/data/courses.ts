@@ -2118,6 +2118,13 @@ export function findCourseBySlug(slug: string): Course | undefined {
   return undefined;
 }
 
+export function findCategorySlugForCourse(courseSlug: string): string | undefined {
+  for (const cat of categories) {
+    if (cat.courses.some(c => c.slug === courseSlug)) return cat.slug;
+  }
+  return undefined;
+}
+
 // Helper to find category FAQs for a given course slug
 export function findCourseFaqs(slug: string): { q: string; a: string }[] {
   for (const cat of categories) {
