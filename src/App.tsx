@@ -30,8 +30,6 @@ const App = () => (
         <Routes>
           <Route element={<Layout />}>
             <Route path="/login" element={<Login />} />
-          <Route element={<Layout />}>
-            <Route path="/" element={<Index />} />
             <Route path="/courses" element={<Courses />} />
             <Route path="/courses/category/:categorySlug" element={<CategoryCourses />} />
             <Route path="/courses/:slug" element={<CourseDetail />} />
