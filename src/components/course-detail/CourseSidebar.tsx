@@ -93,6 +93,7 @@ const CourseSidebar = ({ course }: { course: Course }) => {
 
   // Card 3 state (general enquiry - no batch)
   const [showEnquiryForm, setShowEnquiryForm] = useState(false);
+  const [batchesOpen, setBatchesOpen] = useState(false);
 
   return (
     <div className="h-full">
