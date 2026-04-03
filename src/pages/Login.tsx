@@ -10,6 +10,11 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [searchParams] = useSearchParams();
   const [isLogin, setIsLogin] = useState(searchParams.get("mode") !== "register");
+
+  useEffect(() => {
+    setIsLogin(searchParams.get("mode") !== "register");
+    setRegistrationSubmitted(false);
+  }, [searchParams]);
   const [form, setForm] = useState({ name: "", email: "", password: "" });
   const [submitting, setSubmitting] = useState(false);
   const [registrationSubmitted, setRegistrationSubmitted] = useState(false);
