@@ -12,7 +12,10 @@ const badgeConfig: Record<BadgeType, string> = {
   Advance: "bg-blue-600 text-white",
 };
 
-const PopularCourseCard = ({ course }: { course: Course }) => (
+const PopularCourseCard = ({ course }: { course: Course }) => {
+  const catSlug = findCategorySlugForCourse(course.slug) || "courses";
+  const courseUrl = `/${catSlug}/${course.slug}`;
+  return (
   <div className="group bg-card rounded-2xl border border-border overflow-hidden flex flex-col relative h-full">
     <div className="relative overflow-hidden rounded-xl m-3 md:m-4 mb-0 h-32 md:h-40 flex-shrink-0">
       <span className={`absolute top-2 left-2 z-10 ${badgeConfig[course.badge]} text-[10px] md:text-[11px] font-bold px-2.5 md:px-3 py-1 rounded-md shadow-sm`}>
