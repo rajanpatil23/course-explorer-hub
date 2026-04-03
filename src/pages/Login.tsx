@@ -230,7 +230,7 @@ const Login = () => {
                   className="font-semibold text-primary hover:text-primary/80 transition-colors"
                   onClick={() => { setIsLogin(!isLogin); setForm({ name: "", email: "", password: "" }); }}
                 >
-                  {isLogin ? "Create one" : "Sign in instead"}
+                  {isLogin ? "Request registration" : "Sign in instead"}
                 </button>
               </p>
 
