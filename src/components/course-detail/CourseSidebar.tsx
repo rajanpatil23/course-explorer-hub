@@ -15,9 +15,16 @@ const upcomingBatches = [
 const CourseSidebar = ({ course }: { course: Course }) => {
   const { toast } = useToast();
   const [enrollForm, setEnrollForm] = useState({ name: "", email: "", phone: "" });
+  const [selectedBatch, setSelectedBatch] = useState<number | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [batchesOpen, setBatchesOpen] = useState(false);
   const [formOpen, setFormOpen] = useState(false);
+
+  const openFormWithBatch = (batchIndex: number) => {
+    setSelectedBatch(batchIndex);
+    setFormOpen(true);
+    setTimeout(() => document.getElementById("enrollment-form")?.scrollIntoView({ behavior: "smooth", block: "nearest" }), 100);
+  };
 
   const handleEnroll = (e: React.FormEvent) => {
     e.preventDefault();
@@ -34,11 +41,24 @@ const CourseSidebar = ({ course }: { course: Course }) => {
       toast({ title: "Invalid phone", description: "Please enter a valid phone number.", variant: "destructive" });
       return;
     }
+
     setSubmitting(true);
+
+    const batch = selectedBatch !== null ? upcomingBatches[selectedBatch] : null;
+    const batchInfo = batch ? `\nPreferred Batch: ${batch.date} (${batch.format}, ${batch.time})` : "\nNo specific batch selected";
+
+    const subject = encodeURIComponent(`Enrollment Inquiry – ${course.name}`);
+    const body = encodeURIComponent(
+      `Hi EduEdge Team,\n\nI would like to enroll in the following course:\n\nCourse: ${course.name}\nCourse Code: ${course.code}${batchInfo}\n\nMy Details:\nName: ${name.trim()}\nEmail: ${email.trim()}${phone ? `\nPhone: ${phone.trim()}` : ""}\n\nPlease share next steps.\n\nThank you.`
+    );
+
+    window.open(`mailto:contact@theeduedge.org?subject=${subject}&body=${body}`, "_self");
+
     setTimeout(() => {
       setSubmitting(false);
-      toast({ title: "Enrollment Request Sent!", description: "Our team will contact you within 24 hours." });
+      toast({ title: "Enrollment Request Opened!", description: "Your email client should open with the inquiry. If not, email us at contact@theeduedge.org." });
       setEnrollForm({ name: "", email: "", phone: "" });
+      setSelectedBatch(null);
     }, 1000);
   };
 
@@ -89,7 +109,15 @@ const CourseSidebar = ({ course }: { course: Course }) => {
             <CollapsibleContent>
               <div className="px-5 pb-5 space-y-3">
                 {upcomingBatches.map((batch, i) => (
-                  <div key={i} className="border border-border rounded-lg p-3">
+                  <div
+                    key={i}
+                    className={`border rounded-lg p-3 cursor-pointer transition-all duration-200 ${
+                      selectedBatch === i
+                        ? "border-primary bg-primary/5 ring-1 ring-primary/20"
+                        : "border-border hover:border-primary/40"
+                    }`}
+                    onClick={() => setSelectedBatch(selectedBatch === i ? null : i)}
+                  >
                     <div className="flex items-center gap-2 mb-1">
                       <Calendar className="w-4 h-4 text-primary" />
                       <span className="font-semibold text-foreground text-sm">{batch.date}</span>
@@ -97,7 +125,14 @@ const CourseSidebar = ({ course }: { course: Course }) => {
                     <p className="text-xs text-muted-foreground mb-2">{batch.format} • {batch.time}</p>
                     <div className="flex items-center justify-between">
                       <span className="text-xs text-muted-foreground">{batch.seats} seats left</span>
-                      <Button size="sm" className="bg-primary hover:bg-teal-dark text-primary-foreground font-semibold text-xs h-7">
+                      <Button
+                        size="sm"
+                        className="bg-primary hover:bg-teal-dark text-primary-foreground font-semibold text-xs h-7"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          openFormWithBatch(i);
+                        }}
+                      >
                         Enroll
                       </Button>
                     </div>
@@ -120,7 +155,14 @@ const CourseSidebar = ({ course }: { course: Course }) => {
             </CollapsibleTrigger>
             <CollapsibleContent>
               <div className="px-5 pb-5">
-                <p className="text-xs text-muted-foreground mb-4">Fill the form and our advisor will contact you within 24 hours.</p>
+                {selectedBatch !== null && (
+                  <div className="mb-3 p-2.5 rounded-md bg-primary/5 border border-primary/20">
+                    <p className="text-xs font-semibold text-primary mb-0.5">Selected Batch</p>
+                    <p className="text-sm text-foreground font-medium">{upcomingBatches[selectedBatch].date}</p>
+                    <p className="text-xs text-muted-foreground">{upcomingBatches[selectedBatch].format} • {upcomingBatches[selectedBatch].time}</p>
+                  </div>
+                )}
+                <p className="text-xs text-muted-foreground mb-4">Fill the form and we'll open your email client with the inquiry details.</p>
                 <form onSubmit={handleEnroll} className="space-y-3">
                   <Input placeholder="Full Name" value={enrollForm.name} onChange={e => setEnrollForm(p => ({ ...p, name: e.target.value }))} maxLength={100} required className="text-sm" />
                   <Input type="email" placeholder="Email Address" value={enrollForm.email} onChange={e => setEnrollForm(p => ({ ...p, email: e.target.value }))} maxLength={255} required className="text-sm" />
