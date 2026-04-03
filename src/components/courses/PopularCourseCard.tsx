@@ -57,12 +57,12 @@ const PopularCourseCard = ({ course }: { course: Course }) => {
         </div>
       </div>
       <div className="flex gap-2 pt-2.5 md:pt-3 border-t border-border">
-        <Link to={`/courses/${course.slug}`} className="flex-1">
+        <Link to={courseUrl} className="flex-1">
           <Button variant="outline" className="w-full text-[10px] md:text-xs font-semibold rounded-lg h-9 md:h-11 border-primary text-primary hover:bg-teal-light">
             View Course
           </Button>
         </Link>
-        <Link to={`/courses/${course.slug}`} className="flex-1">
+        <Link to={courseUrl} className="flex-1">
           <Button className="w-full text-[10px] md:text-xs font-semibold rounded-lg bg-primary hover:bg-teal-dark text-primary-foreground gap-1 h-9 md:h-11">
             Enroll Now <ChevronRight className="w-3 h-3" />
           </Button>
