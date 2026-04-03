@@ -1539,7 +1539,7 @@ const safeDetails: Record<string, Partial<Course>> = {
     contactHours: "16",
     rating: "4.8",
     reviewCount: "3,200",
-    brochureUrl: "/brochures/SAFe-Leading-SAFe-Overview.pdf",
+    brochureUrl: "/docs/SAFe-Leading-SAFe-Overview.pdf",
   },
   "SAFE-SSM": {
     subtitle: "Master Scrum in SAFe and Become a Certified SAFe® Scrum Master",
@@ -1650,7 +1650,7 @@ const safeDetails: Record<string, Partial<Course>> = {
     contactHours: "16",
     rating: "4.7",
     reviewCount: "1,500",
-    brochureUrl: "/brochures/SAFe-for-Teams-Overview.pdf",
+    brochureUrl: "/docs/SAFe-for-Teams-Overview.pdf",
   },
   "SAFE-POPM": {
     subtitle: "Align strategy with agile execution and AI to accelerate measurable value delivery",
@@ -1710,7 +1710,7 @@ const safeDetails: Record<string, Partial<Course>> = {
     contactHours: "16",
     rating: "4.7",
     reviewCount: "1,800",
-    brochureUrl: "/brochures/SAFe-POPM-Overview.pdf",
+    brochureUrl: "/docs/SAFe-POPM-Overview.pdf",
   },
   "SAFE-SPC": {
     subtitle: "Build enterprise transformation leadership and amplify coaching impact with AI",
@@ -1776,7 +1776,7 @@ const safeDetails: Record<string, Partial<Course>> = {
     contactHours: "32",
     rating: "4.8",
     reviewCount: "1,100",
-    brochureUrl: "/brochures/SAFe-Implementing-SPC-Overview.pdf",
+    brochureUrl: "/docs/SAFe-Implementing-SPC-Overview.pdf",
   },
   "SAFE-RTE": {
     subtitle: "Facilitate ARTs, optimize value delivery, and accelerate with AI",
@@ -1837,7 +1837,7 @@ const safeDetails: Record<string, Partial<Course>> = {
     contactHours: "24",
     rating: "4.7",
     reviewCount: "780",
-    brochureUrl: "/brochures/SAFe-RTE-Overview.pdf",
+    brochureUrl: "/docs/SAFe-RTE-Overview.pdf",
   },
   "SAFE-LPM": {
     subtitle: "Align Strategy and Execution with SAFe® Lean Portfolio Management",
