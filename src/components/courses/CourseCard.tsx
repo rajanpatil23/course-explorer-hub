@@ -3,6 +3,7 @@ import { Star, Clock, Users, Calendar } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import type { Course, BadgeType } from "@/data/courses";
+import { findCategorySlugForCourse } from "@/data/courses";
 import courseThumbnails from "./courseThumbnails";
 import categoryThumbnails from "./categoryThumbnails";
 
