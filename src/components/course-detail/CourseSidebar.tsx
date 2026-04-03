@@ -124,8 +124,20 @@ const CourseSidebar = ({ course }: { course: Course }) => {
                       <span className="font-semibold text-foreground text-sm">{batch.date}</span>
                     </div>
                     <p className="text-xs text-muted-foreground mb-2">{batch.format} • {batch.time}</p>
-                    <span className="text-xs text-muted-foreground">{batch.seats} seats left</span>
-                   </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs text-muted-foreground">{batch.seats} seats left</span>
+                      <Button
+                        size="sm"
+                        className="bg-primary hover:bg-teal-dark text-primary-foreground font-semibold text-xs h-7"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          openFormWithBatch(i);
+                        }}
+                      >
+                        Enroll
+                      </Button>
+                    </div>
+                  </div>
                 ))}
               </div>
             </CollapsibleContent>
