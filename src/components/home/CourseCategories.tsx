@@ -3,11 +3,11 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 import { useCallback, useEffect, useState } from "react";
 
-import logoPmi from "@/assets/partners/pmi-logo.png";
-import logoComptia from "@/assets/partners/comptia-logo.png";
-import logoAzure from "@/assets/partners/microsoft-logo.png";
-import logoAws from "@/assets/partners/aws-logo.png";
-import logoSafe from "@/assets/partners/safe-logo.png";
+import logoPmi from "@/assets/partners/pmi-logo-trimmed.png";
+import logoComptia from "@/assets/partners/comptia-logo-trimmed.png";
+import logoAzure from "@/assets/partners/microsoft-logo-trimmed.png";
+import logoAws from "@/assets/partners/aws-logo-trimmed.png";
+import logoSafe from "@/assets/partners/safe-logo-trimmed.png";
 
 const categoryCards = [
   {
