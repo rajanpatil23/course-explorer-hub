@@ -2083,12 +2083,12 @@ export const categories: Category[] = [
   {
     name: "SAFe® Agile",
     slug: "safe-agile",
-    description: "Scale agile practices across your enterprise with accredited SAFe training programs.",
+    description: "Scale agile practices across your enterprise with AI-Empowered, accredited SAFe® training programs.",
     icon: "layers",
     heroPoints: [
-      "Earn Accredited SAFe® Certifications from Scaled Agile Inc. to Lead Enterprise Transformations.",
+      "AI-Empowered SAFe® Certifications — Enhanced with Practical AI Prompting Techniques from Scaled Agile Inc.",
       "Learn from Certified SAFe® Practice Consultants with Real Agile Transformation Experience.",
-      "Get Hands-On with PI Planning Simulations, Lean Portfolio Exercises & Team-Based Activities.",
+      "Includes 1-Year SAFe Insider Access — SAFe Framework, SAFe CoPilot & SAFe Connect Forums.",
     ],
     faqs: [
       { q: "What is SAFe® and who is it for?", a: "SAFe® (Scaled Agile Framework) is a set of practices for implementing agile at enterprise scale. It's designed for organisations with multiple agile teams that need alignment, collaboration, and governance across large programs." },
