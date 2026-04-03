@@ -3,7 +3,7 @@ import { Clock, Award, CheckCircle, Calendar, Phone, Mail, ChevronDown } from "l
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import type { Course } from "@/data/courses";
 
 const upcomingBatches = [
@@ -93,6 +93,7 @@ const CourseSidebar = ({ course }: { course: Course }) => {
 
   // Card 3 state (general enquiry - no batch)
   const [showEnquiryForm, setShowEnquiryForm] = useState(false);
+  const [batchesOpen, setBatchesOpen] = useState(false);
 
   return (
     <div className="h-full">
@@ -173,54 +174,73 @@ const CourseSidebar = ({ course }: { course: Course }) => {
           </div>
         </div>
 
-        {/* Card 2: Upcoming Batches */}
-        <div className="bg-card border border-border rounded-lg shadow-sm overflow-hidden">
-          <div className="flex items-center gap-2 p-5 pb-3">
-            <Calendar className="w-4 h-4 text-primary" />
-            <h3 className="font-heading font-bold text-base text-foreground">Upcoming Batches</h3>
-          </div>
-          <div className="px-5 pb-5 space-y-3">
-            {upcomingBatches.map((batch, i) => (
-              <div
-                key={i}
-                className={`border rounded-lg p-3 cursor-pointer transition-all duration-200 ${
-                  card2SelectedBatch === i
-                    ? "border-primary bg-primary/5 ring-1 ring-primary/20"
-                    : "border-border hover:border-primary/40"
-                }`}
-                onClick={() => setCard2SelectedBatch(card2SelectedBatch === i ? null : i)}
-              >
-                <div className="flex items-center gap-2 mb-1">
-                  <Calendar className="w-4 h-4 text-primary" />
-                  <span className="font-semibold text-foreground text-sm">{batch.date}</span>
-                </div>
-                <p className="text-xs text-muted-foreground mb-2">{batch.format} • {batch.time}</p>
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-muted-foreground">{batch.seats} seats left</span>
-                  <Button
-                    size="sm"
-                    className="bg-primary hover:bg-teal-dark text-primary-foreground font-semibold text-xs h-7"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setCard2SelectedBatch(i);
-                      setCard2ShowForm(true);
-                    }}
-                  >
-                    Enroll
-                  </Button>
-                </div>
+        {/* Card 2: Upcoming Batches (Collapsible) */}
+        <Collapsible open={batchesOpen} onOpenChange={setBatchesOpen}>
+          <div className="bg-card border border-border rounded-lg shadow-sm overflow-hidden">
+            <CollapsibleTrigger className="w-full flex items-center justify-between p-5 hover:bg-muted/50 transition-colors">
+              <div className="flex items-center gap-2">
+                <Calendar className="w-4 h-4 text-primary" />
+                <h3 className="font-heading font-bold text-base text-foreground">Upcoming Batches</h3>
               </div>
-            ))}
-
-            {card2ShowForm && card2SelectedBatch !== null && (
-              <EnrollmentForm
-                course={course}
-                batch={upcomingBatches[card2SelectedBatch]}
-                onClose={() => { setCard2ShowForm(false); setCard2SelectedBatch(null); }}
-              />
-            )}
+              <ChevronDown className={`w-4 h-4 text-muted-foreground transition-transform duration-200 ${batchesOpen ? "rotate-180" : ""}`} />
+            </CollapsibleTrigger>
+            <CollapsibleContent>
+              <div className="px-5 pb-5 space-y-3">
+                {!card2ShowForm ? (
+                  <>
+                    {upcomingBatches.map((batch, i) => (
+                      <div
+                        key={i}
+                        className={`border rounded-lg p-3 cursor-pointer transition-all duration-200 ${
+                          card2SelectedBatch === i
+                            ? "border-primary bg-primary/5 ring-1 ring-primary/20"
+                            : "border-border hover:border-primary/40"
+                        }`}
+                        onClick={() => setCard2SelectedBatch(card2SelectedBatch === i ? null : i)}
+                      >
+                        <div className="flex items-center gap-2 mb-1">
+                          <Calendar className="w-4 h-4 text-primary" />
+                          <span className="font-semibold text-foreground text-sm">{batch.date}</span>
+                        </div>
+                        <p className="text-xs text-muted-foreground mb-2">{batch.format} • {batch.time}</p>
+                        <div className="flex items-center justify-between">
+                          <span className="text-xs text-muted-foreground">{batch.seats} seats left</span>
+                          <Button
+                            size="sm"
+                            className="bg-primary hover:bg-teal-dark text-primary-foreground font-semibold text-xs h-7"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setCard2SelectedBatch(i);
+                              setCard2ShowForm(true);
+                            }}
+                          >
+                            Enroll
+                          </Button>
+                        </div>
+                      </div>
+                    ))}
+                  </>
+                ) : card2SelectedBatch !== null ? (
+                  <div>
+                    <EnrollmentForm
+                      course={course}
+                      batch={upcomingBatches[card2SelectedBatch]}
+                      onClose={() => { setCard2ShowForm(false); setCard2SelectedBatch(null); }}
+                    />
+                    <button
+                      type="button"
+                      className="flex items-center gap-1 mt-3 text-xs font-medium text-primary hover:text-primary/80 transition-colors"
+                      onClick={() => { setCard2ShowForm(false); setCard2SelectedBatch(null); }}
+                    >
+                      <ChevronDown className="w-3 h-3 rotate-90" />
+                      Change batch
+                    </button>
+                  </div>
+                ) : null}
+              </div>
+            </CollapsibleContent>
           </div>
-        </div>
+        </Collapsible>
 
         {/* Card 3: General Enquiry */}
         <div className="bg-teal-light rounded-lg p-5">
