@@ -125,18 +125,14 @@ const CourseSidebar = ({ course }: { course: Course }) => {
             </>
           )}
 
-          {enrollStep === "select" && (
+          {enrollStep === "select" && enrollBatchIdx === null && (
             <div className="space-y-3">
               <p className="text-sm font-medium text-foreground">Select a batch to enroll:</p>
               {upcomingBatches.map((batch, i) => (
                 <div
                   key={i}
-                  className={`border rounded-lg p-3 cursor-pointer transition-all duration-200 ${
-                    enrollBatchIdx === i
-                      ? "border-primary bg-primary/5 ring-1 ring-primary/20"
-                      : "border-border hover:border-primary/40"
-                  }`}
-                  onClick={() => setEnrollBatchIdx(enrollBatchIdx === i ? null : i)}
+                  className="border border-border hover:border-primary/40 rounded-lg p-3 cursor-pointer transition-all duration-200"
+                  onClick={() => setEnrollBatchIdx(i)}
                 >
                   <div className="flex items-center gap-2 mb-1">
                     <Calendar className="w-4 h-4 text-primary" />
@@ -146,17 +142,21 @@ const CourseSidebar = ({ course }: { course: Course }) => {
                   <p className="text-xs text-muted-foreground mt-1">{batch.seats} seats left</p>
                 </div>
               ))}
-
-              {enrollBatchIdx !== null && (
-                <EnrollmentForm
-                  course={course}
-                  batch={upcomingBatches[enrollBatchIdx]}
-                  onClose={() => { setEnrollStep("idle"); setEnrollBatchIdx(null); }}
-                />
-              )}
-
-              <Button variant="ghost" size="sm" className="text-xs text-muted-foreground" onClick={() => { setEnrollStep("idle"); setEnrollBatchIdx(null); }}>
+              <Button variant="ghost" size="sm" className="text-xs text-muted-foreground" onClick={() => setEnrollStep("idle")}>
                 ← Back
+              </Button>
+            </div>
+          )}
+
+          {enrollStep === "select" && enrollBatchIdx !== null && (
+            <div>
+              <EnrollmentForm
+                course={course}
+                batch={upcomingBatches[enrollBatchIdx]}
+                onClose={() => { setEnrollStep("idle"); setEnrollBatchIdx(null); }}
+              />
+              <Button variant="ghost" size="sm" className="text-xs text-muted-foreground mt-2" onClick={() => setEnrollBatchIdx(null)}>
+                ← Change batch
               </Button>
             </div>
           )}
