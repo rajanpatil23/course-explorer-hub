@@ -41,19 +41,6 @@ const Login = () => {
 
   return (
     <div className="bg-background">
-      {/* Hero banner */}
-      <div className="bg-gradient-to-br from-primary to-accent py-12 md:py-16">
-        <div className="container text-center">
-          <h1 className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground mb-3">
-            {isLogin ? "Welcome Back" : "Create Your Account"}
-          </h1>
-          <p className="text-primary-foreground/80 text-base md:text-lg max-w-xl mx-auto">
-            {isLogin
-              ? "Sign in to access your courses, track progress, and continue learning."
-              : "Join thousands of professionals advancing their careers with EduEdge."}
-          </p>
-        </div>
-      </div>
 
       <div className="container py-10 md:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
