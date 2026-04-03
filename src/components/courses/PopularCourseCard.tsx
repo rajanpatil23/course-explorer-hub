@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Star, Clock, Users, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { Course, BadgeType } from "@/data/courses";
+import { findCategorySlugForCourse } from "@/data/courses";
 import courseThumbnails from "@/components/courses/courseThumbnails";
 import categoryThumbnails from "@/components/courses/categoryThumbnails";
 
