@@ -143,9 +143,14 @@ const CourseSidebar = ({ course }: { course: Course }) => {
                   <p className="text-xs text-muted-foreground mt-1">{batch.seats} seats left</p>
                 </div>
               ))}
-              <Button variant="ghost" size="sm" className="text-xs text-muted-foreground" onClick={() => setEnrollStep("idle")}>
-                ← Back
-              </Button>
+              <button
+                type="button"
+                className="flex items-center gap-1 mt-1 text-xs font-medium text-primary hover:text-primary/80 transition-colors"
+                onClick={() => setEnrollStep("idle")}
+              >
+                <ChevronDown className="w-3 h-3 rotate-90" />
+                Back
+              </button>
             </div>
           )}
 
