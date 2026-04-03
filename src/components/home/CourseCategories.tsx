@@ -111,7 +111,7 @@ const CourseCategories = () => {
                 className="flex-[0_0_85%] sm:flex-[0_0_45%] lg:flex-[0_0_25%] min-w-0 pl-5"
               >
                 <Link
-                  to={`/courses/category/${cat.slug}`}
+                  to={`/${cat.slug}`}
                   className="group block h-full"
                 >
                   <div className="relative bg-card rounded-2xl border border-border p-6 h-full flex flex-col items-center text-center hover:shadow-lg hover:border-primary/30 transition-all duration-300">

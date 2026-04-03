@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Star, Clock, Users, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { Course, BadgeType } from "@/data/courses";
+import { findCategorySlugForCourse } from "@/data/courses";
 import courseThumbnails from "@/components/courses/courseThumbnails";
 import categoryThumbnails from "@/components/courses/categoryThumbnails";
 
@@ -11,7 +12,10 @@ const badgeConfig: Record<BadgeType, string> = {
   Advance: "bg-blue-600 text-white",
 };
 
-const PopularCourseCard = ({ course }: { course: Course }) => (
+const PopularCourseCard = ({ course }: { course: Course }) => {
+  const catSlug = findCategorySlugForCourse(course.slug) || "courses";
+  const courseUrl = `/${catSlug}/${course.slug}`;
+  return (
   <div className="group bg-card rounded-2xl border border-border overflow-hidden flex flex-col relative h-full">
     <div className="relative overflow-hidden rounded-xl m-3 md:m-4 mb-0 h-32 md:h-40 flex-shrink-0">
       <span className={`absolute top-2 left-2 z-10 ${badgeConfig[course.badge]} text-[10px] md:text-[11px] font-bold px-2.5 md:px-3 py-1 rounded-md shadow-sm`}>
@@ -53,12 +57,12 @@ const PopularCourseCard = ({ course }: { course: Course }) => (
         </div>
       </div>
       <div className="flex gap-2 pt-2.5 md:pt-3 border-t border-border">
-        <Link to={`/courses/${course.slug}`} className="flex-1">
+        <Link to={courseUrl} className="flex-1">
           <Button variant="outline" className="w-full text-[10px] md:text-xs font-semibold rounded-lg h-9 md:h-11 border-primary text-primary hover:bg-teal-light">
             View Course
           </Button>
         </Link>
-        <Link to={`/courses/${course.slug}`} className="flex-1">
+        <Link to={courseUrl} className="flex-1">
           <Button className="w-full text-[10px] md:text-xs font-semibold rounded-lg bg-primary hover:bg-teal-dark text-primary-foreground gap-1 h-9 md:h-11">
             Enroll Now <ChevronRight className="w-3 h-3" />
           </Button>
@@ -66,6 +70,7 @@ const PopularCourseCard = ({ course }: { course: Course }) => (
       </div>
     </div>
   </div>
-);
+  );
+};
 
 export default PopularCourseCard;

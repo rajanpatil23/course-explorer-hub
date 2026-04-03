@@ -3,6 +3,7 @@ import { Star, Clock, Users, Calendar } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import type { Course, BadgeType } from "@/data/courses";
+import { findCategorySlugForCourse } from "@/data/courses";
 import courseThumbnails from "./courseThumbnails";
 import categoryThumbnails from "./categoryThumbnails";
 
@@ -82,12 +83,12 @@ const CourseCard = ({ course }: { course: Course }) => {
 
         {/* CTAs — taller buttons */}
         <div className="flex gap-2">
-          <Link to={`/courses/${course.slug}`} className="flex-1">
+          <Link to={`/${findCategorySlugForCourse(course.slug) || "courses"}/${course.slug}`} className="flex-1">
             <Button variant="outline" className="w-full text-xs font-semibold border-primary text-primary hover:bg-teal-light h-11">
               View Course
             </Button>
           </Link>
-          <Link to={`/courses/${course.slug}#schedule`} className="flex-1">
+          <Link to={`/${findCategorySlugForCourse(course.slug) || "courses"}/${course.slug}#schedule`} className="flex-1">
             <Button className="w-full text-xs font-semibold bg-primary hover:bg-teal-dark text-primary-foreground h-11">
               View Schedule
             </Button>
