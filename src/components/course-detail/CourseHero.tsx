@@ -46,7 +46,7 @@ const CourseHero = ({ course }: { course: Course }) => (
               <Link to="/" className="hover:text-primary transition-colors">Home</Link>
               <ChevronRight className="w-3.5 h-3.5" />
               {catObj ? (
-                <Link to={`/courses/category/${catObj.slug}`} className="hover:text-primary transition-colors">
+                <Link to={`/${catObj.slug}`} className="hover:text-primary transition-colors">
                   {catObj.name}
                 </Link>
               ) : (

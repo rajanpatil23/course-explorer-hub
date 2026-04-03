@@ -34,8 +34,8 @@ const App = () => (
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/courses" element={<Courses />} />
-            <Route path="/courses/category/:categorySlug" element={<CategoryCourses />} />
-            <Route path="/courses/:slug" element={<CourseDetail />} />
+            <Route path="/:categorySlug" element={<CategoryCourses />} />
+            <Route path="/:categorySlug/:slug" element={<CourseDetail />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/blog" element={<Blog />} />

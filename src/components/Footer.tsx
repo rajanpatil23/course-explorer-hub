@@ -8,11 +8,11 @@ import logoWhite from "@/assets/logo-white.jpg";
 
 const quickLinks = [
   { label: "All Courses", href: "/courses" },
-  { label: "Project Management", href: "/courses/category/project-management" },
-  { label: "Cybersecurity", href: "/courses/category/cybersecurity" },
-  { label: "Microsoft Azure", href: "/courses/category/azure" },
-  { label: "AWS", href: "/courses/category/aws" },
-  { label: "SAFe® Agile", href: "/courses/category/safe-agile" },
+  { label: "Project Management", href: "/project-management" },
+  { label: "Cybersecurity", href: "/cybersecurity" },
+  { label: "Microsoft Azure", href: "/azure" },
+  { label: "AWS", href: "/aws" },
+  { label: "SAFe® Agile", href: "/safe-agile" },
 ];
 
 const companyLinks = [
