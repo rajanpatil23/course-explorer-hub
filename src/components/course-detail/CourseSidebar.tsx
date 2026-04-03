@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import type { Course } from "@/data/courses";
+import BrochureDialog from "./BrochureDialog";
 
 const upcomingBatches = [
   { date: "Apr 12–15, 2026", format: "Live Online", time: "9:00 AM – 5:00 PM IST", seats: 8 },
@@ -95,6 +96,9 @@ const CourseSidebar = ({ course }: { course: Course }) => {
   const [showEnquiryForm, setShowEnquiryForm] = useState(false);
   const [batchesOpen, setBatchesOpen] = useState(false);
 
+  // Brochure dialog state
+  const [brochureOpen, setBrochureOpen] = useState(false);
+
   return (
     <div className="h-full">
       <div className="sticky top-20 space-y-4 max-h-[calc(100vh-6rem)] overflow-y-auto scrollbar-thin pr-1">
@@ -124,12 +128,12 @@ const CourseSidebar = ({ course }: { course: Course }) => {
                 <Button
                   size="lg"
                   className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold"
-                  onClick={() => window.open(course.brochureUrl, "_blank")}
+                  onClick={() => setBrochureOpen(true)}
                 >
                   Download Brochure
                 </Button>
               ) : (
-                <Button size="lg" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold">
+                <Button size="lg" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold" onClick={() => setBrochureOpen(true)}>
                   Download Brochure
                 </Button>
               )}
@@ -282,6 +286,13 @@ const CourseSidebar = ({ course }: { course: Course }) => {
             />
           )}
         </div>
+
+        <BrochureDialog
+          open={brochureOpen}
+          onOpenChange={setBrochureOpen}
+          courseName={course.name}
+          brochureUrl={course.brochureUrl}
+        />
       </div>
     </div>
   );
