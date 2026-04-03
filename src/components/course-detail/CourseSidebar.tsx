@@ -286,7 +286,6 @@ const CourseSidebar = ({ course }: { course: Course }) => {
             />
           )}
         </div>
-        </div>
 
         <BrochureDialog
           open={brochureOpen}
