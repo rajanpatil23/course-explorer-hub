@@ -3,7 +3,7 @@ import { Clock, Award, CheckCircle, Calendar, Phone, Mail, ChevronDown } from "l
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import type { Course } from "@/data/courses";
 
 const upcomingBatches = [
@@ -12,29 +12,30 @@ const upcomingBatches = [
   { date: "May 10–13, 2026", format: "Live Online", time: "9:00 AM – 5:00 PM IST", seats: 15 },
 ];
 
-const CourseSidebar = ({ course }: { course: Course }) => {
+type FormData = { name: string; email: string; phone: string };
+
+const EnrollmentForm = ({
+  course,
+  batch,
+  onClose,
+}: {
+  course: Course;
+  batch: (typeof upcomingBatches)[number] | null;
+  onClose: () => void;
+}) => {
   const { toast } = useToast();
-  const [enrollForm, setEnrollForm] = useState({ name: "", email: "", phone: "" });
-  const [selectedBatch, setSelectedBatch] = useState<number | null>(null);
+  const [form, setForm] = useState<FormData>({ name: "", email: "", phone: "" });
   const [submitting, setSubmitting] = useState(false);
-  const [batchesOpen, setBatchesOpen] = useState(false);
-  const [formOpen, setFormOpen] = useState(false);
 
-  const openFormWithBatch = (batchIndex: number) => {
-    setSelectedBatch(batchIndex);
-    setFormOpen(true);
-    setTimeout(() => document.getElementById("enrollment-form")?.scrollIntoView({ behavior: "smooth", block: "nearest" }), 100);
-  };
-
-  const handleEnroll = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const { name, email, phone } = enrollForm;
+    const { name, email, phone } = form;
     if (!name.trim() || name.trim().length > 100) {
       toast({ title: "Invalid name", description: "Please enter a valid name.", variant: "destructive" });
       return;
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || email.length > 255) {
-      toast({ title: "Invalid email", description: "Please enter a valid email address.", variant: "destructive" });
+      toast({ title: "Invalid email", description: "Please enter a valid email.", variant: "destructive" });
       return;
     }
     if (phone && !/^\+?[\d\s-]{7,15}$/.test(phone)) {
@@ -43,29 +44,61 @@ const CourseSidebar = ({ course }: { course: Course }) => {
     }
 
     setSubmitting(true);
-
-    const batch = selectedBatch !== null ? upcomingBatches[selectedBatch] : null;
-    const batchInfo = batch ? `\nPreferred Batch: ${batch.date} (${batch.format}, ${batch.time})` : "\nNo specific batch selected";
-
+    const batchInfo = batch
+      ? `\nPreferred Batch: ${batch.date} (${batch.format}, ${batch.time})`
+      : "\nNo specific batch selected";
     const subject = encodeURIComponent(`Enrollment Inquiry – ${course.name}`);
     const body = encodeURIComponent(
       `Hi EduEdge Team,\n\nI would like to enroll in the following course:\n\nCourse: ${course.name}\nCourse Code: ${course.code}${batchInfo}\n\nMy Details:\nName: ${name.trim()}\nEmail: ${email.trim()}${phone ? `\nPhone: ${phone.trim()}` : ""}\n\nPlease share next steps.\n\nThank you.`
     );
-
     window.open(`mailto:contact@theeduedge.org?subject=${subject}&body=${body}`, "_self");
 
     setTimeout(() => {
       setSubmitting(false);
-      toast({ title: "Enrollment Request Opened!", description: "Your email client should open with the inquiry. If not, email us at contact@theeduedge.org." });
-      setEnrollForm({ name: "", email: "", phone: "" });
-      setSelectedBatch(null);
+      toast({ title: "Enrollment Request Opened!", description: "Your email client should open with the inquiry." });
+      setForm({ name: "", email: "", phone: "" });
+      onClose();
     }, 1000);
   };
 
   return (
+    <div className="mt-4 pt-4 border-t border-border">
+      {batch && (
+        <div className="mb-3 p-2.5 rounded-md bg-primary/5 border border-primary/20">
+          <p className="text-xs font-semibold text-primary mb-0.5">Selected Batch</p>
+          <p className="text-sm text-foreground font-medium">{batch.date}</p>
+          <p className="text-xs text-muted-foreground">{batch.format} • {batch.time}</p>
+        </div>
+      )}
+      <form onSubmit={handleSubmit} className="space-y-3">
+        <Input placeholder="Full Name" value={form.name} onChange={e => setForm(p => ({ ...p, name: e.target.value }))} maxLength={100} required className="text-sm" />
+        <Input type="email" placeholder="Email Address" value={form.email} onChange={e => setForm(p => ({ ...p, email: e.target.value }))} maxLength={255} required className="text-sm" />
+        <Input type="tel" placeholder="Phone (optional)" value={form.phone} onChange={e => setForm(p => ({ ...p, phone: e.target.value }))} maxLength={15} className="text-sm" />
+        <Button type="submit" disabled={submitting} className="w-full bg-primary hover:bg-teal-dark text-primary-foreground font-semibold text-sm">
+          {submitting ? "Submitting…" : "Submit Enrollment Request"}
+        </Button>
+      </form>
+    </div>
+  );
+};
+
+const CourseSidebar = ({ course }: { course: Course }) => {
+  // Card 1 state
+  const [enrollStep, setEnrollStep] = useState<"idle" | "select" | "form">("idle");
+  const [enrollBatchIdx, setEnrollBatchIdx] = useState<string>("");
+
+  // Card 2 state
+  const [card2SelectedBatch, setCard2SelectedBatch] = useState<number | null>(null);
+  const [card2ShowForm, setCard2ShowForm] = useState(false);
+
+  // Card 3 state (general enquiry - no batch)
+  const [showEnquiryForm, setShowEnquiryForm] = useState(false);
+
+  return (
     <div className="h-full">
       <div className="sticky top-20 space-y-4 max-h-[calc(100vh-6rem)] overflow-y-auto scrollbar-thin pr-1">
-        {/* Pricing card — always visible */}
+
+        {/* Card 1: Pricing + Quick Enroll */}
         <div className="bg-card border border-border rounded-lg p-6 shadow-sm">
           <div className="mb-4">
             <span className="text-sm text-muted-foreground line-through">${course.originalPrice}</span>
@@ -76,20 +109,62 @@ const CourseSidebar = ({ course }: { course: Course }) => {
               </span>
             </div>
           </div>
-          <Button
-            size="lg"
-            className="w-full bg-primary hover:bg-teal-dark text-primary-foreground font-semibold mb-3"
-            onClick={() => {
-              setBatchesOpen(true);
-              setFormOpen(true);
-              setTimeout(() => document.getElementById("schedule-section")?.scrollIntoView({ behavior: "smooth", block: "nearest" }), 100);
-            }}
-          >
-            Enroll Now
-          </Button>
-          <Button size="lg" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold">
-            Download Brochure
-          </Button>
+
+          {enrollStep === "idle" && (
+            <>
+              <Button
+                size="lg"
+                className="w-full bg-primary hover:bg-teal-dark text-primary-foreground font-semibold mb-3"
+                onClick={() => setEnrollStep("select")}
+              >
+                Enroll Now
+              </Button>
+              <Button size="lg" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold">
+                Download Brochure
+              </Button>
+            </>
+          )}
+
+          {enrollStep === "select" && (
+            <div className="space-y-3">
+              <p className="text-sm font-medium text-foreground">Select a batch:</p>
+              <Select
+                value={enrollBatchIdx}
+                onValueChange={(val) => {
+                  setEnrollBatchIdx(val);
+                  setEnrollStep("form");
+                }}
+              >
+                <SelectTrigger className="w-full text-sm">
+                  <SelectValue placeholder="Choose a batch…" />
+                </SelectTrigger>
+                <SelectContent>
+                  {upcomingBatches.map((b, i) => (
+                    <SelectItem key={i} value={String(i)}>
+                      {b.date} — {b.format} ({b.seats} seats)
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              <Button variant="ghost" size="sm" className="text-xs text-muted-foreground" onClick={() => setEnrollStep("idle")}>
+                ← Back
+              </Button>
+            </div>
+          )}
+
+          {enrollStep === "form" && (
+            <>
+              <EnrollmentForm
+                course={course}
+                batch={enrollBatchIdx !== "" ? upcomingBatches[Number(enrollBatchIdx)] : null}
+                onClose={() => { setEnrollStep("idle"); setEnrollBatchIdx(""); }}
+              />
+              <Button variant="ghost" size="sm" className="text-xs text-muted-foreground mt-2" onClick={() => { setEnrollStep("select"); }}>
+                ← Change batch
+              </Button>
+            </>
+          )}
+
           <div className="mt-5 pt-5 border-t border-border space-y-3 text-sm text-muted-foreground">
             <div className="flex items-center gap-2"><Clock className="w-4 h-4 text-primary" />{course.duration}</div>
             <div className="flex items-center gap-2"><Award className="w-4 h-4 text-primary" />{course.certification}</div>
@@ -97,97 +172,79 @@ const CourseSidebar = ({ course }: { course: Course }) => {
           </div>
         </div>
 
-        {/* Schedule — collapsible */}
-        <Collapsible open={batchesOpen} onOpenChange={setBatchesOpen}>
-          <div id="schedule-section" className="bg-card border border-border rounded-lg shadow-sm overflow-hidden">
-            <CollapsibleTrigger className="w-full flex items-center justify-between p-5 hover:bg-muted/50 transition-colors">
-              <div className="flex items-center gap-2">
-                <Calendar className="w-4 h-4 text-primary" />
-                <h3 className="font-heading font-bold text-base text-foreground">Upcoming Batches</h3>
-              </div>
-              <ChevronDown className={`w-4 h-4 text-muted-foreground transition-transform duration-200 ${batchesOpen ? "rotate-180" : ""}`} />
-            </CollapsibleTrigger>
-            <CollapsibleContent>
-              <div className="px-5 pb-5 space-y-3">
-                {upcomingBatches.map((batch, i) => (
-                  <div
-                    key={i}
-                    className={`border rounded-lg p-3 cursor-pointer transition-all duration-200 ${
-                      selectedBatch === i
-                        ? "border-primary bg-primary/5 ring-1 ring-primary/20"
-                        : "border-border hover:border-primary/40"
-                    }`}
-                    onClick={() => setSelectedBatch(selectedBatch === i ? null : i)}
+        {/* Card 2: Upcoming Batches */}
+        <div className="bg-card border border-border rounded-lg shadow-sm overflow-hidden">
+          <div className="flex items-center gap-2 p-5 pb-3">
+            <Calendar className="w-4 h-4 text-primary" />
+            <h3 className="font-heading font-bold text-base text-foreground">Upcoming Batches</h3>
+          </div>
+          <div className="px-5 pb-5 space-y-3">
+            {upcomingBatches.map((batch, i) => (
+              <div
+                key={i}
+                className={`border rounded-lg p-3 cursor-pointer transition-all duration-200 ${
+                  card2SelectedBatch === i
+                    ? "border-primary bg-primary/5 ring-1 ring-primary/20"
+                    : "border-border hover:border-primary/40"
+                }`}
+                onClick={() => setCard2SelectedBatch(card2SelectedBatch === i ? null : i)}
+              >
+                <div className="flex items-center gap-2 mb-1">
+                  <Calendar className="w-4 h-4 text-primary" />
+                  <span className="font-semibold text-foreground text-sm">{batch.date}</span>
+                </div>
+                <p className="text-xs text-muted-foreground mb-2">{batch.format} • {batch.time}</p>
+                <div className="flex items-center justify-between">
+                  <span className="text-xs text-muted-foreground">{batch.seats} seats left</span>
+                  <Button
+                    size="sm"
+                    className="bg-primary hover:bg-teal-dark text-primary-foreground font-semibold text-xs h-7"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setCard2SelectedBatch(i);
+                      setCard2ShowForm(true);
+                    }}
                   >
-                    <div className="flex items-center gap-2 mb-1">
-                      <Calendar className="w-4 h-4 text-primary" />
-                      <span className="font-semibold text-foreground text-sm">{batch.date}</span>
-                    </div>
-                    <p className="text-xs text-muted-foreground mb-2">{batch.format} • {batch.time}</p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs text-muted-foreground">{batch.seats} seats left</span>
-                      <Button
-                        size="sm"
-                        className="bg-primary hover:bg-teal-dark text-primary-foreground font-semibold text-xs h-7"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          openFormWithBatch(i);
-                        }}
-                      >
-                        Enroll
-                      </Button>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </CollapsibleContent>
-          </div>
-        </Collapsible>
-
-        {/* Enrollment form — collapsible */}
-        <Collapsible open={formOpen} onOpenChange={setFormOpen}>
-          <div id="enrollment-form" className="bg-card border border-border rounded-lg shadow-sm overflow-hidden">
-            <CollapsibleTrigger className="w-full flex items-center justify-between p-5 hover:bg-muted/50 transition-colors">
-              <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-primary" />
-                <h3 className="font-heading font-bold text-base text-foreground">Request Enrollment</h3>
-              </div>
-              <ChevronDown className={`w-4 h-4 text-muted-foreground transition-transform duration-200 ${formOpen ? "rotate-180" : ""}`} />
-            </CollapsibleTrigger>
-            <CollapsibleContent>
-              <div className="px-5 pb-5">
-                {selectedBatch !== null && (
-                  <div className="mb-3 p-2.5 rounded-md bg-primary/5 border border-primary/20">
-                    <p className="text-xs font-semibold text-primary mb-0.5">Selected Batch</p>
-                    <p className="text-sm text-foreground font-medium">{upcomingBatches[selectedBatch].date}</p>
-                    <p className="text-xs text-muted-foreground">{upcomingBatches[selectedBatch].format} • {upcomingBatches[selectedBatch].time}</p>
-                  </div>
-                )}
-                <p className="text-xs text-muted-foreground mb-4">Fill the form and we'll open your email client with the inquiry details.</p>
-                <form onSubmit={handleEnroll} className="space-y-3">
-                  <Input placeholder="Full Name" value={enrollForm.name} onChange={e => setEnrollForm(p => ({ ...p, name: e.target.value }))} maxLength={100} required className="text-sm" />
-                  <Input type="email" placeholder="Email Address" value={enrollForm.email} onChange={e => setEnrollForm(p => ({ ...p, email: e.target.value }))} maxLength={255} required className="text-sm" />
-                  <Input type="tel" placeholder="Phone Number (optional)" value={enrollForm.phone} onChange={e => setEnrollForm(p => ({ ...p, phone: e.target.value }))} maxLength={15} className="text-sm" />
-                  <Button type="submit" disabled={submitting} className="w-full bg-primary hover:bg-teal-dark text-primary-foreground font-semibold">
-                    {submitting ? "Submitting…" : "Submit Enrollment Request"}
+                    Enroll
                   </Button>
-                </form>
+                </div>
               </div>
-            </CollapsibleContent>
-          </div>
-        </Collapsible>
+            ))}
 
-        {/* Contact */}
-        <div className="bg-teal-light rounded-lg p-5 text-center">
-          <p className="text-sm font-semibold text-foreground mb-3">Need Help Choosing?</p>
-          <div className="space-y-2">
-            <a href="tel:+910000000000" className="flex items-center justify-center gap-2 text-sm text-primary font-medium hover:underline">
-              <Phone className="w-4 h-4" /> Call an Advisor
-            </a>
-            <a href="mailto:info@theeduedge.com" className="flex items-center justify-center gap-2 text-sm text-primary font-medium hover:underline">
-              <Mail className="w-4 h-4" /> info@theeduedge.com
-            </a>
+            {card2ShowForm && card2SelectedBatch !== null && (
+              <EnrollmentForm
+                course={course}
+                batch={upcomingBatches[card2SelectedBatch]}
+                onClose={() => { setCard2ShowForm(false); setCard2SelectedBatch(null); }}
+              />
+            )}
           </div>
+        </div>
+
+        {/* Card 3: General Enquiry */}
+        <div className="bg-teal-light rounded-lg p-5">
+          <p className="text-sm font-semibold text-foreground mb-3 text-center">Need Help Choosing?</p>
+          {!showEnquiryForm ? (
+            <div className="space-y-2 text-center">
+              <Button
+                variant="outline"
+                size="sm"
+                className="w-full text-sm font-medium"
+                onClick={() => setShowEnquiryForm(true)}
+              >
+                <Mail className="w-4 h-4 mr-2" /> Send an Enquiry
+              </Button>
+              <a href="tel:+910000000000" className="flex items-center justify-center gap-2 text-sm text-primary font-medium hover:underline">
+                <Phone className="w-4 h-4" /> Call an Advisor
+              </a>
+            </div>
+          ) : (
+            <EnrollmentForm
+              course={course}
+              batch={null}
+              onClose={() => setShowEnquiryForm(false)}
+            />
+          )}
         </div>
       </div>
     </div>
