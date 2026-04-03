@@ -121,11 +121,13 @@ const CourseSidebar = ({ course }: { course: Course }) => {
                 Enroll Now
               </Button>
               {course.brochureUrl ? (
-                <a href={course.brochureUrl} target="_blank" rel="noopener noreferrer" download>
-                  <Button size="lg" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold">
-                    Download Brochure
-                  </Button>
-                </a>
+                <Button
+                  size="lg"
+                  className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold"
+                  onClick={() => window.open(course.brochureUrl, "_blank")}
+                >
+                  Download Brochure
+                </Button>
               ) : (
                 <Button size="lg" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold">
                   Download Brochure
