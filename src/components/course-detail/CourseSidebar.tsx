@@ -155,9 +155,14 @@ const CourseSidebar = ({ course }: { course: Course }) => {
                 batch={upcomingBatches[enrollBatchIdx]}
                 onClose={() => { setEnrollStep("idle"); setEnrollBatchIdx(null); }}
               />
-              <Button variant="ghost" size="sm" className="text-xs text-muted-foreground mt-2" onClick={() => setEnrollBatchIdx(null)}>
-                ← Change batch
-              </Button>
+              <button
+                type="button"
+                className="flex items-center gap-1 mt-3 text-xs font-medium text-primary hover:text-primary/80 transition-colors"
+                onClick={() => setEnrollBatchIdx(null)}
+              >
+                <ChevronDown className="w-3 h-3 rotate-90" />
+                Change batch
+              </button>
             </div>
           )}
 
