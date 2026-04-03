@@ -119,7 +119,7 @@ const Navbar = () => {
                 <LogIn className="w-4 h-4" /> Login
               </Button>
             </Link>
-            <Link to="/login" onClick={() => setMobileOpen(false)} className="flex-1">
+            <Link to="/login?mode=register" onClick={() => setMobileOpen(false)} className="flex-1">
               <Button size="sm" className="w-full bg-primary hover:bg-teal-dark text-primary-foreground text-sm font-semibold gap-1.5">
                 <UserPlus className="w-4 h-4" /> Sign Up
               </Button>
