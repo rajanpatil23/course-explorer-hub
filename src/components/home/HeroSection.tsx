@@ -114,12 +114,12 @@ const HeroSection = () => {
                   {[...partners, ...partners].map((p, i) => (
                     <div
                       key={`${p.name}-${i}`}
-                      className="flex h-8 sm:h-10 md:h-12 w-[4.5rem] sm:w-[5.5rem] md:w-[6.5rem] items-center justify-center flex-shrink-0"
+                      className="flex h-8 sm:h-10 md:h-12 items-center justify-center flex-shrink-0"
                     >
                       <img
                         src={p.logo}
                         alt={p.name}
-                        className={`${p.imageClassName} h-auto w-auto object-contain`}
+                        className="h-7 sm:h-8 md:h-10 w-auto object-contain"
                         loading="lazy"
                       />
                     </div>
