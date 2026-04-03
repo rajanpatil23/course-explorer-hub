@@ -67,6 +67,7 @@ const courseThumbnails: Record<string, string> = {
   "aws-dop": awsDop,
   "safe-lsa": safeLsa,
   "safe-ssm": safeSsm,
+  "safe-sp": safeSp,
   "safe-popm": safePopm,
   "safe-spc": safeSpc,
   "safe-rte": safeRte,
