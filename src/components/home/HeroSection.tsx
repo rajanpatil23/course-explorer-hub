@@ -2,12 +2,12 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ChevronRight, Star } from "lucide-react";
 import heroHome from "@/assets/hero-home.jpg";
-import pmiLogo from "@/assets/partners/pmi-logo.png";
-import comptiaLogo from "@/assets/partners/comptia-logo.png";
-import awsLogo from "@/assets/partners/aws-logo.png";
-import microsoftLogo from "@/assets/partners/microsoft-logo.png";
-import safeLogo from "@/assets/partners/safe-logo.png";
-import isc2Logo from "@/assets/partners/isc2-logo.png";
+import pmiLogo from "@/assets/partners/pmi-logo-trimmed.png";
+import comptiaLogo from "@/assets/partners/comptia-logo-trimmed.png";
+import awsLogo from "@/assets/partners/aws-logo-trimmed.png";
+import microsoftLogo from "@/assets/partners/microsoft-logo-trimmed.png";
+import safeLogo from "@/assets/partners/safe-logo-trimmed.png";
+import isc2Logo from "@/assets/partners/isc2-logo-trimmed.png";
 
 const partners = [
   { name: "PMI", logo: pmiLogo },
