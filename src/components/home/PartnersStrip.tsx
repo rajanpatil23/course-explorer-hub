@@ -6,12 +6,12 @@ import safeLogo from "@/assets/partners/safe-logo.png";
 import isc2Logo from "@/assets/partners/isc2-logo.png";
 
 const logos = [
-  { name: "PMI", src: pmiLogo, imageClassName: "max-h-6 md:max-h-8 max-w-[3.5rem] md:max-w-[5rem]" },
-  { name: "CompTIA", src: comptiaLogo, imageClassName: "max-h-8 md:max-h-10 max-w-[6.5rem] md:max-w-[8rem]" },
-  { name: "AWS", src: awsLogo, imageClassName: "max-h-8 md:max-h-10 max-w-[6.5rem] md:max-w-[8rem]" },
-  { name: "Microsoft", src: microsoftLogo, imageClassName: "max-h-8 md:max-h-10 max-w-[6.5rem] md:max-w-[8rem]" },
-  { name: "Scaled Agile", src: safeLogo, imageClassName: "max-h-8 md:max-h-10 max-w-[6.5rem] md:max-w-[8rem]" },
-  { name: "ISC2", src: isc2Logo, imageClassName: "max-h-8 md:max-h-10 max-w-[6.5rem] md:max-w-[8rem]" },
+  { name: "PMI", src: pmiLogo, imageClassName: "h-5 md:h-6 w-auto max-w-[3rem] md:max-w-[4rem]" },
+  { name: "CompTIA", src: comptiaLogo, imageClassName: "h-6 md:h-7 w-auto max-w-[6.5rem] md:max-w-[8rem]" },
+  { name: "AWS", src: awsLogo, imageClassName: "h-6 md:h-7 w-auto max-w-[6.5rem] md:max-w-[8rem]" },
+  { name: "Microsoft", src: microsoftLogo, imageClassName: "h-6 md:h-7 w-auto max-w-[6.5rem] md:max-w-[8rem]" },
+  { name: "Scaled Agile", src: safeLogo, imageClassName: "h-6 md:h-7 w-auto max-w-[6.5rem] md:max-w-[8rem]" },
+  { name: "ISC2", src: isc2Logo, imageClassName: "h-6 md:h-7 w-auto max-w-[6.5rem] md:max-w-[8rem]" },
 ];
 
 const PartnersStrip = () => (
