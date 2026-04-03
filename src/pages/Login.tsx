@@ -31,10 +31,10 @@ const Login = () => {
     setTimeout(() => {
       setSubmitting(false);
       toast({
-        title: isLogin ? "Login Successful" : "Account Created",
+        title: isLogin ? "Login Successful" : "Registration Requested",
         description: isLogin
           ? "Welcome back! Redirecting…"
-          : "Your account has been created. Please check your email to verify.",
+          : "Your registration request has been submitted. Our team will review and get back to you shortly.",
       });
     }, 1200);
   };
@@ -66,12 +66,12 @@ const Login = () => {
               </div>
               
               <h2 className="font-heading text-2xl font-bold leading-tight mb-3">
-                {isLogin ? "Welcome Back!" : "Start Your Journey"}
+                {isLogin ? "Welcome Back!" : "Join EduEdge"}
               </h2>
               <p className="text-sm text-primary-foreground/75 leading-relaxed">
                 {isLogin
                   ? "Sign in to access your courses, track your progress, and continue learning."
-                  : "Join thousands of professionals advancing their careers with industry-recognized certifications."}
+                  : "Request your registration and join thousands of professionals advancing their careers."}
               </p>
             </div>
 
@@ -118,10 +118,10 @@ const Login = () => {
               </div>
 
               <h1 className="font-heading text-2xl font-bold text-foreground mb-1">
-                {isLogin ? "Sign In" : "Create Account"}
+                {isLogin ? "Sign In" : "Request Registration"}
               </h1>
               <p className="text-sm text-muted-foreground mb-8">
-                {isLogin ? "Enter your credentials to access your account." : "Fill in your details to get started with EduEdge."}
+                {isLogin ? "Enter your credentials to access your account." : "Fill in your details and we'll get you set up with EduEdge."}
               </p>
 
               {/* Google button first for social proof */}
@@ -219,7 +219,7 @@ const Login = () => {
                   size="lg"
                   className="w-full h-12 font-semibold text-[15px] mt-2"
                 >
-                  {submitting ? "Please wait…" : isLogin ? "Sign In" : "Create Account"}
+                  {submitting ? "Please wait…" : isLogin ? "Sign In" : "Request Registration"}
                 </Button>
               </form>
 
@@ -230,7 +230,7 @@ const Login = () => {
                   className="font-semibold text-primary hover:text-primary/80 transition-colors"
                   onClick={() => { setIsLogin(!isLogin); setForm({ name: "", email: "", password: "" }); }}
                 >
-                  {isLogin ? "Create one" : "Sign in instead"}
+                  {isLogin ? "Request registration" : "Sign in instead"}
                 </button>
               </p>
 
