@@ -118,10 +118,10 @@ const Login = () => {
               </div>
 
               <h1 className="font-heading text-2xl font-bold text-foreground mb-1">
-                {isLogin ? "Sign In" : "Create Account"}
+                {isLogin ? "Sign In" : "Request Registration"}
               </h1>
               <p className="text-sm text-muted-foreground mb-8">
-                {isLogin ? "Enter your credentials to access your account." : "Fill in your details to get started with EduEdge."}
+                {isLogin ? "Enter your credentials to access your account." : "Fill in your details and we'll get you set up with EduEdge."}
               </p>
 
               {/* Google button first for social proof */}
