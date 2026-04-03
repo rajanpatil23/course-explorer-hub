@@ -71,12 +71,16 @@ const Navbar = () => {
         </nav>
 
         <div className="hidden md:flex items-center gap-2">
-          <Button variant="ghost" size="sm" className="text-sm font-medium text-foreground gap-1.5">
-            <LogIn className="w-4 h-4" /> Login
-          </Button>
-          <Button size="sm" className="bg-primary hover:bg-teal-dark text-primary-foreground text-sm font-semibold gap-1.5">
-            <UserPlus className="w-4 h-4" /> Sign Up
-          </Button>
+          <Link to="/login">
+            <Button variant="ghost" size="sm" className="text-sm font-medium text-foreground gap-1.5">
+              <LogIn className="w-4 h-4" /> Login
+            </Button>
+          </Link>
+          <Link to="/login">
+            <Button size="sm" className="bg-primary hover:bg-teal-dark text-primary-foreground text-sm font-semibold gap-1.5">
+              <UserPlus className="w-4 h-4" /> Sign Up
+            </Button>
+          </Link>
         </div>
 
         <button
