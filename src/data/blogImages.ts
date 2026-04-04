@@ -38,65 +38,82 @@ import safeSpc from "@/assets/blog/safe-spc.jpg";
 import examDayTips from "@/assets/blog/exam-day-tips.jpg";
 
 export const blogImages: Record<string, string> = {
-  "pmp-certification-2026-complete-guide": pmpCert2026,
-  "comptia-security-plus-vs-cissp": comptiaSecurity,
-  "aws-solutions-architect-exam-tips": awsSolutions,
-  "azure-az900-vs-aws-cloud-practitioner": azureVsAws,
-  "leading-safe-6-changes": leadingSafe,
-  "earn-60-pdus-maintain-pmp": earnPdus,
-  "highest-paying-it-certifications-2026": highestPaying,
-  "comptia-network-plus-n10-009-objectives": comptiaNetwork,
-  "cloud-certification-roadmap-it-team": cloudRoadmap,
-  "roi-safe-training-enterprise-agile": roiSafe,
-  "pmi-acp-vs-csm-agile-certification": pmiAcpCsm,
-  "common-pmp-exam-mistakes": commonMistakes,
-  "azure-az-104-study-guide": azureAz104,
-  "comptia-a-plus-career-opportunities": comptiaAPlus,
-  "aws-cloud-practitioner-study-plan": awsCloudPractitioner,
-  "safe-scrum-master-certification-guide": safeScrumMaster,
-  "cybersecurity-career-path-2026": cybersecurityCareer,
-  "project-management-methodologies-compared": pmMethodologies,
-  "azure-az-305-solutions-architect": azureAz305,
-  "wbs-project-management-guide": wbsGuide,
-  "comptia-cysa-plus-study-strategy": comptiaCysa,
-  "aws-devops-engineer-professional-guide": awsDevops,
-  "ai-project-management-tools-trends": aiPm,
-  "comptia-pentest-plus-vs-ceh": pentestCeh,
-  "azure-security-az-500-preparation": azureSecurity,
-  "safe-product-owner-popm-guide": safePopm,
-  "remote-work-certifications-boost-career": remoteWork,
-  "agile-software-development-principles": agilePrinciples,
-  "comptia-cloud-plus-certification-overview": comptiaCloud,
-  "pmp-vs-prince2-comparison": pmpPrince2,
-  "aws-sysops-administrator-tips": awsSysops,
+  // 01 - PMP Certification Guide 2026
+  "pmp-certification-guide-2026": pmpCert2026,
+  // 02 - PMP vs CAPM
+  "pmp-vs-capm-which-certification": pmpPrince2,
+  // 03 - CompTIA Security+ Exam Guide
+  "comptia-security-plus-exam-guide": comptiaSecurity,
+  // 04 - AWS vs Azure Cloud Certification Path
+  "aws-vs-azure-cloud-certification-path": azureVsAws,
+  // 05 - Leading SAFe 6.0
+  "leading-safe-6-certification-guide": leadingSafe,
+  // 06 - CAPM Certification Guide
+  "capm-certification-guide-beginners": pmpCert2026,
+  // 07 - CompTIA Network+
+  "comptia-network-plus-guide": comptiaNetwork,
+  // 08 - Azure Fundamentals AZ-900
+  "azure-fundamentals-az-900-guide": azureAz305,
+  // 09 - Azure Administrator AZ-104
+  "azure-administrator-az-104-guide": azureAz104,
+  // 10 - AWS Cloud Practitioner
+  "aws-cloud-practitioner-clf-c02-guide": awsCloudPractitioner,
+  // 11 - AWS Solutions Architect Associate
+  "aws-solutions-architect-associate-guide": awsSolutions,
+  // 12 - CompTIA A+
+  "comptia-a-plus-certification-guide": comptiaAPlus,
+  // 13 - SAFe Scrum Master
+  "safe-scrum-master-ssm-certification": safeScrumMaster,
+  // 14 - PMI-ACP
+  "pmi-acp-certification-agile": pmiAcpCsm,
+  // 15 - CompTIA CySA+
+  "comptia-cysa-plus-guide": comptiaCysa,
+  // 16 - Azure Solutions Architect AZ-305
+  "azure-solutions-architect-az-305": azureAz305,
+  // 17 - SAFe POPM
+  "safe-popm-certification-guide": safePopm,
+  // 18 - Cybersecurity Career Path
+  "cybersecurity-career-path-guide": cybersecurityCareer,
+  // 19 - PM Certifications Compared
+  "project-management-certifications-compared": pmMethodologies,
+  // 20 - Cloud Certification Beginners
+  "cloud-certification-beginners-guide": cloudRoadmap,
+  // 21 - Azure Security AZ-500
+  "azure-security-technologies-az-500": azureSecurity,
+  // 22 - SAFe RTE
   "safe-release-train-engineer-rte": safeRte,
-  "how-to-choose-first-it-certification": chooseFirstCert,
-  "azure-ai-900-fundamentals-guide": azureAi900,
-  "comptia-server-plus-certification": comptiaServer,
-  "safe-spc-certification-journey": safeSpc,
-  "it-certification-exam-day-tips": examDayTips,
-  // Remaining posts mapped to category-related images
-  "cloud-computing-reference-model": cloudRoadmap,
-  "machine-learning-types-algorithms": azureAi900,
-  "effective-study-schedule-working-professionals": examDayTips,
-  "azure-dp-900-data-fundamentals": azureAz104,
-  "devops-culture-certification-trends": awsDevops,
+  // 23 - SAFe LPM
   "safe-lean-portfolio-management-lpm": safePopm,
-  "comptia-securityx-casp-advanced-guide": comptiaSecurity,
-  "project-management-skills-every-pm-needs": pmMethodologies,
-  "generative-ai-impact-it-certifications": aiPm,
-  "aws-vs-azure-vs-gcp-comparison": azureVsAws,
-  "capm-certification-stepping-stone": pmpCert2026,
-  "microsoft-ms-900-365-fundamentals": azureAz305,
-  "pmi-rmp-risk-management-professional": pmiAcpCsm,
-  "top-it-skills-demand-2026": highestPaying,
+  // 24 - CompTIA PenTest+
+  "comptia-pentest-plus-guide": pentestCeh,
+  // 25 - Azure Developer AZ-204
+  "azure-developer-associate-az-204": azureAz104,
+  // 26 - PMI-RMP
+  "pmi-rmp-risk-management-certification": pmiAcpCsm,
+  // 27 - PMI-PBA
+  "pmi-pba-business-analysis-certification": wbsGuide,
+  // 28 - PgMP
+  "pgmp-program-management-certification": earnPdus,
+  // 29 - CompTIA Cloud+
+  "comptia-cloud-plus-guide": comptiaCloud,
+  // 30 - CompTIA SecurityX
+  "comptia-securityx-casp-guide": comptiaSecurity,
+  // 31 - CompTIA Server+
+  "comptia-server-plus-guide": comptiaServer,
+  // 32 - Azure AI Fundamentals AI-900
+  "azure-ai-fundamentals-ai-900": azureAi900,
+  // 33 - Azure Data Fundamentals DP-900
+  "azure-data-fundamentals-dp-900": azureAz104,
+  // 34 - Microsoft 365 MS-900
+  "microsoft-365-fundamentals-ms-900": azureAz305,
+  // 35 - AWS Developer Associate
   "aws-developer-associate-dva-c02": awsSolutions,
-  "enterprise-agile-transformation-lessons": agilePrinciples,
-  "pmi-pba-business-analysis": wbsGuide,
-  "zero-trust-security-architecture-guide": azureSecurity,
-  "pgmp-program-management-professional": earnPdus,
-  "azure-administrator-vs-solutions-architect": azureAz104,
-  "mock-exams-practice-tests-importance": commonMistakes,
-  "digital-transformation-role-certifications": roiSafe,
-  "comptia-security-plus-sy0-701-guide": comptiaNetwork,
+  // 36 - AWS SysOps Administrator
+  "aws-sysops-administrator-guide": awsSysops,
+  // 37 - Implementing SAFe SPC
+  "implementing-safe-spc-certification": safeSpc,
+  // 38 - Top IT Certifications Salary
+  "top-it-certifications-salary-boost-2026": highestPaying,
+  // 39 - First Attempt Certification Tips
+  "first-attempt-certification-exam-tips": examDayTips,
 };
