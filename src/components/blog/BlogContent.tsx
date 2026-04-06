@@ -5,7 +5,8 @@ interface BlogContentProps {
 }
 
 const BlogContent = ({ content }: BlogContentProps) => {
-  const blocks = content.split("\n\n");
+  const metadataPatterns = /^(Estimated Word Count:|Internal Link:|Meta Description:|Keywords:|SEO Title:|CTA Text:|CTA Link:|Focus Keyword:|Slug:)/i;
+  const blocks = content.split("\n\n").filter(block => !metadataPatterns.test(block.trim()));
 
   return (
     <div className="space-y-6">
