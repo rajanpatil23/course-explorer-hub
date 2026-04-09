@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/accordion";
 import heroCourses from "@/assets/hero-courses.jpg";
 import advisorModel from "@/assets/advisor-model.png";
+import AdvisorDialog from "@/components/AdvisorDialog";
 
 const INITIAL_SHOW = 9;
 
@@ -33,6 +34,7 @@ const Courses = () => {
   const [activeTab, setActiveTab] = useState(initialCat);
   const [search, setSearch] = useState("");
   const [showAll, setShowAll] = useState<Record<string, boolean>>({});
+  const [advisorOpen, setAdvisorOpen] = useState(false);
 
   const allCourses = useMemo(() => categories.flatMap(c => c.courses), []);
 
