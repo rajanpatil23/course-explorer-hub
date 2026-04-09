@@ -70,7 +70,7 @@ const MegaMenu = () => {
       </button>
 
       {open && (
-        <div className="fixed left-0 right-0 top-16 w-full bg-card border-b border-x border-border rounded-b-lg shadow-2xl z-40 flex max-h-[75vh]">
+        <div className="fixed left-1/2 -translate-x-1/2 top-16 w-[calc(100%-3rem)] max-w-7xl bg-card border border-border rounded-b-xl shadow-2xl z-40 flex max-h-[75vh]">
           {/* Col 1 — Categories */}
           <div className="w-52 border-r border-border overflow-y-auto py-2 shrink-0">
             <p className="px-4 py-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">Domains</p>
