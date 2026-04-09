@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import BlogContent from "@/components/blog/BlogContent";
+import { submitWeb3Form } from "@/lib/web3forms";
 
 const authorDetails: Record<string, { role: string }> = {
   "Rajiv Sharma": { role: "Project Management Expert" },
@@ -31,30 +32,60 @@ const BlogPost = () => {
   const [guideEmail, setGuideEmail] = useState("");
   const [guideErrors, setGuideErrors] = useState<{ name?: string; email?: string }>({});
 
-  const handleConsultSubmit = () => {
+  const [consultSubmitting, setConsultSubmitting] = useState(false);
+  const [guideSubmitting, setGuideSubmitting] = useState(false);
+  const { toast } = useToast();
+
+  const handleConsultSubmit = async () => {
     const errors: { name?: string; phone?: string } = {};
     if (!consultName.trim()) errors.name = "Name is required";
     if (!consultPhone.trim()) errors.phone = "Phone number is required";
     else if (!/^[0-9+\-\s()]{7,15}$/.test(consultPhone.trim())) errors.phone = "Enter a valid phone number";
     setConsultErrors(errors);
     if (Object.keys(errors).length === 0) {
-      // TODO: handle submission
-      setConsultName("");
-      setConsultPhone("");
+      setConsultSubmitting(true);
+      const result = await submitWeb3Form({
+        subject: "Free Consultation Request (Blog)",
+        name: consultName.trim(),
+        phone: consultPhone.trim(),
+        blog_post: post?.title || "Unknown",
+        form_type: "Blog Consultation",
+      });
+      if (result.success) {
+        toast({ title: "Request sent!", description: "Our advisor will contact you shortly." });
+        setConsultName("");
+        setConsultPhone("");
+      } else {
+        toast({ title: "Submission failed", description: result.message, variant: "destructive" });
+      }
+      setConsultSubmitting(false);
     }
   };
 
-  const handleGuideSubmit = () => {
+  const handleGuideSubmit = async () => {
     const errors: { name?: string; email?: string } = {};
     if (!guideName.trim()) errors.name = "Name is required";
     if (!guideEmail.trim()) errors.email = "Email is required";
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(guideEmail.trim())) errors.email = "Enter a valid email";
     setGuideErrors(errors);
     if (Object.keys(errors).length === 0) {
-      // TODO: handle submission
-      setGuideName("");
-      setGuideEmail("");
-      setGuideOpen(false);
+      setGuideSubmitting(true);
+      const result = await submitWeb3Form({
+        subject: "Guide Download Request (Blog)",
+        name: guideName.trim(),
+        email: guideEmail.trim(),
+        blog_post: post?.title || "Unknown",
+        form_type: "Blog Guide Download",
+      });
+      if (result.success) {
+        toast({ title: "Guide sent!", description: "Check your email for the guide." });
+        setGuideName("");
+        setGuideEmail("");
+        setGuideOpen(false);
+      } else {
+        toast({ title: "Submission failed", description: result.message, variant: "destructive" });
+      }
+      setGuideSubmitting(false);
     }
   };
 
@@ -175,7 +206,7 @@ const BlogPost = () => {
                         </p>
                       )}
                     </div>
-                    <Button className="w-full rounded-lg text-sm" onClick={handleConsultSubmit}>Submit</Button>
+                    <Button className="w-full rounded-lg text-sm" onClick={handleConsultSubmit} disabled={consultSubmitting}>{consultSubmitting ? "Submitting…" : "Submit"}</Button>
                   </div>
                   <p className="text-[10px] text-muted-foreground mt-2.5 md:mt-3 text-center">
                     By submitting, you accept our{" "}
@@ -233,7 +264,7 @@ const BlogPost = () => {
                       </p>
                     )}
                   </div>
-                  <Button className="w-full rounded-lg text-sm" onClick={handleGuideSubmit}>Send me the guide</Button>
+                  <Button className="w-full rounded-lg text-sm" onClick={handleGuideSubmit} disabled={guideSubmitting}>{guideSubmitting ? "Sending…" : "Send me the guide"}</Button>
                 </div>
               </DialogContent>
             </Dialog>

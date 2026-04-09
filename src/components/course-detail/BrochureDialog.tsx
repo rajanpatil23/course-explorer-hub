@@ -3,6 +3,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
+import { submitWeb3Form } from "@/lib/web3forms";
 import { Download, CheckCircle2 } from "lucide-react";
 
 interface BrochureDialogProps {
@@ -18,7 +19,7 @@ const BrochureDialog = ({ open, onOpenChange, courseName, brochureUrl }: Brochur
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const { name, email, phone } = form;
 
@@ -36,11 +37,21 @@ const BrochureDialog = ({ open, onOpenChange, courseName, brochureUrl }: Brochur
     }
 
     setSubmitting(true);
-    // Simulate sending
-    setTimeout(() => {
-      setSubmitting(false);
+    const result = await submitWeb3Form({
+      subject: `Brochure Request – ${courseName}`,
+      name: name.trim(),
+      email: email.trim(),
+      phone: phone.trim() || "Not provided",
+      course_name: courseName,
+      form_type: "Brochure Download",
+    });
+
+    if (result.success) {
       setSubmitted(true);
-    }, 800);
+    } else {
+      toast({ title: "Submission failed", description: result.message, variant: "destructive" });
+    }
+    setSubmitting(false);
   };
 
   const handleDownload = () => {

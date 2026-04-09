@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Link } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
+import { submitWeb3Form } from "@/lib/web3forms";
 import illustrationCta from "@/assets/illustration-cta.svg";
 
 interface AdvisorDialogProps {
@@ -31,25 +32,29 @@ const AdvisorDialog = ({ open, onOpenChange }: AdvisorDialogProps) => {
     return Object.keys(errs).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
 
     setSubmitting(true);
 
-    const subject = encodeURIComponent("Talk to Advisor Request");
-    const body = encodeURIComponent(
-      `Phone: ${form.phone}\nEmail: ${form.email}\nWhatsApp updates: ${whatsapp ? "Yes" : "No"}`
-    );
-    window.location.href = `mailto:contact@theeduedge.org?subject=${subject}&body=${body}`;
+    const result = await submitWeb3Form({
+      subject: "Talk to Advisor Request",
+      phone: form.phone,
+      email: form.email,
+      whatsapp_updates: whatsapp ? "Yes" : "No",
+      form_type: "Advisor Inquiry",
+    });
 
-    setTimeout(() => {
+    if (result.success) {
       toast({ title: "Request sent!", description: "Our advisor will contact you shortly." });
-      setSubmitting(false);
       setForm({ phone: "", email: "" });
       setErrors({});
       onOpenChange(false);
-    }, 500);
+    } else {
+      toast({ title: "Submission failed", description: result.message, variant: "destructive" });
+    }
+    setSubmitting(false);
   };
 
   return (
