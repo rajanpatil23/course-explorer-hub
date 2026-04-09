@@ -2,7 +2,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { LogIn, UserPlus, Search, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { categories } from "@/data/courses";
-import CurrencyToggle from "@/components/CurrencyToggle";
 import { useState, useMemo } from "react";
 
 const allCourses = categories.flatMap(c => c.courses);
@@ -92,9 +91,6 @@ const MobileMenu = ({ onClose }: MobileMenuProps) => {
             <UserPlus className="w-4 h-4" /> Sign Up
           </Button>
         </Link>
-      </div>
-      <div className="flex justify-center pt-2">
-        <CurrencyToggle />
       </div>
     </div>
   );

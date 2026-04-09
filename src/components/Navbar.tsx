@@ -6,7 +6,6 @@ import { categories } from "@/data/courses";
 import logoFull from "@/assets/logo-full.jpg";
 import MegaMenu from "@/components/navbar/MegaMenu";
 import MobileMenu from "@/components/navbar/MobileMenu";
-import CurrencyToggle from "@/components/CurrencyToggle";
 
 const allCourses = categories.flatMap(c => c.courses);
 
@@ -149,7 +148,6 @@ const Navbar = () => {
         </nav>
 
         <div className="hidden md:flex items-center gap-2">
-          <CurrencyToggle />
           <Link to="/login">
             <Button variant="ghost" size="sm" className="text-sm font-medium text-foreground gap-1.5">
               <LogIn className="w-4 h-4" /> Login
