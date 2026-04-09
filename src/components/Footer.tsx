@@ -60,63 +60,64 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-hero text-hero-foreground">
-      <div className="container py-14 md:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+    <footer className="bg-hero text-hero-foreground pb-16 md:pb-0">
+      <div className="container py-10 md:py-14 lg:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-8">
           {/* Brand + contact */}
-          <div className="sm:col-span-2 lg:col-span-1">
-            <Link to="/" className="inline-block mb-5">
-              <img src={logoWhite} alt="The EduEdge" className="h-14 w-auto rounded" />
+          <div className="sm:col-span-2 lg:col-span-1 text-center md:text-left">
+            <Link to="/" className="inline-block mb-4">
+              <img src={logoWhite} alt="The EduEdge" className="h-12 md:h-14 w-auto rounded mx-auto md:mx-0" />
             </Link>
-            <p className="text-sm text-hero-foreground/60 leading-relaxed mb-5">
-              Accredited certification training for working professionals. Expert-led programs across Project Management, Cybersecurity, Cloud, and Agile.
+            <p className="text-sm text-hero-foreground/60 leading-relaxed mb-4 max-w-xs mx-auto md:mx-0">
+              Accredited certification training for working professionals.
             </p>
-            <div className="space-y-2.5">
-              <a href={contact.phoneHref} className="flex items-center gap-2.5 text-sm text-hero-foreground/70 hover:text-accent transition-colors">
+            <div className="flex flex-col items-center md:items-start gap-2">
+              <a href={contact.phoneHref} className="flex items-center gap-2 text-sm text-hero-foreground/70 hover:text-accent transition-colors">
                 <Phone className="w-4 h-4 text-accent shrink-0" /> {contact.phone}
               </a>
-              <a href="mailto:info@theeduedge.org" className="flex items-center gap-2.5 text-sm text-hero-foreground/70 hover:text-accent transition-colors">
+              <a href="mailto:info@theeduedge.org" className="flex items-center gap-2 text-sm text-hero-foreground/70 hover:text-accent transition-colors">
                 <Mail className="w-4 h-4 text-accent shrink-0" /> info@theeduedge.org
               </a>
-              <div className="flex items-start gap-2.5 text-sm text-hero-foreground/70">
-                <MapPin className="w-4 h-4 text-accent shrink-0 mt-0.5" /> India
+              <div className="flex items-center gap-2 text-sm text-hero-foreground/70">
+                <MapPin className="w-4 h-4 text-accent shrink-0" /> India
               </div>
             </div>
           </div>
 
-          {/* Quick links */}
-          <div>
-            <h4 className="font-heading font-bold text-sm mb-4 text-hero-foreground/90">Courses</h4>
-            <ul className="space-y-2.5">
-              {quickLinks.map(link => (
-                <li key={link.label}>
-                  <Link to={link.href} className="text-sm text-hero-foreground/60 hover:text-accent transition-colors">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* Quick links + Company — side by side on mobile */}
+          <div className="grid grid-cols-2 gap-6 sm:contents">
+            <div>
+              <h4 className="font-heading font-bold text-sm mb-3 text-hero-foreground/90">Courses</h4>
+              <ul className="space-y-2">
+                {quickLinks.map(link => (
+                  <li key={link.label}>
+                    <Link to={link.href} className="text-sm text-hero-foreground/60 hover:text-accent transition-colors">
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          {/* Company */}
-          <div>
-            <h4 className="font-heading font-bold text-sm mb-4 text-hero-foreground/90">Company</h4>
-            <ul className="space-y-2.5">
-              {companyLinks.map(link => (
-                <li key={link.label}>
-                  <Link to={link.href} className="text-sm text-hero-foreground/60 hover:text-accent transition-colors">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <div>
+              <h4 className="font-heading font-bold text-sm mb-3 text-hero-foreground/90">Company</h4>
+              <ul className="space-y-2">
+                {companyLinks.map(link => (
+                  <li key={link.label}>
+                    <Link to={link.href} className="text-sm text-hero-foreground/60 hover:text-accent transition-colors">
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
           {/* Newsletter + socials */}
-          <div>
-            <h4 className="font-heading font-bold text-sm mb-4 text-hero-foreground/90">Stay Updated</h4>
-            <p className="text-sm text-hero-foreground/60 mb-4">Get the latest certification guides, exam tips, and exclusive offers.</p>
-            <form onSubmit={handleSubscribe} className="flex gap-2 mb-6">
+          <div className="text-center md:text-left">
+            <h4 className="font-heading font-bold text-sm mb-3 text-hero-foreground/90">Stay Updated</h4>
+            <p className="text-sm text-hero-foreground/60 mb-3">Get the latest certification guides, exam tips, and exclusive offers.</p>
+            <form onSubmit={handleSubscribe} className="flex gap-2 mb-5 max-w-xs mx-auto md:mx-0">
               <Input
                 type="email"
                 placeholder="Your email"
@@ -132,7 +133,7 @@ const Footer = () => {
             </form>
 
             <h4 className="font-heading font-bold text-sm mb-3 text-hero-foreground/90">Follow Us</h4>
-            <div className="flex gap-3">
+            <div className="flex gap-3 justify-center md:justify-start">
               {socials.map(s => (
                 <a
                   key={s.label}
@@ -150,7 +151,7 @@ const Footer = () => {
 
       {/* Bottom bar */}
       <div className="border-t border-hero-foreground/10">
-        <div className="container py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="container py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
           <p className="text-xs text-hero-foreground/40">© 2026 The EduEdge. All rights reserved.</p>
           <div className="flex gap-4">
             <Link to="/privacy" className="text-xs text-hero-foreground/40 hover:text-accent transition-colors">Privacy</Link>
