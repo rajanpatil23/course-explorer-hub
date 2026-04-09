@@ -1,5 +1,5 @@
 import { useParams, Navigate, Link } from "react-router-dom";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { Star, CheckCircle, ChevronRight } from "lucide-react";
 import { categories } from "@/data/courses";
 import { blogPosts } from "@/data/blogs";
@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/accordion";
 import heroCourses from "@/assets/hero-courses.jpg";
 import advisorModel from "@/assets/advisor-model.png";
+import AdvisorDialog from "@/components/AdvisorDialog";
 const CategoryCourses = () => {
   const { categorySlug } = useParams<{ categorySlug: string }>();
 
