@@ -1,18 +1,18 @@
 import { useCallback, useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
-import trainerRajiv from "@/assets/trainers/trainer-rajiv.png";
-import trainerMeera from "@/assets/trainers/trainer-meera.png";
-import trainerVikram from "@/assets/trainers/trainer-vikram.png";
-import trainerAnanya from "@/assets/trainers/trainer-ananya.png";
-import trainerArjun from "@/assets/trainers/trainer-arjun.png";
+import trainerSatyavrat from "@/assets/trainers/trainer-satyavrat.png";
+import trainerSmitha from "@/assets/trainers/trainer-smitha.png";
+import trainerPratap from "@/assets/trainers/trainer-pratap.png";
+import trainerJulie from "@/assets/trainers/trainer-julie.png";
+import trainerDavid from "@/assets/trainers/trainer-david.png";
 
 const trainers = [
-  { name: "Rajiv Sharma", title: "Project Management Guru", workedWith: ["Cognizant", "Infosys"], image: trainerRajiv },
-  { name: "Meera Nair", title: "Cloud Architecture Expert", workedWith: ["TCS", "Wipro"], image: trainerMeera },
-  { name: "Vikram Patel", title: "Cyber Security Consultant", workedWith: ["Deloitte", "HCLTech"], image: trainerVikram },
-  { name: "Ananya Rao", title: "Agile Transformation Lead", workedWith: ["Accenture", "Capgemini"], image: trainerAnanya },
-  { name: "Arjun Desai", title: "DevOps & Cloud Specialist", workedWith: ["Microsoft", "Amazon"], image: trainerArjun },
+  { name: "Satyavrat Nirala", title: "Agile & Change Management Coach", tagline: "14+ years | 2,000+ pros trained", workedWith: ["Scrum Alliance", "Fortune 500"], image: trainerSatyavrat },
+  { name: "Smitha K", title: "Behavioral Science & Change Facilitator", tagline: "20+ years | Behavioral Science Expert", workedWith: ["Capgemini", "Toyota", "SAP"], image: trainerSmitha },
+  { name: "Pratap Kumar", title: "Change Transformation Practitioner", tagline: "8+ years | 2,000+ people trained", workedWith: ["Enterprise Teams", "Multi-org"], image: trainerPratap },
+  { name: "Julie Dungate", title: "APMG Accredited Change Trainer", tagline: "11+ years L&D | 20+ years Military", workedWith: ["Royal Air Force", "UK Finance"], image: trainerJulie },
+  { name: "Dr. David Griffiths", title: "Executive Change & Leadership Coach", tagline: "125+ engagements | 17 countries", workedWith: ["Global Fortune", "AICPA"], image: trainerDavid },
 ];
 
 const TrainerCard = ({ t, i }: { t: typeof trainers[0]; i: number }) => {
@@ -32,7 +32,7 @@ const TrainerCard = ({ t, i }: { t: typeof trainers[0]; i: number }) => {
           <h3 className="font-heading font-bold text-foreground text-base md:text-lg leading-tight">{t.name}</h3>
           <p className="text-primary text-xs md:text-sm font-medium mt-1">{t.title}</p>
           <p className="text-[10px] md:text-[11px] text-muted-foreground mt-4 md:mt-5 mb-2 font-semibold">Has worked with</p>
-          <div className="flex items-center justify-center gap-2">
+          <div className="flex items-center justify-center gap-2 flex-wrap">
             {t.workedWith.map((company) => (
               <span key={company} className="text-[11px] md:text-xs font-bold text-foreground/80">{company}</span>
             ))}
