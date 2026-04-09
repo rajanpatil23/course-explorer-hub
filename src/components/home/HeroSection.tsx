@@ -62,15 +62,14 @@ const HeroSection = () => {
               >
                 Explore Courses <ChevronRight className="w-4 h-4" />
               </Button>
-              <Link to="/contact" className="w-full sm:w-auto">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-primary/30 text-primary hover:bg-primary/5 font-semibold px-8 text-base w-full sm:w-auto"
-                >
-                  Talk to an Advisor
-                </Button>
-              </Link>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-primary/30 text-primary hover:bg-primary/5 font-semibold px-8 text-base w-full sm:w-auto"
+                onClick={() => setAdvisorOpen(true)}
+              >
+                Talk to an Advisor
+              </Button>
             </div>
 
             {/* Trust indicators */}

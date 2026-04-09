@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { Star, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroBg from "@/assets/hero-bg.jpg";
+import AdvisorDialog from "@/components/AdvisorDialog";
 
 const HeroBanner = () => {
+  const [advisorOpen, setAdvisorOpen] = useState(false);
   const scrollToCourses = () => {
     document.getElementById("courses-section")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -50,12 +53,13 @@ const HeroBanner = () => {
             <Button size="lg" onClick={scrollToCourses} className="bg-primary hover:bg-teal-dark text-primary-foreground font-semibold px-8 text-base">
               Explore Courses
             </Button>
-            <Button size="lg" variant="outline" className="border-hero-foreground/30 text-hero-foreground hover:bg-hero-foreground/10 font-semibold px-8 text-base">
+            <Button size="lg" variant="outline" className="border-hero-foreground/30 text-hero-foreground hover:bg-hero-foreground/10 font-semibold px-8 text-base" onClick={() => setAdvisorOpen(true)}>
               Free Consultation
             </Button>
           </div>
         </div>
       </div>
+      <AdvisorDialog open={advisorOpen} onOpenChange={setAdvisorOpen} />
     </section>
   );
 };
