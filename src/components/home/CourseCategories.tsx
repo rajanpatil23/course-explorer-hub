@@ -7,7 +7,7 @@ import logoPmi from "@/assets/partners/pmi-logo-trimmed.png";
 import logoComptia from "@/assets/partners/comptia-logo-trimmed.png";
 import logoAzure from "@/assets/partners/microsoft-logo-trimmed.png";
 import logoAws from "@/assets/partners/aws-logo-trimmed.png";
-import logoSafe from "@/assets/partners/safe-logo-trimmed.png";
+import logoSafe from "@/assets/partners/safe-logo-new.png";
 
 const categoryCards = [
   {

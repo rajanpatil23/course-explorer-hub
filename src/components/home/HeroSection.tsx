@@ -6,7 +6,7 @@ import pmiLogo from "@/assets/partners/pmi-logo-trimmed.png";
 import comptiaLogo from "@/assets/partners/comptia-logo-trimmed.png";
 import awsLogo from "@/assets/partners/aws-logo-trimmed.png";
 import microsoftLogo from "@/assets/partners/microsoft-logo-trimmed.png";
-import safeLogo from "@/assets/partners/safe-logo-trimmed.png";
+import safeLogo from "@/assets/partners/safe-logo-new.png";
 import isc2Logo from "@/assets/partners/isc2-logo-trimmed.png";
 
 const partners = [
