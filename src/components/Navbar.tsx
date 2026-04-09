@@ -45,6 +45,44 @@ const Navbar = () => {
           <img src={logoFull} alt="The EduEdge" className="h-14 md:h-16 w-auto" />
         </Link>
 
+        {/* Course Search */}
+        <div ref={searchRef} className="hidden md:block relative ml-4 mr-2">
+          <div className="relative">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+            <input
+              ref={inputRef}
+              type="text"
+              placeholder="Search courses…"
+              value={searchQuery}
+              onChange={e => { setSearchQuery(e.target.value); setSearchOpen(true); }}
+              onFocus={() => setSearchOpen(true)}
+              className="w-48 lg:w-64 pl-9 pr-3 py-2 rounded-full border border-border bg-muted/50 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/40 text-sm transition-all"
+            />
+          </div>
+          {searchOpen && searchQuery.trim().length >= 2 && (
+            <div className="absolute top-full left-0 mt-1 w-80 bg-card border border-border rounded-lg shadow-lg py-2 max-h-80 overflow-y-auto z-50">
+              {searchResults.length > 0 ? (
+                searchResults.map(course => (
+                  <button
+                    key={course.code}
+                    onClick={() => {
+                      navigate(`/course/${course.slug}`);
+                      setSearchOpen(false);
+                      setSearchQuery("");
+                    }}
+                    className="w-full text-left px-4 py-2.5 hover:bg-muted/60 transition-colors"
+                  >
+                    <p className="text-sm font-medium text-foreground">{course.name}</p>
+                    <p className="text-xs text-muted-foreground">{course.code}</p>
+                  </button>
+                ))
+              ) : (
+                <p className="px-4 py-3 text-sm text-muted-foreground">No courses found</p>
+              )}
+            </div>
+          )}
+        </div>
+
         <nav className="hidden md:flex items-center gap-1">
           <NavLink to="/" end className={({ isActive }) => `px-3 py-2 text-sm font-medium transition-colors rounded-md ${isActive ? "text-primary font-bold" : "text-foreground hover:text-primary"}`}>
             Home
