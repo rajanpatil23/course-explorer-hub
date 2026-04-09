@@ -47,6 +47,10 @@ const BrochureDialog = ({ open, onOpenChange, courseName, brochureUrl }: Brochur
     });
 
     if (result.success) {
+      // Open PDF in new browser tab immediately
+      if (brochureUrl) {
+        window.open(brochureUrl, "_blank");
+      }
       setSubmitted(true);
     } else {
       toast({ title: "Submission failed", description: result.message, variant: "destructive" });
