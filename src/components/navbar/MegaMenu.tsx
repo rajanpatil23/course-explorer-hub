@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Menu, ChevronRight, Clock, Users, X, Search } from "lucide-react";
+import { Menu, ChevronRight } from "lucide-react";
 import { categories } from "@/data/courses";
 import courseThumbnails from "@/components/courses/courseThumbnails";
 
@@ -17,7 +17,7 @@ const badgeColors: Record<string, string> = {
 const MegaMenu = ({ onClose }: MegaMenuProps) => {
   const [open, setOpen] = useState(false);
   const [activeCat, setActiveCat] = useState(0);
-  const [search, setSearch] = useState("");
+  
   const menuRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
 
@@ -32,12 +32,6 @@ const MegaMenu = ({ onClose }: MegaMenuProps) => {
   }, []);
 
   const activeCourses = categories[activeCat]?.courses || [];
-  const filtered = search.trim().length >= 2
-    ? categories.flatMap(c => c.courses).filter(c =>
-        c.name.toLowerCase().includes(search.toLowerCase()) ||
-        c.code.toLowerCase().includes(search.toLowerCase())
-      )
-    : activeCourses;
 
   const close = () => {
     setOpen(false);
@@ -82,7 +76,7 @@ const MegaMenu = ({ onClose }: MegaMenuProps) => {
               {categories.map((cat, i) => (
                 <button
                   key={cat.slug}
-                  onMouseEnter={() => { setActiveCat(i); setSearch(""); }}
+                  onMouseEnter={() => { setActiveCat(i); }}
                   onClick={() => { navigate(`/${cat.slug}`); close(); }}
                   className={`w-full flex items-center justify-between px-4 py-2.5 text-sm transition-colors ${
                     activeCat === i && !search
@@ -91,7 +85,7 @@ const MegaMenu = ({ onClose }: MegaMenuProps) => {
                   }`}
                 >
                   <span className="truncate">{cat.name}</span>
-                  <ChevronRight className={`w-3.5 h-3.5 shrink-0 ${activeCat === i && !search ? "text-primary" : "text-muted-foreground/40"}`} />
+                  <ChevronRight className={`w-3.5 h-3.5 shrink-0 ${activeCat === i ? "text-primary" : "text-muted-foreground/40"}`} />
                 </button>
               ))}
               <div className="h-px bg-border mx-4 my-2" />
@@ -151,7 +145,7 @@ const MegaMenu = ({ onClose }: MegaMenuProps) => {
                   );
                 })}
               </div>
-              {filtered.length === 0 && (
+              {activeCourses.length === 0 && (
                 <p className="text-center text-sm text-muted-foreground py-8">No courses found</p>
               )}
             </div>
