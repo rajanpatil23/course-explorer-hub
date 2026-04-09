@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram, Youtube, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, Linkedin, Instagram, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
@@ -25,11 +25,9 @@ const companyLinks = [
 ];
 
 const socials = [
-  { icon: Facebook, href: "#", label: "Facebook" },
-  { icon: Twitter, href: "#", label: "Twitter" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Instagram, href: "#", label: "Instagram" },
-  { icon: Youtube, href: "#", label: "YouTube" },
+  { icon: Linkedin, href: "https://www.linkedin.com/company/the-edu-edge/", label: "LinkedIn" },
+  { icon: Instagram, href: "https://www.instagram.com/theeduedge", label: "Instagram" },
+  { icon: Facebook, href: "https://www.facebook.com/share/18hSZ3AsYC/", label: "Facebook" },
 ];
 
 const Footer = () => {
