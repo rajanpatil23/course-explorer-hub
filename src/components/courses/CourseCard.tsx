@@ -6,6 +6,7 @@ import type { Course, BadgeType } from "@/data/courses";
 import { findCategorySlugForCourse } from "@/data/courses";
 import courseThumbnails from "./courseThumbnails";
 import categoryThumbnails from "./categoryThumbnails";
+import { useCurrency } from "@/contexts/CurrencyContext";
 
 const badgeColors: Record<BadgeType, string> = {
   Popular: "bg-primary text-primary-foreground",
@@ -14,6 +15,7 @@ const badgeColors: Record<BadgeType, string> = {
 };
 
 const CourseCard = ({ course }: { course: Course }) => {
+  const { formatPrice } = useCurrency();
   return (
     <div className="group bg-card rounded-lg border border-border shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col">
       {/* Thumbnail area */}
@@ -53,7 +55,7 @@ const CourseCard = ({ course }: { course: Course }) => {
           </div>
           <div className="text-right">
             <p className="text-[10px] text-muted-foreground leading-tight">Starts From</p>
-            <p className="font-heading font-bold text-xl text-foreground">{course.price}</p>
+            <p className="font-heading font-bold text-xl text-foreground">{formatPrice(course.price, course.priceINR)}</p>
           </div>
         </div>
 

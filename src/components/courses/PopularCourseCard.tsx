@@ -5,6 +5,7 @@ import type { Course, BadgeType } from "@/data/courses";
 import { findCategorySlugForCourse } from "@/data/courses";
 import courseThumbnails from "@/components/courses/courseThumbnails";
 import categoryThumbnails from "@/components/courses/categoryThumbnails";
+import { useCurrency } from "@/contexts/CurrencyContext";
 
 const badgeConfig: Record<BadgeType, string> = {
   Popular: "bg-primary text-primary-foreground",
@@ -13,6 +14,7 @@ const badgeConfig: Record<BadgeType, string> = {
 };
 
 const PopularCourseCard = ({ course }: { course: Course }) => {
+  const { formatPrice } = useCurrency();
   const catSlug = findCategorySlugForCourse(course.slug) || "courses";
   const courseUrl = `/${catSlug}/${course.slug}`;
   return (
@@ -51,8 +53,8 @@ const PopularCourseCard = ({ course }: { course: Course }) => {
             <span className="font-semibold text-foreground text-[10px] md:text-xs ml-1">5.0</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="line-through text-muted-foreground text-[10px] md:text-xs">${course.originalPrice}</span>
-            <span className="font-heading font-bold text-lg md:text-xl text-foreground">${course.price}</span>
+            <span className="line-through text-muted-foreground text-[10px] md:text-xs">{formatPrice(course.originalPrice, course.originalPriceINR)}</span>
+            <span className="font-heading font-bold text-lg md:text-xl text-foreground">{formatPrice(course.price, course.priceINR)}</span>
           </div>
         </div>
       </div>
