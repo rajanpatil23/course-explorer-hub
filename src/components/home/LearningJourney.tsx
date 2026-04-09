@@ -37,7 +37,7 @@ const LearningJourney = () => {
             className="hidden lg:block absolute top-10 left-[12%] h-0.5 transition-all duration-500 ease-out"
             style={{
               width: getProgressWidth(),
-              maxWidth: "76%",
+              
               background: "linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary) / 0.6))",
               boxShadow: hovered >= 1 ? "0 0 8px hsl(var(--primary) / 0.5), 0 0 20px hsl(var(--primary) / 0.2)" : "none",
             }}
