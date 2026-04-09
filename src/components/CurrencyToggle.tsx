@@ -6,7 +6,7 @@ const CurrencyToggle = () => {
   const { currency, setCurrency } = useCurrency();
 
   return (
-    <div className="flex flex-col items-center bg-card/95 backdrop-blur-md border border-r-0 border-border rounded-l-2xl shadow-xl overflow-hidden">
+    <div className="flex flex-col items-center bg-card border border-r-0 border-border rounded-l-2xl shadow-xl overflow-hidden">
       {/* USD option */}
       <button
         onClick={() => setCurrency("USD")}
