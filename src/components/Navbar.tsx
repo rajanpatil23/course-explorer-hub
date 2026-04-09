@@ -1,13 +1,42 @@
-import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
-import { Menu, X, ChevronDown, LogIn, UserPlus } from "lucide-react";
+import { useState, useRef, useEffect, useMemo } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Menu, X, ChevronDown, LogIn, UserPlus, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { categories } from "@/data/courses";
 import logoFull from "@/assets/logo-full.jpg";
 
+const allCourses = categories.flatMap(c => c.courses);
+
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const searchRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const navigate = useNavigate();
+
+  const searchResults = useMemo(() => {
+    if (searchQuery.trim().length < 2) return [];
+    const q = searchQuery.toLowerCase();
+    return allCourses.filter(c =>
+      c.name.toLowerCase().includes(q) || c.code.toLowerCase().includes(q)
+    ).slice(0, 6);
+  }, [searchQuery]);
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (searchRef.current && !searchRef.current.contains(e.target as Node)) {
+        setSearchOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
+
+  useEffect(() => {
+    if (searchOpen) inputRef.current?.focus();
+  }, [searchOpen]);
 
   return (
     <header className="sticky top-0 z-50 bg-card/95 backdrop-blur-md border-b border-border">
