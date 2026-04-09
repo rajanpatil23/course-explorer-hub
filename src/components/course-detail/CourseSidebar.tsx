@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { submitWeb3Form } from "@/lib/web3forms";
+import { createRazorpayOrder, openRazorpayCheckout } from "@/lib/razorpay";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import type { Course } from "@/data/courses";
 import BrochureDialog from "./BrochureDialog";
@@ -21,14 +22,83 @@ const EnrollmentForm = ({
   course,
   batch,
   onClose,
+  enablePayment = false,
 }: {
   course: Course;
   batch: (typeof upcomingBatches)[number] | null;
   onClose: () => void;
+  enablePayment?: boolean;
 }) => {
   const { toast } = useToast();
+  const { currency } = useCurrency();
   const [form, setForm] = useState<FormData>({ name: "", email: "", phone: "" });
   const [submitting, setSubmitting] = useState(false);
+
+  const handlePaymentFlow = async (name: string, email: string, phone: string, batchInfo: string) => {
+    const amountINR = course.priceINR;
+    const amountUSD = course.price;
+    // Razorpay requires amount in smallest currency unit
+    const paymentCurrency = currency === "INR" ? "INR" : "USD";
+    const paymentAmount = currency === "INR" ? amountINR * 100 : amountUSD * 100;
+
+    try {
+      toast({ title: "Creating order…", description: "Please wait while we set up your payment." });
+
+      // Try to create order via PHP backend
+      let orderId: string | undefined;
+      try {
+        const order = await createRazorpayOrder(paymentAmount, paymentCurrency, course.code);
+        orderId = order.id;
+      } catch {
+        // If PHP backend is not set up yet, proceed without order_id (test mode)
+        console.warn("Order API not available, proceeding in test mode");
+      }
+
+      openRazorpayCheckout({
+        courseName: course.name,
+        courseCode: course.code,
+        amount: paymentAmount,
+        currency: paymentCurrency,
+        customerName: name,
+        customerEmail: email,
+        customerPhone: phone || "",
+        batchInfo,
+        onSuccess: async (paymentId, rzpOrderId) => {
+          // Send confirmation email via Web3Forms
+          await submitWeb3Form({
+            subject: `Payment Confirmed – ${course.name}`,
+            name,
+            email,
+            phone: phone || "Not provided",
+            course_name: course.name,
+            course_code: course.code,
+            batch_info: batchInfo,
+            payment_id: paymentId,
+            order_id: rzpOrderId || orderId || "N/A",
+            amount: `${paymentCurrency} ${(paymentAmount / 100).toLocaleString()}`,
+            form_type: "Payment Confirmation",
+            message: `Payment of ${paymentCurrency} ${(paymentAmount / 100).toLocaleString()} received for ${course.name}. Payment ID: ${paymentId}`,
+          });
+
+          toast({
+            title: "🎉 Payment Successful!",
+            description: "Confirmation email sent. Our team will reach out with next steps.",
+          });
+          setForm({ name: "", email: "", phone: "" });
+          onClose();
+        },
+        onFailure: (error) => {
+          toast({
+            title: "Payment not completed",
+            description: error,
+            variant: "destructive",
+          });
+        },
+      });
+    } catch {
+      toast({ title: "Error", description: "Could not initiate payment. Please try again.", variant: "destructive" });
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -51,6 +121,13 @@ const EnrollmentForm = ({
       ? `Preferred Batch: ${batch.date} (${batch.format}, ${batch.time})`
       : "No specific batch selected";
 
+    if (enablePayment) {
+      await handlePaymentFlow(name.trim(), email.trim(), phone.trim(), batchInfo);
+      setSubmitting(false);
+      return;
+    }
+
+    // Non-payment flow (enquiry)
     const result = await submitWeb3Form({
       subject: `Enrollment Inquiry – ${course.name}`,
       name: name.trim(),
@@ -86,7 +163,7 @@ const EnrollmentForm = ({
         <Input type="email" placeholder="Email Address" value={form.email} onChange={e => setForm(p => ({ ...p, email: e.target.value }))} maxLength={255} required className="text-sm" />
         <Input type="tel" placeholder="Phone (optional)" value={form.phone} onChange={e => setForm(p => ({ ...p, phone: e.target.value }))} maxLength={15} className="text-sm" />
         <Button type="submit" disabled={submitting} className="w-full bg-primary hover:bg-teal-dark text-primary-foreground font-semibold text-sm">
-          {submitting ? "Submitting…" : "Submit Enrollment Request"}
+          {submitting ? "Processing…" : enablePayment ? "Submit & Pay" : "Submit Enrollment Request"}
         </Button>
       </form>
     </div>
@@ -185,6 +262,7 @@ const CourseSidebar = ({ course }: { course: Course }) => {
                 course={course}
                 batch={upcomingBatches[enrollBatchIdx]}
                 onClose={() => { setEnrollStep("idle"); setEnrollBatchIdx(null); }}
+                enablePayment
               />
               <button
                 type="button"
@@ -256,6 +334,7 @@ const CourseSidebar = ({ course }: { course: Course }) => {
                       course={course}
                       batch={upcomingBatches[card2SelectedBatch]}
                       onClose={() => { setCard2ShowForm(false); setCard2SelectedBatch(null); }}
+                      enablePayment
                     />
                     <button
                       type="button"
