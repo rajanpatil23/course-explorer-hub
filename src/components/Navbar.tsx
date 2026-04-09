@@ -37,7 +37,7 @@ const Navbar = () => {
 
   return (
     <header className="sticky top-0 z-50 bg-card/95 backdrop-blur-md border-b border-border">
-      <div className="container flex items-center justify-between h-16">
+      <div className="container flex items-center justify-between h-16 relative z-10 bg-card/95">
         <Link to="/" className="shrink-0">
           <img src={logoFull} alt="The EduEdge" className="h-14 md:h-16 w-auto" />
         </Link>
