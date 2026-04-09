@@ -11,11 +11,12 @@ const steps = [
 const LearningJourney = () => {
   const [hovered, setHovered] = useState(-1);
 
-  // Progress width: from first icon center to hovered icon center
-  // Each icon is at 12.5%, 37.5%, 62.5%, 87.5% of the connector
+  // Connector spans left 12% to right 12% = 76% of container width
+  // Icon centers within that connector: step 0 = 0%, step 1 = 33.3%, step 2 = 66.6%, step 3 = 100%
   const getProgressWidth = () => {
     if (hovered <= 0) return "0%";
-    const pct = (hovered / 3) * 100;
+    // Width as percentage of the full container (connector is 76% wide starting at 12%)
+    const pct = (hovered / 3) * 76;
     return `${pct}%`;
   };
 
