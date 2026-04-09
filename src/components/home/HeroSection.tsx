@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ChevronRight, Star } from "lucide-react";
@@ -8,6 +9,7 @@ import awsLogo from "@/assets/partners/aws-logo-trimmed.png";
 import microsoftLogo from "@/assets/partners/microsoft-logo-trimmed.png";
 import safeLogo from "@/assets/partners/safe-logo-official.png";
 import isc2Logo from "@/assets/partners/isc2-logo-trimmed.png";
+import AdvisorDialog from "@/components/AdvisorDialog";
 
 const partners = [
   { name: "PMI", logo: pmiLogo },
@@ -19,6 +21,7 @@ const partners = [
 ];
 
 const HeroSection = () => {
+  const [advisorOpen, setAdvisorOpen] = useState(false);
   const scrollToCourses = () => {
     document.getElementById("courses-section")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -166,6 +169,8 @@ const HeroSection = () => {
         </div>
       </div>
     </section>
+    <AdvisorDialog open={advisorOpen} onOpenChange={setAdvisorOpen} />
+    </>
   );
 };
 
