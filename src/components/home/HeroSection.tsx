@@ -23,7 +23,7 @@ const partners = [
 const HeroSection = () => {
   const [advisorOpen, setAdvisorOpen] = useState(false);
   const scrollToCourses = () => {
-    document.getElementById("courses-section")?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById("popular-courses-section")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
