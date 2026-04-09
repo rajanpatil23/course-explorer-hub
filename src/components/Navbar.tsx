@@ -161,6 +161,33 @@ const Navbar = () => {
 
       {mobileOpen && (
         <div className="md:hidden bg-card border-t border-border pb-4 px-4">
+          {/* Mobile search */}
+          <div className="relative py-3 border-b border-border">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+            <input
+              type="text"
+              placeholder="Search courses…"
+              value={searchQuery}
+              onChange={e => { setSearchQuery(e.target.value); setSearchOpen(true); }}
+              className="w-full pl-9 pr-3 py-2 rounded-full border border-border bg-muted/50 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 text-sm"
+            />
+            {searchOpen && searchQuery.trim().length >= 2 && (
+              <div className="absolute left-0 right-0 top-full mt-1 bg-card border border-border rounded-lg shadow-lg py-2 max-h-60 overflow-y-auto z-50">
+                {searchResults.length > 0 ? searchResults.map(course => (
+                  <button
+                    key={course.code}
+                    onClick={() => { navigate(`/course/${course.slug}`); setMobileOpen(false); setSearchQuery(""); setSearchOpen(false); }}
+                    className="w-full text-left px-4 py-2.5 hover:bg-muted/60 transition-colors"
+                  >
+                    <p className="text-sm font-medium text-foreground">{course.name}</p>
+                    <p className="text-xs text-muted-foreground">{course.code}</p>
+                  </button>
+                )) : (
+                  <p className="px-4 py-3 text-sm text-muted-foreground">No courses found</p>
+                )}
+              </div>
+            )}
+          </div>
           <Link to="/" onClick={() => setMobileOpen(false)} className="block py-3 text-sm font-medium text-foreground border-b border-border">Home</Link>
           <div className="border-b border-border">
             <Link to="/courses" onClick={() => setMobileOpen(false)} className="block py-3 text-sm font-semibold text-foreground">All Courses</Link>
