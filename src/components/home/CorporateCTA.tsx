@@ -1,80 +1,55 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Building2, UserCheck, CalendarClock, BarChart3, FileCheck } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import corporateModel from "@/assets/corporate-model.png";
 
-const values = [
-  { icon: <Building2 className="w-4 h-4 md:w-5 md:h-5" />, text: "Volume Discounts" },
-  { icon: <UserCheck className="w-4 h-4 md:w-5 md:h-5" />, text: "Dedicated Manager" },
-  { icon: <CalendarClock className="w-4 h-4 md:w-5 md:h-5" />, text: "Custom Scheduling" },
-  { icon: <BarChart3 className="w-4 h-4 md:w-5 md:h-5" />, text: "Progress Tracking" },
-  { icon: <FileCheck className="w-4 h-4 md:w-5 md:h-5" />, text: "Cert Management" },
-];
-
 const CorporateCTA = () => (
-  <section className="relative pt-8 md:pt-16 pb-0 bg-hero text-hero-foreground overflow-hidden">
-    <div className="absolute inset-0 bg-gradient-to-br from-hero via-hero/95 to-primary/20" />
-    <div className="absolute top-10 right-10 w-[400px] h-[400px] rounded-full bg-primary/10 blur-[120px]" />
+  <section className="py-10 md:py-16 bg-background">
+    <div className="container">
+      <div className="relative bg-hero text-hero-foreground rounded-2xl overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-hero via-hero/95 to-primary/20" />
+        <div
+          className="absolute -top-6 -left-4 w-[110%] h-[90%] pointer-events-none opacity-20"
+          style={{
+            backgroundImage: "radial-gradient(circle, hsl(var(--primary)) 1.2px, transparent 1.2px)",
+            backgroundSize: "18px 18px",
+          }}
+        />
+        <div className="absolute top-0 right-0 w-[300px] h-[300px] rounded-full bg-primary/10 blur-[120px]" />
 
-    <div className="container relative z-10">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
-        {/* Left – Image (desktop: left-aligned bottom, mobile: centered below content) */}
-        <div className="relative flex items-end justify-center lg:justify-start self-end order-2 lg:order-1">
-          <div
-            className="absolute -top-6 -left-4 w-[110%] h-[90%] pointer-events-none opacity-20 hidden md:block"
-            style={{
-              backgroundImage: "radial-gradient(circle, hsl(var(--primary)) 1.2px, transparent 1.2px)",
-              backgroundSize: "18px 18px",
-            }}
-          />
-          <img
-            src={corporateModel}
-            alt="Corporate training professional"
-            className="relative z-10 w-full max-w-[200px] md:max-w-xs lg:max-w-sm object-contain"
-            loading="lazy"
-          />
-        </div>
-
-        {/* Right – Content (desktop: left-aligned, mobile: centered) */}
-        <div className="relative text-center lg:text-left self-center order-1 lg:order-2">
-          <div
-            className="absolute top-1/2 left-1/3 w-[80%] h-[70%] -translate-y-1/2 pointer-events-none opacity-[0.08] hidden md:block"
-            style={{
-              backgroundImage: "radial-gradient(circle, hsl(var(--accent)) 1.2px, transparent 1.2px)",
-              backgroundSize: "20px 20px",
-            }}
-          />
-
-          <div className="relative z-10">
-            <p className="text-[10px] md:text-xs font-bold text-accent uppercase tracking-[0.2em] mb-2 md:mb-3">Corporate Training</p>
-            <h2 className="font-heading text-2xl md:text-4xl font-bold mb-3 md:mb-4">
-              Level Up Your Team
-            </h2>
-            <p className="text-hero-foreground/70 mb-6 md:mb-8 max-w-xl text-sm md:text-base mx-auto lg:mx-0">
-              Custom corporate training with volume pricing, dedicated account management, and progress dashboards.
+        <div className="relative z-10 flex flex-col md:flex-row items-center gap-4 md:gap-10 px-5 md:px-10 lg:px-14">
+          <div className="hidden md:block shrink-0 self-end">
+            <img
+              src={corporateModel}
+              alt="Corporate training professional"
+              className="h-[140px] lg:h-[160px] object-contain"
+            />
+          </div>
+          <div className="flex-1 py-5 md:py-8 text-center md:text-left">
+            <h3 className="font-heading text-base md:text-xl lg:text-2xl font-bold mb-1">
+              Level Up Your Team with Custom Corporate Training
+            </h3>
+            <p className="text-hero-foreground/70 text-xs md:text-base">
+              Volume pricing, dedicated account management & progress dashboards. Get started today!
             </p>
-
-            <div className="flex flex-wrap justify-center lg:justify-start gap-4 md:gap-6 mb-6 md:mb-8">
-              {values.map((v, i) => (
-                <div key={i} className="flex items-center gap-1.5 md:gap-2">
-                  <span className="text-hero-foreground">{v.icon}</span>
-                  <span className="text-xs md:text-sm font-semibold">{v.text}</span>
-                </div>
-              ))}
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+          </div>
+          <div className="shrink-0 pb-5 md:pb-0">
+            <Button
+              size="lg"
+              className="bg-background text-foreground hover:bg-background/90 font-semibold px-6 md:px-8"
+              asChild
+            >
               <Link to="/contact">
-                <Button size="lg" className="w-full sm:w-auto bg-accent hover:bg-primary text-accent-foreground font-semibold px-8 md:px-10 text-sm md:text-base">
-                  Request Corporate Quote
-                </Button>
+                Get a Quote <ChevronRight className="w-4 h-4 ml-1" />
               </Link>
-              <Link to="/contact">
-                <Button size="lg" variant="outline" className="w-full sm:w-auto border-hero-foreground/30 text-hero-foreground hover:bg-hero-foreground/10 font-semibold px-8 text-sm md:text-base">
-                  Download Brochure
-                </Button>
-              </Link>
-            </div>
+            </Button>
+          </div>
+          <div className="md:hidden shrink-0 self-center">
+            <img
+              src={corporateModel}
+              alt="Corporate training professional"
+              className="h-[120px] object-contain"
+            />
           </div>
         </div>
       </div>
