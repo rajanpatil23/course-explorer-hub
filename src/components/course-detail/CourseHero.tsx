@@ -8,7 +8,7 @@ import categoryThumbnails from "@/components/courses/categoryThumbnails";
 import courseThumbnails from "@/components/courses/courseThumbnails";
 import { categories } from "@/data/courses";
 import AdvisorDialog from "@/components/AdvisorDialog";
-
+import BrochureDialog from "./BrochureDialog";
 const categorySlugMap: Record<string, string> = {};
 categories.forEach((cat) => {
   categorySlugMap[cat.name] = cat.slug;
@@ -22,6 +22,7 @@ const badgeColors: Record<BadgeType, string> = {
 
 const CourseHero = ({ course }: { course: Course }) => {
   const [advisorOpen, setAdvisorOpen] = useState(false);
+  const [brochureOpen, setBrochureOpen] = useState(false);
 
   return (
   <>
@@ -83,7 +84,7 @@ const CourseHero = ({ course }: { course: Course }) => {
               >
                 Talk to an Advisor <ChevronRight className="w-4 h-4" />
               </Button>
-              <Button size="lg" variant="outline" className="border-primary/30 text-primary hover:bg-primary/5 font-semibold px-8 text-base w-full sm:w-auto">
+              <Button size="lg" variant="outline" className="border-primary/30 text-primary hover:bg-primary/5 font-semibold px-8 text-base w-full sm:w-auto" onClick={() => setBrochureOpen(true)}>
                 Download Brochure
               </Button>
             </div>
@@ -165,6 +166,7 @@ const CourseHero = ({ course }: { course: Course }) => {
       </div>
     </section>
     <AdvisorDialog open={advisorOpen} onOpenChange={setAdvisorOpen} />
+    <BrochureDialog open={brochureOpen} onOpenChange={setBrochureOpen} courseName={course.name} brochureUrl={course.brochureUrl} />
   </>
   );
 };
