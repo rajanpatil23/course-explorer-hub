@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Building2, UserCheck, BarChart3 } from "lucide-react";
-import corporateCta from "@/assets/corporate-cta.png";
+import corporateCta from "@/assets/corporate-model.png";
 
 const CorporateCTA = () => (
   <section className="relative pt-8 md:pt-16 pb-0 bg-hero text-hero-foreground overflow-hidden">
