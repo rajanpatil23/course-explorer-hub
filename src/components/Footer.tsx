@@ -86,9 +86,8 @@ const Footer = () => {
           </div>
 
           {/* Quick links + Company — side by side on mobile */}
-          <div className="grid grid-cols-2 gap-6 sm:contents">
-            <div>
-              <h4 className="font-heading font-bold text-sm mb-3 text-hero-foreground/90">Courses</h4>
+          <div className="grid grid-cols-1 gap-0 sm:contents">
+            <FooterAccordion title="Courses">
               <ul className="space-y-2">
                 {quickLinks.map(link => (
                   <li key={link.label}>
@@ -98,10 +97,9 @@ const Footer = () => {
                   </li>
                 ))}
               </ul>
-            </div>
+            </FooterAccordion>
 
-            <div>
-              <h4 className="font-heading font-bold text-sm mb-3 text-hero-foreground/90">Company</h4>
+            <FooterAccordion title="Company">
               <ul className="space-y-2">
                 {companyLinks.map(link => (
                   <li key={link.label}>
@@ -111,7 +109,7 @@ const Footer = () => {
                   </li>
                 ))}
               </ul>
-            </div>
+            </FooterAccordion>
           </div>
 
           {/* Newsletter + socials */}
