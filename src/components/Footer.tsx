@@ -4,6 +4,7 @@ import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram, Youtube, S
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
+import { submitWeb3Form } from "@/lib/web3forms";
 import logoWhite from "@/assets/logo-white.jpg";
 
 const quickLinks = [
@@ -35,14 +36,27 @@ const Footer = () => {
   const [email, setEmail] = useState("");
   const { toast } = useToast();
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const [subscribing, setSubscribing] = useState(false);
+
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || email.length > 255) {
       toast({ title: "Invalid email", description: "Please enter a valid email address.", variant: "destructive" });
       return;
     }
-    toast({ title: "Subscribed!", description: "You'll receive the latest updates from The EduEdge." });
-    setEmail("");
+    setSubscribing(true);
+    const result = await submitWeb3Form({
+      subject: "Newsletter Subscription",
+      email: email.trim(),
+      form_type: "Newsletter",
+    });
+    if (result.success) {
+      toast({ title: "Subscribed!", description: "You'll receive the latest updates from The EduEdge." });
+      setEmail("");
+    } else {
+      toast({ title: "Subscription failed", description: result.message, variant: "destructive" });
+    }
+    setSubscribing(false);
   };
 
   return (
@@ -112,7 +126,7 @@ const Footer = () => {
                 required
                 className="bg-hero-foreground/10 border-hero-foreground/20 text-hero-foreground placeholder:text-hero-foreground/40 text-sm h-10 focus-visible:ring-accent"
               />
-              <Button type="submit" size="icon" className="bg-accent hover:bg-primary text-accent-foreground h-10 w-10 shrink-0">
+              <Button type="submit" size="icon" className="bg-accent hover:bg-primary text-accent-foreground h-10 w-10 shrink-0" disabled={subscribing}>
                 <Send className="w-4 h-4" />
               </Button>
             </form>

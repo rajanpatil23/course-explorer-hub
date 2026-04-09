@@ -3,6 +3,7 @@ import { Clock, Award, CheckCircle, Calendar, Phone, Mail, ChevronDown } from "l
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
+import { submitWeb3Form } from "@/lib/web3forms";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import type { Course } from "@/data/courses";
 import BrochureDialog from "./BrochureDialog";
@@ -29,7 +30,7 @@ const EnrollmentForm = ({
   const [form, setForm] = useState<FormData>({ name: "", email: "", phone: "" });
   const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const { name, email, phone } = form;
     if (!name.trim() || name.trim().length > 100) {
@@ -47,20 +48,28 @@ const EnrollmentForm = ({
 
     setSubmitting(true);
     const batchInfo = batch
-      ? `\nPreferred Batch: ${batch.date} (${batch.format}, ${batch.time})`
-      : "\nNo specific batch selected";
-    const subject = encodeURIComponent(`Enrollment Inquiry – ${course.name}`);
-    const body = encodeURIComponent(
-      `Hi EduEdge Team,\n\nI would like to enroll in the following course:\n\nCourse: ${course.name}\nCourse Code: ${course.code}${batchInfo}\n\nMy Details:\nName: ${name.trim()}\nEmail: ${email.trim()}${phone ? `\nPhone: ${phone.trim()}` : ""}\n\nPlease share next steps.\n\nThank you.`
-    );
-    window.open(`mailto:contact@theeduedge.org?subject=${subject}&body=${body}`, "_self");
+      ? `Preferred Batch: ${batch.date} (${batch.format}, ${batch.time})`
+      : "No specific batch selected";
 
-    setTimeout(() => {
-      setSubmitting(false);
-      toast({ title: "Enrollment Request Opened!", description: "Your email client should open with the inquiry." });
+    const result = await submitWeb3Form({
+      subject: `Enrollment Inquiry – ${course.name}`,
+      name: name.trim(),
+      email: email.trim(),
+      phone: phone.trim() || "Not provided",
+      course_name: course.name,
+      course_code: course.code,
+      batch_info: batchInfo,
+      form_type: "Enrollment Inquiry",
+    });
+
+    if (result.success) {
+      toast({ title: "Enrollment Request Sent!", description: "Our team will contact you shortly." });
       setForm({ name: "", email: "", phone: "" });
       onClose();
-    }, 1000);
+    } else {
+      toast({ title: "Submission failed", description: result.message, variant: "destructive" });
+    }
+    setSubmitting(false);
   };
 
   return (

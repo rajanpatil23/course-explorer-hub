@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
+import { submitWeb3Form } from "@/lib/web3forms";
 import { Mail, Phone, Clock, MessageSquare, Send, ArrowRight, CheckCircle2 } from "lucide-react";
 
 const contactCards = [
@@ -40,15 +41,32 @@ const benefits = [
 const Contact = () => {
   const { toast } = useToast();
   const [form, setForm] = useState({ name: "", email: "", phone: "", course: "", enquiryType: "", message: "" });
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name || !form.email || !form.phone) {
       toast({ title: "Please fill in all required fields", variant: "destructive" });
       return;
     }
-    toast({ title: "Enquiry Submitted!", description: "Our team will contact you within 24 hours." });
-    setForm({ name: "", email: "", phone: "", course: "", enquiryType: "", message: "" });
+    setSubmitting(true);
+    const result = await submitWeb3Form({
+      subject: "Contact Page Enquiry",
+      name: form.name,
+      email: form.email,
+      phone: form.phone,
+      course_interested: form.course || "Not specified",
+      enquiry_type: form.enquiryType || "Not specified",
+      message: form.message || "No message provided",
+      form_type: "Contact Enquiry",
+    });
+    if (result.success) {
+      toast({ title: "Enquiry Submitted!", description: "Our team will contact you within 24 hours." });
+      setForm({ name: "", email: "", phone: "", course: "", enquiryType: "", message: "" });
+    } else {
+      toast({ title: "Submission failed", description: result.message, variant: "destructive" });
+    }
+    setSubmitting(false);
   };
 
   return (
@@ -184,9 +202,9 @@ const Contact = () => {
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
                   />
-                  <Button type="submit" size="lg" className="w-full">
+                  <Button type="submit" size="lg" className="w-full" disabled={submitting}>
                     <Send className="w-4 h-4 mr-2" />
-                    Submit Enquiry
+                    {submitting ? "Submitting…" : "Submit Enquiry"}
                   </Button>
                 </form>
               </div>
