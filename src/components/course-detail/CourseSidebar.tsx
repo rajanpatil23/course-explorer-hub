@@ -173,6 +173,7 @@ const EnrollmentForm = ({
 
 const CourseSidebar = ({ course }: { course: Course }) => {
   const { formatPrice } = useCurrency();
+  const contact = useContactInfo();
   // Card 1 state
   const [enrollStep, setEnrollStep] = useState<"idle" | "select">("idle");
   const [enrollBatchIdx, setEnrollBatchIdx] = useState<number | null>(null);
