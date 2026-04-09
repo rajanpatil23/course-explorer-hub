@@ -1,5 +1,5 @@
 import { useParams, Navigate, Link } from "react-router-dom";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { Star, CheckCircle, ChevronRight } from "lucide-react";
 import { categories } from "@/data/courses";
 import { blogPosts } from "@/data/blogs";
@@ -15,8 +15,10 @@ import {
 } from "@/components/ui/accordion";
 import heroCourses from "@/assets/hero-courses.jpg";
 import advisorModel from "@/assets/advisor-model.png";
+import AdvisorDialog from "@/components/AdvisorDialog";
 const CategoryCourses = () => {
   const { categorySlug } = useParams<{ categorySlug: string }>();
+  const [advisorOpen, setAdvisorOpen] = useState(false);
 
   const blogCategoryMap: Record<string, string> = {
     "project-management": "PMI & Project Management",
@@ -211,11 +213,9 @@ const CategoryCourses = () => {
                 <Button
                   size="lg"
                   className="bg-background text-foreground hover:bg-background/90 font-semibold px-6 md:px-8"
-                  asChild
+                  onClick={() => setAdvisorOpen(true)}
                 >
-                  <Link to="/contact">
-                    Contact Us <ChevronRight className="w-4 h-4 ml-1" />
-                  </Link>
+                  Contact Us <ChevronRight className="w-4 h-4 ml-1" />
                 </Button>
               </div>
               <div className="md:hidden shrink-0 self-center">
@@ -272,6 +272,7 @@ const CategoryCourses = () => {
         title={`${category.name} Insights & Guides`}
         subtitle={`Expert articles, exam tips, and career advice to support your ${category.name} certification journey.`}
       />
+      <AdvisorDialog open={advisorOpen} onOpenChange={setAdvisorOpen} />
     </div>
   );
 };

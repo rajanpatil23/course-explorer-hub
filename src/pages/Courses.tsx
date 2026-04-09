@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/accordion";
 import heroCourses from "@/assets/hero-courses.jpg";
 import advisorModel from "@/assets/advisor-model.png";
+import AdvisorDialog from "@/components/AdvisorDialog";
 
 const INITIAL_SHOW = 9;
 
@@ -33,6 +34,7 @@ const Courses = () => {
   const [activeTab, setActiveTab] = useState(initialCat);
   const [search, setSearch] = useState("");
   const [showAll, setShowAll] = useState<Record<string, boolean>>({});
+  const [advisorOpen, setAdvisorOpen] = useState(false);
 
   const allCourses = useMemo(() => categories.flatMap(c => c.courses), []);
 
@@ -268,11 +270,9 @@ const Courses = () => {
                 <Button
                   size="lg"
                   className="bg-background text-foreground hover:bg-background/90 font-semibold px-6 md:px-8"
-                  asChild
+                  onClick={() => setAdvisorOpen(true)}
                 >
-                  <Link to="/contact">
-                    Contact Us <ChevronRight className="w-4 h-4 ml-1" />
-                  </Link>
+                  Contact Us <ChevronRight className="w-4 h-4 ml-1" />
                 </Button>
               </div>
               <div className="md:hidden shrink-0 self-center">
@@ -329,6 +329,7 @@ const Courses = () => {
         title="Insights & Career Guides"
         subtitle="Expert articles, exam tips, and career advice to support your professional certification journey."
       />
+      <AdvisorDialog open={advisorOpen} onOpenChange={setAdvisorOpen} />
     </div>
   );
 };
