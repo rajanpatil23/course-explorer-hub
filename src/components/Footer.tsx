@@ -32,7 +32,32 @@ const socials = [
   { icon: Facebook, href: "https://www.facebook.com/share/18hSZ3AsYC/", label: "Facebook" },
 ];
 
-const Footer = () => {
+const FooterAccordion = ({ title, children }: { title: string; children: React.ReactNode }) => {
+  const [open, setOpen] = useState(false);
+  return (
+    <>
+      {/* Mobile: collapsible */}
+      <div className="sm:hidden border-b border-hero-foreground/10">
+        <button
+          onClick={() => setOpen(!open)}
+          className="w-full flex items-center justify-between py-3 text-left"
+        >
+          <h4 className="font-heading font-bold text-sm text-hero-foreground/90">{title}</h4>
+          <ChevronDown className={`w-4 h-4 text-hero-foreground/50 transition-transform ${open ? "rotate-180" : ""}`} />
+        </button>
+        <div className={`overflow-hidden transition-all duration-300 ${open ? "max-h-60 pb-3" : "max-h-0"}`}>
+          {children}
+        </div>
+      </div>
+      {/* Desktop: always open */}
+      <div className="hidden sm:block">
+        <h4 className="font-heading font-bold text-sm mb-3 text-hero-foreground/90">{title}</h4>
+        {children}
+      </div>
+    </>
+  );
+};
+
   const [email, setEmail] = useState("");
   const { toast } = useToast();
   const contact = useContactInfo();
