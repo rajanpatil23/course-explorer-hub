@@ -57,7 +57,7 @@ const FooterAccordion = ({ title, children }: { title: string; children: React.R
     </>
   );
 };
-
+const Footer = () => {
   const [email, setEmail] = useState("");
   const { toast } = useToast();
   const contact = useContactInfo();
