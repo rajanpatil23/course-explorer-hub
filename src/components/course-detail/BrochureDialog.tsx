@@ -123,18 +123,18 @@ const BrochureDialog = ({ open, onOpenChange, courseName, brochureUrl }: Brochur
               <CheckCircle2 className="w-8 h-8 text-primary" />
             </div>
             <div>
-              <h3 className="font-heading text-lg font-bold text-foreground">Brochure Shared!</h3>
+              <h3 className="font-heading text-lg font-bold text-foreground">Brochure Opened!</h3>
               <p className="text-sm text-muted-foreground mt-1">
-                The brochure has been sent to <span className="font-medium text-foreground">{form.email}</span>
+                The brochure has been opened in a new tab. If it didn't open, click below.
               </p>
             </div>
             {brochureUrl && (
               <Button
-                onClick={handleDownload}
+                onClick={() => window.open(brochureUrl, "_blank")}
                 className="w-full bg-primary hover:bg-teal-dark text-primary-foreground font-semibold gap-2"
               >
                 <Download className="w-4 h-4" />
-                Download Now
+                Open Brochure Again
               </Button>
             )}
             <Button variant="outline" onClick={handleClose} className="w-full">
