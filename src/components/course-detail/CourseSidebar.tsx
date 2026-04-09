@@ -262,6 +262,7 @@ const CourseSidebar = ({ course }: { course: Course }) => {
                 course={course}
                 batch={upcomingBatches[enrollBatchIdx]}
                 onClose={() => { setEnrollStep("idle"); setEnrollBatchIdx(null); }}
+                enablePayment
               />
               <button
                 type="button"
@@ -333,6 +334,7 @@ const CourseSidebar = ({ course }: { course: Course }) => {
                       course={course}
                       batch={upcomingBatches[card2SelectedBatch]}
                       onClose={() => { setCard2ShowForm(false); setCard2SelectedBatch(null); }}
+                      enablePayment
                     />
                     <button
                       type="button"
