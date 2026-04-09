@@ -1,13 +1,42 @@
-import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
-import { Menu, X, ChevronDown, LogIn, UserPlus } from "lucide-react";
+import { useState, useRef, useEffect, useMemo } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Menu, X, ChevronDown, LogIn, UserPlus, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { categories } from "@/data/courses";
 import logoFull from "@/assets/logo-full.jpg";
 
+const allCourses = categories.flatMap(c => c.courses);
+
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const searchRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const navigate = useNavigate();
+
+  const searchResults = useMemo(() => {
+    if (searchQuery.trim().length < 2) return [];
+    const q = searchQuery.toLowerCase();
+    return allCourses.filter(c =>
+      c.name.toLowerCase().includes(q) || c.code.toLowerCase().includes(q)
+    ).slice(0, 6);
+  }, [searchQuery]);
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (searchRef.current && !searchRef.current.contains(e.target as Node)) {
+        setSearchOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
+
+  useEffect(() => {
+    if (searchOpen) inputRef.current?.focus();
+  }, [searchOpen]);
 
   return (
     <header className="sticky top-0 z-50 bg-card/95 backdrop-blur-md border-b border-border">
@@ -15,6 +44,44 @@ const Navbar = () => {
         <Link to="/" className="shrink-0">
           <img src={logoFull} alt="The EduEdge" className="h-14 md:h-16 w-auto" />
         </Link>
+
+        {/* Course Search */}
+        <div ref={searchRef} className="hidden md:block relative ml-4 mr-2">
+          <div className="relative">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+            <input
+              ref={inputRef}
+              type="text"
+              placeholder="Search courses…"
+              value={searchQuery}
+              onChange={e => { setSearchQuery(e.target.value); setSearchOpen(true); }}
+              onFocus={() => setSearchOpen(true)}
+              className="w-48 lg:w-64 pl-9 pr-3 py-2 rounded-full border border-border bg-muted/50 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/40 text-sm transition-all"
+            />
+          </div>
+          {searchOpen && searchQuery.trim().length >= 2 && (
+            <div className="absolute top-full left-0 mt-1 w-80 bg-card border border-border rounded-lg shadow-lg py-2 max-h-80 overflow-y-auto z-50">
+              {searchResults.length > 0 ? (
+                searchResults.map(course => (
+                  <button
+                    key={course.code}
+                    onClick={() => {
+                      navigate(`/course/${course.slug}`);
+                      setSearchOpen(false);
+                      setSearchQuery("");
+                    }}
+                    className="w-full text-left px-4 py-2.5 hover:bg-muted/60 transition-colors"
+                  >
+                    <p className="text-sm font-medium text-foreground">{course.name}</p>
+                    <p className="text-xs text-muted-foreground">{course.code}</p>
+                  </button>
+                ))
+              ) : (
+                <p className="px-4 py-3 text-sm text-muted-foreground">No courses found</p>
+              )}
+            </div>
+          )}
+        </div>
 
         <nav className="hidden md:flex items-center gap-1">
           <NavLink to="/" end className={({ isActive }) => `px-3 py-2 text-sm font-medium transition-colors rounded-md ${isActive ? "text-primary font-bold" : "text-foreground hover:text-primary"}`}>
@@ -94,6 +161,33 @@ const Navbar = () => {
 
       {mobileOpen && (
         <div className="md:hidden bg-card border-t border-border pb-4 px-4">
+          {/* Mobile search */}
+          <div className="relative py-3 border-b border-border">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+            <input
+              type="text"
+              placeholder="Search courses…"
+              value={searchQuery}
+              onChange={e => { setSearchQuery(e.target.value); setSearchOpen(true); }}
+              className="w-full pl-9 pr-3 py-2 rounded-full border border-border bg-muted/50 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 text-sm"
+            />
+            {searchOpen && searchQuery.trim().length >= 2 && (
+              <div className="absolute left-0 right-0 top-full mt-1 bg-card border border-border rounded-lg shadow-lg py-2 max-h-60 overflow-y-auto z-50">
+                {searchResults.length > 0 ? searchResults.map(course => (
+                  <button
+                    key={course.code}
+                    onClick={() => { navigate(`/course/${course.slug}`); setMobileOpen(false); setSearchQuery(""); setSearchOpen(false); }}
+                    className="w-full text-left px-4 py-2.5 hover:bg-muted/60 transition-colors"
+                  >
+                    <p className="text-sm font-medium text-foreground">{course.name}</p>
+                    <p className="text-xs text-muted-foreground">{course.code}</p>
+                  </button>
+                )) : (
+                  <p className="px-4 py-3 text-sm text-muted-foreground">No courses found</p>
+                )}
+              </div>
+            )}
+          </div>
           <Link to="/" onClick={() => setMobileOpen(false)} className="block py-3 text-sm font-medium text-foreground border-b border-border">Home</Link>
           <div className="border-b border-border">
             <Link to="/courses" onClick={() => setMobileOpen(false)} className="block py-3 text-sm font-semibold text-foreground">All Courses</Link>
