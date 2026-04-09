@@ -56,7 +56,7 @@ const Navbar = () => {
               value={searchQuery}
               onChange={e => { setSearchQuery(e.target.value); setSearchOpen(true); }}
               onFocus={() => setSearchOpen(true)}
-              className="w-48 lg:w-64 pl-9 pr-3 py-2 rounded-full border border-border bg-muted/50 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/40 text-sm transition-all"
+              className="w-48 lg:w-64 pl-9 pr-3 py-2 rounded-md border border-border bg-muted/50 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/40 text-sm transition-all"
             />
           </div>
           {searchOpen && searchQuery.trim().length >= 2 && (
@@ -169,7 +169,7 @@ const Navbar = () => {
               placeholder="Search courses…"
               value={searchQuery}
               onChange={e => { setSearchQuery(e.target.value); setSearchOpen(true); }}
-              className="w-full pl-9 pr-3 py-2 rounded-full border border-border bg-muted/50 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 text-sm"
+              className="w-full pl-9 pr-3 py-2 rounded-md border border-border bg-muted/50 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 text-sm"
             />
             {searchOpen && searchQuery.trim().length >= 2 && (
               <div className="absolute left-0 right-0 top-full mt-1 bg-card border border-border rounded-lg shadow-lg py-2 max-h-60 overflow-y-auto z-50">
