@@ -27,6 +27,7 @@ const HeroSection = () => {
   };
 
   return (
+    <>
     <section className="relative bg-muted/40 text-foreground overflow-hidden rounded-b-[3rem] md:rounded-b-[8rem] shadow-sm">
       {/* Grid pattern */}
       <div
