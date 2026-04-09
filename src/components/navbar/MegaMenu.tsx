@@ -8,7 +8,7 @@ import pmiLogo from "@/assets/partners/pmi-logo-trimmed.png";
 import comptiaLogo from "@/assets/partners/comptia-logo-trimmed.png";
 import awsLogo from "@/assets/partners/aws-logo-trimmed.png";
 import microsoftLogo from "@/assets/partners/microsoft-logo-trimmed.png";
-import safeLogo from "@/assets/partners/safe-logo-new.png";
+import safeLogo from "@/assets/partners/safe-logo-official.png";
 
 const badgeColors: Record<string, string> = {
   Popular: "bg-destructive/10 text-destructive",
