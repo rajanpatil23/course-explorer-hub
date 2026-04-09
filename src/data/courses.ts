@@ -1893,6 +1893,44 @@ const safeDetails: Record<string, Partial<Course>> = {
   },
 };
 
+const coursePriceMap: Record<string, { usd: number; inr: number }> = {
+  "PMI-PMP": { usd: 799, inr: 59999 },
+  "PMI-CAPM": { usd: 499, inr: 34999 },
+  "PMI-ACP": { usd: 699, inr: 54999 },
+  "PMI-RMP": { usd: 699, inr: 54999 },
+  "PMI-PBA": { usd: 699, inr: 54999 },
+  "PMI-PgMP": { usd: 1299, inr: 99999 },
+  "COMP-SEC+": { usd: 599, inr: 49999 },
+  "COMP-NET+": { usd: 499, inr: 39999 },
+  "COMP-A+": { usd: 699, inr: 54999 },
+  "COMP-CYSA+": { usd: 549, inr: 44999 },
+  "COMP-PEN+": { usd: 549, inr: 44999 },
+  "COMP-CLD+": { usd: 499, inr: 39999 },
+  "COMP-SECX": { usd: 699, inr: 54999 },
+  "COMP-SRV+": { usd: 499, inr: 39999 },
+  "AZ-900": { usd: 199, inr: 14999 },
+  "AZ-104": { usd: 299, inr: 22999 },
+  "AZ-305": { usd: 349, inr: 26999 },
+  "AZ-500": { usd: 299, inr: 22999 },
+  "AZ-204": { usd: 299, inr: 22999 },
+  "AI-900": { usd: 199, inr: 14999 },
+  "DP-900": { usd: 199, inr: 14999 },
+  "MS-900": { usd: 199, inr: 14999 },
+  "AWS-CCP": { usd: 249, inr: 18999 },
+  "AWS-SAA": { usd: 349, inr: 26999 },
+  "AWS-DVA": { usd: 299, inr: 22999 },
+  "AWS-SOA": { usd: 299, inr: 22999 },
+  "AWS-SAP": { usd: 549, inr: 42999 },
+  "AWS-DOP": { usd: 549, inr: 42999 },
+  "SAFE-LSA": { usd: 799, inr: 54999 },
+  "SAFE-SSM": { usd: 699, inr: 47999 },
+  "SAFE-SP": { usd: 649, inr: 44999 },
+  "SAFE-POPM": { usd: 749, inr: 51999 },
+  "SAFE-SPC": { usd: 1999, inr: 129999 },
+  "SAFE-RTE": { usd: 1799, inr: 119999 },
+  "SAFE-LPM": { usd: 749, inr: 51999 },
+};
+
 function enrichCourse(base: {
   name: string; code: string; duration: string; level: string;
   skills: string[]; learners: string; badge: BadgeType; category: string;
