@@ -75,8 +75,8 @@ const Footer = () => {
               <a href={contact.phoneHref} className="flex items-center gap-2.5 text-sm text-hero-foreground/70 hover:text-accent transition-colors">
                 <Phone className="w-4 h-4 text-accent shrink-0" /> {contact.phone}
               </a>
-              <a href="mailto:contact@theeduedge.org" className="flex items-center gap-2.5 text-sm text-hero-foreground/70 hover:text-accent transition-colors">
-                <Mail className="w-4 h-4 text-accent shrink-0" /> contact@theeduedge.org
+              <a href="mailto:info@theeduedge.org" className="flex items-center gap-2.5 text-sm text-hero-foreground/70 hover:text-accent transition-colors">
+                <Mail className="w-4 h-4 text-accent shrink-0" /> info@theeduedge.org
               </a>
               <div className="flex items-start gap-2.5 text-sm text-hero-foreground/70">
                 <MapPin className="w-4 h-4 text-accent shrink-0 mt-0.5" /> India

@@ -25,8 +25,8 @@ const Contact = () => {
       icon: Mail,
       title: "Email Us",
       desc: "Drop us an email and we'll respond within 24 hours.",
-      detail: "contact@theeduedge.org",
-      href: "mailto:contact@theeduedge.org",
+      detail: "info@theeduedge.org",
+      href: "mailto:info@theeduedge.org",
     },
     {
       icon: Phone,

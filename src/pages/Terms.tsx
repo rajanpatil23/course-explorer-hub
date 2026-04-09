@@ -82,7 +82,7 @@ const Terms = () => {
             <h2 className="font-heading text-base md:text-lg font-bold text-foreground mb-1.5">13. Contact</h2>
             <p className="text-sm text-muted-foreground leading-relaxed">
               For questions about these Terms and Conditions, please contact us at{" "}
-              <a href="mailto:contact@theeduedge.org" className="text-accent hover:underline font-medium">contact@theeduedge.org</a>{" "}
+              <a href="mailto:info@theeduedge.org" className="text-accent hover:underline font-medium">info@theeduedge.org</a>{" "}
               or call{" "}
               <a href={contact.phoneHref} className="text-accent hover:underline font-medium">{contact.phone}</a>.
             </p>
@@ -95,7 +95,7 @@ const Terms = () => {
         <div className="text-center space-y-4">
           <p className="text-sm text-muted-foreground">
             Need something specific, or have a question about our terms?{" "}
-            <a href="mailto:contact@theeduedge.org" className="text-accent hover:underline font-medium">contact@theeduedge.org</a>
+            <a href="mailto:info@theeduedge.org" className="text-accent hover:underline font-medium">info@theeduedge.org</a>
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <Button asChild className="rounded-full px-6">
