@@ -6,6 +6,7 @@ import { categories } from "@/data/courses";
 import logoFull from "@/assets/logo-full.jpg";
 import MegaMenu from "@/components/navbar/MegaMenu";
 import MobileMenu from "@/components/navbar/MobileMenu";
+import CurrencyToggle from "@/components/CurrencyToggle";
 
 const allCourses = categories.flatMap(c => c.courses);
 
