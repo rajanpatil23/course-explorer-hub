@@ -166,6 +166,7 @@ const CourseHero = ({ course }: { course: Course }) => {
       </div>
     </section>
     <AdvisorDialog open={advisorOpen} onOpenChange={setAdvisorOpen} />
+    <BrochureDialog open={brochureOpen} onOpenChange={setBrochureOpen} courseName={course.name} brochureUrl={course.brochureUrl} />
   </>
   );
 };
