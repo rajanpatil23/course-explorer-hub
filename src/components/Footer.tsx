@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { submitWeb3Form } from "@/lib/web3forms";
 import logoWhite from "@/assets/logo-white.jpg";
+import { useContactInfo } from "@/hooks/useContactInfo";
 
 const quickLinks = [
   { label: "All Courses", href: "/courses" },
@@ -33,6 +34,7 @@ const socials = [
 const Footer = () => {
   const [email, setEmail] = useState("");
   const { toast } = useToast();
+  const contact = useContactInfo();
 
   const [subscribing, setSubscribing] = useState(false);
 
@@ -70,8 +72,8 @@ const Footer = () => {
               Accredited certification training for working professionals. Expert-led programs across Project Management, Cybersecurity, Cloud, and Agile.
             </p>
             <div className="space-y-2.5">
-              <a href="tel:+918851467220" className="flex items-center gap-2.5 text-sm text-hero-foreground/70 hover:text-accent transition-colors">
-                <Phone className="w-4 h-4 text-accent shrink-0" /> +91 88514 67220
+              <a href={contact.phoneHref} className="flex items-center gap-2.5 text-sm text-hero-foreground/70 hover:text-accent transition-colors">
+                <Phone className="w-4 h-4 text-accent shrink-0" /> {contact.phone}
               </a>
               <a href="mailto:contact@theeduedge.org" className="flex items-center gap-2.5 text-sm text-hero-foreground/70 hover:text-accent transition-colors">
                 <Mail className="w-4 h-4 text-accent shrink-0" /> contact@theeduedge.org

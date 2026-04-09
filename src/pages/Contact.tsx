@@ -6,30 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useToast } from "@/hooks/use-toast";
 import { submitWeb3Form } from "@/lib/web3forms";
 import { Mail, Phone, Clock, MessageSquare, Send, ArrowRight, CheckCircle2 } from "lucide-react";
-
-const contactCards = [
-  {
-    icon: Mail,
-    title: "Email Us",
-    desc: "Drop us an email and we'll respond within 24 hours.",
-    detail: "contact@theeduedge.org",
-    href: "mailto:contact@theeduedge.org",
-  },
-  {
-    icon: Phone,
-    title: "Call / WhatsApp",
-    desc: "Speak directly with our training advisors.",
-    detail: "+91 88514 67220",
-    href: "tel:+918851467220",
-  },
-  {
-    icon: Clock,
-    title: "Business Hours",
-    desc: "We're available during the following hours.",
-    detail: "Mon – Sat, 9 AM – 7 PM IST",
-    href: null,
-  },
-];
+import { useContactInfo } from "@/hooks/useContactInfo";
 
 const benefits = [
   "Free course consultation",
@@ -39,8 +16,33 @@ const benefits = [
 ];
 
 const Contact = () => {
+  const contact = useContactInfo();
   const { toast } = useToast();
   const [form, setForm] = useState({ name: "", email: "", phone: "", course: "", enquiryType: "", message: "" });
+
+  const contactCards = [
+    {
+      icon: Mail,
+      title: "Email Us",
+      desc: "Drop us an email and we'll respond within 24 hours.",
+      detail: "contact@theeduedge.org",
+      href: "mailto:contact@theeduedge.org",
+    },
+    {
+      icon: Phone,
+      title: "Call / WhatsApp",
+      desc: "Speak directly with our training advisors.",
+      detail: contact.phone,
+      href: contact.phoneHref,
+    },
+    {
+      icon: Clock,
+      title: "Business Hours",
+      desc: "We're available during the following hours.",
+      detail: "Mon – Sat, 9 AM – 7 PM IST",
+      href: null,
+    },
+  ];
   const [submitting, setSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -236,9 +238,9 @@ const Contact = () => {
                     Call or WhatsApp our advisor for an instant consultation.
                   </p>
                   <Button asChild variant="outline" size="sm" className="border-primary/30 text-primary hover:bg-primary/5">
-                    <a href="tel:+918851467220">
+                    <a href={contact.phoneHref}>
                       <Phone className="w-4 h-4 mr-2" />
-                      +91 88514 67220
+                      {contact.phone}
                     </a>
                   </Button>
                 </div>

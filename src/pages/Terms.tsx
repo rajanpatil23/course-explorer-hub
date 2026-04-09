@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowUp } from "lucide-react";
+import { useContactInfo } from "@/hooks/useContactInfo";
 
-const Terms = () => (
+const Terms = () => {
+  const contact = useContactInfo();
+  return (
   <div className="min-h-screen">
     {/* Hero — light theme matching contact */}
     <section className="relative bg-muted/40 text-foreground overflow-hidden rounded-b-[3rem] md:rounded-b-[8rem] shadow-sm">
@@ -81,7 +84,7 @@ const Terms = () => (
               For questions about these Terms and Conditions, please contact us at{" "}
               <a href="mailto:contact@theeduedge.org" className="text-accent hover:underline font-medium">contact@theeduedge.org</a>{" "}
               or call{" "}
-              <a href="tel:+918851467220" className="text-accent hover:underline font-medium">+91 88514 67220</a>.
+              <a href={contact.phoneHref} className="text-accent hover:underline font-medium">{contact.phone}</a>.
             </p>
           </div>
         </div>
@@ -114,5 +117,6 @@ const Terms = () => (
     </section>
   </div>
 );
+};
 
 export default Terms;

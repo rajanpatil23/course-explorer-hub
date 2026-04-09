@@ -9,6 +9,7 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/component
 import type { Course } from "@/data/courses";
 import BrochureDialog from "./BrochureDialog";
 import { useCurrency } from "@/contexts/CurrencyContext";
+import { useContactInfo } from "@/hooks/useContactInfo";
 
 const upcomingBatches = [
   { date: "Apr 12–15, 2026", format: "Live Online", time: "9:00 AM – 5:00 PM IST", seats: 8 },
@@ -172,6 +173,7 @@ const EnrollmentForm = ({
 
 const CourseSidebar = ({ course }: { course: Course }) => {
   const { formatPrice } = useCurrency();
+  const contact = useContactInfo();
   // Card 1 state
   const [enrollStep, setEnrollStep] = useState<"idle" | "select">("idle");
   const [enrollBatchIdx, setEnrollBatchIdx] = useState<number | null>(null);
@@ -364,7 +366,7 @@ const CourseSidebar = ({ course }: { course: Course }) => {
               >
                 <Mail className="w-4 h-4 mr-2" /> Send an Enquiry
               </Button>
-              <a href="tel:+910000000000" className="flex items-center justify-center gap-2 text-sm text-primary font-medium hover:underline">
+              <a href={contact.phoneHref} className="flex items-center justify-center gap-2 text-sm text-primary font-medium hover:underline">
                 <Phone className="w-4 h-4" /> Call an Advisor
               </a>
             </div>
