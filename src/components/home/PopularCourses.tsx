@@ -47,7 +47,7 @@ const PopularCourses = () => {
   }, [courses, emblaApi]);
 
   return (
-    <section className="py-12 md:py-24 bg-secondary rounded-t-[3rem] md:rounded-t-[8rem]">
+    <section id="popular-courses-section" className="py-12 md:py-24 bg-secondary rounded-t-[3rem] md:rounded-t-[8rem]">
       <div className="container">
         <p className="text-center text-[10px] md:text-xs font-bold text-primary uppercase tracking-[0.2em] mb-2">
           Choose The Better Course For Your Career
