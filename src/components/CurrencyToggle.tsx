@@ -12,12 +12,12 @@ const CurrencyToggle = () => {
   return (
     <button
       onClick={() => setCurrency(next)}
-      className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-md border border-border bg-muted/50 hover:bg-muted text-sm font-medium text-foreground transition-colors"
+      className="flex flex-col items-center gap-1 px-2 py-3 rounded-l-xl border border-r-0 border-border bg-card/95 backdrop-blur-md shadow-lg hover:bg-muted text-foreground transition-colors"
       aria-label={`Switch to ${next}`}
       title={`Show prices in ${next}`}
     >
-      <span className="text-base leading-none">{flags[currency].emoji}</span>
-      <span className="text-xs font-semibold">{flags[currency].label}</span>
+      <span className="text-lg leading-none">{flags[currency].emoji}</span>
+      <span className="text-[10px] font-bold tracking-wide">{flags[currency].label}</span>
     </button>
   );
 };
