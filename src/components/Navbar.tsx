@@ -58,6 +58,15 @@ const Navbar = () => {
               onFocus={() => setSearchOpen(true)}
               className="w-48 lg:w-64 pl-9 pr-8 py-2 rounded-md border border-border bg-muted/50 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/40 text-sm transition-all"
             />
+            {searchQuery && (
+              <button
+                onClick={() => { setSearchQuery(""); setSearchOpen(false); }}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+                aria-label="Clear search"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            )}
           </div>
           {searchOpen && searchQuery.trim().length >= 2 && (
             <div className="absolute top-full left-0 mt-1 w-80 bg-card border border-border rounded-lg shadow-lg py-2 max-h-80 overflow-y-auto z-50">
