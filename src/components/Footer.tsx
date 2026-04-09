@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Facebook, Linkedin, Instagram, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -31,6 +32,31 @@ const socials = [
   { icon: Facebook, href: "https://www.facebook.com/share/18hSZ3AsYC/", label: "Facebook" },
 ];
 
+const FooterAccordion = ({ title, children }: { title: string; children: React.ReactNode }) => {
+  const [open, setOpen] = useState(false);
+  return (
+    <>
+      {/* Mobile: collapsible */}
+      <div className="sm:hidden border-b border-hero-foreground/10">
+        <button
+          onClick={() => setOpen(!open)}
+          className="w-full flex items-center justify-between py-3 text-left"
+        >
+          <h4 className="font-heading font-bold text-sm text-hero-foreground/90">{title}</h4>
+          <ChevronDown className={`w-4 h-4 text-hero-foreground/50 transition-transform ${open ? "rotate-180" : ""}`} />
+        </button>
+        <div className={`overflow-hidden transition-all duration-300 ${open ? "max-h-60 pb-3" : "max-h-0"}`}>
+          {children}
+        </div>
+      </div>
+      {/* Desktop: always open */}
+      <div className="hidden sm:block">
+        <h4 className="font-heading font-bold text-sm mb-3 text-hero-foreground/90">{title}</h4>
+        {children}
+      </div>
+    </>
+  );
+};
 const Footer = () => {
   const [email, setEmail] = useState("");
   const { toast } = useToast();
@@ -85,9 +111,8 @@ const Footer = () => {
           </div>
 
           {/* Quick links + Company — side by side on mobile */}
-          <div className="grid grid-cols-2 gap-6 sm:contents">
-            <div>
-              <h4 className="font-heading font-bold text-sm mb-3 text-hero-foreground/90">Courses</h4>
+          <div className="grid grid-cols-1 gap-0 sm:contents">
+            <FooterAccordion title="Courses">
               <ul className="space-y-2">
                 {quickLinks.map(link => (
                   <li key={link.label}>
@@ -97,10 +122,9 @@ const Footer = () => {
                   </li>
                 ))}
               </ul>
-            </div>
+            </FooterAccordion>
 
-            <div>
-              <h4 className="font-heading font-bold text-sm mb-3 text-hero-foreground/90">Company</h4>
+            <FooterAccordion title="Company">
               <ul className="space-y-2">
                 {companyLinks.map(link => (
                   <li key={link.label}>
@@ -110,7 +134,7 @@ const Footer = () => {
                   </li>
                 ))}
               </ul>
-            </div>
+            </FooterAccordion>
           </div>
 
           {/* Newsletter + socials */}
