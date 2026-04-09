@@ -2008,7 +2008,7 @@ function enrichCourse(base: {
     contactHours: details.contactHours || base.duration.match(/\d+/)?.[0] || "40",
     rating: details.rating || "4.7",
     reviewCount: details.reviewCount || "1,000+",
-    brochureUrl: details.brochureUrl,
+    brochureUrl: `/brochures/${generateSlug(base.code)}.pdf`,
     badgeImage: details.badgeImage,
   };
 }
