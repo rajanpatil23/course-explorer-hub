@@ -6,6 +6,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import type { Course } from "@/data/courses";
 import BrochureDialog from "./BrochureDialog";
+import { useCurrency } from "@/contexts/CurrencyContext";
 
 const upcomingBatches = [
   { date: "Apr 12–15, 2026", format: "Live Online", time: "9:00 AM – 5:00 PM IST", seats: 8 },
@@ -84,6 +85,7 @@ const EnrollmentForm = ({
 };
 
 const CourseSidebar = ({ course }: { course: Course }) => {
+  const { formatPrice } = useCurrency();
   // Card 1 state
   const [enrollStep, setEnrollStep] = useState<"idle" | "select">("idle");
   const [enrollBatchIdx, setEnrollBatchIdx] = useState<number | null>(null);
@@ -106,9 +108,9 @@ const CourseSidebar = ({ course }: { course: Course }) => {
         {/* Card 1: Pricing + Quick Enroll */}
         <div className="bg-card border border-border rounded-lg p-6 shadow-sm">
           <div className="mb-4">
-            <span className="text-sm text-muted-foreground line-through">${course.originalPrice}</span>
+            <span className="text-sm text-muted-foreground line-through">{formatPrice(course.originalPrice, course.originalPriceINR)}</span>
             <div className="flex items-baseline gap-2">
-              <span className="font-heading text-4xl font-extrabold text-foreground">${course.price}</span>
+              <span className="font-heading text-4xl font-extrabold text-foreground">{formatPrice(course.price, course.priceINR)}</span>
               <span className="text-sm font-medium text-primary">
                 {Math.round((1 - course.price / course.originalPrice) * 100)}% OFF
               </span>
