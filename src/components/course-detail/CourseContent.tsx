@@ -7,6 +7,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Card } from "@/components/ui/card";
 import type { Course } from "@/data/courses";
 import { companyLogos } from "./companyLogos";
+import AdvisorDialog from "@/components/AdvisorDialog";
 
 const highlightIcons = [Target, Zap, GraduationCap, Award, ShieldCheck, FileText, Layers, BarChart3, Globe, Briefcase, Users, Clock];
 
@@ -66,7 +67,9 @@ const CourseStatsStrip = () => {
   );
 };
 
-const CourseContent = ({ course, faqs }: { course: Course; faqs: { q: string; a: string }[] }) => (
+const CourseContent = ({ course, faqs }: { course: Course; faqs: { q: string; a: string }[] }) => {
+  const [advisorOpen, setAdvisorOpen] = useState(false);
+  return (
   <div className="space-y-8 md:space-y-12">
     {/* Prerequisites */}
     <section>
@@ -263,13 +266,13 @@ const CourseContent = ({ course, faqs }: { course: Course; faqs: { q: string; a:
             </h3>
           </div>
           <div className="shrink-0 pb-4 md:pb-0">
-            <Link
-              to="/contact"
+            <button
+              onClick={() => setAdvisorOpen(true)}
               className="inline-flex items-center gap-2 bg-background text-foreground font-semibold px-5 md:px-8 py-2.5 md:py-3 rounded-lg hover:bg-background/90 transition-colors text-xs md:text-sm"
             >
               Talk to us
               <ChevronRight className="w-3.5 h-3.5 md:w-4 md:h-4" />
-            </Link>
+            </button>
           </div>
           <div className="md:hidden shrink-0 self-center">
             <img src={advisorModel} alt="Learning advisor" className="h-[100px] object-contain" />
@@ -313,7 +316,9 @@ const CourseContent = ({ course, faqs }: { course: Course; faqs: { q: string; a:
         </div>
       </section>
     )}
+    <AdvisorDialog open={advisorOpen} onOpenChange={setAdvisorOpen} />
   </div>
-);
+  );
+};
 
 export default CourseContent;

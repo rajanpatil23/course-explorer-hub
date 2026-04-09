@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Star, Clock, Award, Users, ShieldCheck, ChevronRight, CheckCircle } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -6,6 +7,7 @@ import type { Course, BadgeType } from "@/data/courses";
 import categoryThumbnails from "@/components/courses/categoryThumbnails";
 import courseThumbnails from "@/components/courses/courseThumbnails";
 import { categories } from "@/data/courses";
+import AdvisorDialog from "@/components/AdvisorDialog";
 
 const categorySlugMap: Record<string, string> = {};
 categories.forEach((cat) => {
@@ -18,7 +20,10 @@ const badgeColors: Record<BadgeType, string> = {
   Advance: "bg-badge-purple text-primary-foreground",
 };
 
-const CourseHero = ({ course }: { course: Course }) => (
+const CourseHero = ({ course }: { course: Course }) => {
+  const [advisorOpen, setAdvisorOpen] = useState(false);
+
+  return (
   <>
     {/* Hero — light theme matching category pages */}
     <section className="relative bg-muted/40 text-foreground overflow-hidden rounded-b-[3rem] md:rounded-b-[8rem] shadow-sm">
@@ -74,9 +79,9 @@ const CourseHero = ({ course }: { course: Course }) => (
               <Button
                 size="lg"
                 className="bg-primary hover:bg-teal-dark text-primary-foreground font-semibold px-8 text-base gap-2 w-full sm:w-auto"
-                onClick={() => document.getElementById("schedule-section")?.scrollIntoView({ behavior: "smooth" })}
+                onClick={() => setAdvisorOpen(true)}
               >
-                View Schedules <ChevronRight className="w-4 h-4" />
+                Talk to an Advisor <ChevronRight className="w-4 h-4" />
               </Button>
               <Button size="lg" variant="outline" className="border-primary/30 text-primary hover:bg-primary/5 font-semibold px-8 text-base w-full sm:w-auto">
                 Download Brochure
@@ -159,7 +164,9 @@ const CourseHero = ({ course }: { course: Course }) => (
         </div>
       </div>
     </section>
+    <AdvisorDialog open={advisorOpen} onOpenChange={setAdvisorOpen} />
   </>
-);
+  );
+};
 
 export default CourseHero;

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ChevronRight, Star } from "lucide-react";
@@ -8,6 +9,7 @@ import awsLogo from "@/assets/partners/aws-logo-trimmed.png";
 import microsoftLogo from "@/assets/partners/microsoft-logo-trimmed.png";
 import safeLogo from "@/assets/partners/safe-logo-official.png";
 import isc2Logo from "@/assets/partners/isc2-logo-trimmed.png";
+import AdvisorDialog from "@/components/AdvisorDialog";
 
 const partners = [
   { name: "PMI", logo: pmiLogo },
@@ -19,11 +21,13 @@ const partners = [
 ];
 
 const HeroSection = () => {
+  const [advisorOpen, setAdvisorOpen] = useState(false);
   const scrollToCourses = () => {
     document.getElementById("courses-section")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
+    <>
     <section className="relative bg-muted/40 text-foreground overflow-hidden rounded-b-[3rem] md:rounded-b-[8rem] shadow-sm">
       {/* Grid pattern */}
       <div
@@ -62,15 +66,14 @@ const HeroSection = () => {
               >
                 Explore Courses <ChevronRight className="w-4 h-4" />
               </Button>
-              <Link to="/contact" className="w-full sm:w-auto">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-primary/30 text-primary hover:bg-primary/5 font-semibold px-8 text-base w-full sm:w-auto"
-                >
-                  Talk to an Advisor
-                </Button>
-              </Link>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-primary/30 text-primary hover:bg-primary/5 font-semibold px-8 text-base w-full sm:w-auto"
+                onClick={() => setAdvisorOpen(true)}
+              >
+                Talk to an Advisor
+              </Button>
             </div>
 
             {/* Trust indicators */}
@@ -167,6 +170,8 @@ const HeroSection = () => {
         </div>
       </div>
     </section>
+    <AdvisorDialog open={advisorOpen} onOpenChange={setAdvisorOpen} />
+    </>
   );
 };
 
