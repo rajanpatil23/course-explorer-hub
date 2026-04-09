@@ -44,6 +44,8 @@ export interface Course {
   curriculum: CurriculumModule[];
   price: number;
   originalPrice: number;
+  priceINR: number;
+  originalPriceINR: number;
   certification: string;
   prerequisites: string[];
   includes: string[];
@@ -1945,8 +1947,10 @@ function enrichCourse(base: {
       { title: "Practical Application", topics: [base.skills[1] || "Applied Techniques", "Real-World Scenarios", "Case Studies"] },
       { title: "Advanced Topics & Exam Prep", topics: [base.skills[2] || "Advanced Strategies", "Practice Exams", "Exam Strategy"] },
     ],
-    price: base.level === "Beginner" ? 599 : base.level === "Intermediate" ? 899 : base.level === "Advanced" ? 1199 : 1499,
-    originalPrice: base.level === "Beginner" ? 899 : base.level === "Intermediate" ? 1299 : base.level === "Advanced" ? 1699 : 1999,
+    price: coursePriceMap[base.code]?.usd ?? (base.level === "Beginner" ? 599 : base.level === "Intermediate" ? 899 : base.level === "Advanced" ? 1199 : 1499),
+    originalPrice: Math.round((coursePriceMap[base.code]?.usd ?? (base.level === "Beginner" ? 599 : base.level === "Intermediate" ? 899 : 1499)) * 1.35),
+    priceINR: coursePriceMap[base.code]?.inr ?? 49999,
+    originalPriceINR: Math.round((coursePriceMap[base.code]?.inr ?? 49999) * 1.35),
     certification: `Official ${base.category} certification upon passing the exam`,
     prerequisites: details.prerequisites || (base.level === "Beginner"
       ? ["No prior experience required", "Basic computer literacy"]
